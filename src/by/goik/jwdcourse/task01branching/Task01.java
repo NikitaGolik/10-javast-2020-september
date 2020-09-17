@@ -9,12 +9,12 @@ public class Task01 {
 	public static void main(String[] args) {
 		
 		// creating  point A
-		PointA pointA = new PointA(9, 2); 
-        double lengthA = pointA.getDistanceFromPoint1();
+		Point pointA = new Point(9, -14); 
+        double lengthA = pointA.getDistance();
         
         //creating point B
-        PointB pointB = new PointB(4, 9);
-        double lengthB = pointB.getDistanceFromPoint2();
+        Point pointB = new Point(4, 9);
+        double lengthB = pointB.getDistance();
 
         System.out.println(lengthA);
         System.out.println(lengthB);
