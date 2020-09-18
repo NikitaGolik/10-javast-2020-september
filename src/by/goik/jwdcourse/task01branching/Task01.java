@@ -1,8 +1,8 @@
 package by.goik.jwdcourse.task01branching;
 
 /*
- Даны две точки А(х1, у1) и В(х2, у2). Составить алгоритм, определяющий,
- которая из точек находится ближе к началу координат. x y
+Two points A (x1, y1) and B (x2, y2) are given. Create an algorithm that determines
+ which point is closer to the origin. x y
  */
 
 public class Task01 {
