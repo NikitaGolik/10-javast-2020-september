@@ -16,8 +16,8 @@ public class Task01 {
         Point pointB = new Point(4, 9);
         double lengthB = pointB.getDistance();
 
-        System.out.println(lengthA);
-        System.out.println(lengthB);
+        System.out.println("Distance from Point A: " + lengthA);
+        System.out.println("Distance from Point B: " + lengthB);
 
         if (lengthA < lengthB) {
             System.out.println("Point A closer to the origin.");
