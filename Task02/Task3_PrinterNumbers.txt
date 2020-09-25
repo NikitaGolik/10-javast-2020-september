@@ -1,0 +1,22 @@
+/* 
+Создать приложение, выводящее заданное количество случайных чисел 
+с переходом и без перехода на новую строку.
+*/
+
+import java.util.Random;
+
+public class PrinterNumbers {
+
+    public static void main(String[] args) {
+     
+	int count = 3;
+	
+	for (int i = 0; i < count; i++) {
+		System.out.println(Math.random());
+	}
+
+	for (int i = 0; i < count; i++) {
+		System.out.print(Math.random());
+	}
+    }
+}

@@ -1,0 +1,20 @@
+/* 
+*Создать программу ввода целых чисел как аргументов командной строки, 
+*подсчета их суммы (произведения) и вывода результата на консоль.
+*/
+
+public class CalculatingArguments {
+
+    public static void main(String[] args) {
+       
+    int sum = 0;
+    int com = 1;
+        for (int i = 0; i < args.length; i++) {  
+        int number = Integer.parseInt(args[i]);    
+	sum = sum + number;
+	com = com * number;
+        }
+        System.out.println("Sum of numbers : " + sum);
+        System.out.println("Composition of numbers : " + com);
+    }
+}

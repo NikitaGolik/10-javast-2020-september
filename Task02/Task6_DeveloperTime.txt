@@ -1,0 +1,30 @@
+/* 
+*Приложение, выводящее фамилию разработчика и за сколько дней готов выполнить задание. 
+*Необходимо рассчитать дату и время сдачи задания. 
+*Для получения даты и времени использовать класс Calendar из пакета java.util 
+*/
+
+import java.util.Calendar;
+import java.util.Date;
+
+public class DeveloperTime {
+	public static void main (String[] args) {
+
+	        String name = "Golik";
+        	Date currentDate = new Date();
+        	System.out.println(name + " got the task " + currentDate);
+
+		System.out.println(name + " will complete the task in three days.");
+
+	        Calendar calendar = Calendar.getInstance();
+        	calendar.setTime(currentDate);
+		
+		calendar.add(Calendar.DATE, 3);
+		
+		Date dateOfAssignment = calendar.getTime();
+        	System.out.println("The task will be ready " + dateOfAssignment);
+         }
+}
+        
+
+	

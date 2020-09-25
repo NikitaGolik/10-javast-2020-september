@@ -1,0 +1,77 @@
+/* 
+*Cоздать приложение, получающее дату рождения (день, месяц и год) и 
+*определяющее в какой день недели Вы родились, 
+*сколько Вам полных лет и поздравляет с днем рождения, 
+*если оно сегодня (использовать класс Calendar из пакета java.util).
+*/
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+public class BirthDay {
+
+    public static void main(String[] args) {
+       	
+        Calendar birth = new GregorianCalendar(1993, Calendar.SEPTEMBER, 24);
+        int dayOfWeek = birth.get(Calendar.DAY_OF_WEEK);
+        System.out.println("Date of birth : " + birth.getTime());
+
+        switch(dayOfWeek) {
+            case 1:
+                System.out.println("Day of birth is Sunday");
+                break;
+            case 2:
+                System.out.println("Day of birth is Monday");
+                break;
+            case 3:
+                System.out.println("Day of birth is Tuesday");
+                break;
+            case 4:
+                System.out.println("Day of birth is Wednesday");
+                break;
+            case 5:
+                System.out.println("Day of birth is Thursday");
+                break;
+            case 6:
+                System.out.println("Day of birth is Friday");
+                break;
+            case 7:
+                System.out.println("Day of birth is Saturday");
+                break;
+        }
+        Calendar today = Calendar.getInstance();
+        System.out.println("Today : " + today.getTime());
+
+        int birthYear = birth.get(Calendar.YEAR);
+        int todayYear = today.get(Calendar.YEAR);
+
+        int age = todayYear - birthYear;
+
+        int birthDay = birth.get(Calendar.DAY_OF_MONTH);
+        int todayDay = today.get(Calendar.DAY_OF_MONTH);
+
+        int birthMonth = birth.get(Calendar.MONTH);
+        int todayMonth = today.get(Calendar.MONTH);
+
+        if (birthMonth > todayMonth) {
+            age--;
+        } else if (todayMonth == birthMonth) {
+            birthDay = birth.get(Calendar.DAY_OF_MONTH);
+            todayDay = today.get(Calendar.DAY_OF_MONTH);
+            if (birthDay > todayDay) {
+                age--;
+            }
+        }
+        System.out.println("Your age is " + age);
+
+
+        if (todayMonth == birthMonth && todayDay == birthDay) {
+            System.out.println("Happy birthday!");
+        }
+
+    }
+}
+		
+	
+
+	
