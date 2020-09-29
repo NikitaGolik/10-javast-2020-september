@@ -17,14 +17,16 @@ public class Main {
 	// write your code here
 
 
+        UserConsole userConsole = new UserConsole();
         MainController mainController = new MainController();
         mainController.createVault();
         System.out.println(mainController.vault.getBaskets().size());
-        mainController.vault.getBaskets().get(1);
-        mainController.fillBasket();
+        mainController.fillVault();
         mainController.weightBall();
-        mainController.putBalls();
         mainController.priceBall();
+
+
+
 
 
 

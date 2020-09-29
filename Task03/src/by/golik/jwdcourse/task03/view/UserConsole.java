@@ -5,6 +5,7 @@ import by.golik.jwdcourse.task03.beans.Ball;
 import by.golik.jwdcourse.task03.beans.Basket;
 import by.golik.jwdcourse.task03.beans.Color;
 import by.golik.jwdcourse.task03.beans.Vault;
+import by.golik.jwdcourse.task03.controller.MainController;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,7 +13,7 @@ import java.util.Scanner;
 public class UserConsole {
 
     ArrayList<Ball> basket = new ArrayList<>();
-    Ball ball;
+    Vault vault;
 
 
     public ArrayList<Basket> addBaskets() {
@@ -26,38 +27,41 @@ public class UserConsole {
         return baskets;
     }
 
-    public ArrayList<Ball> addBall() {
-
+    public int chooseBasket() {
         System.out.println("Выбери номер корзины");
         Scanner sc = new Scanner(System.in);
-        
-        int number = sc.nextInt();
+        int number =sc.nextInt();
+
+        return number -1;
+    }
+
+    public ArrayList<Ball> addBall() {
         //number к корзине
         ArrayList<Ball> balls = new ArrayList<>();
-
-
-        System.out.println("Выбери цвет мяча");
+        System.out.println("Выбери цвет мяча или введи exit для прекращения");
         System.out.println("Yellow");
         System.out.println("Green");
         System.out.println("Blue");
 
-
         Scanner scanner = new Scanner(System.in);
-        while (!scanner.nextLine().equals("exit")) {
-            String colorConsole = scanner.nextLine();
+        while (true) {
 
+            String colorConsole = scanner.nextLine();
             switch (colorConsole) {
                 case ("Yellow"):
-                    balls.add(new Ball(Color.YELLOW, 20, 25));
+                    balls.add(new Ball(Color.YELLOW, 20, 20));
+                    break;
                 case ("Green"):
-                    balls.add(new Ball(Color.GREEN, 10, 10));
+                    balls.add(new Ball(Color.GREEN, 30, 30));
+                    break;
                 case ("Blue"):
-                    balls.add(new Ball(Color.BLUE, 15, 15));
+                    balls.add(new Ball(Color.BLUE, 40, 40));
+                    break;
+                case ("exit"):
+                    System.out.println("Введите exit для прекращения заполнения корзины или Enter для продолжения");
+                    return balls;
             }
-
         }
-            return balls;
     }
-
 }
 

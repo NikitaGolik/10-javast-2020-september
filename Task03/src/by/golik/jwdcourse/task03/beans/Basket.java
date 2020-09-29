@@ -7,8 +7,18 @@ import java.util.ArrayList;
 
 public class Basket {
 
+
     public ArrayList<Ball> balls;
-    public double weight;
+    private double weight = 5;
+    private double price = 5;
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public double getPrice() {
+        return price;
+    }
 
     public Basket()
     {
@@ -23,7 +33,6 @@ public class Basket {
             add(ball);
     }
 
-
     public ArrayList<Ball> getBalls() {
         return balls;
     }
@@ -36,12 +45,10 @@ public class Basket {
     {
 
         this.balls.add(newBall);
-        this.weight += newBall.weight;
     }
 
     public void remove(Ball ball){
         balls.remove(ball);
-        this.weight -= ball.weight;
     }
 
     public int getColorCount(Color color)

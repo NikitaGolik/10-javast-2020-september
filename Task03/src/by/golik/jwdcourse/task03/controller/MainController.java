@@ -7,19 +7,30 @@ import by.golik.jwdcourse.task03.beans.Vault;
 import by.golik.jwdcourse.task03.view.UserConsole;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MainController {
 
     UserConsole userConsole = new UserConsole();
     Vault vault = new Vault();
     ArrayList<Ball>balls;
-    ArrayList<Basket>baskets;
+    Basket basket = new Basket();
+
 
     public void createVault() {
         vault.setBaskets(userConsole.addBaskets());
     }
     public void fillBasket() {
-        balls = userConsole.addBall();
+        int numberBasket = userConsole.chooseBasket();
+        balls = new ArrayList<>(userConsole.addBall());
+        vault.getBaskets().get(numberBasket).setBalls(balls);
+    }
+    public void fillVault() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Для заполнения корзины нажми Enter или нажми exit");
+        while(!scanner.nextLine().equals("exit")) {
+            fillBasket();
+        }
     }
     public void  weightBall() {
         System.out.println("Вес мяча " + balls.get(0).getWeight());
@@ -30,7 +41,7 @@ public class MainController {
             for (int j = 0; j < b; j++) {
                 weightBall += vault.getBaskets().get(i).getBalls().get(j).getWeight();
             }
-            System.out.println("Вес корзины №"+ (i+1) +"="+balls.get(0).getWeight());
+            System.out.println("Вес корзины №"+ (i+1) +"="+(weightBall + balls.get(0).getWeight() + basket.getWeight()));
         }
     }
     public void priceBall() {
@@ -42,12 +53,11 @@ public class MainController {
             for (int j = 0; j < b; j++) {
                 priceBall += vault.getBaskets().get(i).getBalls().get(j).getPrice();
             }
-            System.out.println("Стоимость корзины №"+ (i+1) +"="+balls.get(0).getPrice());
+            System.out.println("Стоимость корзины №"+ (i+1) +"="+(priceBall + balls.get(0).getPrice() + basket.getPrice()));
         }
     }
-    public void putBalls() {
 
-    }
+
 
 
 }
