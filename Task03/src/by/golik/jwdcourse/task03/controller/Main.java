@@ -4,12 +4,11 @@ import by.golik.jwdcourse.task03.beans.Ball;
 import by.golik.jwdcourse.task03.beans.Color;
 import by.golik.jwdcourse.task03.beans.Basket;
 import by.golik.jwdcourse.task03.beans.Vault;
+import by.golik.jwdcourse.task03.service.PriceComparator;
 import by.golik.jwdcourse.task03.view.UserConsole;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -24,6 +23,11 @@ public class Main {
         mainController.fillVault();
         mainController.weightBall();
         mainController.priceBall();
+        mainController.countEqualBall();
+        mainController.countEqualBaskets();
+        Comparator priceComparator = new PriceComparator();
+        Collections.sort(mainController.balls, priceComparator);
+        System.out.println(Arrays.asList(mainController.balls));
 
 
 

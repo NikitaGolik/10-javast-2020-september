@@ -13,7 +13,6 @@ import java.util.Scanner;
 public class UserConsole {
 
     ArrayList<Ball> basket = new ArrayList<>();
-    Vault vault;
 
 
     public ArrayList<Basket> addBaskets() {

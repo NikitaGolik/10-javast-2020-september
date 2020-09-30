@@ -4,6 +4,7 @@ import by.golik.jwdcourse.task03.beans.Ball;
 import by.golik.jwdcourse.task03.beans.Color;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Basket {
 
@@ -61,6 +62,23 @@ public class Basket {
         }
 
         return numOfBalls;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {return false;}
+        if (obj.getClass() != this.getClass()) {return false;}
+        if (obj == this) {return true;}
+
+        Basket basket = (Basket) obj;
+
+        return Objects.equals(basket.getBalls(), this.balls) && Objects.equals(basket.weight, this.weight)
+                && Objects.equals(basket.price, this.price);
     }
 
 }
