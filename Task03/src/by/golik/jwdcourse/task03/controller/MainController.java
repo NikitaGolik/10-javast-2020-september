@@ -54,35 +54,48 @@ public class MainController {
             System.out.println("Стоимость корзины №"+ (i+1) +"="+(priceBall + balls.get(0).getPrice() + basket.getPrice()));
         }
     }
+
     public void countEqualBall() {
-        //TODO ВОзможно неправильный equals
         // Выводим на экран
+
         int sum = 0;
-        for (int i = 0; i < balls.size() - 1; i++) {
-            for (int j = i + 1; j < balls.size() - 1; j++) {
+
+        for (int i = 0; i < balls.size(); i++) {
+            for (int j = i + 1; j < balls.size(); j++) {
                 if (balls.get(i).equals(balls.get(j))) {
                     sum++;
+                    break;
                 }
             }
         }
+
         // Выводим на экран
-        System.out.println("Количество одинаковых мячей " + sum);
+        System.out.println("Количество одинаковых мячей " + (sum + 1));
     }
     public void countEqualBaskets() {
-        //TODO ВОзможно неправильный equals
+        //TODO неверно считает цикл с разными мячами
         int sum = 0;
 
         for (int i = 0; i < vault.getBaskets().size() - 1; i++) {
-            for (int j = 1; j < vault.getBaskets().size() - i; j++) {
-                if (vault.getBaskets().get(i).equals(vault.getBaskets().get(i + j))) {
-                    sum = sum + 1;
+            for (int j = i + 1; j < vault.getBaskets().size(); j++) {
+                if (vault.getBaskets().get(i).equals(vault.getBaskets().get(j))) {
+                    sum++;
+                    break;
                 }
             }
         }
-        System.out.println("Количество одинаковых по набору корзин " + sum);
+        System.out.println("Количество одинаковых по набору корзин " + (sum + 1));
     }
-    public void countEqualColorBalls() {
-
+    public void countEqualColorBalls(Color color) {
+        //TODO неверно указывает кол-во мячей, если их в корзине нет
+        int sum = 0;
+        for (int i = 0; i < balls.size(); i++) {
+                if (balls.get(i).getColor().equals(color)) {
+                    sum++;
+                    break;
+                }
+            }
+        System.out.println("Количество одинаковых по цвету " + color + " мячей " + (sum + 1));
     }
 
 

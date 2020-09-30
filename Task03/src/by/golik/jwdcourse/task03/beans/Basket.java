@@ -48,21 +48,6 @@ public class Basket {
         this.balls.add(newBall);
     }
 
-    public void remove(Ball ball){
-        balls.remove(ball);
-    }
-
-    public int getColorCount(Color color)
-    {
-        int numOfBalls = 0;
-        for (Ball  ball: balls)
-        {
-            if (ball.color == color)
-                numOfBalls++;
-        }
-
-        return numOfBalls;
-    }
 
     @Override
     public int hashCode() {

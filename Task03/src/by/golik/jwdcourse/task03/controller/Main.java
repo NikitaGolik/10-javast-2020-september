@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 	// write your code here
-
+        //TODO javadoc
 
         UserConsole userConsole = new UserConsole();
         MainController mainController = new MainController();
@@ -25,8 +25,11 @@ public class Main {
         mainController.priceBall();
         mainController.countEqualBall();
         mainController.countEqualBaskets();
-        Comparator priceComparator = new PriceComparator();
-        Collections.sort(mainController.balls, priceComparator);
+        mainController.countEqualColorBalls(Color.YELLOW);
+        mainController.countEqualColorBalls(Color.BLUE);
+        mainController.countEqualColorBalls(Color.GREEN);
+
+        Collections.sort(mainController.balls, new PriceComparator());
         System.out.println(Arrays.asList(mainController.balls));
 
 

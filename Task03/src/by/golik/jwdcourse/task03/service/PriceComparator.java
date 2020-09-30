@@ -8,6 +8,6 @@ public class PriceComparator implements Comparator<Ball> {
 
     @Override
     public int compare(Ball o1, Ball o2) {
-        return (int)  (o1.getPrice() - o2.getPrice());
+        return (int) (o1.getPrice() - o2.getPrice());
     }
 }

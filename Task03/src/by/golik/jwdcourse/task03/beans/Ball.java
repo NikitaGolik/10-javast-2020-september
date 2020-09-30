@@ -58,6 +58,6 @@ public class Ball {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Color " + color + " Weight " + weight + " Price " + price + "\n";
     }
 }
