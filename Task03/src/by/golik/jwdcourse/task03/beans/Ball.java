@@ -41,15 +41,27 @@ public class Ball {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + Objects.hash(color, weight, price);
+        //long temp;
+        //temp = Double.doubleToLongBits(this.price);
+        //result = prime * result + (int) (temp ^ (temp >>> 32));
+        //result = prime * result + (int) weight;
+        return result;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {return false;}
-        if (obj.getClass() != this.getClass()) {return false;}
-        if (obj == this) {return true;}
-
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+        if (obj == this) {
+            return true;
+        }
         Ball ball = (Ball) obj;
 
         return Objects.equals(ball.color, this.color) && Objects.equals(ball.weight, this.weight)
