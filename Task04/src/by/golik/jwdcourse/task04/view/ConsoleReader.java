@@ -1,7 +1,5 @@
 package by.golik.jwdcourse.task04.view;
-
 import by.golik.jwdcourse.task04.view.impl.Reader;
-
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -33,7 +31,12 @@ public class ConsoleReader implements Reader {
     }
 
     @Override
-    public int[] getReader() throws FileNotFoundException {
-        return fillFromConsole();
+    public int[] fillFromFile() throws FileNotFoundException {
+        return new int[0];
+    }
+
+    @Override
+    public int[] fillByRandom() {
+        return new int[0];
     }
 }

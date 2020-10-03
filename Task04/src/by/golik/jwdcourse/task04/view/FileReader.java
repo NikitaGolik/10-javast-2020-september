@@ -1,12 +1,11 @@
 package by.golik.jwdcourse.task04.view;
-
 import by.golik.jwdcourse.task04.view.impl.Reader;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class FileReader implements Reader {
+
     /**
      *
      * This method fills the array with the numbers entered from .txt file.
@@ -25,7 +24,12 @@ public class FileReader implements Reader {
     }
 
     @Override
-    public int[] getReader() throws FileNotFoundException {
-        return fillFromFile();
+    public int[] fillFromConsole() {
+        return new int[0];
+    }
+
+    @Override
+    public int[] fillByRandom() {
+        return new int[0];
     }
 }

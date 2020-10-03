@@ -1,8 +1,9 @@
 package by.golik.jwdcourse.task04.view;
-
 import by.golik.jwdcourse.task04.view.impl.Reader;
+import java.io.FileNotFoundException;
 
 public class RandomArray implements Reader {
+
     /**
      * This method fills the array with random numbers.
      *
@@ -17,8 +18,14 @@ public class RandomArray implements Reader {
         return arrayRandom;
     }
 
+
     @Override
-    public int[] getReader() {
-        return fillByRandom();
+    public int[] fillFromConsole() {
+        return new int[0];
+    }
+
+    @Override
+    public int[] fillFromFile() throws FileNotFoundException {
+        return new int[0];
     }
 }

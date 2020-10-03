@@ -1,6 +1,5 @@
 package by.golik.jwdcourse.task04;
-import by.golik.jwdcourse.task04.view.FileReader;
-import by.golik.jwdcourse.task04.view.impl.Reader;
+import by.golik.jwdcourse.task04.controller.Controller;
 import java.io.FileNotFoundException;
 
 /**
@@ -8,11 +7,17 @@ import java.io.FileNotFoundException;
  */
 
 public class Main {
-
     public static void main(String[] args) throws FileNotFoundException {
 	// write your code here
-     Reader reader = new FileReader();
-     reader.getReader();
+        Controller controller = new Controller();
+        controller.getRandomArray();
+        controller.getConsoleReader();
+        controller.getFromFIle();
+
+
+
+
+
 
     }
 }
