@@ -24,7 +24,7 @@ hs_err_pid*
 /bin/
 
 # Eclipse
-.metadata
+*.metadata
 .classpath
 .project
 .settings/
@@ -33,3 +33,4 @@ hs_err_pid*
 .idea/
 *.iml
 *.iws
+.out/
