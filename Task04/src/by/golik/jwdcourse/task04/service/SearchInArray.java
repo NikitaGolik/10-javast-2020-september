@@ -1,5 +1,7 @@
 package by.golik.jwdcourse.task04.service;
 
+import by.golik.jwdcourse.task04.service.impl.SearchArray;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -7,7 +9,7 @@ import java.util.List;
 /**
  * This class is a collection of methods for searching elements in an array.
  */
-public class SearchInArray {
+public class SearchInArray implements SearchArray {
 
     int [] array;
 
@@ -78,7 +80,7 @@ public class SearchInArray {
      * Sequence in which the first two numbers are either 1 and 1, or 0 and 1,
      * and each subsequent number is equal to the sum of the two previous numbers.
      */
-    public void fibonacciSearch() {
+    public int[] fibonacciSearch() {
         int n0 = 1;
         int n1 = 1;
         int n2;
@@ -89,15 +91,16 @@ public class SearchInArray {
             n0 = n1;
             n1 = n2;
         }
-        System.out.println();
+        return array;
     }
 
     /**
      * This method finds all three-digit numbers in decimal notation that do not have the same digits.
      *
      * @param array - array in which must be found this numbers.
+     * @return
      */
-    private static void findNumbersWithThreeDifferentDigits(int[] array) {
+    public List<Integer> findNumbersWithThreeDifferentDigits(int[] array) {
         String number;
         List<Integer> result = new ArrayList<Integer>();
         for (Integer sourceNumber : array) {
@@ -110,5 +113,6 @@ public class SearchInArray {
         }
         System.out.println("Все трехзначные числа, "
                 + "в десятичной записи которых нет одинаковых цифр: " + result);
+        return result;
     }
 }

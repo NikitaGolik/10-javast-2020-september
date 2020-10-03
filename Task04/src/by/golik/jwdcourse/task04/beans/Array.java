@@ -52,7 +52,7 @@ public class Array {
     }
 
     /**
-     *
+     * This method returns a string representation of the object
      * @return
      */
     @Override
@@ -64,7 +64,7 @@ public class Array {
     }
 
     /**
-     *
+     * Method indicates whether some other object is "equal to" this one.
      * @param o
      * @return
      */
@@ -78,7 +78,8 @@ public class Array {
     }
 
     /**
-     *
+     * Method returns a hash code value for the object.
+     * This method is supported for the benefit of hash tables such as those provided by HashMap.
      * @return
      */
     @Override

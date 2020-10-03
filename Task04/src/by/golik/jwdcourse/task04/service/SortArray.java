@@ -1,11 +1,13 @@
 package by.golik.jwdcourse.task04.service;
 
+import by.golik.jwdcourse.task04.service.impl.ArrayService;
+
 /**
  *
  * This class is a collection of methods for sorting elements in an array.
  */
 
-public class SortArray {
+public class SortArray implements ArrayService {
     int [] array;
 
     public SortArray(int[] array) {
@@ -17,7 +19,7 @@ public class SortArray {
     /** Line search using a loop.
      * This method searches the array by the specified value.
      */
-    public void search() {
+    public int[] search() {
         int x = 0;
         int index = -1;
         for( int i = 0; i < array.length; i++) {
@@ -26,29 +28,32 @@ public class SortArray {
                 break;
             }
         }
+        return array;
     }
 
     /**
      * This method finds the maximum value of an element in the array.
      */
-    public void maxValue() {
+    public int maxValue() {
         int max = array[0];
         for (int i = 0; i < array.length; i++) {
             if (array[i] > max)
                 max = array[i];
         }
+        return max;
     }
 
     /**
      * This method finds the minimum value of an element in the array.
      */
-    public void minValue() {
+    public int minValue() {
         int min = array[0];
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] < min)
                 min = array[i];
         }
+        return min;
     }
 
     /**
@@ -59,14 +64,11 @@ public class SortArray {
      * After we have reached the end of the array, we check if there was at least one exchange.
      * If yes, then the array is not sorted and we start all over again.
      * We repeat such passes until it turns out that there was not a single exchange.
-     *  @param array - array which must be sorted.
-     * @param i - index of array.
-     * @param j - index of array.
      *
      */
-    public void bubbleSort(int[] array, int i, int j) {
-        for (i = array.length - 1; i > 0; i--) {
-            for (j = 0; j < i; j++) {
+    public int[] bubbleSort() {
+        for (int i = array.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
                 if (array[j] > array[j + 1]) {
                     int tmp = array[j];
                     array[j] = array[j + 1];
@@ -74,6 +76,7 @@ public class SortArray {
                 }
             }
         }
+        return array;
     }
 
     /**
@@ -83,9 +86,8 @@ public class SortArray {
      * (the exchange is not needed if the minimum element is already at this position)
      * now we sort the tail of the list, excluding already sorted elements from consideration.
      *
-     * @param array - array which must be sorted.
      */
-    public void selectionSort(int[] array) {
+    public int[] selectionSort() {
         for (int min = 0; min < array.length; min++) {
             int least = min;
             for (int j = min + 1; j < array.length; j++) {
@@ -97,6 +99,7 @@ public class SortArray {
             array[min] = array[least];
             array[least] = tmp;
         }
+        return array;
 
     }
 
@@ -105,9 +108,8 @@ public class SortArray {
      *
      * The elements of the input sequence are scanned one at a time,
      * and each new element arriving is placed in a suitable place among the previously ordered elements
-     * @param array - array which must be sorted.
      */
-    public void insertionSort(int[] array) {
+    public int[] insertionSort() {
         for (int left = 0; left < array.length; left++) {
             int value = array[left];
             int i = left - 1;
@@ -120,6 +122,6 @@ public class SortArray {
             }
             array[i + 1] = value;
         }
-
+        return array;
     }
 }
