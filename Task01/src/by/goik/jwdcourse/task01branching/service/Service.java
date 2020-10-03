@@ -12,5 +12,6 @@ public class Service {
     public double getDistanceB(double x, double y) {
         return Math.sqrt(x * x + y * y);
     }
+
 }
 

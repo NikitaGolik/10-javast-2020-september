@@ -6,12 +6,15 @@ import by.golik.jwdcourse.task03.beans.Color;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ *
+ */
 public class Basket {
 
 
     public ArrayList<Ball> balls;
-    private double weight = 5;
-    private double price = 5;
+    public double weight;
+    public double price;
 
     public double getWeight() {
         return weight;
@@ -21,23 +24,26 @@ public class Basket {
         return price;
     }
 
+    /**
+     *
+     */
     public Basket()
     {
         this.balls = new ArrayList<>();
     }
 
-    public Basket(ArrayList<Ball> balls)
-    {
-
-        this.balls = new ArrayList<>();
-        for (Ball ball: balls)
-            add(ball);
-    }
-
+    /**
+     *
+     * @return
+     */
     public ArrayList<Ball> getBalls() {
         return balls;
     }
 
+    /**
+     *
+     * @param balls
+     */
     public void setBalls(ArrayList<Ball> balls) {
         this.balls = balls;
     }
@@ -48,12 +54,23 @@ public class Basket {
         this.balls.add(newBall);
     }
 
-
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
-        return super.hashCode();
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + Objects.hash(balls);
+        return result;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {return false;}
