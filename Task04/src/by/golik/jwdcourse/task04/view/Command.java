@@ -10,6 +10,7 @@ import static by.golik.jwdcourse.task04.view.PrintArray.printSortedArray;
 public class Command {
     private final Scanner scanner;
     Controller controller = new Controller();
+    Command command;
 
 
     public Command(Scanner scanner) {
@@ -33,6 +34,7 @@ public class Command {
     }
 
     public void start() throws FileNotFoundException {
+        int[] array = new int[0];
         if (this.scanner != null) {
             String key;
             do {
@@ -41,19 +43,19 @@ public class Command {
                 key = this.scanner.nextLine();
                 switch (key) {
                     case "1" :
-                        int[] arrayFromConsole = CreateArrays.fillFromConsole();
-                        printArray("Array from console \n", arrayFromConsole);
-                        sort();
+                        array = CreateArrays.fillFromConsole();
+                        printArray("Array from console \n", array);
+                        sort(array);
                         break;
                     case "2" :
-                        int[] arrayFromFile = CreateArrays.fillFromFile();
-                        printArray("Array from file \n", arrayFromFile);
-                        sort();
+                        array = CreateArrays.fillFromFile();
+                        printArray("Array from file \n", array);
+                        sort(array);
                         break;
                     case "3" :
-                        int [] arrayFromRandom = CreateArrays.fillByRandom();
-                        printArray("Array from Random \n", arrayFromRandom);
-                        sort();
+                        array = CreateArrays.fillByRandom();
+                        printArray("Array from Random \n", array);
+                        sort(array);
                         break;
                     case "4" :
                         System.out.println("Завершение программы");
@@ -64,7 +66,7 @@ public class Command {
             } while (!key.equals("4"));
         }
     }
-    public void sort() throws FileNotFoundException {
+    public void sort(int[] array) throws FileNotFoundException {
         if (this.scanner != null) {
             String key;
             do {
@@ -73,19 +75,20 @@ public class Command {
                 key = this.scanner.nextLine();
                 switch (key) {
                     case "1" :
-                        SortArray bubbleSortArray = new SortArray(CreateArrays.fillFromConsole());
+                        //TODO ВМЕСТО FILLFROMCONSOLE ПОЛУЧАТЬ МАССИВ ИЗ CONTROLLER
+                        SortArray bubbleSortArray = new SortArray(array);
                         bubbleSortArray.bubbleSort();
-                        printSortedArray("Sorted Array \n", bubbleSortArray);
+                        printSortedArray("Sorted Array \n", bubbleSortArray.array);
                         break;
                     case "2" :
-                        SortArray selectionSortArray = new SortArray(CreateArrays.fillFromFile());
+                        SortArray selectionSortArray = new SortArray(array);
                         selectionSortArray.selectionSort();
-                        printSortedArray("Sorted Array", selectionSortArray);
+                        printSortedArray("Sorted Array", selectionSortArray.array);
                         break;
                     case "3" :
-                        SortArray insertionSortArray = new SortArray(CreateArrays.fillFromFile());
+                        SortArray insertionSortArray = new SortArray(array);
                         insertionSortArray.insertionSort();
-                        printSortedArray("Sorted Array", insertionSortArray);
+                        printSortedArray("Sorted Array", insertionSortArray.array);
                         break;
                     case "4" :
                         System.out.println("");

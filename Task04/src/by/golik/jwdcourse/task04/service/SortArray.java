@@ -88,20 +88,22 @@ public class SortArray implements ArrayService {
      * now we sort the tail of the list, excluding already sorted elements from consideration.
      *
      */
+
     public int[] selectionSort() {
-        for (int min = 0; min < array.length; min++) {
-            int least = min;
-            for (int j = min + 1; j < array.length; j++) {
-                if (array[j] < array[least]) {
-                    least = j;
+        for (int i = 0; i < array.length; i++) {    // i - номер текущего шага
+            int pos = i;
+            int min = array[i];
+            // цикл выбора наименьшего элемента
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < min) {
+                    pos = j;    // pos - индекс наименьшего элемента
+                    min = array[j];
                 }
             }
-            int tmp = array[min];
-            array[min] = array[least];
-            array[least] = tmp;
+            array[pos] = array[i];
+            array[i] = min;
         }
         return array;
-
     }
 
     /**
