@@ -8,7 +8,7 @@ import by.golik.jwdcourse.task04.service.impl.ArrayService;
  */
 
 public class SortArray implements ArrayService {
-    int [] array;
+    public int [] array;
 
     public SortArray(int[] array) {
         this.array = array;
@@ -18,8 +18,9 @@ public class SortArray implements ArrayService {
 
     /** Line search using a loop.
      * This method searches the array by the specified value.
+     * @return
      */
-    public int[] search() {
+    public int search() {
         int x = 0;
         int index = -1;
         for( int i = 0; i < array.length; i++) {
@@ -28,7 +29,7 @@ public class SortArray implements ArrayService {
                 break;
             }
         }
-        return array;
+        return array[index];
     }
 
     /**

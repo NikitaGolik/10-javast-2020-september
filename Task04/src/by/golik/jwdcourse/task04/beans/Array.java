@@ -15,10 +15,14 @@ public class Array {
     /**
      * Creates new Object
      * @param data - getting data
-     * @param length - length of array
+     *
      */
-    public Array(int[] data, int length) {
-        this.data = data;
+    public Array(int[] data) {
+        this.data = new int[1];
+    }
+
+    public Array(int length) {
+        this.data = new int[length];
         this.length = length;
     }
 
@@ -26,22 +30,7 @@ public class Array {
      *
      * @return data
      */
-    public int[] getData() {
-        return data;
-    }
 
-    /**
-     * Definition of data
-     * @param data
-     */
-    public void setData(int[] data) {
-        this.data = data;
-    }
-
-    /**
-     *
-     * @return
-     */
 
     public int getLength() {
         return length;
@@ -52,6 +41,23 @@ public class Array {
     }
 
     /**
+     * Definition of data
+     * @param data
+     */
+    public int[] getData() {
+        return data;
+    }
+
+    public void setData(int[] data) {
+        this.data = data;
+    }
+/**
+     *
+     * @return
+     */
+
+
+    /**
      * This method returns a string representation of the object
      * @return
      */
@@ -59,7 +65,6 @@ public class Array {
     public String toString() {
         return "Array{" +
                 "data=" + Arrays.toString(data) +
-                ", length=" + length +
                 '}';
     }
 
@@ -68,13 +73,13 @@ public class Array {
      * @param o
      * @return
      */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Array array = (Array) o;
-        return length == array.length &&
-                Arrays.equals(data, array.data);
+        return Arrays.equals(data, array.data);
     }
 
     /**
@@ -84,8 +89,6 @@ public class Array {
      */
     @Override
     public int hashCode() {
-        int result = Objects.hash(length);
-        result = 31 * result + Arrays.hashCode(data);
-        return result;
+        return Arrays.hashCode(data);
     }
 }

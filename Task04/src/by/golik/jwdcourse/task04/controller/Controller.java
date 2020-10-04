@@ -1,25 +1,10 @@
 package by.golik.jwdcourse.task04.controller;
-import by.golik.jwdcourse.task04.view.ConsoleReader;
-import by.golik.jwdcourse.task04.view.FileReader;
-import by.golik.jwdcourse.task04.view.RandomArray;
-import by.golik.jwdcourse.task04.view.impl.Reader;
 
-import java.io.FileNotFoundException;
+
+import by.golik.jwdcourse.task04.beans.Array;
 
 public class Controller {
-
-    public int[] getConsoleReader() {
-        Reader consoleReader = new ConsoleReader();
-        return consoleReader.fillFromConsole();
-    }
-    public int[] getFromFIle() throws FileNotFoundException {
-        Reader fileReader = new FileReader();
-        return fileReader.fillFromFile();
-    }
-    public int[] getRandomArray() {
-        Reader randomArray = new RandomArray();
-        return randomArray.fillByRandom();
-    }
-
+    Array array;
+    CreateArrays createArrays;
 
 }

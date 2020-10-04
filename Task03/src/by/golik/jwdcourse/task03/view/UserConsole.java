@@ -29,7 +29,7 @@ public class UserConsole {
     public int chooseBasket() {
         System.out.println("Выбери номер корзины");
         Scanner sc = new Scanner(System.in);
-        int number =sc.nextInt();
+        int number = sc.nextInt();
 
         return number -1;
     }
