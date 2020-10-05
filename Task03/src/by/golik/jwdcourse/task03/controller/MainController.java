@@ -35,6 +35,10 @@ public class MainController {
         balls = new ArrayList<>(userConsole.addBall());
         vault.getBaskets().get(numberBasket).setBalls(balls);
     }
+    public void createBasket() {
+        vault.getBaskets().get(0);
+    }
+
 
     /**
      *
@@ -58,7 +62,7 @@ public class MainController {
             for (int j = 0; j < b; j++) {
                 weightBall += vault.getBaskets().get(i).getBalls().get(j).getWeight();
             }
-            System.out.println("Вес корзины №"+ (i+1) +"="+((weightBall) + balls.get(i).getWeight()));
+            System.out.println("Вес корзины №"+ (i+1) +"="+(weightBall + balls.get(b).getWeight()));
         }
     }
 
@@ -80,37 +84,31 @@ public class MainController {
     /**
      *
      */
-    public void countEqualBall() {
+    public int countEqualBall(Basket basket) {
         // Выводим на экран
         int sum = 0;
 
-        for (int i = 0; i < balls.size(); i++) {
-            for (int j = i + 1; j < balls.size(); j++) {
-                if (balls.get(i).equals(balls.get(j))) {
-                    sum++;
-                    break;
-                }
+        Map<Ball, Integer> quantity = new HashMap<>();
+
+        for (Ball ball : basket.getBalls()) {
+            if (quantity.containsKey(ball)) {
+                quantity.put(ball, quantity.get(ball) + 1);
+            } else {
+                quantity.put(ball, 1);
             }
         }
-        // Выводим на экран
-        System.out.println("Количество одинаковых мячей " + (sum));
+
+        for (Map.Entry<Ball, Integer> q : quantity.entrySet()) {
+            int value = q.getValue();
+            if (value > 1) {
+                sum += value;
+            }
+        }
+        return sum;
+
     }
-
-    /**
-     *
-     */
-    public void countEqualBaskets() {
-        //TODO неверно считает цикл с разными мячами
-        int sum = 0;
-
-        for (int i = 0; i < vault.getBaskets().size() - 1; i++) {
-            for (int j = i + 1; j < vault.getBaskets().size(); j++) {
-                if (vault.getBaskets().get(i).equals(vault.getBaskets().get(j))) {
-                    sum++;
-                }
-            }
-        }
-        System.out.println("Количество одинаковых по набору корзин " + (sum));
+    public void printEqualBalls() {
+        System.out.println("Количество одинаковых мячей " + countEqualBall(vault.getBaskets().get(0)));
     }
 
     /**
@@ -155,30 +153,16 @@ public class MainController {
         }
         return sum;
     }
+    public void print() {
+        System.out.println("Количество одинаковых корзин " + sameBasketQuantity(vault));
+
+    }
+
     public void number() {
 
         int countBaskets = sameBasketQuantity(vault);
         System.out.println(countBaskets);
     }
 
-    /**
-     *
-     * @return
-     */
 
-    public Map<Basket, Integer> countBallsColour(){
-        Map<Basket, Integer> basketIntegerMap = new HashMap<>();
-        List<Basket> baskets = vault.getBaskets();
-        for (Basket basket : baskets) {
-            List<Ball> balls = basket.getBalls();
-            int count = 0;
-            for(Ball ball : balls) {
-                if (ball.getColor().equals(ball.color)) {
-                    count++;
-                }
-            }
-            basketIntegerMap.put(basket, count);
-        }
-        return basketIntegerMap;
-    }
 }

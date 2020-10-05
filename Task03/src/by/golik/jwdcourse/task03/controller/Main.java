@@ -18,7 +18,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
 	// write your code here
         //TODO javadoc
-
         UserConsole userConsole = new UserConsole();
         MainController mainController = new MainController();
         Vault vault = new Vault();
@@ -27,8 +26,10 @@ public class Main {
         mainController.fillVault();
         mainController.weightBall();
         mainController.priceBall();
-        mainController.countEqualBall();
-        mainController.countEqualBaskets();
+        // mainController.countEqualBall(mainController.vault.getBaskets().get(0));
+        mainController.printEqualBalls();
+        mainController.sameBasketQuantity(vault);
+        mainController.print();
         mainController.countColorBalls(Color.YELLOW);
         mainController.countColorBalls(Color.BLUE);
         mainController.countColorBalls(Color.GREEN);

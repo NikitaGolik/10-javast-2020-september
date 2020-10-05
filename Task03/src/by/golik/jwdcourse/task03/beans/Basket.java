@@ -4,6 +4,8 @@ import by.golik.jwdcourse.task03.beans.Ball;
 import by.golik.jwdcourse.task03.beans.Color;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -71,7 +73,7 @@ public class Basket {
      * @param obj
      * @return
      */
-    @Override
+ /*   @Override
     public boolean equals(Object obj) {
         if (obj == null) {return false;}
         if (obj.getClass() != this.getClass()) {return false;}
@@ -81,6 +83,29 @@ public class Basket {
 
         return Objects.equals(basket.getBalls(), this.balls) && Objects.equals(basket.weight, this.weight)
                 && Objects.equals(basket.price, this.price);
+    }
+    */
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (o == null) {return false;}
+        if (o.getClass() != this.getClass()) {return false;}
+        if (o == this) {return true;}
+
+        Basket basket = (Basket) o;
+        List<Ball> bb1 = basket.getBalls();
+        List<Ball> bb2 = this.getBalls();
+
+        if	(bb1.size()!=bb2.size()) {return false;}
+        if  (Objects.equals(bb1, bb2)) {return true;}
+
+        for	(int i=0; i<bb1.size(); i++) {
+            int counterA = Collections.frequency(bb1,bb1.get(i));
+            int counterB = Collections.frequency(bb2,bb1.get(i));
+            if (counterA!=counterB){return false;}
+        }
+        return true;
     }
 
 }
