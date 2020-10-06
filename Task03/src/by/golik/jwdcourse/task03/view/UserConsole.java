@@ -4,33 +4,50 @@ package by.golik.jwdcourse.task03.view;
 import by.golik.jwdcourse.task03.beans.Ball;
 import by.golik.jwdcourse.task03.beans.Basket;
 import by.golik.jwdcourse.task03.beans.Color;
-import by.golik.jwdcourse.task03.beans.Vault;
-import by.golik.jwdcourse.task03.controller.MainController;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserConsole {
 
-    ArrayList<Ball> basket = new ArrayList<>();
 
 
     public ArrayList<Basket> addBaskets() {
-        System.out.println("Выбери количество корзин");
+        System.out.println("Выберите количество корзин");
         Scanner sc = new Scanner(System.in);
+        boolean continueInput = true;
         ArrayList<Basket> baskets = new ArrayList<>();
-        int count = sc.nextInt();
-        for (int i = 0; i < count; i++) {
-            baskets.add(new Basket());
-        }
+        do {
+            try {
+                int count = sc.nextInt();
+                for (int i = 0; i < count; i++) {
+                    baskets.add(new Basket());
+                }
+                continueInput = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Введите целое число");
+                sc.nextLine();
+            }
+        } while (continueInput);
         return baskets;
     }
 
     public int chooseBasket() {
-        System.out.println("Выбери номер корзины");
+        System.out.println("Выберите номер корзины");
         Scanner sc = new Scanner(System.in);
-        int number = sc.nextInt();
-
+        boolean continueInput = true;
+        int number = 0;
+        do {
+            try {
+                number = sc.nextInt();
+                continueInput = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Введите целое число");
+                sc.nextLine();
+            }
+        } while (continueInput);
         return number -1;
     }
 
@@ -59,6 +76,9 @@ public class UserConsole {
                 case ("exit"):
                     System.out.println("Введите exit для прекращения заполнения корзины или Enter для продолжения");
                     return balls;
+                default :
+                    System.out.println("Выберите предложенный вариант");
+                    break;
             }
         }
     }

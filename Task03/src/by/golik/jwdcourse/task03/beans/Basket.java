@@ -13,7 +13,6 @@ import java.util.Objects;
  */
 public class Basket {
 
-
     public ArrayList<Ball> balls;
     public double weight;
     public double price;
@@ -70,7 +69,7 @@ public class Basket {
 
     /**
      *
-     * @param obj
+     * @param
      * @return
      */
  /*   @Override

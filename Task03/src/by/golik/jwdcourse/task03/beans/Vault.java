@@ -1,5 +1,4 @@
 package by.golik.jwdcourse.task03.beans;
-
 import java.util.ArrayList;
 
 /**
@@ -30,11 +29,4 @@ public class Vault {
     public void setBaskets(ArrayList<Basket> baskets) {
         this.baskets = baskets;
     }
-
-
-    public void add(Basket newBasket)
-    {
-        this.baskets.add(newBasket);
-    }
-
 }

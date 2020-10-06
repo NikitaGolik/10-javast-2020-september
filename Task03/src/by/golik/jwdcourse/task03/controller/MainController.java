@@ -18,15 +18,14 @@ public class MainController {
     UserConsole userConsole = new UserConsole();
     Vault vault = new Vault();
     ArrayList<Ball>balls;
-    Basket basket = new Basket();
+
 
     /**
      *
      */
-    public void createVault() {
-        vault.setBaskets(userConsole.addBaskets());
+    public ArrayList<Basket> createVault() {
+        return userConsole.addBaskets();
     }
-
     /**
      *
      */
@@ -38,7 +37,6 @@ public class MainController {
     public void createBasket() {
         vault.getBaskets().get(0);
     }
-
 
     /**
      *
@@ -159,7 +157,6 @@ public class MainController {
     }
 
     public void number() {
-
         int countBaskets = sameBasketQuantity(vault);
         System.out.println(countBaskets);
     }
