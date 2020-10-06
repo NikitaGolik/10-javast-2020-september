@@ -2,7 +2,6 @@ package by.golik.jwdcourse.task03.controller;
 import by.golik.jwdcourse.task03.beans.Color;
 import by.golik.jwdcourse.task03.beans.Vault;
 import by.golik.jwdcourse.task03.service.PriceComparator;
-import by.golik.jwdcourse.task03.view.UserConsole;
 import java.io.IOException;
 import java.util.*;
 /**
@@ -16,7 +15,6 @@ public class MainController {
     public static void main(String[] args) throws IOException {
 	// write your code here
         //TODO javadoc
-        UserConsole userConsole = new UserConsole();
         Controller controller = new Controller();
         Vault vault = new Vault();
         controller.createVault();
@@ -33,18 +31,6 @@ public class MainController {
 
         Collections.sort(controller.balls, new PriceComparator());
         System.out.println(Arrays.asList(controller.balls));
-        controller.number();
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

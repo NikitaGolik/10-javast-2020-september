@@ -1,13 +1,10 @@
 package by.golik.jwdcourse.task03.beans;
-
-import by.golik.jwdcourse.task03.beans.Color;
-
 import java.util.Objects;
 /**
  *
  * The class is used to store ball objects with properties
  * <b>color</b> <b>weight</b> <b>price</b>
- * @version 2.1
+ *
  */
 public class Ball {
 
@@ -16,10 +13,10 @@ public class Ball {
     public double price;
 
     /**
-     *
-     * @param color
-     * @param weight
-     * @param price
+     * constructor - creating new Object
+     * @param color - color of ball
+     * @param weight - weight of ball
+     * @param price - price of ball
      */
     public Ball(Color color, double weight, double price) {
         this.color = color;
@@ -28,23 +25,23 @@ public class Ball {
     }
 
     /**
-     *
-     * @return
+     * function of getting value {@link Ball#color}
+     * @return color of ball
      */
     public Color getColor() {
         return color;
     }
 
     /**
-     *
-     * @param color
+     * function of definition color of ball {@link Ball#color}
+     * @param color - color
      */
     public void setColor(Color color) {
         this.color = color;
     }
 
     /**
-     *
+     * function of getting value {@link Ball#color}
      * @return
      */
     public double getWeight() {
@@ -52,7 +49,7 @@ public class Ball {
     }
 
     /**
-     *
+     * function of definition color of ball {@link Ball#weight}
      * @param weight
      */
     public void setWeight(double weight) {
@@ -60,7 +57,7 @@ public class Ball {
     }
 
     /**
-     *
+     * function of getting value {@link Ball#price}
      * @return
      */
     public double getPrice() {
@@ -68,7 +65,7 @@ public class Ball {
     }
 
     /**
-     *
+     * function of definition color of ball {@link Ball#price}
      * @param price
      */
     public void setPrice(double price) {
@@ -76,8 +73,7 @@ public class Ball {
     }
 
     /**
-     *
-     * @return
+     * @return a hash code value for the object Ball.
      */
     @Override
     public int hashCode() {
@@ -88,9 +84,9 @@ public class Ball {
     }
 
     /**
-     *
-     * @param obj
-     * @return
+     * Indicates whether some other object is "equal to" this one.
+     * @param obj the reference Ball with which to compare.
+     * @return true if this object is the same as the object argument, false otherwise.
      */
     @Override
     public boolean equals(Object obj) {
@@ -111,7 +107,7 @@ public class Ball {
 
     /**
      *
-     * @return
+     * @return a string representation of the object.
      */
     @Override
     public String toString() {

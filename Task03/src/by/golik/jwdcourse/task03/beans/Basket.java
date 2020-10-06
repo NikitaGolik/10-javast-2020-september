@@ -1,15 +1,12 @@
 package by.golik.jwdcourse.task03.beans;
-
-import by.golik.jwdcourse.task03.beans.Ball;
-import by.golik.jwdcourse.task03.beans.Color;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
 /**
- *
+ * The class is used to store basket objects with properties
+ * <b>balls</b> <b>weight</b> <b>price</b>
  */
 public class Basket {
 
@@ -17,16 +14,24 @@ public class Basket {
     public double weight;
     public double price;
 
+    /**
+     * function of getting value of basket
+     * @return weight of Basket
+     */
     public double getWeight() {
         return weight;
     }
 
+    /**
+     * function of getting price of basket
+     * @return price of basket
+     */
     public double getPrice() {
         return price;
     }
 
     /**
-     *
+     * constructor creates new object Basket
      */
     public Basket()
     {
@@ -34,30 +39,23 @@ public class Basket {
     }
 
     /**
-     *
-     * @return
+     * function of getting balls from basket
+     * @return a list with balls in basket
      */
     public ArrayList<Ball> getBalls() {
         return balls;
     }
 
     /**
-     *
-     * @param balls
+     * definition of list balls in basket
+     * @param balls list of balls in basket
      */
     public void setBalls(ArrayList<Ball> balls) {
         this.balls = balls;
     }
 
-    public void add(Ball newBall)
-    {
-
-        this.balls.add(newBall);
-    }
-
     /**
-     *
-     * @return
+     * @return a hash code value for the object Basket.
      */
     @Override
     public int hashCode() {
@@ -68,27 +66,9 @@ public class Basket {
     }
 
     /**
-     *
-     * @param
-     * @return
-     */
- /*   @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {return false;}
-        if (obj.getClass() != this.getClass()) {return false;}
-        if (obj == this) {return true;}
-
-        Basket basket = (Basket) obj;
-
-        return Objects.equals(basket.getBalls(), this.balls) && Objects.equals(basket.weight, this.weight)
-                && Objects.equals(basket.price, this.price);
-    }
-    */
-
-    /**
-     *
-     * @param o
-     * @return
+     * Indicates whether some other object is "equal to" this one.
+     * @param o the reference Ball with which to compare.
+     * @return true if this object is the same as the object argument, false otherwise.
      */
     @Override
     public boolean equals(Object o) {
