@@ -1,10 +1,9 @@
 package by.golik.jwdcourse.task03.beans;
 import java.util.Objects;
+
 /**
- *
  * The class is used to store ball objects with properties
  * <b>color</b> <b>weight</b> <b>price</b>
- *
  */
 public class Ball {
 
@@ -33,14 +32,6 @@ public class Ball {
     }
 
     /**
-     * function of definition color of ball {@link Ball#color}
-     * @param color - color
-     */
-    public void setColor(Color color) {
-        this.color = color;
-    }
-
-    /**
      * function of getting value {@link Ball#color}
      * @return
      */
@@ -49,27 +40,11 @@ public class Ball {
     }
 
     /**
-     * function of definition color of ball {@link Ball#weight}
-     * @param weight
-     */
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    /**
      * function of getting value {@link Ball#price}
      * @return
      */
     public double getPrice() {
         return price;
-    }
-
-    /**
-     * function of definition color of ball {@link Ball#price}
-     * @param price
-     */
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     /**

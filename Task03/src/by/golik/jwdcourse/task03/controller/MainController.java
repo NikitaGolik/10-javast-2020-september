@@ -7,12 +7,11 @@ import java.util.*;
 /**
  *
  * @autor Nikita Golik
- *
  */
 
 public class MainController {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 	// write your code here
         //TODO javadoc
         Controller controller = new Controller();

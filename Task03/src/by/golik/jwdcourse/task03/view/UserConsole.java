@@ -1,21 +1,20 @@
 package by.golik.jwdcourse.task03.view;
-
-
 import by.golik.jwdcourse.task03.beans.Ball;
 import by.golik.jwdcourse.task03.beans.Basket;
 import by.golik.jwdcourse.task03.beans.Color;
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * The class conducts a dialogue with the user about filling the basket with balls.
+ */
 public class UserConsole {
 
-
     /**
-     *
-     * @return
+     * This method prompts the user to select the number of baskets he wants to create.
+     * @exception InputMismatchException if you don't enter int type for count basket.
+     * @return list of baskets.
      */
     public ArrayList<Basket> addBaskets() {
         System.out.println("Выберите количество корзин");
@@ -38,8 +37,9 @@ public class UserConsole {
     }
 
     /**
-     *
-     * @return
+     * @exception InputMismatchException if you don't enter int type for certain baskets.
+     * This method prompts the user to select a basket to fill with balls.
+     * @return number of basket to fill by balls.
      */
     public int chooseBasket() {
         System.out.println("Выберите номер корзины");
@@ -59,8 +59,8 @@ public class UserConsole {
     }
 
     /**
-     *
-     * @return
+     * This method prompts the user to select a ball to place in the basket.
+     * @return list of balls in certain basket.
      */
     public ArrayList<Ball> addBall() {
         //number к корзине

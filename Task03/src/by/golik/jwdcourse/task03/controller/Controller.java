@@ -1,5 +1,4 @@
 package by.golik.jwdcourse.task03.controller;
-
 import by.golik.jwdcourse.task03.beans.Ball;
 import by.golik.jwdcourse.task03.beans.Basket;
 import by.golik.jwdcourse.task03.beans.Color;

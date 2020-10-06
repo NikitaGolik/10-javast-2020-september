@@ -11,24 +11,6 @@ import java.util.Objects;
 public class Basket {
 
     public ArrayList<Ball> balls;
-    public double weight;
-    public double price;
-
-    /**
-     * function of getting value of basket
-     * @return weight of Basket
-     */
-    public double getWeight() {
-        return weight;
-    }
-
-    /**
-     * function of getting price of basket
-     * @return price of basket
-     */
-    public double getPrice() {
-        return price;
-    }
 
     /**
      * constructor creates new object Basket
@@ -67,27 +49,39 @@ public class Basket {
 
     /**
      * Indicates whether some other object is "equal to" this one.
-     * @param o the reference Ball with which to compare.
+     * @param obj the reference Ball with which to compare.
      * @return true if this object is the same as the object argument, false otherwise.
      */
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object obj) {
 
-        if (o == null) {return false;}
-        if (o.getClass() != this.getClass()) {return false;}
-        if (o == this) {return true;}
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+        if (obj == this) {
+            return true;
+        }
 
-        Basket basket = (Basket) o;
-        List<Ball> bb1 = basket.getBalls();
-        List<Ball> bb2 = this.getBalls();
+        Basket basket = (Basket) obj;
+        List<Ball> list1 = basket.getBalls();
+        List<Ball> list2 = this.getBalls();
 
-        if	(bb1.size()!=bb2.size()) {return false;}
-        if  (Objects.equals(bb1, bb2)) {return true;}
+        if	(list1.size() != list2.size()) {
+            return false;
+        }
+        if  (Objects.equals(list1, list2)) {
+            return true;
+        }
 
-        for	(int i=0; i<bb1.size(); i++) {
-            int counterA = Collections.frequency(bb1,bb1.get(i));
-            int counterB = Collections.frequency(bb2,bb1.get(i));
-            if (counterA!=counterB){return false;}
+        for	(int i=0; i<list1.size(); i++) {
+            int counterA = Collections.frequency(list1,list1.get(i));
+            int counterB = Collections.frequency(list2,list1.get(i));
+            if (counterA!=counterB) {
+                return false;
+            }
         }
         return true;
     }
