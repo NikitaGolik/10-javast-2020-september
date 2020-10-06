@@ -13,7 +13,10 @@ import java.util.Scanner;
 public class UserConsole {
 
 
-
+    /**
+     *
+     * @return
+     */
     public ArrayList<Basket> addBaskets() {
         System.out.println("Выберите количество корзин");
         Scanner sc = new Scanner(System.in);
@@ -34,6 +37,10 @@ public class UserConsole {
         return baskets;
     }
 
+    /**
+     *
+     * @return
+     */
     public int chooseBasket() {
         System.out.println("Выберите номер корзины");
         Scanner sc = new Scanner(System.in);
@@ -51,6 +58,10 @@ public class UserConsole {
         return number -1;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Ball> addBall() {
         //number к корзине
         ArrayList<Ball> balls = new ArrayList<>();

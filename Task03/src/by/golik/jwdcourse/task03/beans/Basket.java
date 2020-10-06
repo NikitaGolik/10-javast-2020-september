@@ -85,6 +85,11 @@ public class Basket {
     }
     */
 
+    /**
+     *
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
 
