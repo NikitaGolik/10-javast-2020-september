@@ -12,9 +12,6 @@ public class Command {
         System.out.println("3 - заполнение случайными числами");
         System.out.println("4 - для выхода");
     }
-    public void printMaxAndMinMenu() {
-        System.out.println("Выбери критерий для поиска в новом массиве:");
-    }
 
     public void printSortMenu() {
         System.out.println("Выбери действие с элементами массива:");
@@ -27,7 +24,8 @@ public class Command {
         System.out.println("7 - Найти Заданное пользователем целое число используя бинарный поиск");
         System.out.println("8 - Получить все числа Фибоначчи в массиве");
         System.out.println("9 - Получить все трехзначные числа, в десятичной записи которых нет одинаковых цифр в массиве");
-        System.out.println("10 - для выхода");
+        System.out.println("10 - Получить все простые числа");
+        System.out.println("11 - для выхода");
     }
 
 }

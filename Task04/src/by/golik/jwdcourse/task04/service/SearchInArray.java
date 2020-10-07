@@ -61,17 +61,17 @@ public class SearchInArray implements SearchArray {
      * @param
      * @return
      */
-    public List<Integer> primeNumbersBruteForce(int n) {
+    public int[] primeNumbersBruteForce(int[] n) {
         List<Integer> primeNumbers = new LinkedList<>();
-        for (int i = 2; i <= n; i++) {
+        for (int i = 2; i <= n.length; i++) {
             if (isPrimeBruteForce(i)) {
                 primeNumbers.add(i);
             }
-        }
-        return primeNumbers;
+        } int[] arr = primeNumbers.stream().mapToInt(i -> i).toArray();
+        return arr;
     }
     public boolean isPrimeBruteForce(int number) {
-        for (int i = 2; i < number; i++) {
+        for (int i = 2; i <= number; i++) {
             if (number % i == 0) {
                 return false;
             }
@@ -103,17 +103,19 @@ public class SearchInArray implements SearchArray {
      * @param array - array in which must be found this numbers.
      * @return
      */
-    public List<Integer> findNumbersWithThreeDifferentDigits(int[] array) {
+    public int[] findNumbersWithThreeDifferentDigits(int[] array) {
         String number;
-        array = new int[10];
+
+        List<Integer> result = new ArrayList<Integer>();
         for (Integer sourceNumber : array) {
             number = sourceNumber.toString();
             if (number.length() == 3 && number.charAt(0) != number.charAt(1)
                     && number.charAt(1) != number.charAt(2)
                     && number.charAt(0) != number.charAt(2)) {
-                array.(sourceNumber);
+                result.add(sourceNumber);
             }
         }
-        return result;
+        int[] arr = result.stream().mapToInt(i -> i).toArray();
+        return arr;
     }
 }

@@ -100,11 +100,15 @@ public class Controller {
                         printArray("Your numbers are ", searchFibonacciInArray.fibonacciSearch(insertionSortArray3));
                         break;
                     case "9" :
-                        SearchInArray searchInArray = new SearchInArray(array);
-                        searchInArray.findNumbersWithThreeDifferentDigits(array);
-                        printArray("Your numbers are ", searchInArray.findNumbersWithThreeDifferentDigits(array));
+                        SearchInArray searchDigitsInArray = new SearchInArray(array);
+                        searchDigitsInArray.findNumbersWithThreeDifferentDigits(array);
+                        printArray("Your numbers are ", searchDigitsInArray.findNumbersWithThreeDifferentDigits(array));
                         break;
                     case "10" :
+                        SearchInArray searchPrimeInArray = new SearchInArray(array);
+                        searchPrimeInArray.primeNumbersBruteForce(array);
+                        printArray("Your numbers are ", searchPrimeInArray.findNumbersWithThreeDifferentDigits(array));
+                    case "11" :
                         System.out.println("");
                         break;
                     default :
