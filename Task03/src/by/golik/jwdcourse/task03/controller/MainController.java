@@ -2,7 +2,6 @@ package by.golik.jwdcourse.task03.controller;
 import by.golik.jwdcourse.task03.beans.Color;
 import by.golik.jwdcourse.task03.beans.Vault;
 import by.golik.jwdcourse.task03.service.PriceComparator;
-import java.io.IOException;
 import java.util.*;
 /**
  *

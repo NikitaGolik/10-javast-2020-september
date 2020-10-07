@@ -10,7 +10,7 @@ public class PrintArray {
      * @param array - elements of array
      */
     public static void printArray(String text, int[] array) {
-        System.out.println(text + Arrays.toString(array) + "\n");
+       System.out.println(text + Arrays.toString(array) + "\n");
     }
 
     /**

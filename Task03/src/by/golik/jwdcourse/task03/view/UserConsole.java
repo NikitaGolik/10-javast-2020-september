@@ -29,7 +29,7 @@ public class UserConsole {
                 }
                 continueInput = false;
             } catch (InputMismatchException e) {
-                System.out.println("Введите целое число");
+                System.out.println("Введите целое положительное число");
                 sc.nextLine();
             }
         } while (continueInput);
@@ -49,9 +49,12 @@ public class UserConsole {
         do {
             try {
                 number = sc.nextInt();
+                if(number < 0) {
+                    break;
+                }
                 continueInput = false;
             } catch (InputMismatchException e) {
-                System.out.println("Введите целое число");
+                System.out.println("Введите целое положительное число");
                 sc.nextLine();
             }
         } while (continueInput);

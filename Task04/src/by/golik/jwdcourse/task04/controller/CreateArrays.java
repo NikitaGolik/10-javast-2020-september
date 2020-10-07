@@ -1,15 +1,11 @@
 package by.golik.jwdcourse.task04.controller;
 
-import by.golik.jwdcourse.task04.beans.Array;
-import by.golik.jwdcourse.task04.controller.Controller;
-
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class CreateArrays {
-Controller controller;
+MainController controller;
     /**
      *
      * This method fills the array with the numbers entered from the console.

@@ -24,6 +24,7 @@ public class Basket {
      * function of getting balls from basket
      * @return a list with balls in basket
      */
+    //TODO GET(INDEX)
     public ArrayList<Ball> getBalls() {
         return balls;
     }

@@ -1,5 +1,6 @@
 package by.golik.jwdcourse.task04.service;
 
+import by.golik.jwdcourse.task04.beans.Array;
 import by.golik.jwdcourse.task04.service.impl.ArrayService;
 
 /**
@@ -13,8 +14,6 @@ public class SortArray implements ArrayService {
     public SortArray(int[] array) {
         this.array = array;
     }
-
-
 
     /** Line search using a loop.
      * This method searches the array by the specified value.

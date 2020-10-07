@@ -4,7 +4,6 @@ import by.golik.jwdcourse.task03.beans.Basket;
 import by.golik.jwdcourse.task03.beans.Color;
 import by.golik.jwdcourse.task03.beans.Vault;
 import by.golik.jwdcourse.task03.view.UserConsole;
-
 import java.util.*;
 
 /**
@@ -21,6 +20,7 @@ public class Controller {
     /**
      * Creating a value for baskets
      */
+    //TODO RENAME
     public void createVault() {
         vault.setBaskets(userConsole.addBaskets());
     }
@@ -28,6 +28,7 @@ public class Controller {
     /**
      * Filling baskets with balls
      */
+    //TODO CREATE NEW BALL
     public void fillBasket() {
         int numberBasket = userConsole.chooseBasket();
         balls = new ArrayList<>(userConsole.addBall());
@@ -48,6 +49,7 @@ public class Controller {
     /**
      * Сalculating the weight of a basket filled with balls.
      */
+    //TODO SIZE -1 REMOVE; BALLS.GET(B) REMOVE; <=B
     public void  weightBall() {
         int k = vault.getBaskets().size();
         for (int i = 0; i < k; i++) {
@@ -63,6 +65,7 @@ public class Controller {
     /**
      * Calculating the price of a basket filled with balls
      */
+    //TODO SIZE -1 REMOVE; BALLS.GET(B) REMOVE; <=B
     public void priceBall() {
         int k = vault.getBaskets().size();
         for (int i = 0; i < k; i++) {
@@ -76,8 +79,9 @@ public class Controller {
     }
 
     /**
-     * Аinding and counting identical ballsю
+     * Finding and counting identical balls.
      */
+    // TODO НЕВЕРНО СЧИТАЕТ ОДИНАКОВЫЕ МЯЧИ(ЗАДВОЕНИЕ), ДОБАВИТЬ СПИСКИ ОДИНАКОВЫХ МЯЧЕЙ(SET)
     public int countEqualBall(Basket basket) {
 
         int sum = 0;
@@ -128,6 +132,7 @@ public class Controller {
      * @param vault - vault with baskets.
      * @return count of equals basket in vault.
      */
+    //TODO EQUALLBALLS
     public int sameBasketQuantity(Vault vault) {
 
         int sum = 0;

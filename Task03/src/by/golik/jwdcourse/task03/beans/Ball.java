@@ -1,4 +1,5 @@
 package by.golik.jwdcourse.task03.beans;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -32,7 +33,7 @@ public class Ball {
     }
 
     /**
-     * function of getting value {@link Ball#color}
+     * function of getting value {@link Ball#weight}
      * @return
      */
     public double getWeight() {

@@ -14,6 +14,8 @@ public class PriceComparator implements Comparator<Ball> {
      * @return true only if the specified object is also a comparator
      * and it imposes the same ordering as this comparator.
      */
+    //TODO SORT ПО НЕСКОЛЬКИМ КРИТЕРИЯМ
+
     @Override
     public int compare(Ball o1, Ball o2) {
         return (int) (o1.getPrice() - o2.getPrice());
