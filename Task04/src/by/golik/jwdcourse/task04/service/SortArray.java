@@ -3,6 +3,9 @@ package by.golik.jwdcourse.task04.service;
 import by.golik.jwdcourse.task04.beans.Array;
 import by.golik.jwdcourse.task04.service.impl.ArrayService;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 /**
  *
  * This class is a collection of methods for sorting elements in an array.
@@ -19,13 +22,35 @@ public class SortArray implements ArrayService {
      * This method searches the array by the specified value.
      * @return
      */
+    public int number() {
+        System.out.println("Введите число, которое надо найти: ");
+        while (true) {
+
+            Scanner scanner = new Scanner(System.in);
+            boolean continueInput = true;
+            int x = 0;
+            do {
+                try {
+                    x = scanner.nextInt();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("Введите число");
+                    scanner.nextLine();
+                }
+            } while (continueInput);
+            return x;
+        }
+    }
     public int search() {
-        int x = 0;
+        int a = number();
         int index = -1;
         for( int i = 0; i < array.length; i++) {
-            if (x == array[i]) {
+            if (a == array[i]) {
                 index = i;
                 break;
+            }
+            if (i == array.length-1) {
+                System.out.println("Число " + a + " не найдено в массиве.");
             }
         }
         return array[index];

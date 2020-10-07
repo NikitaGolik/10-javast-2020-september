@@ -19,6 +19,9 @@ public class PrintArray {
      * @param array - elements of array
      */
     public static void printSortedArray(String text, int[] array) {
-        System.out.println(text + " "+ Arrays.toString(array) + "\n");
+        System.out.println(text + " " + Arrays.toString(array) + "\n");
+    }
+    public static void printSearchNumbers(String text, int number) {
+        System.out.println(text + " " + number);
     }
 }

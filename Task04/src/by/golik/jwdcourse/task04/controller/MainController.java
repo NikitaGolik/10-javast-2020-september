@@ -15,8 +15,6 @@ public class MainController {
             // write your code here
           new Controller(new Scanner(System.in)).start();
 
-
-
         }
     }
 }

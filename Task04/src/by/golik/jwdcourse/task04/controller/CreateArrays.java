@@ -2,6 +2,7 @@ package by.golik.jwdcourse.task04.controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CreateArrays {
