@@ -1,5 +1,6 @@
 package by.golik.jwdcourse.task04.controller;
 import by.golik.jwdcourse.task04.service.SearchInArray;
+import by.golik.jwdcourse.task04.service.ServiceJagged;
 import by.golik.jwdcourse.task04.service.SortArray;
 import by.golik.jwdcourse.task04.view.Command;
 import java.io.FileNotFoundException;
@@ -11,6 +12,7 @@ public class Controller {
     Command command = new Command();
     private Scanner scanner;
     SearchInArray searchInArray;
+    ServiceJagged serviceJagged;
 
     public Controller(Scanner scanner) {
         this.scanner = scanner;
@@ -109,13 +111,63 @@ public class Controller {
                         searchPrimeInArray.primeNumbersBruteForce(array);
                         printArray("Your numbers are ", searchPrimeInArray.findNumbersWithThreeDifferentDigits(array));
                     case "11" :
+                        addJagged();
+                    case "12" :
                         System.out.println("");
                         break;
                     default :
                         System.out.println("Вы ввели неверное значение меню, повторите ввод \n");
                 }
-            } while (!key.equals("10"));
+            } while (!key.equals("12"));
         }
     }
+    public void addJagged() throws FileNotFoundException {
+        int[][] jaggedArray = new int[0][0];
+        if (this.scanner != null) {
+            String key;
+            boolean continueInput = true;
+            do {
+                command.printMenuForJaggedArrays();
+                System.out.println("Введите номер меню: ");
+                key = this.scanner.nextLine();
+                switch (key) {
+                    case "1" :
+                        jaggedArray = CreateJaggedArrays.fillJaggedFromConsole();
+                        printJaggedArray("Your Jagged Array is ", jaggedArray);
+                    case "2" :
+                        jaggedArray = CreateJaggedArrays.fillJaggerFromFile();
+                        printJaggedArray("Your Jagged Array is ", jaggedArray);
+                    case "3" :
+                        jaggedArray = CreateJaggedArrays.fillJaggedByRandom();
+                        printJaggedArray("Your Jagged Array is ", jaggedArray);
+                    case "4" :
+                        System.out.println("Завершение программы");
+                        break;
+                    default :
+                        System.out.println("Вы ввели неверное значение меню, повторите ввод \n");
+                }
+            } while(!key.equals("4"));
+        }
+    }
+    public void actionsJagged() {
+        if (this.scanner != null) {
+            String key;
+            boolean continueInput = true;
+            do {
+                command.printMenuForActionsWithJaggedArrays();
+                System.out.println("Введите номер меню: ");
+                key = this.scanner.nextLine();
+                switch (key) {
+                    case "1" :
+                    case "2" :
+                    case "3" :
+                    case "4" :
+                    case "5" :
+                    case "6" :
+                }
+    }
+
+
+
 }
 

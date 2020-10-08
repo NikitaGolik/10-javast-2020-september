@@ -1,9 +1,27 @@
-package by.golik.jwdcourse.task04.service.jaggedarrays;
+package by.golik.jwdcourse.task04.service;
+
+import java.util.Scanner;
 
 /**
  *
  */
-public class Service {
+public class ServiceJagged {
+
+    public void matrixSquare(int[][] matrix) {
+        int countRows;
+        int countCol;
+        int value;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter count of Rows Matrix: ");
+        countRows = scanner.nextInt();
+        System.out.println("Enter count of Columns Matrix: ");
+        countCol = scanner.nextInt();
+        if (countRows == countCol) {
+            System.out.println("Матрица является квадратной");
+        }
+
+
+    }
 
     /**
      * Matrix multiplication method.

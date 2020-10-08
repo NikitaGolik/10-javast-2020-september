@@ -49,7 +49,7 @@ MainController controller;
     public static int[] fillByRandom() {
         int [] arrayRandom = new int[10];
         for (int i = 0; i < arrayRandom.length; i++) {
-            arrayRandom[i] = ((int) (Math.random() * 31) - 15);
+            arrayRandom[i] = ((int) (Math.random() * 50) + 25);
         }
         return arrayRandom;
     }
