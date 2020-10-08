@@ -8,24 +8,32 @@ import java.util.Arrays;
  */
 
 public class JaggedArray {
-    int[][] data;
+    private int[][] array;
+    private int raw;
+    private int col;
 
-    public JaggedArray(int[][] data) {
-        this.data = data;
+    public JaggedArray(int[][] array, int raw, int col) {
+        this.raw = raw;
+        this.col = col;
+        this.array = new int[raw][col];
     }
 
-    public int[][] getData() {
-        return data;
+    public JaggedArray(int[][] array) {
+        this.array = array;
     }
 
-    public void setData(int[][] data) {
-        this.data = data;
+    public int[][] getArray() {
+        return array;
+    }
+
+    public void setArray(int[][] array) {
+        this.array = array;
     }
 
     @Override
     public String toString() {
         return "JaggedArray{" +
-                "data=" + Arrays.toString(data) +
+                "data=" + Arrays.toString(array) +
                 '}';
     }
 
@@ -34,11 +42,11 @@ public class JaggedArray {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         JaggedArray that = (JaggedArray) o;
-        return Arrays.equals(data, that.data);
+        return Arrays.equals(array, that.array);
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(data);
+        return Arrays.hashCode(array);
     }
 }

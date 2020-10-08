@@ -6,11 +6,21 @@ import java.util.Scanner;
  *
  */
 public class ServiceJagged {
+    private int row;
+    private int col;
+    private int[][] jaggedArray;
+
+    public ServiceJagged(int[][] jaggedArray) {
+        this.jaggedArray = jaggedArray;
+    }
+
+    public ServiceJagged(int row, int col) {
+        this.row = row;
+        this.col = col;
+        jaggedArray = new int[row][col];
+    }
 
     public void matrixSquare(int[][] matrix) {
-        int countRows;
-        int countCol;
-        int value;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter count of Rows Matrix: ");
         countRows = scanner.nextInt();
@@ -19,16 +29,26 @@ public class ServiceJagged {
         if (countRows == countCol) {
             System.out.println("Матрица является квадратной");
         }
+    }
 
+    public int[][] additionJagged(int[][] m, int[][] n) {
 
     }
 
-    /**
-     * Matrix multiplication method.
-     * @param m Multiplicand
-     * @param n Multiplier
-     * @return Product
-     */
+    public int[][] subtractionJagged(int[][] m, int[][] n) {
+
+    }
+
+    public {
+
+    }
+
+        /**
+         * Matrix multiplication method.
+         * @param m Multiplicand
+         * @param n Multiplier
+         * @return Product
+         */
     public int[][] multiplyByMatrix(int[][]m, int[][] n) {
         int m1ColLength = m[0].length; // m columns length
         int m2RowLength = n.length;    // n rows length

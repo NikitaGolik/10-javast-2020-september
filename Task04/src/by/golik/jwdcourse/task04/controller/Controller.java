@@ -134,12 +134,15 @@ public class Controller {
                     case "1" :
                         jaggedArray = CreateJaggedArrays.fillJaggedFromConsole();
                         printJaggedArray("Your Jagged Array is ", jaggedArray);
+                        actionsJagged(jaggedArray);
                     case "2" :
                         jaggedArray = CreateJaggedArrays.fillJaggerFromFile();
                         printJaggedArray("Your Jagged Array is ", jaggedArray);
+                        actionsJagged(jaggedArray);
                     case "3" :
                         jaggedArray = CreateJaggedArrays.fillJaggedByRandom();
                         printJaggedArray("Your Jagged Array is ", jaggedArray);
+                        actionsJagged(jaggedArray);
                     case "4" :
                         System.out.println("Завершение программы");
                         break;
@@ -149,7 +152,7 @@ public class Controller {
             } while(!key.equals("4"));
         }
     }
-    public void actionsJagged() {
+    public void actionsJagged(int[][] jaggedArray) {
         if (this.scanner != null) {
             String key;
             boolean continueInput = true;
@@ -158,16 +161,34 @@ public class Controller {
                 System.out.println("Введите номер меню: ");
                 key = this.scanner.nextLine();
                 switch (key) {
-                    case "1" :
-                    case "2" :
-                    case "3" :
-                    case "4" :
-                    case "5" :
-                    case "6" :
+                    case "1":
+                        ServiceJagged matrixSquare = new ServiceJagged(jaggedArray);
+                        matrixSquare.matrixSquare(jaggedArray);
+
+                    case "2":
+                        ServiceJagged additionJagged = new ServiceJagged(jaggedArray);
+                        additionJagged.additionJagged(jaggedArray, CreateJaggedArrays.fillJaggedByRandom());
+
+                    case "3":
+                        ServiceJagged subtractionJagged = new ServiceJagged(jaggedArray);
+                        subtractionJagged.subtractionJagged(jaggedArray, CreateJaggedArrays.fillJaggedByRandom());
+
+                    case "4":
+                        ServiceJagged multiplyOnConstant = new ServiceJagged(jaggedArray);
+                        multiplyOnConstant.multiplyByMatrix(jaggedArray, CreateJaggedArrays.fillJaggedByRandom());
+
+                    case "5":
+                        ServiceJagged transposeJagged = new ServiceJagged(jaggedArray);
+                        transposeJagged.transpose();
+
+                    case "6":
+                        System.out.println("Завершение программы");
+                        break;
+                    default:
+                        System.out.println("Вы ввели неверное значение меню, повторите ввод \n");
                 }
+            } while (!key.equals("6"));
+        }
     }
-
-
-
 }
 
