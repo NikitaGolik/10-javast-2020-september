@@ -11,8 +11,6 @@ import static by.golik.jwdcourse.task04.view.PrintArray.*;
 public class Controller {
     Command command = new Command();
     private Scanner scanner;
-    SearchInArray searchInArray;
-    ServiceJagged serviceJagged;
 
     public Controller(Scanner scanner) {
         this.scanner = scanner;

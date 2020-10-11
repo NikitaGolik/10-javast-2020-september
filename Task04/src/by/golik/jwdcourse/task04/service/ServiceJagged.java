@@ -39,7 +39,8 @@ public class ServiceJagged {
 
     }
 
-    public {
+    public void multiplyOnConstantJagged(int[][]m, int n) {
+
 
     }
 
