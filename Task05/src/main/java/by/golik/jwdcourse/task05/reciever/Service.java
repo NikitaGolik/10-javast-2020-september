@@ -1,6 +1,33 @@
 package by.golik.jwdcourse.task05.reciever;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Service {
+
+
+    /**+
+     *
+     * @param text
+     * @throws IOException
+     */
+    public void fileWriter(String text) throws IOException {
+        BufferedWriter output = null;
+        try {
+            File file = new File("D:\\demo\\newText.txt");
+            output = new BufferedWriter(new FileWriter(file));
+            output.write(text);
+        } catch ( IOException e ) {
+            e.printStackTrace();
+        } finally {
+            if ( output != null ) {
+                output.close();
+            }
+        }
+    }
+
     /**
      * 1.	В каждом слове k-ю букву заменить заданным символом.
      * Если k больше длины слова, корректировку не выполнять.
@@ -9,7 +36,8 @@ public class Service {
      * @param symbol
      * @return
      */
-    public String replaceSymbol(String offer, int index, char symbol) {
+
+    public String replaceSymbol(String offer, int index, char symbol) throws IOException {
         StringBuilder sb = new StringBuilder();
         if (offer != null && offer.length() > 0 && index > 0) {
             for (String word : offer.split(" ")) {
@@ -20,7 +48,7 @@ public class Service {
                 }
                 sb.append(" ");
             }
-        }
+        } fileWriter(sb.toString());
         return sb.toString();
     }
 
@@ -30,14 +58,14 @@ public class Service {
      * @param text
      * @return
      */
-    public String replace(String text) {
+
+    public String replace(String text) throws IOException {
         StringBuilder sb = new StringBuilder();
         if(text != null) {
             for (String word : text.split(" ")) {
                 text = text.replace ("ра","ро");
             }
-        }
-
+        } fileWriter(text);
         return text;
     }
 
@@ -46,9 +74,12 @@ public class Service {
      * совпадать с длиной слова. (дом -> домик -> хата)
      * @param text
      */
-    public String replaceSubstring (String text) {
-        text = text.replaceAll("\\b[a-zA-Z]{5}\\b", "JAVA");
-        return text;
+
+    public String replaceSubstring (String text) throws IOException {
+        String newText = null;
+        newText = text.replaceAll("\\b[a-zA-Z]{5}\\b", "JAVA");
+        fileWriter(newText);
+        return newText;
     }
 
     /**
@@ -57,10 +88,11 @@ public class Service {
      * оставить один пробел (= удалить лишние пробелы).
      * @param text
      */
-    public String deleteSymbols (String text) {
+
+    public String deleteSymbols (String text) throws IOException {
         String newText = null;
         newText =  text.replaceAll("(?u)[^\\pL ]","");
-
+        fileWriter(newText);
         return newText;
     }
 
@@ -69,7 +101,9 @@ public class Service {
      * @param text
      * @return
      */
-    public String remove(String text) {
+
+    //TODO DOESN'T WORK
+    public String remove(String text) throws IOException {
         String[] strArr = text.split(" ");//разбиваем текст на массив слов
         StringBuilder sb = new StringBuilder();
         for (int i=0;i<strArr.length;i++){
@@ -91,8 +125,7 @@ public class Service {
             }
         }
         String newText = sb.toString().trim();
-
-        // вывод результата
+        fileWriter(newText);
         return newText;
     }
 

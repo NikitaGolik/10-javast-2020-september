@@ -5,8 +5,8 @@ import by.golik.jwdcourse.task05.reciever.Receiver;
 public class Client {
     private Receiver mReceiver;
 
-    public Client(Receiver Reciever) {
-        mReceiver = Reciever;
+    public Client(Receiver Receiver) {
+        mReceiver = Receiver;
     }
     public Command initCommand(TypeCommand cmd) {
         Command command = null;

@@ -5,13 +5,13 @@ import java.io.IOException;
 
 
 public class Receiver {
-    Service service;
+    Service service = new Service();
     PrintNewText printNewText = new PrintNewText();
     ReaderFromFile readerFromFile = new ReaderFromFile();
     public void action(TypeCommand cmd) throws IOException {
         switch (cmd) {
             case ONE:
-                 service.replaceSymbol(readerFromFile.readStringFromFile(), 2, 's');
+                service.replaceSymbol(readerFromFile.readStringFromFile(), 2, 's');
                 System.out.println(service.replaceSymbol(readerFromFile.readStringFromFile(), 2, 's'));
                 break;
             case TWO:
