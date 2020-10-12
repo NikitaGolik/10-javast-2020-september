@@ -1,16 +1,18 @@
 package by.golik.jwdcourse.task05.command;
-import by.golik.jwdcourse.task05.reciever.Reciever;
+import by.golik.jwdcourse.task05.reciever.Receiver;
+
+import java.io.IOException;
 
 public class CommandFour implements Command {
-    Reciever reciever;
+    Receiver receiver;
 
-    public CommandFour(Reciever reciever) {
-        this.reciever = reciever;
+    public CommandFour(Receiver receiver) {
+        this.receiver = receiver;
     }
 
     @Override
-    public void execute() {
+    public void execute() throws IOException {
         System.out.println();
-        reciever.action(TypeCommand.FOUR);
+        receiver.action(TypeCommand.FOUR);
     }
 }
