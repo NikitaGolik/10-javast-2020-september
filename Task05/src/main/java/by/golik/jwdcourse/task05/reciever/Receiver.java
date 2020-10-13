@@ -23,19 +23,19 @@ public class Receiver {
                 break;
             case TWO:
 //                service.replace(readerFromFile.readStringFromFile());
-//                serviceRegex.replaceRegex(readerFromFile.readStringFromFile());
+                serviceRegex.replaceRegex(readerFromFile.readStringFromFile());
                 break;
             case THREE:
 //                service.replaceSubstring(readerFromFile.readStringFromFile());
-//                serviceRegex.replaceSubstringRegex((readerFromFile.readStringFromFile()));
+                serviceRegex.replaceSubstringRegex((readerFromFile.readStringFromFile()));
                 break;
             case FOUR:
 //                service.deleteSymbols(readerFromFile.readStringFromFile());
-//                serviceRegex.deleteSymbolsRegex(readerFromFile.readStringFromFile());
+                serviceRegex.deleteSymbolsRegex(readerFromFile.readStringFromFile());
                 break;
             case FIVE:
 //                service.remove(readerFromFile.readStringFromFile());
-//                serviceRegex.deleteWordsRegex(readerFromFile.readStringFromFile());
+                serviceRegex.deleteWordsRegex(readerFromFile.readStringFromFile());
                 break;
         }
     }

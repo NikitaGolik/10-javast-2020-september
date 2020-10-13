@@ -18,13 +18,13 @@ public class Main {
 /**
  *
  */
-        Command commandOne = client.initCommand(TypeCommand.ONE);
-        Invoker invokerOne = new Invoker(commandOne);
-        invokerOne.invokeCommand();
+//        Command commandOne = client.initCommand(TypeCommand.ONE);
+//        Invoker invokerOne = new Invoker(commandOne);
+//        invokerOne.invokeCommand();
 
-//        Command commandTwo = client.initCommand(TypeCommand.TWO);
-//        Invoker invokerTwo = new Invoker(commandTwo);
-//        invokerTwo.invokeCommand();
+        Command commandTwo = client.initCommand(TypeCommand.TWO);
+        Invoker invokerTwo = new Invoker(commandTwo);
+        invokerTwo.invokeCommand();
 //
 //        Command commandThree = client.initCommand(TypeCommand.THREE);
 //        Invoker invokerThree = new Invoker(commandThree);

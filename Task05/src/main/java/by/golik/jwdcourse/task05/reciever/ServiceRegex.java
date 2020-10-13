@@ -28,7 +28,7 @@ public class ServiceRegex {
         System.out.println(newText);
         return newText;
     }
-
+    //TODO
     /**
      * 2.   В тексте после буквы, например, Р, если она не последняя в слове,
      * ошибочно напечатана буква, например,  А,  вместо, например, О. Внести исправления в текст.
@@ -36,11 +36,7 @@ public class ServiceRegex {
      */
     public String replaceRegex(String text) {
         String newText = null;
-        int position = text.indexOf("p");
-        if (position < text.length() - 1
-                && text.charAt(position + 1) == 'a') {
-            newText = text.replace("a", "o");
-        }
+        newText = text.replaceAll("\\B[ра]\\B", "ро");
         System.out.println(newText);
         return newText;
     }
@@ -79,7 +75,7 @@ public class ServiceRegex {
      */
     //TODO DOESN'T WORK
     public String deleteWordsRegex(String text) {
-;
+        
 
         return text;
     }
