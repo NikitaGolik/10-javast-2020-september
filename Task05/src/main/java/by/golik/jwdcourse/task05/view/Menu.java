@@ -1,11 +1,21 @@
 package by.golik.jwdcourse.task05.view;
 
+/**
+ *
+ */
 public class Menu {
+    /**
+     *
+     */
     public void printMenu() {
         System.out.println("1 - получить текст из файла, все дальнейшие изменения занести в новый файл");
         System.out.println("2 - получить текст из консоли, все дальнейшие изменения вывести на консоль");
         System.out.println("3 - выход");
     }
+
+    /**
+     *
+     */
     public void printActionMenu() {
         System.out.println("1 - в каждом слове k-ю букву заменить заданным символом ");
         System.out.println("2 - В тексте после буквы, Р, если она не последняя в слове, ошибочно напечатана буква А, вместо О.");

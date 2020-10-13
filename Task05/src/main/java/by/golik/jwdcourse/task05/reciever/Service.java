@@ -7,7 +7,6 @@ import java.io.IOException;
 
 public class Service {
 
-
     /**+
      *
      * @param text
@@ -31,16 +30,17 @@ public class Service {
     /**
      * 1.	В каждом слове k-ю букву заменить заданным символом.
      * Если k больше длины слова, корректировку не выполнять.
-     * @param offer
-     * @param index
-     * @param symbol
+//     * @param offer
+//     * @param index
+//     * @param symbol
      * @return
      */
 
-    public String replaceSymbol(String offer, int index, char symbol) throws IOException {
+    public String replaceSymbol(String text, int index, char symbol) throws IOException {
+
         StringBuilder sb = new StringBuilder();
-        if (offer != null && offer.length() > 0 && index > 0) {
-            for (String word : offer.split(" ")) {
+        if (text != null && text.length() > 0 && index > 0) {
+            for (String word : text.split(" ")) {
                 if (word.length() >= index) {
                     sb.append(word.substring(0, index - 1)).append(symbol).append(word.substring(index, word.length()));
                 } else {
@@ -49,6 +49,7 @@ public class Service {
                 sb.append(" ");
             }
         } fileWriter(sb.toString());
+        System.out.println(sb.toString());
         return sb.toString();
     }
 
@@ -61,12 +62,14 @@ public class Service {
 
     public String replace(String text) throws IOException {
         StringBuilder sb = new StringBuilder();
+        String newText = null;
         if(text != null) {
             for (String word : text.split(" ")) {
-                text = text.replace ("ра","ро");
+                newText = text.replace ("ра","ро");
             }
-        } fileWriter(text);
-        return text;
+        } fileWriter(newText);
+        System.out.println(newText);
+        return newText;
     }
 
     /**
@@ -74,11 +77,19 @@ public class Service {
      * совпадать с длиной слова. (дом -> домик -> хата)
      * @param text
      */
+    public String replaceSubstring(String text) {
 
-    public String replaceSubstring (String text) throws IOException {
-        String newText = null;
-        newText = text.replaceAll("\\b[a-zA-Z]{5}\\b", "JAVA");
-        fileWriter(newText);
+        String[] splitString = text.split(" ");
+        String newText = new String();
+
+        for (int i = 0; i < splitString.length; i++) {
+            if (splitString[i].length() == 5) {
+                splitString[i] = text.substring(0, 10);
+                newText += splitString[i].concat(" ");
+            } else {
+                newText += splitString[i].concat(" ");
+            }
+        } System.out.println(newText);
         return newText;
     }
 
@@ -88,45 +99,43 @@ public class Service {
      * оставить один пробел (= удалить лишние пробелы).
      * @param text
      */
+    public String deleteSymbols(String text) {
 
-    public String deleteSymbols (String text) throws IOException {
-        String newText = null;
-        newText =  text.replaceAll("(?u)[^\\pL ]","");
-        fileWriter(newText);
-        return newText;
+        System.out.println();
+        return text;
     }
-
+//TODO DOESN'T WORK
     /**
      * 5.	Из текста удалить все слова заданной длины, начинающиеся на согласную букву.
      * @param text
      * @return
      */
 
-    //TODO DOESN'T WORK
     public String remove(String text) throws IOException {
-        String[] strArr = text.split(" ");//разбиваем текст на массив слов
-        StringBuilder sb = new StringBuilder();
-        for (int i=0;i<strArr.length;i++){
+        char consonants[] = {'б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п', 'р', 'с', 'т', 'ф', 'х', 'ц',
+                            'ч', 'ш', 'щ', 'b', 'c', 'd', 'f', 'h', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r',
+                            's', 't', 'v', 'w', 'x', 'y', 'z'};
+        String[] splitString = text.split(" ");
+        String ourFinalString = new String();
 
-            char first = strArr[i].charAt(0); // первая буква каждого слова
 
-            if(!((strArr[i].length() % 5 == 0) && ((first != 'b') && (first != 'c') && (first != 'd') &&
-                    (first != 'f') && (first != 'g') && (first != 'h') && (first != 'j') && (first != 'k') &&
-                    (first != 'l') && (first != 'm') && (first != 'n') && (first != 'p') && (first != 'q') &&
-                    (first != 'r') && (first != 's') && (first != 't') && (first != 'v') && (first != 'w') &&
-                    (first != 'x') && (first != 'y') && (first != 'z') && (first != 'б') && (first != 'в') &&
-                    (first != 'г') && (first != 'д') && (first != 'ж') && (first != 'з') && (first != 'к') &&
-                    (first != 'л') && (first != 'м') && (first != 'н') && (first != 'п') && (first != 'р') &&
-                    (first != 'с') && (first != 'т') && (first != 'ф') && (first != 'х') && (first != 'ц') &&
-                    (first != 'ч') && (first != 'ш')&&(first != 'щ'))))
-            {
-
-                sb.append(strArr[i]).append(" ");
+        for (int i = 0; i < splitString.length; i++) {
+            if (splitString[i].length() != 5) {
+                ourFinalString += splitString[i].concat(" ");
+                continue;
+            } else {
+                for (int j = 0; j < consonants.length; j++) {
+                    if (splitString[i].toLowerCase().startsWith(String.valueOf(consonants[j]))) {
+                        break;
+                    }
+                    if (j == consonants.length - 1) {
+                        ourFinalString += splitString[i].concat(" ");
+                    }
+                }
             }
         }
-        String newText = sb.toString().trim();
-        fileWriter(newText);
-        return newText;
+        System.out.println(ourFinalString);
+        return ourFinalString;
     }
 
 }

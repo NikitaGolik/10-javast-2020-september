@@ -1,6 +1,9 @@
 package by.golik.jwdcourse.task05.reciever;
 import java.io.*;
 
+/**
+ *
+ */
 public class ReaderFromFile {
 
     /**

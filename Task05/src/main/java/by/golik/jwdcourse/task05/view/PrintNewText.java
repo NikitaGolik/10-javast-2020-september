@@ -1,12 +1,13 @@
 package by.golik.jwdcourse.task05.view;
-
-import by.golik.jwdcourse.task05.command.TypeCommand;
 import by.golik.jwdcourse.task05.reciever.ReaderFromFile;
 import by.golik.jwdcourse.task05.reciever.Receiver;
-
 import java.io.IOException;
 
+/**
+ *
+ */
 public class PrintNewText {
+
     ReaderFromFile readerFromFile;
     Receiver receiver;
     public void printNewTextReplaceSymbol() throws IOException {

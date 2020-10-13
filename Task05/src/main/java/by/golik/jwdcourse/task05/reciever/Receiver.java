@@ -1,34 +1,41 @@
 package by.golik.jwdcourse.task05.reciever;
 import by.golik.jwdcourse.task05.command.TypeCommand;
-import by.golik.jwdcourse.task05.view.PrintNewText;
 import java.io.IOException;
 
-
+/**
+ *
+ */
 public class Receiver {
     Service service = new Service();
-    PrintNewText printNewText = new PrintNewText();
+    ServiceRegex serviceRegex = new ServiceRegex();
     ReaderFromFile readerFromFile = new ReaderFromFile();
+
+    /**
+     *
+     * @param cmd
+     * @throws IOException
+     */
     public void action(TypeCommand cmd) throws IOException {
         switch (cmd) {
             case ONE:
-                service.replaceSymbol(readerFromFile.readStringFromFile(), 2, 's');
-                System.out.println(service.replaceSymbol(readerFromFile.readStringFromFile(), 2, 's'));
+//                service.replaceSymbol(readerFromFile.readStringFromFile(), 1, '@');
+                serviceRegex.replaceSymbolRegex(readerFromFile.readStringFromFile(), 3, 'a');
                 break;
             case TWO:
-                service.replace(readerFromFile.readStringFromFile());
-                System.out.println(service.replace(readerFromFile.readStringFromFile()));
+//                service.replace(readerFromFile.readStringFromFile());
+//                serviceRegex.replaceRegex(readerFromFile.readStringFromFile());
                 break;
             case THREE:
-                service.replaceSubstring(readerFromFile.readStringFromFile());
-                System.out.println(service.replaceSubstring(readerFromFile.readStringFromFile()));
+//                service.replaceSubstring(readerFromFile.readStringFromFile());
+//                serviceRegex.replaceSubstringRegex((readerFromFile.readStringFromFile()));
                 break;
             case FOUR:
-                service.deleteSymbols(readerFromFile.readStringFromFile());
-                System.out.println(service.deleteSymbols(readerFromFile.readStringFromFile()));
+//                service.deleteSymbols(readerFromFile.readStringFromFile());
+//                serviceRegex.deleteSymbolsRegex(readerFromFile.readStringFromFile());
                 break;
             case FIVE:
-                service.remove(readerFromFile.readStringFromFile());
-                System.out.println(service.remove(readerFromFile.readStringFromFile()));
+//                service.remove(readerFromFile.readStringFromFile());
+//                serviceRegex.deleteWordsRegex(readerFromFile.readStringFromFile());
                 break;
         }
     }
