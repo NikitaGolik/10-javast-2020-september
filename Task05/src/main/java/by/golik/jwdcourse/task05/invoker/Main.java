@@ -16,7 +16,7 @@ public class Main {
          */
         Receiver receiver = new Receiver();
         Client client = new Client(receiver);
-        
+
         /**
          * Creates invoker, which calls necessary commands
          */

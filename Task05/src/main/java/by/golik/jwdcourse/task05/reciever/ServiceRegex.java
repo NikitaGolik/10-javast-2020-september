@@ -18,6 +18,8 @@ public class ServiceRegex {
     public String replaceSymbolRegex(String text, int index, char symbol) {
         String newText = null;
         newText = text.replaceAll(String.format("(\\b\\p{L}{%d})\\p{L}", index - 1), "$1" + symbol);
+        System.out.println("New Text:");
+        System.out.println("");
         System.out.println(newText);
         return newText;
     }
@@ -32,6 +34,8 @@ public class ServiceRegex {
     public String replaceRegex(String text) {
         String newText = null;
         newText = text.replaceAll("\\B[ра]\\B", "ро");
+        System.out.println("New Text:");
+        System.out.println("");
         System.out.println(newText);
         return newText;
     }
@@ -48,6 +52,8 @@ public class ServiceRegex {
         String newText = null;
         newText = text.replaceAll("\\b[a-zA-Z]{5}\\b", "JAVA");
         service.fileWriter(newText);
+        System.out.println("New Text:");
+        System.out.println("");
         System.out.println(newText);
         return newText;
     }
@@ -65,6 +71,8 @@ public class ServiceRegex {
         String newText = null;
         newText =  text.replaceAll("(?u)[^\\pL ]","");
         service.fileWriter(newText);
+        System.out.println("New Text:");
+        System.out.println("");
         System.out.println(newText);
         return newText;
     }

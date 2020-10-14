@@ -54,6 +54,8 @@ public class Service {
             }
         }
         fileWriter(sb.toString());
+        System.out.println("New Text:");
+        System.out.println("");
         System.out.println(sb.toString());
         return sb.toString();
     }
@@ -75,6 +77,8 @@ public class Service {
             }
         }
         fileWriter(newText);
+        System.out.println("New Text:");
+        System.out.println("");
         System.out.println(newText);
         return newText;
     }
@@ -100,6 +104,8 @@ public class Service {
             }
             fileWriter(newText);
         }
+        System.out.println("New Text:");
+        System.out.println("");
         System.out.println(newText);
         return newText;
     }
@@ -134,6 +140,8 @@ public class Service {
         //отрежем последний пробел
         newText = newText.trim();
         fileWriter(newText);
+        System.out.println("New Text:");
+        System.out.println("");
         System.out.print(newText);
 
         return text;
@@ -159,6 +167,8 @@ public class Service {
         }
         String newText = builder.toString().trim();
         fileWriter(newText);
+        System.out.println("New Text:");
+        System.out.println("");
         System.out.println(newText);
         return newText;
     }
