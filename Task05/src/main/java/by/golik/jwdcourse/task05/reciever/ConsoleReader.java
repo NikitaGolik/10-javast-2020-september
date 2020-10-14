@@ -1,16 +1,20 @@
 package by.golik.jwdcourse.task05.reciever;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 /**
- *
+ * This class includes method which get text from user console
  */
 public class ConsoleReader {
-    public String readerFromConsole(String s) throws IOException {
+    /**
+     *
+     * @param text - entered text by user
+     * @return text for next correction
+     * @throws IOException if stream to file cannot be written to or closed.
+     */
+    public String readerFromConsole(String text) throws IOException {
         List<String> input = new ArrayList();
         Scanner scan = new Scanner(System.in);
         while(true){
@@ -18,6 +22,6 @@ public class ConsoleReader {
             if(current.equals(""))break;
             input.add(current);
         }
-        return s;
+        return text;
     }
 }

@@ -1,18 +1,16 @@
 package by.golik.jwdcourse.task05.command;
-
 import by.golik.jwdcourse.task05.reciever.Receiver;
-
 import java.io.IOException;
 
 /**
- *
+ * A class defines a specific executor
  */
 public class CommandFive implements Command {
     Receiver receiver;
 
     /**
-     *
-     * @param receiver
+     * Method to define a specific executor
+     * @param receiver a specific executor
      */
     public CommandFive(Receiver receiver) {
         this.receiver = receiver;
@@ -20,7 +18,7 @@ public class CommandFive implements Command {
 
     /**
      *
-     * @throws IOException
+     * @throws IOException if stream to file cannot be written to or closed.
      */
     @Override
     public void execute() throws IOException {

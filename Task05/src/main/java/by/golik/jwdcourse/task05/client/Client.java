@@ -3,23 +3,23 @@ import by.golik.jwdcourse.task05.command.*;
 import by.golik.jwdcourse.task05.reciever.Receiver;
 
 /**
- *
+ * Сlass for defining the command type and initializing the appropriate object
  */
 public class Client {
     private Receiver mReceiver;
 
     /**
-     *
-     * @param Receiver
+     * Constructor that creates a specific executor
+     * @param Receiver - specific executor
      */
     public Client(Receiver Receiver) {
         mReceiver = Receiver;
     }
 
     /**
-     *
-     * @param cmd
-     * @return
+     * initialization of a suitable command
+     * @param cmd - definite command
+     * @return - specific command
      */
     public Command initCommand(TypeCommand cmd) {
         Command command = null;

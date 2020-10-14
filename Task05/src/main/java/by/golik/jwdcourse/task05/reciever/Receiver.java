@@ -3,16 +3,17 @@ import by.golik.jwdcourse.task05.command.TypeCommand;
 import java.io.IOException;
 
 /**
- *
+ * A class that has information about how to perform operations on text
  */
 public class Receiver {
+
     Service service = new Service();
     ServiceRegex serviceRegex = new ServiceRegex();
     ReaderFromFile readerFromFile = new ReaderFromFile();
 
-    /**
-     *
-     * @param cmd
+    /**+
+     * This method executes the request sent by the command
+     * @param cmd - number of command
      * @throws IOException
      */
     public void action(TypeCommand cmd) throws IOException {
@@ -30,12 +31,12 @@ public class Receiver {
                 serviceRegex.replaceSubstringRegex((readerFromFile.readStringFromFile()));
                 break;
             case FOUR:
-//                service.deleteSymbols(readerFromFile.readStringFromFile());
-                serviceRegex.deleteSymbolsRegex(readerFromFile.readStringFromFile());
+//                service.deleteAllSymbols(readerFromFile.readStringFromFile());
+                serviceRegex.deleteAllSymbolsRegex(readerFromFile.readStringFromFile());
                 break;
             case FIVE:
-//                service.remove(readerFromFile.readStringFromFile());
-                serviceRegex.deleteWordsRegex(readerFromFile.readStringFromFile());
+                service.remove(readerFromFile.readStringFromFile());
+//                serviceRegex.deleteWordsRegex(readerFromFile.readStringFromFile());
                 break;
         }
     }

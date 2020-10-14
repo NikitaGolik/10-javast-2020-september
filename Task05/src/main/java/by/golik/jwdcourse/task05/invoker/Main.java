@@ -6,25 +6,28 @@ import by.golik.jwdcourse.task05.reciever.Receiver;
 import java.io.IOException;
 
 /**
- *
+ * @author Niktia Golik
+ * Class-runner for programm
  */
 public class Main {
     public static void main(String[] args) throws IOException {
         /**
-         *
+         * Creates objects which will be used
          */
         Receiver receiver = new Receiver();
         Client client = new Client(receiver);
-/**
- *
- */
+        
+        /**
+         * Creates invoker, which calls necessary commands
+         */
+
 //        Command commandOne = client.initCommand(TypeCommand.ONE);
 //        Invoker invokerOne = new Invoker(commandOne);
 //        invokerOne.invokeCommand();
 
-        Command commandTwo = client.initCommand(TypeCommand.TWO);
-        Invoker invokerTwo = new Invoker(commandTwo);
-        invokerTwo.invokeCommand();
+//        Command commandTwo = client.initCommand(TypeCommand.TWO);
+//        Invoker invokerTwo = new Invoker(commandTwo);
+//        invokerTwo.invokeCommand();
 //
 //        Command commandThree = client.initCommand(TypeCommand.THREE);
 //        Invoker invokerThree = new Invoker(commandThree);
@@ -34,9 +37,9 @@ public class Main {
 //        Invoker invokerFour = new Invoker(commandFour);
 //        invokerFour.invokeCommand();
 //
-//        Command commandFive = client.initCommand(TypeCommand.FIVE);
-//        Invoker invokerFive = new Invoker(commandFive);
-//        invokerFive.invokeCommand();
+        Command commandFive = client.initCommand(TypeCommand.FIVE);
+        Invoker invokerFive = new Invoker(commandFive);
+        invokerFive.invokeCommand();
 
     }
 }
