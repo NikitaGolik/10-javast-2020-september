@@ -9,19 +9,19 @@ import java.util.Scanner;
  */
 public class ConsoleReader {
     /**
-     *
-     * @param text - entered text by user
+     * This method gets text from user
      * @return text for next correction
      * @throws IOException if stream to file cannot be written to or closed.
      */
-    public String readerFromConsole(String text) throws IOException {
+    public String readerFromConsole() throws IOException {
         List<String> input = new ArrayList();
         Scanner scan = new Scanner(System.in);
+        System.out.println("Введите текст, для прекращения ввода текста, нажмите Enter 2 раза");
         while(true){
             String current = scan.nextLine();
             if(current.equals(""))break;
             input.add(current);
         }
-        return text;
+        return input.toString();
     }
 }

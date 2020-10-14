@@ -21,9 +21,9 @@ public class Main {
          * Creates invoker, which calls necessary commands
          */
 
-//        Command commandOne = client.initCommand(TypeCommand.ONE);
-//        Invoker invokerOne = new Invoker(commandOne);
-//        invokerOne.invokeCommand();
+        Command commandOne = client.initCommand(TypeCommand.ONE);
+        Invoker invokerOne = new Invoker(commandOne);
+        invokerOne.invokeCommand();
 
 //        Command commandTwo = client.initCommand(TypeCommand.TWO);
 //        Invoker invokerTwo = new Invoker(commandTwo);
@@ -37,9 +37,9 @@ public class Main {
 //        Invoker invokerFour = new Invoker(commandFour);
 //        invokerFour.invokeCommand();
 //
-        Command commandFive = client.initCommand(TypeCommand.FIVE);
-        Invoker invokerFive = new Invoker(commandFive);
-        invokerFive.invokeCommand();
+//        Command commandFive = client.initCommand(TypeCommand.FIVE);
+//        Invoker invokerFive = new Invoker(commandFive);
+//        invokerFive.invokeCommand();
 
     }
 }
