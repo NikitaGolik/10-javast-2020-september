@@ -14,7 +14,8 @@ public class ReaderFromFile {
     public String readStringFromFile() throws IOException {
         String text = null;
 
-        try (BufferedReader br = new BufferedReader(new FileReader("D:\\demo\\text.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader
+                ("D:\\eclipse-workspace\\10-javast-2020-september\\Task05\\text.txt"))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
 
