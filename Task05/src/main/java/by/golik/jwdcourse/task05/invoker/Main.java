@@ -25,21 +25,21 @@ public class Main {
         Invoker invokerOne = new Invoker(commandOne);
         invokerOne.invokeCommand();
 
-//        Command commandTwo = client.initCommand(TypeCommand.TWO);
-//        Invoker invokerTwo = new Invoker(commandTwo);
-//        invokerTwo.invokeCommand();
-//
-//        Command commandThree = client.initCommand(TypeCommand.THREE);
-//        Invoker invokerThree = new Invoker(commandThree);
-//        invokerThree.invokeCommand();
-//
-//        Command commandFour = client.initCommand(TypeCommand.FOUR);
-//        Invoker invokerFour = new Invoker(commandFour);
-//        invokerFour.invokeCommand();
-//
-//        Command commandFive = client.initCommand(TypeCommand.FIVE);
-//        Invoker invokerFive = new Invoker(commandFive);
-//        invokerFive.invokeCommand();
+        Command commandTwo = client.initCommand(TypeCommand.TWO);
+        Invoker invokerTwo = new Invoker(commandTwo);
+        invokerTwo.invokeCommand();
+
+        Command commandThree = client.initCommand(TypeCommand.THREE);
+        Invoker invokerThree = new Invoker(commandThree);
+        invokerThree.invokeCommand();
+
+        Command commandFour = client.initCommand(TypeCommand.FOUR);
+        Invoker invokerFour = new Invoker(commandFour);
+        invokerFour.invokeCommand();
+
+        Command commandFive = client.initCommand(TypeCommand.FIVE);
+        Invoker invokerFive = new Invoker(commandFive);
+        invokerFive.invokeCommand();
 
     }
 }
