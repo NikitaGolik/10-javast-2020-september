@@ -28,7 +28,6 @@ public class ServiceRegex {
         System.out.println(newText);
         return newText;
     }
-    //TODO
 
     /**
      * 2. In the text after the letter, for example, P, if it is not the last in the word,
@@ -38,11 +37,8 @@ public class ServiceRegex {
      */
     public String replaceRegex(String text) {
         String newText = null;
-        /**
-         * \B assert position where \b does not match
-         * ра matches a single character in the list ра (case sensitive)
-         */
-        newText = text.replaceAll("\\B[ра]\\B", "ро");
+
+        newText = text.replaceAll("(?=(ра))", "ро");
         System.out.println("New Text:");
         System.out.println("");
         System.out.println(newText);
@@ -104,7 +100,7 @@ public class ServiceRegex {
      * @throws IOException if stream to file cannot be written to or closed
      */
 
-    //TODO DOESN'T WORK (consonant)
+
 
     public String deleteWordsRegex(String text) throws IOException {
         String newText = null;
@@ -114,7 +110,9 @@ public class ServiceRegex {
          * {5} - count of letters in word
          *
          */
-        newText = text.replaceAll("\\b\\w{5,5}\\b", "");
+
+        newText = text.replaceAll("\\b\\[бвгджзйклмнпрстфхцчшщБВГДЖЗЙЛМНПРСТФЗЦЧШЩBCDFGHJKLMNPQRSTVWXZbcdfghjklmnpqrstvwxz]{5}\\b", "");
+
         service.fileWriter(newText);
         System.out.println("New Text:");
         System.out.println("");

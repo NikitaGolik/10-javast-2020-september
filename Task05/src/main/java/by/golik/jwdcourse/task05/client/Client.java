@@ -25,23 +25,28 @@ public class Client {
         Command command = null;
         switch (cmd) {
             case ONE:
+                System.out.println("1 - в каждом слове k-ю букву заменить заданным символом ");
                 System.out.println("Creating command One & set up it's receiver");
                 command = new CommandOne(mReceiver);
                 break;
             case TWO:
                 System.out.println("Creating command Two & set up it's receiver");
+                System.out.println("2 - В тексте после буквы, Р, если она не последняя в слове, ошибочно напечатана буква А, вместо О.");
                 command = new CommandTwo(mReceiver);
                 break;
             case THREE:
                 System.out.println("Creating command Three & set up it's receiver");
+                System.out.println("3 - В тексте слова заданной длины заменить указанной подстрокой, длина которой может не совпадать с длиной слова");
                 command = new CommandThree(mReceiver);
                 break;
             case FOUR:
                 System.out.println("Creating command Four & set up it's receiver");
+                System.out.println("4 - Из небольшого текста удалить все символы, кроме пробелов, не являющиеся буквами (и рус и англ). ");
                 command = new CommandFour(mReceiver);
                 break;
             case FIVE:
                 System.out.println("Creating command Five & set up it's receiver");
+                System.out.println("5 - Из текста удалить все слова заданной длины, начинающиеся на согласную букву.");
                 command = new CommandFive(mReceiver);
                 break;
         }

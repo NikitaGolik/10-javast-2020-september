@@ -8,7 +8,7 @@ public class ReaderFromFile {
 
     /**
      * This method reads each line of text from the file and passes the text further for processing
-     * @retur - original text from the file for further processing
+     * @return - original text from the file for further processing
      * @throws IOException if stream to file cannot be written to or closed.
      */
     public String readStringFromFile() throws IOException {
