@@ -1,5 +1,7 @@
 package by.golik.jwdcourse.task04.service;
 
+import by.golik.jwdcourse.task04.view.ConsoleReader;
+
 import java.util.Scanner;
 
 /**
@@ -9,6 +11,7 @@ public class ServiceJagged {
     private int row;
     private int col;
     private int[][] jaggedArray;
+    ConsoleReader consoleReader;
 
     public ServiceJagged(int[][] jaggedArray) {
         this.jaggedArray = jaggedArray;
@@ -23,20 +26,113 @@ public class ServiceJagged {
     public void matrixSquare(int[][] matrix) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter count of Rows Matrix: ");
-        countRows = scanner.nextInt();
+        row = scanner.nextInt();
         System.out.println("Enter count of Columns Matrix: ");
-        countCol = scanner.nextInt();
-        if (countRows == countCol) {
+        col = scanner.nextInt();
+        if (row == col) {
             System.out.println("Матрица является квадратной");
         }
     }
 
-    public int[][] additionJagged(int[][] m, int[][] n) {
+    public int[][] additionJagged(int[][] matrix1, int[][] matrix2) {
+        int n;
+        int m;
+        try (Scanner in = new Scanner(System.in)) {
+            System.out.print("Введите количество строк: ");
+            n = in.nextInt();
+            System.out.print("Введите количество столбцов: ");
+            m = in.nextInt();
+            matrix1 = new int[n][m];
+            System.out.println("Введите элеменнты 1 массива, по порядку: ");
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    matrix1[i][j] = in.nextInt();
+                }
+            }
+            matrix2 = new int[n][m];
+            System.out.println("Введите элеменнты 2 массива, по порядку: ");
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    matrix2[i][j] = in.nextInt();
+                }
+            }
+        }
+        System.out.println("Матрица 1: ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print(matrix1[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println("Матрица 2: ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print(matrix2[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Сумма матриц: ");
+        int[][] finalMatrix = new int[n][m];
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < m; j++) {
+                finalMatrix[i][j] = matrix1[i][j] - matrix2[i][j];
+                System.out.print(finalMatrix[i][j] + " ");
+
+            }
+            System.out.println();
+        }
+        return finalMatrix;
 
     }
 
-    public int[][] subtractionJagged(int[][] m, int[][] n) {
 
+    public int[][] subtractionJagged(int[][] matrix1, int[][] matrix2) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите количество строк: ");
+        int n = in.nextInt();
+        System.out.print("Введите количество столбцов: ");
+        int m = in.nextInt();
+        matrix1 = new  int [n][m];
+        System.out.println("Введите элеменнты 1 массива, по порядку: ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                matrix1 [i][j] = in.nextInt();
+            }
+        }
+        matrix2 = new  int [n][m];
+        System.out.println("Введите элеменнты 2 массива, по порядку: ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                matrix2 [i][j] = in.nextInt();
+            }
+        }
+        System.out.println("Матрица 1: ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print(matrix1[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println("Матрица 2: ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print(matrix2[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Разница матриц: ");
+        int[][] finalMatrix = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                finalMatrix[i][j] = matrix1[i][j] - matrix2[i][j];
+                System.out.print(finalMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        return finalMatrix;
     }
 
     public void multiplyOnConstantJagged(int[][]m, int n) {

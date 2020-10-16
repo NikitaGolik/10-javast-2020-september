@@ -61,6 +61,8 @@ public class SearchInArray implements SearchArray {
      * @param
      * @return
      */
+
+    //TODO
     public int[] primeNumbersBruteForce(int[] n) {
         List<Integer> primeNumbers = new LinkedList<>();
         for (int i = 2; i <= n.length; i++) {

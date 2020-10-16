@@ -8,11 +8,14 @@ public class PrintArray {
     /**
      * This method prints elements of array
      *
-     * @param text  - information about array
+     * @param  - information about array
      * @param array - elements of array
      */
-    public static void printArray(String text, int[] array) {
-        System.out.println(text + Arrays.toString(array) + "\n");
+    public static void printArray(int[] array) {
+        System.out.println("Your array is : ");
+        for(int o : array) {
+            System.out.println(o);
+        }
     }
 
     /**
@@ -29,7 +32,14 @@ public class PrintArray {
         System.out.println(text + " " + number);
     }
 
-    public static void printJaggedArray(String text, int[][] jaggedArray) {
-        System.out.println(text + " " + Arrays.toString(jaggedArray) + "\n");
+    public static void printJaggedArray(int[][] jaggedArray) {
+        System.out.println("Your jagged Array");
+        for (int i = 0; i < jaggedArray.length; i++) {
+            System.out.println();
+            for (int j = 0; j < jaggedArray[i].length; j++) {
+                System.out.print(jaggedArray[i][j]+" ");
+            }
+        }
+        System.out.println();
     }
 }

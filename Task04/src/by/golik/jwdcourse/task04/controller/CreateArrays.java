@@ -31,11 +31,12 @@ MainController controller;
      * @throws FileNotFoundException - Constructs a FileNotFoundException with null as its error detail message.
      * @return
      */
+    //TODO
     public static int[] fillFromFile() throws FileNotFoundException {
-        File file = new File("D:\\demo\\testArray.txt");
+        File file = new File("D:\\eclipse-workspace\\10-javast-2020-september\\Task04\\testArray.txt");
         Scanner scanner = new Scanner(file);
-        int[] arrayFile = new int[5];
-        for (int i = 0; scanner.hasNextInt(); i++) {
+        int[] arrayFile = new int[scanner.nextInt()];
+        for (int i = 0; i < arrayFile.length ; i++) {
             arrayFile[i] = scanner.nextInt();
         }
         return arrayFile;

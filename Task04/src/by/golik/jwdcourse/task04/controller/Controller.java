@@ -3,6 +3,8 @@ import by.golik.jwdcourse.task04.service.SearchInArray;
 import by.golik.jwdcourse.task04.service.ServiceJagged;
 import by.golik.jwdcourse.task04.service.SortArray;
 import by.golik.jwdcourse.task04.view.Command;
+import by.golik.jwdcourse.task04.view.ConsoleReader;
+
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import static by.golik.jwdcourse.task04.view.PrintArray.*;
@@ -11,6 +13,7 @@ import static by.golik.jwdcourse.task04.view.PrintArray.*;
 public class Controller {
     Command command = new Command();
     private Scanner scanner;
+    ConsoleReader consoleReader;
 
     public Controller(Scanner scanner) {
         this.scanner = scanner;
@@ -27,17 +30,17 @@ public class Controller {
                 switch (key) {
                     case "1" :
                         array = CreateArrays.fillFromConsole();
-                        printArray("Array from console \n", array);
+                        printArray(array);
                         sort(array);
                         break;
                     case "2" :
                         array = CreateArrays.fillFromFile();
-                        printArray("Array from file \n", array);
+                        printArray(array);
                         sort(array);
                         break;
                     case "3" :
                         array = CreateArrays.fillByRandom();
-                        printArray("Array from Random \n", array);
+                        printArray(array);
                         sort(array);
                         break;
                     case "4" :
@@ -97,17 +100,17 @@ public class Controller {
                         SearchInArray searchFibonacciInArray = new SearchInArray(array);
                         SortArray insertionSortArray3 = new SortArray(array);
                         insertionSortArray3.insertionSort();
-                        printArray("Your numbers are ", searchFibonacciInArray.fibonacciSearch(insertionSortArray3));
+                        printArray(searchFibonacciInArray.fibonacciSearch(insertionSortArray3));
                         break;
                     case "9" :
                         SearchInArray searchDigitsInArray = new SearchInArray(array);
                         searchDigitsInArray.findNumbersWithThreeDifferentDigits(array);
-                        printArray("Your numbers are ", searchDigitsInArray.findNumbersWithThreeDifferentDigits(array));
+                        printArray(searchDigitsInArray.findNumbersWithThreeDifferentDigits(array));
                         break;
                     case "10" :
                         SearchInArray searchPrimeInArray = new SearchInArray(array);
                         searchPrimeInArray.primeNumbersBruteForce(array);
-                        printArray("Your numbers are ", searchPrimeInArray.findNumbersWithThreeDifferentDigits(array));
+                        printArray(searchPrimeInArray.primeNumbersBruteForce(array));
                     case "11" :
                         addJagged();
                     case "12" :
@@ -131,15 +134,15 @@ public class Controller {
                 switch (key) {
                     case "1" :
                         jaggedArray = CreateJaggedArrays.fillJaggedFromConsole();
-                        printJaggedArray("Your Jagged Array is ", jaggedArray);
+                        printJaggedArray(jaggedArray);
                         actionsJagged(jaggedArray);
                     case "2" :
                         jaggedArray = CreateJaggedArrays.fillJaggerFromFile();
-                        printJaggedArray("Your Jagged Array is ", jaggedArray);
+                        printJaggedArray(jaggedArray);
                         actionsJagged(jaggedArray);
                     case "3" :
                         jaggedArray = CreateJaggedArrays.fillJaggedByRandom();
-                        printJaggedArray("Your Jagged Array is ", jaggedArray);
+                        printJaggedArray(jaggedArray);
                         actionsJagged(jaggedArray);
                     case "4" :
                         System.out.println("Завершение программы");
@@ -165,7 +168,7 @@ public class Controller {
 
                     case "2":
                         ServiceJagged additionJagged = new ServiceJagged(jaggedArray);
-                        additionJagged.additionJagged(jaggedArray, CreateJaggedArrays.fillJaggedByRandom());
+//                        additionJagged.additionJagged(jaggedArray, CreateJaggedArrays.fillJaggedByRandom());
 
                     case "3":
                         ServiceJagged subtractionJagged = new ServiceJagged(jaggedArray);

@@ -42,7 +42,7 @@ public class Array {
 
     /**
      * Definition of data
-     * @param data
+     *
      */
     public int[] getData() {
         return data;
