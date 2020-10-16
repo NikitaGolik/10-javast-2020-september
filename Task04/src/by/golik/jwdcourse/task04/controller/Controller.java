@@ -3,8 +3,6 @@ import by.golik.jwdcourse.task04.service.SearchInArray;
 import by.golik.jwdcourse.task04.service.ServiceJagged;
 import by.golik.jwdcourse.task04.service.SortArray;
 import by.golik.jwdcourse.task04.view.Command;
-import by.golik.jwdcourse.task04.view.ConsoleReader;
-
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import static by.golik.jwdcourse.task04.view.PrintArray.*;
@@ -13,7 +11,6 @@ import static by.golik.jwdcourse.task04.view.PrintArray.*;
 public class Controller {
     Command command = new Command();
     private Scanner scanner;
-    ConsoleReader consoleReader;
 
     public Controller(Scanner scanner) {
         this.scanner = scanner;
@@ -165,23 +162,23 @@ public class Controller {
                     case "1":
                         ServiceJagged matrixSquare = new ServiceJagged(jaggedArray);
                         matrixSquare.matrixSquare(jaggedArray);
-
+                        break;
                     case "2":
                         ServiceJagged additionJagged = new ServiceJagged(jaggedArray);
-//                        additionJagged.additionJagged(jaggedArray, CreateJaggedArrays.fillJaggedByRandom());
-
+                        additionJagged.additionJagged(jaggedArray, CreateJaggedArrays.fillJaggedByRandom());
+                        break;
                     case "3":
                         ServiceJagged subtractionJagged = new ServiceJagged(jaggedArray);
                         subtractionJagged.subtractionJagged(jaggedArray, CreateJaggedArrays.fillJaggedByRandom());
-
+                        break;
                     case "4":
                         ServiceJagged multiplyOnConstant = new ServiceJagged(jaggedArray);
-                        multiplyOnConstant.multiplyByMatrix(jaggedArray, CreateJaggedArrays.fillJaggedByRandom());
-
+                        multiplyOnConstant.multiplyOnConstantJagged(jaggedArray, 5);
+                        break;
                     case "5":
                         ServiceJagged transposeJagged = new ServiceJagged(jaggedArray);
                         transposeJagged.transpose();
-
+                        break;
                     case "6":
                         System.out.println("Завершение программы");
                         break;

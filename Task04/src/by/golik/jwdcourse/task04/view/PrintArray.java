@@ -1,9 +1,7 @@
 package by.golik.jwdcourse.task04.view;
-import by.golik.jwdcourse.task04.service.SortArray;
 import java.util.Arrays;
 
 public class PrintArray {
-    SortArray sortArray;
 
     /**
      * This method prints elements of array
@@ -28,10 +26,19 @@ public class PrintArray {
         System.out.println(text + " " + Arrays.toString(array) + "\n");
     }
 
+    /**
+     *
+     * @param text
+     * @param number
+     */
     public static void printSearchNumbers(String text, int number) {
         System.out.println(text + " " + number);
     }
 
+    /**
+     *
+     * @param jaggedArray
+     */
     public static void printJaggedArray(int[][] jaggedArray) {
         System.out.println("Your jagged Array");
         for (int i = 0; i < jaggedArray.length; i++) {

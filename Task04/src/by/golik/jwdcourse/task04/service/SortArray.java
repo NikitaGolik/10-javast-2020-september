@@ -1,8 +1,5 @@
 package by.golik.jwdcourse.task04.service;
-
-import by.golik.jwdcourse.task04.beans.Array;
 import by.golik.jwdcourse.task04.service.impl.ArrayService;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

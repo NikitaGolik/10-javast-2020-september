@@ -1,16 +1,13 @@
 package by.golik.jwdcourse.task04.controller;
-
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CreateArrays {
-MainController controller;
+
     /**
      *
      * This method fills the array with the numbers entered from the console.
-     *
      * @return
      */
     public static int[] fillFromConsole() {
@@ -31,7 +28,7 @@ MainController controller;
      * @throws FileNotFoundException - Constructs a FileNotFoundException with null as its error detail message.
      * @return
      */
-    //TODO
+
     public static int[] fillFromFile() throws FileNotFoundException {
         File file = new File("D:\\eclipse-workspace\\10-javast-2020-september\\Task04\\testArray.txt");
         Scanner scanner = new Scanner(file);

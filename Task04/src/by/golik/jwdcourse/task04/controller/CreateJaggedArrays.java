@@ -1,10 +1,16 @@
 package by.golik.jwdcourse.task04.controller;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ *
+ */
 public class CreateJaggedArrays {
+    /**
+     *
+     * @return
+     */
     public static int[][] fillJaggedFromConsole() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter count of raws");
@@ -21,6 +27,11 @@ public class CreateJaggedArrays {
         return matrix;
     }
 
+    /**
+     *
+     * @return
+     * @throws FileNotFoundException
+     */
     public static int[][] fillJaggerFromFile() throws FileNotFoundException {
         int[][] arrayFile = null;
         File file = new File("D:\\eclipse-workspace\\10-javast-2020-september\\Task04\\testJaggedArray.txt");
@@ -46,6 +57,10 @@ public class CreateJaggedArrays {
         return arrayFile;
     }
 
+    /**
+     *
+     * @return
+     */
     public static int[][] fillJaggedByRandom() {
         int[][] jaggedRandom = new int[5][5];
         for (int i = 0; i < jaggedRandom.length; i++) {

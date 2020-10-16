@@ -1,7 +1,5 @@
 package by.golik.jwdcourse.task04.service;
-
 import by.golik.jwdcourse.task04.service.impl.SearchArray;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,8 +8,6 @@ import java.util.List;
  * This class is a collection of methods for searching elements in an array.
  */
 public class SearchInArray implements SearchArray {
-    SortArray sortArray;
-
     int [] array;
 
     /**
@@ -87,6 +83,7 @@ public class SearchInArray implements SearchArray {
      * Sequence in which the first two numbers are either 1 and 1, or 0 and 1,
      * and each subsequent number is equal to the sum of the two previous numbers.
      */
+    //todo
     public int[] fibonacciSearch(SortArray sortArray) {
         int n0 = 1;
         int n1 = 1;

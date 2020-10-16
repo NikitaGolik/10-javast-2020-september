@@ -1,7 +1,4 @@
 package by.golik.jwdcourse.task04.service;
-
-import by.golik.jwdcourse.task04.view.ConsoleReader;
-
 import java.util.Scanner;
 
 /**
@@ -11,18 +8,15 @@ public class ServiceJagged {
     private int row;
     private int col;
     private int[][] jaggedArray;
-    ConsoleReader consoleReader;
 
     public ServiceJagged(int[][] jaggedArray) {
         this.jaggedArray = jaggedArray;
     }
 
-    public ServiceJagged(int row, int col) {
-        this.row = row;
-        this.col = col;
-        jaggedArray = new int[row][col];
-    }
-
+    /**
+     *
+     * @param matrix
+     */
     public void matrixSquare(int[][] matrix) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter count of Rows Matrix: ");
@@ -32,8 +26,14 @@ public class ServiceJagged {
         if (row == col) {
             System.out.println("Матрица является квадратной");
         }
+        else System.out.println("Матрица не является квадратной");
     }
 
+    /**
+     * @param matrix1
+     * @param matrix2
+     * @return
+     */
     public int[][] additionJagged(int[][] matrix1, int[][] matrix2) {
         int n;
         int m;
@@ -77,7 +77,7 @@ public class ServiceJagged {
         for (int i = 0; i < n; i++) {
 
             for (int j = 0; j < m; j++) {
-                finalMatrix[i][j] = matrix1[i][j] - matrix2[i][j];
+                finalMatrix[i][j] = matrix1[i][j] + matrix2[i][j];
                 System.out.print(finalMatrix[i][j] + " ");
 
             }
@@ -87,25 +87,29 @@ public class ServiceJagged {
 
     }
 
-
+    /**
+     * @param matrix1
+     * @param matrix2
+     * @return
+     */
     public int[][] subtractionJagged(int[][] matrix1, int[][] matrix2) {
         Scanner in = new Scanner(System.in);
         System.out.print("Введите количество строк: ");
         int n = in.nextInt();
         System.out.print("Введите количество столбцов: ");
         int m = in.nextInt();
-        matrix1 = new  int [n][m];
+        matrix1 = new int[n][m];
         System.out.println("Введите элеменнты 1 массива, по порядку: ");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                matrix1 [i][j] = in.nextInt();
+                matrix1[i][j] = in.nextInt();
             }
         }
-        matrix2 = new  int [n][m];
+        matrix2 = new int[n][m];
         System.out.println("Введите элеменнты 2 массива, по порядку: ");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                matrix2 [i][j] = in.nextInt();
+                matrix2[i][j] = in.nextInt();
             }
         }
         System.out.println("Матрица 1: ");
@@ -135,70 +139,94 @@ public class ServiceJagged {
         return finalMatrix;
     }
 
-    public void multiplyOnConstantJagged(int[][]m, int n) {
-
-
+    /**
+     * @param jaggedArray
+     * @param constant
+     * @return
+     */
+    public int[][] multiplyOnConstantJagged(int[][] jaggedArray, int constant) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите количество строк: ");
+        int n = in.nextInt();
+        System.out.print("Введите количество столбцов: ");
+        int m = in.nextInt();
+        System.out.println("Введите значение константы ");
+        constant = in.nextInt();
+        jaggedArray = new int[n][m];
+        System.out.println("Введите элеменнты массива, по порядку: ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                jaggedArray[i][j] = in.nextInt();
+            }
+        }
+        System.out.println("Начальаня Матрица : ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print(jaggedArray[i][j] + " ");
+            }
+            System.out.println();
+        }
+            int[][] finalMatrix = new int[n][m];
+        System.out.println("Полученная матрица: ");
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    finalMatrix[i][j] = jaggedArray[i][j] * constant;
+                    System.out.print(finalMatrix[i][j] + " ");
+                }
+                System.out.println();
+            }
+        return finalMatrix;
     }
 
         /**
-         * Matrix multiplication method.
-         * @param m Multiplicand
-         * @param n Multiplier
-         * @return Product
+         * method transposes matrix
          */
-    public int[][] multiplyByMatrix(int[][]m, int[][] n) {
-        int m1ColLength = m[0].length; // m columns length
-        int m2RowLength = n.length;    // n rows length
-        if(m1ColLength != m2RowLength) return null; // matrix multiplication is not possible
-        int mRRowLength = m.length;    // m result rows length
-        int mRColLength = n[0].length; // m result columns length
-        int[][] mResult = new int[mRRowLength][mRColLength];
-        for(int i = 0; i < mRRowLength; i++) {         // rows from m
-            for(int j = 0; j < mRColLength; j++) {     // columns from n
-                for(int k = 0; k < m1ColLength; k++) { // columns from m
-                    mResult[i][j] += m[i][k] * n[k][j];
+
+        public void transpose () {
+            Scanner in = new Scanner(System.in);
+            System.out.print("Введите количество строк и столбцов: ");
+
+            int n = in.nextInt();
+            int[][] a = new int[n][n];
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    a[i][j] = n * i + j;
                 }
             }
-        }
-        return mResult;
-    }
-    public void transpose() {
-        int n = 3;
-        int[][] a = new int[n][n];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                a[i][j] = n*i + j;
+            /**
+             * view matrix
+             */
+            System.out.println("Начальная матрица");
+            System.out.println("------");
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    System.out.printf("%4d", a[i][j]);
+                }
+                System.out.println();
             }
-        }
-        // часть 2 - выводит на экран начальную матрицу
-        System.out.println("Начальная матрица");
-        System.out.println("------");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.printf("%4d", a[i][j]);
-            }
-            System.out.println();
-        }
 
-        // часть 3 - транспонирование матрицы
-        for (int i = 0; i < n; i++) {
-            for (int j = i+1; j < n; j++) {
-                int temp = a[i][j];
-                a[i][j] = a[j][i];
-                a[j][i] = temp;
+            /**
+             * transpose matrix
+             */
+            for (int i = 0; i < n; i++) {
+                for (int j = i + 1; j < n; j++) {
+                    int temp = a[i][j];
+                    a[i][j] = a[j][i];
+                    a[j][i] = temp;
+                }
             }
-        }
 
-        // часть 4 - выводит на экран транспонированную матрицу
-        System.out.println();
-        System.out.println("Новая матрица");
-        System.out.println("------");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.printf("%3d", a[i][j]);
-            }
+            /**
+             * view new matrix
+             */
             System.out.println();
+            System.out.println("Новая матрица");
+            System.out.println("------");
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    System.out.printf("%3d", a[i][j]);
+                }
+                System.out.println();
+            }
         }
-    }
-    
 }

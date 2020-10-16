@@ -1,10 +1,10 @@
 package by.golik.jwdcourse.task04.view;
-import org.w3c.dom.ls.LSOutput;
-
 import java.io.FileNotFoundException;
 
+/**
+ * 
+ */
 public class Command {
-
 
     public void printMenu() throws FileNotFoundException {
 
