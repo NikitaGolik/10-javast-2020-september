@@ -159,7 +159,7 @@ public class ServiceJagged {
                 jaggedArray[i][j] = in.nextInt();
             }
         }
-        System.out.println("Начальаня Матрица : ");
+        System.out.println("Начальная Матрица : ");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 System.out.print(jaggedArray[i][j] + " ");
@@ -167,7 +167,7 @@ public class ServiceJagged {
             System.out.println();
         }
             int[][] finalMatrix = new int[n][m];
-        System.out.println("Полученная матрица: ");
+            System.out.println("Полученная матрица: ");
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++) {
                     finalMatrix[i][j] = jaggedArray[i][j] * constant;
@@ -228,5 +228,59 @@ public class ServiceJagged {
                 }
                 System.out.println();
             }
+        }
+
+    /**
+     *
+     * @param jaggedArray
+     * @return
+     */
+    public int[][] sortJaggedArray(int[][] jaggedArray) {
+            Scanner in = new Scanner(System.in);
+            System.out.print("Введите количество строк: ");
+            int n = in.nextInt();
+            System.out.print("Введите количество столбцов: ");
+            int m = in.nextInt();
+            jaggedArray = new int[m][n];
+
+            System.out.println("Введите элеменнты массива, по порядку: ");
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    this.jaggedArray[i][j] = in.nextInt();
+                }
+            }
+            System.out.println("Начальная Матрица : ");
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    System.out.print(this.jaggedArray[i][j] + " ");
+                }
+                System.out.println();
+            }
+            for(int i = 0; i < jaggedArray[i].length; i ++) {
+                for (int j = 0; j < jaggedArray[j].length; j++) {
+                    int sumPrev = 0;
+                    for(i = 0; i < jaggedArray[j].length; i++) {
+                        sumPrev += jaggedArray[i][j];
+                    }
+                    int sumCurrent = 0;
+                    for(i = 0; i < jaggedArray[j].length; i++) {
+                        sumCurrent += jaggedArray[i][j];
+                    }
+                    if (sumPrev > sumCurrent) {
+                        for (int k = 0; k < jaggedArray[j].length; k++) {
+                            int temp = jaggedArray[k][j];
+                            jaggedArray[k][j] = jaggedArray[k][j-1];
+                            jaggedArray[k][j-1] = temp;
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    System.out.print(jaggedArray[i][j] + " ");
+                }
+                System.out.println();
+            }
+            return jaggedArray;
         }
 }

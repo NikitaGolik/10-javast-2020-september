@@ -85,7 +85,7 @@ public class Controller {
                         break;
                     case "6" :
                         SortArray arrayForUser = new SortArray(array);
-                        printSearchNumbers("Your number is", arrayForUser.search());
+                        printSearchNumbers("Index of your number is", arrayForUser.search());
                         break;
                     case "7" :
                         SearchInArray searchBinaryInArray = new SearchInArray(array);
@@ -106,8 +106,8 @@ public class Controller {
                         break;
                     case "10" :
                         SearchInArray searchPrimeInArray = new SearchInArray(array);
-                        searchPrimeInArray.primeNumbersBruteForce(array);
                         printArray(searchPrimeInArray.primeNumbersBruteForce(array));
+                        break;
                     case "11" :
                         addJagged();
                     case "12" :
@@ -180,12 +180,15 @@ public class Controller {
                         transposeJagged.transpose();
                         break;
                     case "6":
+                        ServiceJagged sortJagged = new ServiceJagged(jaggedArray);
+                        sortJagged.sortJaggedArray(jaggedArray);
+                    case "7":
                         System.out.println("Завершение программы");
                         break;
                     default:
                         System.out.println("Вы ввели неверное значение меню, повторите ввод \n");
                 }
-            } while (!key.equals("6"));
+            } while (!key.equals("7"));
         }
     }
 }

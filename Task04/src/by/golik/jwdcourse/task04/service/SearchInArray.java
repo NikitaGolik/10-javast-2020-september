@@ -45,11 +45,11 @@ public class SearchInArray implements SearchArray {
         }
         return index;
     }
-
+//todo
     public int binarySearchInSortArray(SortArray sortArray) {
         int first = 0;
         int last = sortArray.array.length-1;
-        return binarySearch(sortArray.array, 5, first, last);
+        return binarySearch(sortArray.array, 42, first, last);
     }
 
     /**
@@ -59,22 +59,33 @@ public class SearchInArray implements SearchArray {
      */
 
     //TODO
-    public int[] primeNumbersBruteForce(int[] n) {
-        List<Integer> primeNumbers = new LinkedList<>();
-        for (int i = 2; i <= n.length; i++) {
-            if (isPrimeBruteForce(i)) {
-                primeNumbers.add(i);
-            }
-        } int[] arr = primeNumbers.stream().mapToInt(i -> i).toArray();
-        return arr;
-    }
-    public boolean isPrimeBruteForce(int number) {
-        for (int i = 2; i <= number; i++) {
-            if (number % i == 0) {
-                return false;
+    public int[] primeNumbersBruteForce(int[] array) {
+        for (int i = 0; i< array.length; i++){
+            if (primeNumber(array[i]) == 1){
+                System.out.print(array[i]+" ");
             }
         }
-        return true;
+        System.out.println(" - Array of prime numbers");
+        return array;
+
+    }
+
+    private static int primeNumber(int number)
+    {
+        for (int i=2; i<number; i++)
+        {
+            if (number%i == 0)
+            {
+                return 0;
+            }
+
+            if ((i == number) || (i>Math.sqrt(number)))
+            {
+                return 1;
+            }
+        }
+
+        return 0;
     }
 
     /**

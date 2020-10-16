@@ -50,7 +50,7 @@ public class SortArray implements ArrayService {
                 System.out.println("Число " + a + " не найдено в массиве.");
             }
         }
-        return array[index];
+        return index-1;
     }
 
     /**

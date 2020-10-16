@@ -2,7 +2,7 @@ package by.golik.jwdcourse.task04.view;
 import java.io.FileNotFoundException;
 
 /**
- * 
+ *
  */
 public class Command {
 
@@ -43,7 +43,8 @@ public class Command {
         System.out.println("3 - вычитание массивов");
         System.out.println("4 - умножение на константу всех элементов массива");
         System.out.println("5 - транспонирование матрицы");
-        System.out.println("6 - для выхода");
+        System.out.println("6 - сортировка строк по сумме");
+        System.out.println("7 - для выхода");
     }
 
 }
