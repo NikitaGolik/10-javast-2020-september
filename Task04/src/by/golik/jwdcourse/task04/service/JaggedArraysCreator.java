@@ -40,6 +40,7 @@ public class JaggedArraysCreator {
      * @return
      * @throws FileNotFoundException
      */
+    //todo
     public JaggedArray fillJaggerFromFile() throws Exception {
 
         File file = new File("D:\\eclipse-workspace\\10-javast-2020-september\\Task04\\testJaggedArray.txt");

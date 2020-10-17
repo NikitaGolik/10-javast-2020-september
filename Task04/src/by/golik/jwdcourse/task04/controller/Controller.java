@@ -63,7 +63,6 @@ public class Controller {
                 key = this.scanner.nextLine();
                 switch (key) {
                     case "1" :
-                        //TODO ВМЕСТО FILLFROMCONSOLE ПОЛУЧАТЬ МАССИВ ИЗ CONTROLLER
                         SortArray bubbleSortArray = new SortArray(array);
                         bubbleSortArray.bubbleSort(array);
                         printSortedArray(bubbleSortArray.array);

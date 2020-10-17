@@ -32,7 +32,7 @@ public class ArraysCreator {
      * @throws FileNotFoundException - Constructs a FileNotFoundException with null as its error detail message.
      * @return
      */
-
+//todo
     public Array fillFromFile(Array array) throws Exception {
         File file = new File("D:\\eclipse-workspace\\10-javast-2020-september\\Task04\\testArray.txt");
         Scanner scanner = new Scanner(file);

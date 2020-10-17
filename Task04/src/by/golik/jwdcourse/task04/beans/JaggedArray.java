@@ -10,6 +10,9 @@ import java.util.Arrays;
 public class JaggedArray {
     private int[][] array;
 
+    public JaggedArray(int[][] array) {
+        this.array = array;
+    }
 
     public JaggedArray(int raw, int col) throws Exception {
         if((raw < 1) || (col < 1)) {
@@ -25,6 +28,7 @@ public class JaggedArray {
     public int getHorizontalSize() {
         return array[0].length;
     }
+
     public int getElement(int i, int j) throws Exception {
         if (checkRange(i, j)) {
             return array[i][j];
