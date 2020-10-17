@@ -5,7 +5,6 @@ import java.io.IOException;
  * A class that describes methods for processing the received text using regular expressions
  */
 public class ServiceRegex {
-    Service service;
 
     /**
      * 1. In each word, replace the "k"-th letter with the given character.
@@ -62,7 +61,7 @@ public class ServiceRegex {
          * A-Z a single character in the range between A and Z
          */
         newText = text.replaceAll("\\b[a-zA-Z]{5}\\b", "JAVA");
-        service.fileWriter(newText);
+
         System.out.println("New Text:");
         System.out.println("");
         System.out.println(newText);
@@ -86,7 +85,7 @@ public class ServiceRegex {
          *  \ p -  it's the opposite of \p, all "non-letters".
          */
         newText =  text.replaceAll("(?u)[^\\pL ]","");
-        service.fileWriter(newText);
+
         System.out.println("New Text:");
         System.out.println("");
         System.out.println(newText);
@@ -113,7 +112,6 @@ public class ServiceRegex {
 
         newText = text.replaceAll("\\b\\[бвгджзйклмнпрстфхцчшщБВГДЖЗЙЛМНПРСТФЗЦЧШЩBCDFGHJKLMNPQRSTVWXZbcdfghjklmnpqrstvwxz]{5}\\b", "");
 
-        service.fileWriter(newText);
         System.out.println("New Text:");
         System.out.println("");
         System.out.println(newText);

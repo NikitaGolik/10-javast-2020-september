@@ -17,11 +17,11 @@ public class Service {
     public void fileWriter(String newText) throws IOException {
         BufferedWriter output = null;
         try {
-            File file = new File("D:\\eclipse-workspace\\10-javast-2020-september\\Task05\\newText.txt");
+            File file = new File(".\\resources\\data\\newText.txt");
             output = new BufferedWriter(new FileWriter(file));
             output.write(newText);
         } catch (IOException e) {
-            System.out.println("Could not find file " + "D:\\demo\\newText.txt");
+            System.out.println("Could not find file " + "newText.txt");
             e.printStackTrace();
         } finally {
             if (output != null) {

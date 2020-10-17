@@ -1,1 +1,17 @@
-@выфвыфаывалцуклапукпшщу @кп @еопвадоьп @ @23 @куп @ап @4] 
+Регулярные выражения (regex или regexp) Регулярные эффективны для извлечения информации из текста. Для Регулярные Регулярные произвести Регулярные одного или нескольких совпадений по определённому шаблону Регулярные е. определённой последовательности символов Регулярные или unicode).
+Области применения Регулярные разнообразны, от валидации до парсинга/замены строк, передачи данных в другие форматы и Web Scraping’а.
+Одна из любопытных особенностей регулярных выражений в их универсальности, Регулярные вам выучить синтаксис
+, и вы сможете применять их в Регулярные (почти) Регулярные программирования (JavaScript, Регулярные VB, C #, C / C++, Python, Регулярные Регулярные Delphi, R, Tcl, и многих других). Небольшие отличия 
+касаются только наиболее продвинутых функций и версий синтаксиса, поддерживаемых движком.
+A Unicode character can also be represented in a regular-expression by Регулярные its Hex notation(hexadecimal code Регулярные value) directly as described in construct \x{...}, Регулярные example a supplementary character U+2011F can be specified as \x{2011F}, instead of two consecutive Unicode escape sequences of the surrogate pair \uD840\uDD1F.
+Unicode scripts, blocks, categories and binary properties are written with the \p and \P constructs as in Регулярные \p{prop} matches if the Регулярные has the property Регулярные Регулярные 
+\P{prop} does not Регулярные if the Регулярные has that property.
+Scripts, blocks, categories and binary properties can be used both inside and outside of a character class.
+Scripts are specified either with the prefix Is, as in IsHiragana, or by Регулярные the script keyword (or its Регулярные form Регулярные in script=Hiragana or sc=Hiragana.
+The script Регулярные supported by Pattern are the Регулярные script Регулярные accepted and defined by UnicodeScript.forName.
+Blocks are specified with the prefix In, as in InMongolian, or by Регулярные the keyword Регулярные (or its Регулярные form blk) as in block=Mongolian or blk=Mongolian.
+The Регулярные Регулярные supported by Pattern are the Регулярные Регулярные Регулярные accepted and defined by UnicodeBlock.forName.
+Categories may be specified with the optional prefix Is: Both Регулярные and \p{IsL} denote the category of Unicode letters. Same as scripts and blocks, categories can 
+also be specified by Регулярные the keyword general_category (or its Регулярные form gc) as in general_category=Lu or gc=Lu.
+The supported categories are Регулярные of The Unicode Standard in the version specified by the Character class. The category Регулярные are Регулярные defined in the Standard, both normative and informative.
+Binary properties are specified with the prefix Is, as in IsAlphabetic. The supported binary properties by Pattern Регулярные 

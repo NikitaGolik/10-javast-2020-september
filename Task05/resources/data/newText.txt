@@ -1,0 +1,19 @@
+Регулярные выражения (regex или regexp) очень эффективны для извлечения информации из текста. Для этого произвести одного или нескольких совпадений по определённому шаблону 
+(т. е. определённой последовательности символов ASCII или unicode).
+Области применения разнообразны, от валидации до парсинга/замены строк, передачи данных в другие форматы и Web Scraping’а.
+Одна из любопытных особенностей регулярных выражений в их универсальности, вам выучить синтаксис
+, и вы сможете применять их в (почти) языке программирования (JavaScript, VB, C #, C / C++, Python, Delphi, R, Tcl, и многих других). Небольшие отличия 
+касаются только наиболее продвинутых функций и версий синтаксиса, поддерживаемых движком.
+A Unicode character can also be represented in a regular-expression by using its Hex notation(hexadecimal code value) directly as described in construct \x{...}, 
+for example a supplementary character U+2011F can be specified as \x{2011F}, instead of two consecutive Unicode escape sequences of the surrogate pair \uD840\uDD1F.
+Unicode scripts, blocks, categories and binary properties are written with the \p and \P constructs as in \p{prop} matches if the input has the property 
+\P{prop} does not if the input has that property.
+Scripts, blocks, categories and binary properties can be used both inside and outside of a character class.
+Scripts are specified either with the prefix Is, as in IsHiragana, or by using the script keyword (or its form in script=Hiragana or sc=Hiragana.
+The script supported by Pattern are the script accepted and defined by UnicodeScript.forName.
+Blocks are specified with the prefix In, as in InMongolian, or by using the keyword (or its form blk) as in block=Mongolian or blk=Mongolian.
+The supported by Pattern are the accepted and defined by UnicodeBlock.forName.
+Categories may be specified with the optional prefix Is: Both \p{L} and \p{IsL} denote the category of Unicode letters. Same as scripts and blocks, categories can 
+also be specified by using the keyword general_category (or its form gc) as in general_category=Lu or gc=Lu.
+The supported categories are of The Unicode Standard in the version specified by the Character class. The category are defined in the Standard, both normative and informative.
+Binary properties are specified with the prefix Is, as in IsAlphabetic. The supported binary properties by Pattern are
