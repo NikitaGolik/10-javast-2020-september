@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class MainController {
 
     public static class Main {
-        public static void main(String[] args) throws FileNotFoundException {
+        public static void main(String[] args) throws Exception {
             // write your code here
 
           new Controller(new Scanner(System.in)).start();

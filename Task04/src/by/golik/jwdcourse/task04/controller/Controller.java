@@ -1,9 +1,9 @@
 package by.golik.jwdcourse.task04.controller;
-import by.golik.jwdcourse.task04.service.SearchInArray;
-import by.golik.jwdcourse.task04.service.ServiceJagged;
-import by.golik.jwdcourse.task04.service.SortArray;
+import by.golik.jwdcourse.task04.beans.Array;
+import by.golik.jwdcourse.task04.beans.JaggedArray;
+import by.golik.jwdcourse.task04.service.*;
 import by.golik.jwdcourse.task04.view.Command;
-import java.io.FileNotFoundException;
+
 import java.util.Scanner;
 import static by.golik.jwdcourse.task04.view.PrintArray.*;
 
@@ -11,13 +11,16 @@ import static by.golik.jwdcourse.task04.view.PrintArray.*;
 public class Controller {
     Command command = new Command();
     private Scanner scanner;
+    ArraysCreator arraysCreator = new ArraysCreator();
+    JaggedArraysCreator jaggedArraysCreator = new JaggedArraysCreator();
+
 
     public Controller(Scanner scanner) {
         this.scanner = scanner;
     }
 
-    public void start() throws FileNotFoundException {
-        int[] array = new int[0];
+    public void start() throws Exception {
+        Array array = null;
         if (this.scanner != null) {
             String key;
             do {
@@ -26,17 +29,17 @@ public class Controller {
                 key = this.scanner.nextLine();
                 switch (key) {
                     case "1" :
-                        array = CreateArrays.fillFromConsole();
+                        array = arraysCreator.fillFromConsole(array, scanner);
                         printArray(array);
                         sort(array);
                         break;
                     case "2" :
-                        array = CreateArrays.fillFromFile();
+                        array = arraysCreator.fillFromFile(array);
                         printArray(array);
                         sort(array);
                         break;
                     case "3" :
-                        array = CreateArrays.fillByRandom();
+                        array = arraysCreator.fillByRandom(array, 10, 100);
                         printArray(array);
                         sort(array);
                         break;
@@ -50,7 +53,7 @@ public class Controller {
         }
     }
 
-    public void sort(int[] array) throws FileNotFoundException {
+    public void sort(Array array) throws Exception {
         if (this.scanner != null) {
             String key;
             boolean continueInput = true;
@@ -62,18 +65,18 @@ public class Controller {
                     case "1" :
                         //TODO ВМЕСТО FILLFROMCONSOLE ПОЛУЧАТЬ МАССИВ ИЗ CONTROLLER
                         SortArray bubbleSortArray = new SortArray(array);
-                        bubbleSortArray.bubbleSort();
-                        printSortedArray("Sorted Array \n", bubbleSortArray.array);
+                        bubbleSortArray.bubbleSort(array);
+                        printSortedArray(bubbleSortArray.array);
                         break;
                     case "2" :
                         SortArray selectionSortArray = new SortArray(array);
-                        selectionSortArray.selectionSort();
-                        printSortedArray("Sorted Array", selectionSortArray.array);
+                        selectionSortArray.selectionSort(array);
+                        printSortedArray(selectionSortArray.array);
                         break;
                     case "3" :
                         SortArray insertionSortArray = new SortArray(array);
-                        insertionSortArray.insertionSort();
-                        printSortedArray("Sorted Array", insertionSortArray.array);
+                        insertionSortArray.insertionSort(array);
+                        printSortedArray(insertionSortArray.array);
                         break;
                     case "4" :
                         SortArray arrayForMin = new SortArray(array);
@@ -88,24 +91,24 @@ public class Controller {
                         printSearchNumbers("Index of your number is", arrayForUser.search());
                         break;
                     case "7" :
-                        SearchInArray searchBinaryInArray = new SearchInArray(array);
+                        SearchInSortArray searchBinaryInArray = new SearchInSortArray(array);
                         SortArray insertionSortArray2 = new SortArray(array);
-                        insertionSortArray2.insertionSort();
+                        insertionSortArray2.insertionSort(array);
                         printSearchNumbers("Your number has index ", searchBinaryInArray.binarySearchInSortArray(insertionSortArray2));
                         break;
                     case "8" :
-                        SearchInArray searchFibonacciInArray = new SearchInArray(array);
+                        SearchInSortArray searchFibonacciInArray = new SearchInSortArray(array);
                         SortArray insertionSortArray3 = new SortArray(array);
-                        insertionSortArray3.insertionSort();
+                        insertionSortArray3.insertionSort(array);
                         printArray(searchFibonacciInArray.fibonacciSearch(insertionSortArray3));
                         break;
                     case "9" :
-                        SearchInArray searchDigitsInArray = new SearchInArray(array);
+                        SearchInSortArray searchDigitsInArray = new SearchInSortArray(array);
                         searchDigitsInArray.findNumbersWithThreeDifferentDigits(array);
                         printArray(searchDigitsInArray.findNumbersWithThreeDifferentDigits(array));
                         break;
                     case "10" :
-                        SearchInArray searchPrimeInArray = new SearchInArray(array);
+                        SearchInSortArray searchPrimeInArray = new SearchInSortArray(array);
                         printArray(searchPrimeInArray.primeNumbersBruteForce(array));
                         break;
                     case "11" :
@@ -119,8 +122,8 @@ public class Controller {
             } while (!key.equals("12"));
         }
     }
-    public void addJagged() throws FileNotFoundException {
-        int[][] jaggedArray = new int[0][0];
+    public void addJagged() throws Exception {
+
         if (this.scanner != null) {
             String key;
             boolean continueInput = true;
@@ -130,17 +133,15 @@ public class Controller {
                 key = this.scanner.nextLine();
                 switch (key) {
                     case "1" :
-                        jaggedArray = CreateJaggedArrays.fillJaggedFromConsole();
-                        printJaggedArray(jaggedArray);
-                        actionsJagged(jaggedArray);
+                        jaggedArraysCreator.fillJaggedFromConsole();
+                        actionsJagged();
                     case "2" :
-                        jaggedArray = CreateJaggedArrays.fillJaggerFromFile();
-                        printJaggedArray(jaggedArray);
-                        actionsJagged(jaggedArray);
+                        jaggedArraysCreator.fillJaggerFromFile();
+                        actionsJagged();
                     case "3" :
-                        jaggedArray = CreateJaggedArrays.fillJaggedByRandom();
-                        printJaggedArray(jaggedArray);
-                        actionsJagged(jaggedArray);
+                        JaggedArray jaggedArray = new JaggedArray(5,5);
+                        jaggedArraysCreator.fillJaggedByRandom(jaggedArray,2,10);
+                        actionsJagged();
                     case "4" :
                         System.out.println("Завершение программы");
                         break;
@@ -150,7 +151,7 @@ public class Controller {
             } while(!key.equals("4"));
         }
     }
-    public void actionsJagged(int[][] jaggedArray) {
+    public void actionsJagged() throws Exception {
         if (this.scanner != null) {
             String key;
             boolean continueInput = true;
@@ -160,31 +161,58 @@ public class Controller {
                 key = this.scanner.nextLine();
                 switch (key) {
                     case "1":
-                        ServiceJagged matrixSquare = new ServiceJagged(jaggedArray);
+                        JaggedArray jaggedArray = new JaggedArray(5,2);
+                        ServiceJagged matrixSquare = new ServiceJagged();
                         matrixSquare.matrixSquare(jaggedArray);
                         break;
                     case "2":
-                        ServiceJagged additionJagged = new ServiceJagged(jaggedArray);
-                        additionJagged.additionJagged(jaggedArray, CreateJaggedArrays.fillJaggedByRandom());
+                        JaggedArray jaggedArray1 = new JaggedArray(5,5);
+                        jaggedArraysCreator.fillJaggedByRandom(jaggedArray1, 2, 8);
+                        System.out.println("first " + jaggedArray1);
+
+                        JaggedArray jaggedArray2 = new JaggedArray(5,5);
+                        jaggedArraysCreator.fillJaggedByRandom(jaggedArray2, 2, 7);
+                        System.out.println("Second " + jaggedArray2);
+
+                        ServiceJagged serviceJagged = new ServiceJagged();
+                        System.out.println("result " + serviceJagged.additionJagged(jaggedArray1, jaggedArray2));
+
                         break;
                     case "3":
-                        ServiceJagged subtractionJagged = new ServiceJagged(jaggedArray);
-                        subtractionJagged.subtractionJagged(jaggedArray, CreateJaggedArrays.fillJaggedByRandom());
+                        jaggedArray1 = new JaggedArray(5,5);
+                        jaggedArraysCreator.fillJaggedByRandom(jaggedArray1, 2, 8);
+                        System.out.println("first " + jaggedArray1);
+
+                        jaggedArray2 = new JaggedArray(5,5);
+                        jaggedArraysCreator.fillJaggedByRandom(jaggedArray2, 2, 7);
+                        System.out.println("Second " + jaggedArray2);
+
+                        serviceJagged = new ServiceJagged();
+                        System.out.println("result " + serviceJagged.subtractionJagged(jaggedArray1, jaggedArray2));
+
                         break;
                     case "4":
-                        ServiceJagged multiplyOnConstant = new ServiceJagged(jaggedArray);
-                        multiplyOnConstant.multiplyOnConstantJagged(jaggedArray, 5);
+                        jaggedArray = new JaggedArray(5,5);
+                        jaggedArraysCreator.fillJaggedByRandom(jaggedArray, 2,10);
+
+
+                        ServiceJagged multiplyOnConstant = new ServiceJagged();
+                        System.out.println("result " + multiplyOnConstant.multiplyOnConstantJagged(jaggedArray, 5));
                         break;
                     case "5":
-                        ServiceJagged transposeJagged = new ServiceJagged(jaggedArray);
-                        transposeJagged.transpose();
+                        jaggedArray = new JaggedArray(5,5);
+                        jaggedArraysCreator.fillJaggedByRandom(jaggedArray, 2,10);
+
+
+                        ServiceJagged transposeJagged = new ServiceJagged();
+                        System.out.println("result " + transposeJagged.transpose(jaggedArray));
                         break;
-                    case "6":
-                        ServiceJagged sortJagged = new ServiceJagged(jaggedArray);
-                        sortJagged.sortJaggedArray(jaggedArray);
-                    case "7":
-                        System.out.println("Завершение программы");
-                        break;
+//                    case "6":
+////                        ServiceJagged sortJagged = new ServiceJagged(jaggedArray);
+////                        sortJagged.sortJaggedArray(jaggedArray);
+//                    case "7":
+//                        System.out.println("Завершение программы");
+//                        break;
                     default:
                         System.out.println("Вы ввели неверное значение меню, повторите ввод \n");
                 }

@@ -1,5 +1,5 @@
 package by.golik.jwdcourse.task04.service;
-import by.golik.jwdcourse.task04.service.impl.ArrayService;
+import by.golik.jwdcourse.task04.beans.Array;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -8,10 +8,11 @@ import java.util.Scanner;
  * This class is a collection of methods for sorting elements in an array.
  */
 
-public class SortArray implements ArrayService {
-    public int [] array;
+public class SortArray {
 
-    public SortArray(int[] array) {
+    public Array array;
+
+    public SortArray(Array array) {
         this.array = array;
     }
 
@@ -19,10 +20,9 @@ public class SortArray implements ArrayService {
      * This method searches the array by the specified value.
      * @return
      */
-    public int number() {
+    public int number(Array array) {
         System.out.println("Введите число, которое надо найти: ");
         while (true) {
-
             Scanner scanner = new Scanner(System.in);
             boolean continueInput = true;
             int x = 0;
@@ -39,14 +39,15 @@ public class SortArray implements ArrayService {
         }
     }
     public int search() {
-        int a = number();
+        int a = number(array);
         int index = -1;
-        for( int i = 0; i < array.length; i++) {
-            if (a == array[i]) {
-                index = i;
+        int length = array.getLength();
+        for( int i = 0; i < length; i++) {
+            if (a == array.getElement(i)) {
+                index = i+1;
                 break;
             }
-            if (i == array.length-1) {
+            if (i == length-1) {
                 System.out.println("Число " + a + " не найдено в массиве.");
             }
         }
@@ -57,10 +58,10 @@ public class SortArray implements ArrayService {
      * This method finds the maximum value of an element in the array.
      */
     public int maxValue() {
-        int max = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > max)
-                max = array[i];
+        int max = array.getElement(0);
+        for (int i = 0; i < array.getLength(); i++) {
+            if (array.getElement(i) > max)
+                max = array.getElement(i);
         }
         return max;
     }
@@ -69,11 +70,10 @@ public class SortArray implements ArrayService {
      * This method finds the minimum value of an element in the array.
      */
     public int minValue() {
-        int min = array[0];
-
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] < min)
-                min = array[i];
+        int min = array.getElement(0);
+        for (int i = 0; i < array.getLength(); i++) {
+            if (array.getElement(i) < min)
+                min = array.getElement(i);
         }
         return min;
     }
@@ -87,14 +87,16 @@ public class SortArray implements ArrayService {
      * If yes, then the array is not sorted and we start all over again.
      * We repeat such passes until it turns out that there was not a single exchange.
      *
+     * @return
      */
-    public int[] bubbleSort() {
-        for (int i = array.length - 1; i > 0; i--) {
+    public Array bubbleSort(Array array) {
+
+        for (int i = array.getLength() - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
-                if (array[j] > array[j + 1]) {
-                    int tmp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = tmp;
+                if (array.getElement(j) > array.getElement(j + 1)) {
+                    int tmp = array.getElement(j);
+                    array.setElement(j, array.getElement(j+1));
+                    array.setElement(j + 1, tmp);
                 }
             }
         }
@@ -110,19 +112,19 @@ public class SortArray implements ArrayService {
      *
      */
 
-    public int[] selectionSort() {
-        for (int i = 0; i < array.length; i++) {    // i - номер текущего шага
+    public Array selectionSort(Array array) {
+        for (int i = 0; i < array.getLength(); i++) {    // i - номер текущего шага
             int pos = i;
-            int min = array[i];
+            int min = array.getElement(i);
             // цикл выбора наименьшего элемента
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[j] < min) {
+            for (int j = i + 1; j < array.getLength(); j++) {
+                if (array.getElement(j) < min) {
                     pos = j;    // pos - индекс наименьшего элемента
-                    min = array[j];
+                    min = array.getElement(i);
                 }
             }
-            array[pos] = array[i];
-            array[i] = min;
+            array.setElement(pos, array.getElement(i));
+            array.setElement(i, min);
         }
         return array;
     }
@@ -133,18 +135,18 @@ public class SortArray implements ArrayService {
      * The elements of the input sequence are scanned one at a time,
      * and each new element arriving is placed in a suitable place among the previously ordered elements
      */
-    public int[] insertionSort() {
-        for (int left = 0; left < array.length; left++) {
-            int value = array[left];
+    public Array insertionSort(Array array) {
+        for (int left = 0; left < array.getLength(); left++) {
+            int value = array.getElement(left);
             int i = left - 1;
             for (; i >= 0; i--) {
-                if (value < array[i]) {
-                    array[i + 1] = array[i];
+                if (value < array.getElement(i)) {
+                    array.setElement(i + 1, array.getElement(i));
                 } else {
                     break;
                 }
             }
-            array[i + 1] = value;
+            array.setElement( i + 1, value);
         }
         return array;
     }

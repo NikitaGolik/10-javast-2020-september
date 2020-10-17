@@ -10,20 +10,21 @@ import java.util.Objects;
 
 public class Array {
     private int[] data;
-    private int length;
 
     /**
      * Creates new Object
      * @param data - getting data
      *
      */
-    public Array(int[] data) {
-        this.data = new int[1];
+    public Array(int[] data, int length) {
+        this.data = new int[length];
     }
 
-    public Array(int length) {
+    public Array(int length) throws Exception {
+        if(length < 1) {
+            throw new Exception();
+        }
         this.data = new int[length];
-        this.length = length;
     }
 
     /**
@@ -33,24 +34,21 @@ public class Array {
 
 
     public int getLength() {
-        return length;
+        return data.length;
     }
 
-    public void setLength(int length) {
-        this.length = length;
-    }
 
+    public int getElement(int i) {
+        return data[i];
+    }
+    public void setElement(int i, int value) {
+        data[i] = value;
+    }
     /**
      * Definition of data
      *
      */
-    public int[] getData() {
-        return data;
-    }
 
-    public void setData(int[] data) {
-        this.data = data;
-    }
 /**
  *
  * @return
