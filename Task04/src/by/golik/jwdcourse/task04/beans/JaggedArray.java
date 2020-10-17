@@ -1,5 +1,4 @@
 package by.golik.jwdcourse.task04.beans;
-
 import java.util.Arrays;
 
 /**
@@ -14,6 +13,12 @@ public class JaggedArray {
         this.array = array;
     }
 
+    /**
+     *
+     * @param raw
+     * @param col
+     * @throws Exception
+     */
     public JaggedArray(int raw, int col) throws Exception {
         if((raw < 1) || (col < 1)) {
             throw new Exception();
@@ -21,26 +26,55 @@ public class JaggedArray {
         this.array = new int[raw][col];
     }
 
-
+    /**
+     *
+     * @return
+     */
     public int getVerticalSize() {
         return array.length;
     }
+
+    /**
+     *
+     * @return
+     */
     public int getHorizontalSize() {
         return array[0].length;
     }
 
+    /**
+     *
+     * @param i
+     * @param j
+     * @return
+     * @throws Exception
+     */
     public int getElement(int i, int j) throws Exception {
         if (checkRange(i, j)) {
             return array[i][j];
         }
         throw new Exception();
     }
+
+    /**
+     *
+     * @param i
+     * @param j
+     * @param value
+     * @throws Exception
+     */
     public void setElement(int i, int j, int value) throws Exception {
         if (checkRange(i, j)) {
             array[i][j] = value;
         } throw new Exception();
     }
 
+    /**
+     *
+     * @param i
+     * @param j
+     * @return
+     */
     private boolean checkRange(int i, int j) {
         if (i >= 0 && i < array.length && j >= 0 && j < array[0].length) {
             return true;
@@ -49,6 +83,10 @@ public class JaggedArray {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("\nJaggedArray : " + array.length + "x" + array[0].length + "\n");
@@ -61,6 +99,11 @@ public class JaggedArray {
         return sb.toString();
     }
 
+    /**
+     *
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -69,6 +112,10 @@ public class JaggedArray {
         return Arrays.equals(array, that.array);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         return Arrays.hashCode(array);

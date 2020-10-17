@@ -1,6 +1,5 @@
 package by.golik.jwdcourse.task04.service;
 import by.golik.jwdcourse.task04.beans.Array;
-
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -14,13 +13,17 @@ public class SearchInSortArray {
 
     /**
      *
-     * @param array - constructor that creates na object.
+     * @param array
      */
     public SearchInSortArray(Array array) {
         this.array = array;
     }
 
-
+    /**
+     *
+     * @param array
+     * @return
+     */
     public int number(Array array) {
         System.out.println("Введите число, которое надо найти: ");
         while (true) {
@@ -67,6 +70,11 @@ public class SearchInSortArray {
         return index;
     }
 
+    /**
+     *
+     * @param sortArray
+     * @return
+     */
     public int binarySearchInSortArray(SortArray sortArray) {
         int first = 0;
         int a = number(array);
@@ -76,10 +84,9 @@ public class SearchInSortArray {
 
     /**
      *
-     * @param
+     * @param array
      * @return
      */
-
     //TODO
     public Array primeNumbersBruteForce(Array array) {
         for (int i = 0; i < array.getLength(); i++){
@@ -91,6 +98,11 @@ public class SearchInSortArray {
         return array;
     }
 
+    /**
+     *
+     * @param number
+     * @return
+     */
     private static int primeNumber(int number) {
         for (int i=2; i<number; i++)
         {

@@ -1,15 +1,18 @@
 package by.golik.jwdcourse.task04.service;
 import by.golik.jwdcourse.task04.beans.Array;
-
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ *
+ */
 public class ArraysCreator {
     /**
      *
-     * This method fills the array with the numbers entered from the console.
+     * @param array
+     * @param scanner
      * @return
+     * @throws Exception
      */
     public Array fillFromConsole(Array array, Scanner scanner) throws Exception {
         scanner = new Scanner(System.in);
@@ -27,10 +30,11 @@ public class ArraysCreator {
     }
 
     /**
-     *
      * This method fills the array with the numbers entered from .txt file.
-     * @throws FileNotFoundException - Constructs a FileNotFoundException with null as its error detail message.
+     *
+     * @param array
      * @return
+     * * @throws FileNotFoundException - Constructs a FileNotFoundException with null as its error detail message.
      */
 //todo
     public Array fillFromFile(Array array) throws Exception {
@@ -49,8 +53,11 @@ public class ArraysCreator {
 
     /**
      * This method fills the array with random numbers.
-     *
+     * @param array
+     * @param start
+     * @param end
      * @return
+     * @throws Exception
      */
     public Array fillByRandom(Array array, int start, int end) throws Exception {
         array = new Array(10);

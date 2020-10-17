@@ -1,9 +1,6 @@
 package by.golik.jwdcourse.task04.view;
-
 import by.golik.jwdcourse.task04.beans.Array;
 import by.golik.jwdcourse.task04.beans.JaggedArray;
-
-import java.util.Arrays;
 
 public class PrintArray {
 
@@ -39,19 +36,5 @@ public class PrintArray {
      */
     public static void printSearchNumbers(String text, int number) {
         System.out.println(text + " " + number);
-    }
-
-    /**
-     * @param jaggedArray
-     */
-    public static void printJaggedArray(JaggedArray jaggedArray) throws Exception {
-        System.out.println("Your jagged Array");
-        for (int i = 0; i < jaggedArray.getVerticalSize(); i++) {
-            System.out.println();
-            for (int j = 0; j < jaggedArray.getHorizontalSize(); j++) {
-                System.out.print(jaggedArray.getElement(i, j) + " ");
-            }
-        }
-        System.out.println();
     }
 }

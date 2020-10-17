@@ -3,7 +3,6 @@ import by.golik.jwdcourse.task04.beans.Array;
 import by.golik.jwdcourse.task04.beans.JaggedArray;
 import by.golik.jwdcourse.task04.service.*;
 import by.golik.jwdcourse.task04.view.Command;
-
 import java.util.Scanner;
 import static by.golik.jwdcourse.task04.view.PrintArray.*;
 
@@ -14,11 +13,18 @@ public class Controller {
     ArraysCreator arraysCreator = new ArraysCreator();
     JaggedArraysCreator jaggedArraysCreator = new JaggedArraysCreator();
 
-
+    /**
+     *
+     * @param scanner
+     */
     public Controller(Scanner scanner) {
         this.scanner = scanner;
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void start() throws Exception {
         Array array = null;
         if (this.scanner != null) {
@@ -53,6 +59,11 @@ public class Controller {
         }
     }
 
+    /**
+     *
+     * @param array
+     * @throws Exception
+     */
     public void sort(Array array) throws Exception {
         if (this.scanner != null) {
             String key;
@@ -121,6 +132,11 @@ public class Controller {
             } while (!key.equals("12"));
         }
     }
+
+    /**
+     *
+     * @throws Exception
+     */
     public void addJagged() throws Exception {
 
         if (this.scanner != null) {
@@ -150,6 +166,11 @@ public class Controller {
             } while(!key.equals("4"));
         }
     }
+
+    /**
+     *
+     * @throws Exception
+     */
     public void actionsJagged() throws Exception {
         if (this.scanner != null) {
             String key;
@@ -194,7 +215,6 @@ public class Controller {
                         jaggedArray = new JaggedArray(5,5);
                         jaggedArraysCreator.fillJaggedByRandom(jaggedArray, 2,10);
 
-
                         ServiceJagged multiplyOnConstant = new ServiceJagged();
                         System.out.println("result " + multiplyOnConstant.multiplyOnConstantJagged(jaggedArray, 5));
                         break;
@@ -202,16 +222,26 @@ public class Controller {
                         jaggedArray = new JaggedArray(5,5);
                         jaggedArraysCreator.fillJaggedByRandom(jaggedArray, 2,10);
 
-
                         ServiceJagged transposeJagged = new ServiceJagged();
                         System.out.println("result " + transposeJagged.transpose(jaggedArray));
                         break;
-//                    case "6":
-////                        ServiceJagged sortJagged = new ServiceJagged(jaggedArray);
-////                        sortJagged.sortJaggedArray(jaggedArray);
-//                    case "7":
-//                        System.out.println("Завершение программы");
-//                        break;
+                    case "6":
+                        jaggedArray = new JaggedArray(5,5);
+                        jaggedArraysCreator.fillJaggedByRandom(jaggedArray,2,10);
+
+                        ServiceJagged sortedJagged = new ServiceJagged();
+                        sortedJagged.SortArrayIncreaseSumOFElementsInRaw(jaggedArray);
+
+                        break;
+                    case "7":
+
+                        break;
+                    case "8":
+
+                        break;
+                    case "9":
+                        System.out.println("Завершение программы");
+                        break;
                     default:
                         System.out.println("Вы ввели неверное значение меню, повторите ввод \n");
                 }

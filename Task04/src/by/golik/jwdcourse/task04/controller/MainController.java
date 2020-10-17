@@ -1,13 +1,9 @@
 package by.golik.jwdcourse.task04.controller;
-
-/**
- * @author Nikita
- */
-
-
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * @author Nikita Golik
+ */
 public class MainController {
 
     public static class Main {

@@ -1,25 +1,29 @@
 package by.golik.jwdcourse.task04.beans;
-
 import java.util.Arrays;
-import java.util.Objects;
+
 
 /**
  * Class Wrapper for Integer
- *
+ * @author Nikita Golik
  */
 
 public class Array {
     private int[] data;
 
     /**
-     * Creates new Object
-     * @param data - getting data
      *
+     * @param data
+     * @param length
      */
     public Array(int[] data, int length) {
         this.data = new int[length];
     }
 
+    /**
+     *
+     * @param length
+     * @throws Exception
+     */
     public Array(int length) throws Exception {
         if(length < 1) {
             throw new Exception();
@@ -29,31 +33,29 @@ public class Array {
 
     /**
      *
-     * @return data
+     * @return
      */
-
-
     public int getLength() {
         return data.length;
     }
 
-
+    /**
+     *
+     * @param i
+     * @return
+     */
     public int getElement(int i) {
         return data[i];
     }
+
+    /**
+     *
+     * @param i
+     * @param value
+     */
     public void setElement(int i, int value) {
         data[i] = value;
     }
-    /**
-     * Definition of data
-     *
-     */
-
-/**
- *
- * @return
- */
-
 
     /**
      * This method returns a string representation of the object
@@ -67,11 +69,10 @@ public class Array {
     }
 
     /**
-     * Method indicates whether some other object is "equal to" this one.
+     *
      * @param o
      * @return
      */
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

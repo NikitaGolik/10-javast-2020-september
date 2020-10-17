@@ -1,7 +1,6 @@
 package by.golik.jwdcourse.task04.service;
 import by.golik.jwdcourse.task04.beans.JaggedArray;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
@@ -11,9 +10,10 @@ public class JaggedArraysCreator {
     /**
      *
      * @return
+     * @throws Exception
      */
     public JaggedArray fillJaggedFromConsole() throws Exception {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner;
         scanner = new Scanner(System.in);
         System.out.println("Enter count of raws");
         int raw = scanner.nextInt();
@@ -38,7 +38,7 @@ public class JaggedArraysCreator {
     /**
      *
      * @return
-     * @throws FileNotFoundException
+     * @throws Exception
      */
     //todo
     public JaggedArray fillJaggerFromFile() throws Exception {
@@ -62,7 +62,11 @@ public class JaggedArraysCreator {
 
     /**
      *
+     * @param jaggedArray
+     * @param start
+     * @param end
      * @return
+     * @throws Exception
      */
     public JaggedArray fillJaggedByRandom(JaggedArray jaggedArray,int start, int end) throws Exception {
         int v = jaggedArray.getVerticalSize();

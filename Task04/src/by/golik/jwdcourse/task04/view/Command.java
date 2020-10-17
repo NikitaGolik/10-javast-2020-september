@@ -5,7 +5,10 @@ import java.io.FileNotFoundException;
  *
  */
 public class Command {
-
+    /**
+     *
+     * @throws FileNotFoundException
+     */
     public void printMenu() throws FileNotFoundException {
 
         System.out.println("Выбери способ заполения массива:");
@@ -15,6 +18,9 @@ public class Command {
         System.out.println("4 - для выхода");
     }
 
+    /**
+     *
+     */
     public void printSortMenu() {
         System.out.println("Выбери действие с элементами массива:");
         System.out.println("1 - Сортировка - пузырек");
@@ -37,6 +43,10 @@ public class Command {
         System.out.println("3 - заполнение случайными числами:");
         System.out.println("4 - для выхода");
     }
+
+    /**
+     *
+     */
     public void printMenuForActionsWithJaggedArrays() {
         System.out.println("1 - проверка является ли массив квадратной матрицей");
         System.out.println("2 - сложение двух рваных массивов");

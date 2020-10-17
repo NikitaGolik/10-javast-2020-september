@@ -16,8 +16,10 @@ public class SortArray {
         this.array = array;
     }
 
-    /** Line search using a loop.
+    /**
+     * Line search using a loop.
      * This method searches the array by the specified value.
+     * @param array
      * @return
      */
     public int number(Array array) {
@@ -38,6 +40,11 @@ public class SortArray {
             return x;
         }
     }
+
+    /**
+     *
+     * @return
+     */
     public int search() {
         int a = number(array);
         int index = -1;
@@ -56,6 +63,7 @@ public class SortArray {
 
     /**
      * This method finds the maximum value of an element in the array.
+     * @return
      */
     public int maxValue() {
         int max = array.getElement(0);
@@ -68,6 +76,7 @@ public class SortArray {
 
     /**
      * This method finds the minimum value of an element in the array.
+     * @return
      */
     public int minValue() {
         int min = array.getElement(0);
@@ -86,7 +95,7 @@ public class SortArray {
      * After we have reached the end of the array, we check if there was at least one exchange.
      * If yes, then the array is not sorted and we start all over again.
      * We repeat such passes until it turns out that there was not a single exchange.
-     *
+     * @param array
      * @return
      */
     public Array bubbleSort(Array array) {
@@ -104,14 +113,12 @@ public class SortArray {
     }
 
     /**
-     * This method sorts the array using the selection sort method.
-     * Fnd the number of the minimum value in the current list
-     * we exchange this value with the value of the first unsorted position
-     * (the exchange is not needed if the minimum element is already at this position)
-     * now we sort the tail of the list, excluding already sorted elements from consideration.
-     *
-     */
-
+    * This method sorts the array using the selection sort method.
+    * Fnd the number of the minimum value in the current list
+    * we exchange this value with the value of the first unsorted position
+    * (the exchange is not needed if the minimum element is already at this position)
+    * now we sort the tail of the list, excluding already sorted elements from consideration.
+    */
     public Array selectionSort(Array array) {
         for (int i = 0; i < array.getLength(); i++) {    // i - номер текущего шага
             int pos = i;
@@ -131,9 +138,10 @@ public class SortArray {
 
     /**
      * This method sorts the array using the insertion sort method.
-     *
      * The elements of the input sequence are scanned one at a time,
      * and each new element arriving is placed in a suitable place among the previously ordered elements
+     * @param array
+     * @return
      */
     public Array insertionSort(Array array) {
         for (int left = 0; left < array.getLength(); left++) {
