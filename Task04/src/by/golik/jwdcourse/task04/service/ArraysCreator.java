@@ -37,7 +37,7 @@ public class ArraysCreator {
      */
 //todo
     public Array fillFromFile(Array array) throws Exception {
-        File file = new File("D:\\eclipse-workspace\\10-javast-2020-september\\Task04\\testArray.txt");
+        File file = new File(".\\resources\\data\\testArray.txt");
         Scanner scanner = new Scanner(file);
         array = new Array(scanner.nextInt());
         for (int i = 0; i < array.getLength(); i++) {

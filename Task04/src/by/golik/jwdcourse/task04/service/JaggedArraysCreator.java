@@ -43,7 +43,7 @@ public class JaggedArraysCreator {
     //todo
     public JaggedArray fillJaggerFromFile() throws Exception {
 
-        File file = new File("D:\\eclipse-workspace\\10-javast-2020-september\\Task04\\testJaggedArray.txt");
+        File file = new File(".\\resources\\data\\testJaggedArray.txt");
         Scanner scanner = new Scanner(file);
         JaggedArray jaggedArray = new JaggedArray(10, 10);
         for (int i = 0; i < jaggedArray.getVerticalSize(); i++) {
