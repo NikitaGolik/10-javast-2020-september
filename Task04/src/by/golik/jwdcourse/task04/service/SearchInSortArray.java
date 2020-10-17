@@ -12,17 +12,17 @@ public class SearchInSortArray {
     Array array;
 
     /**
-     *
-     * @param array
+     * Constructor to create an object
+     * @param array array for search
      */
     public SearchInSortArray(Array array) {
         this.array = array;
     }
 
     /**
-     *
-     * @param array
-     * @return
+     * get from user number to search
+     * @param array for search
+     * @return  number for search
      */
     public int number(Array array) {
         System.out.println("Введите число, которое надо найти: ");
@@ -42,6 +42,19 @@ public class SearchInSortArray {
             return x;
         }
     }
+
+    /**
+     * binary search in array
+     * @param sortArray array those elements already sorted
+     * @return index of element
+     */
+    public int binarySearchInSortArray(SortArray sortArray) {
+        int first = 0;
+        int a = number(array);
+        int last = sortArray.array.getLength()-1;
+        return binarySearch(sortArray.array, a, first, last);
+    }
+
     /**
      * This method searches the element of the array using binary search.
      *
@@ -71,37 +84,9 @@ public class SearchInSortArray {
     }
 
     /**
-     *
-     * @param sortArray
-     * @return
-     */
-    public int binarySearchInSortArray(SortArray sortArray) {
-        int first = 0;
-        int a = number(array);
-        int last = sortArray.array.getLength()-1;
-        return binarySearch(sortArray.array, a, first, last);
-    }
-
-    /**
-     *
-     * @param array
-     * @return
-     */
-    //TODO
-    public Array primeNumbersBruteForce(Array array) {
-        for (int i = 0; i < array.getLength(); i++){
-            if (primeNumber(array.getElement(i)) == 1){
-                System.out.print(array.getElement(i) + " ");
-            }
-        }
-        System.out.println(" - Array of prime numbers");
-        return array;
-    }
-
-    /**
-     *
-     * @param number
-     * @return
+     * check on prime numbers
+     * @param number from array
+     * @return 1 if prime, else 0
      */
     private static int primeNumber(int number) {
         for (int i=2; i<number; i++)
@@ -117,6 +102,21 @@ public class SearchInSortArray {
             }
         }
         return 0;
+    }
+
+    /**
+     * search prime  numbers
+     * @param array - array in which search an element
+     * @return array
+     */
+    public Array primeNumbersBruteForce(Array array) {
+        System.out.println(" - Array of prime numbers");
+        for (int i = 0; i < array.getLength(); i++){
+            if (primeNumber(array.getElement(i)) == 1){
+                System.out.print(array.getElement(i) + " ");
+            }
+        }
+        return array;
     }
 
     /**

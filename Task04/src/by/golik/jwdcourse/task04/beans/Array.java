@@ -1,7 +1,6 @@
 package by.golik.jwdcourse.task04.beans;
 import java.util.Arrays;
 
-
 /**
  * Class Wrapper for Integer
  * @author Nikita Golik
@@ -12,16 +11,16 @@ public class Array {
 
     /**
      *
-     * @param data
-     * @param length
+     * @param data - array of integer numbers
+     * @param length - size of array
      */
     public Array(int[] data, int length) {
         this.data = new int[length];
     }
 
     /**
-     *
-     * @param length
+     * constructor, that creates an object type Array
+     * @param length - size of array
      * @throws Exception
      */
     public Array(int length) throws Exception {
@@ -32,26 +31,26 @@ public class Array {
     }
 
     /**
-     *
-     * @return
+     * getter for length
+     * @return length of array
      */
     public int getLength() {
         return data.length;
     }
 
     /**
-     *
-     * @param i
-     * @return
+     * getter for element
+     * @param i - index of element in array
+     * @return value of element with index i
      */
     public int getElement(int i) {
         return data[i];
     }
 
     /**
-     *
-     * @param i
-     * @param value
+     * setter for element
+     * @param i - index of element in array
+     * @param value of element in array
      */
     public void setElement(int i, int value) {
         data[i] = value;
@@ -59,7 +58,7 @@ public class Array {
 
     /**
      * This method returns a string representation of the object
-     * @return
+     * @return a string representation of the object
      */
     @Override
     public String toString() {
@@ -69,9 +68,9 @@ public class Array {
     }
 
     /**
-     *
-     * @param o
-     * @return
+     * equals (for compare)
+     * @param o object
+     * @return true or false
      */
     @Override
     public boolean equals(Object o) {
@@ -84,7 +83,7 @@ public class Array {
     /**
      * Method returns a hash code value for the object.
      * This method is supported for the benefit of hash tables such as those provided by HashMap.
-     * @return
+     * @return a hash code value for the object.
      */
     @Override
     public int hashCode() {

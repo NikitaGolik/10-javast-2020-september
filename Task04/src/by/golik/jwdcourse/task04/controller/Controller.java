@@ -6,7 +6,9 @@ import by.golik.jwdcourse.task04.view.Command;
 import java.util.Scanner;
 import static by.golik.jwdcourse.task04.view.PrintArray.*;
 
-
+/**
+ * This class includes calls of using methods from service and view
+ */
 public class Controller {
     Command command = new Command();
     private Scanner scanner;
@@ -14,15 +16,15 @@ public class Controller {
     JaggedArraysCreator jaggedArraysCreator = new JaggedArraysCreator();
 
     /**
-     *
-     * @param scanner
+     * Constructor for creating an object
+     * @param scanner - read info from user
      */
     public Controller(Scanner scanner) {
         this.scanner = scanner;
     }
 
     /**
-     *
+     * beginning of program
      * @throws Exception
      */
     public void start() throws Exception {
@@ -60,8 +62,8 @@ public class Controller {
     }
 
     /**
-     *
-     * @param array
+     * method calls methods from service to sort arryas
+     * @param array getting array
      * @throws Exception
      */
     public void sort(Array array) throws Exception {
@@ -134,7 +136,7 @@ public class Controller {
     }
 
     /**
-     *
+     * creating jagged arrays
      * @throws Exception
      */
     public void addJagged() throws Exception {
@@ -168,7 +170,7 @@ public class Controller {
     }
 
     /**
-     *
+     * actions with jagged arrays
      * @throws Exception
      */
     public void actionsJagged() throws Exception {
@@ -229,15 +231,23 @@ public class Controller {
                         jaggedArray = new JaggedArray(5,5);
                         jaggedArraysCreator.fillJaggedByRandom(jaggedArray,2,10);
 
-                        ServiceJagged sortedJagged = new ServiceJagged();
-                        sortedJagged.SortArrayIncreaseSumOFElementsInRaw(jaggedArray);
+                        SortJaggedByRaws sortJaggedByRaws = new SortJaggedByRaws();
+                        sortJaggedByRaws.sortArrayIncreaseSumOFElementsInRaw(jaggedArray);
 
                         break;
                     case "7":
+                        jaggedArray = new JaggedArray(5,5);
+                        jaggedArraysCreator.fillJaggedByRandom(jaggedArray,2,20);
 
+                        SortJaggedByRaws sortJaggedByMaxRaws = new SortJaggedByRaws();
+                        sortJaggedByMaxRaws.sortRows(jaggedArray, true, false);
                         break;
                     case "8":
+                        jaggedArray = new JaggedArray(5,5);
+                        jaggedArraysCreator.fillJaggedByRandom(jaggedArray,2,20);
 
+                        SortJaggedByRaws sortJaggedByMinRaws = new SortJaggedByRaws();
+                        sortJaggedByMinRaws.sortRows(jaggedArray, false, false);
                         break;
                     case "9":
                         System.out.println("Завершение программы");

@@ -4,14 +4,14 @@ import java.io.File;
 import java.util.Scanner;
 
 /**
- *
+ * Creates arrays
  */
 public class ArraysCreator {
     /**
-     *
-     * @param array
-     * @param scanner
-     * @return
+     * Create array from console
+     * @param array - getting from user numbers
+     * @param scanner - read from user
+     * @return array
      * @throws Exception
      */
     public Array fillFromConsole(Array array, Scanner scanner) throws Exception {
@@ -31,8 +31,7 @@ public class ArraysCreator {
 
     /**
      * This method fills the array with the numbers entered from .txt file.
-     *
-     * @param array
+     * @param array getting from user numbers
      * @return
      * * @throws FileNotFoundException - Constructs a FileNotFoundException with null as its error detail message.
      */
@@ -53,10 +52,10 @@ public class ArraysCreator {
 
     /**
      * This method fills the array with random numbers.
-     * @param array
-     * @param start
-     * @param end
-     * @return
+     * @param array - getting from user numbers
+     * @param start - low radnom number
+     * @param end - max random number
+     * @return array
      * @throws Exception
      */
     public Array fillByRandom(Array array, int start, int end) throws Exception {

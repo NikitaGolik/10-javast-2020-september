@@ -5,7 +5,9 @@ import java.util.Scanner;
  * @author Nikita Golik
  */
 public class MainController {
-
+    /**
+     * Runner of program
+     */
     public static class Main {
         public static void main(String[] args) throws Exception {
             // write your code here

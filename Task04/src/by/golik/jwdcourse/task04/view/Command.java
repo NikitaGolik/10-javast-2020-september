@@ -2,12 +2,12 @@ package by.golik.jwdcourse.task04.view;
 import java.io.FileNotFoundException;
 
 /**
- *
+ * Class consists of available commands for user console
  */
 public class Command {
     /**
-     *
-     * @throws FileNotFoundException
+     * methods for user
+     * @throws FileNotFoundException if file not found
      */
     public void printMenu() throws FileNotFoundException {
 
@@ -18,9 +18,6 @@ public class Command {
         System.out.println("4 - для выхода");
     }
 
-    /**
-     *
-     */
     public void printSortMenu() {
         System.out.println("Выбери действие с элементами массива:");
         System.out.println("1 - Сортировка - пузырек");
@@ -44,18 +41,16 @@ public class Command {
         System.out.println("4 - для выхода");
     }
 
-    /**
-     *
-     */
     public void printMenuForActionsWithJaggedArrays() {
         System.out.println("1 - проверка является ли массив квадратной матрицей");
         System.out.println("2 - сложение двух рваных массивов");
         System.out.println("3 - вычитание массивов");
         System.out.println("4 - умножение на константу всех элементов массива");
         System.out.println("5 - транспонирование матрицы");
-        System.out.println("6 - сортировка строк по сумме");
-        System.out.println("7 - для выхода");
+        System.out.println("6 - сортировка строк по убыванию по сумме элементов строки");
+        System.out.println("7 - сортировка строк по возрастанию максимального элемента в строке");
+        System.out.println("8 - сортировка строк по убыванию минимальному элемента в строке");
+        System.out.println("9 - для выхода");
     }
-
 }
 

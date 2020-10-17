@@ -9,14 +9,18 @@ import java.util.Arrays;
 public class JaggedArray {
     private int[][] array;
 
+    /**
+     * Constructor that creates an object
+     * @param array array of elements
+     */
     public JaggedArray(int[][] array) {
         this.array = array;
     }
 
     /**
-     *
-     * @param raw
-     * @param col
+     * Constructor that creates an object with param
+     * @param raw - count of raws
+     * @param col - count of colouns
      * @throws Exception
      */
     public JaggedArray(int raw, int col) throws Exception {
@@ -27,26 +31,26 @@ public class JaggedArray {
     }
 
     /**
-     *
-     * @return
+     * getter for vertical size(raws)
+     * @return length of array
      */
     public int getVerticalSize() {
         return array.length;
     }
 
     /**
-     *
-     * @return
+     * getter for horizontal size(col)
+     * @return length of array
      */
     public int getHorizontalSize() {
         return array[0].length;
     }
 
     /**
-     *
-     * @param i
-     * @param j
-     * @return
+     * getter for element
+     * @param i - index of element in 1st array
+     * @param j - index of element in 2nd array
+     * @return value of element
      * @throws Exception
      */
     public int getElement(int i, int j) throws Exception {
@@ -57,10 +61,10 @@ public class JaggedArray {
     }
 
     /**
-     *
-     * @param i
-     * @param j
-     * @param value
+     * setter for element
+     * @param i - index of element in 1st array
+     * @param j - index of element in 2nd array
+     * @param value of element
      * @throws Exception
      */
     public void setElement(int i, int j, int value) throws Exception {
@@ -70,10 +74,10 @@ public class JaggedArray {
     }
 
     /**
-     *
-     * @param i
-     * @param j
-     * @return
+     * checking valid array
+     * @param i - index
+     * @param j - index
+     * @return true or false
      */
     private boolean checkRange(int i, int j) {
         if (i >= 0 && i < array.length && j >= 0 && j < array[0].length) {
@@ -84,8 +88,8 @@ public class JaggedArray {
     }
 
     /**
-     *
-     * @return
+     * This method returns a string representation of the object
+     * @return a string representation of the object
      */
     @Override
     public String toString() {
@@ -100,9 +104,9 @@ public class JaggedArray {
     }
 
     /**
-     *
-     * @param o
-     * @return
+     * equals (for compare)
+     * @param o object
+     * @return true or false
      */
     @Override
     public boolean equals(Object o) {
@@ -113,8 +117,9 @@ public class JaggedArray {
     }
 
     /**
-     *
-     * @return
+     * Method returns a hash code value for the object.
+     * This method is supported for the benefit of hash tables such as those provided by HashMap.
+     * @return a hash code value for the object.
      */
     @Override
     public int hashCode() {
