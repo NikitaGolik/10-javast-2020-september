@@ -1,15 +1,21 @@
 package by.golik.jwdcourse.task06.query.search_query;
 import by.golik.jwdcourse.task06.entity.Book;
-import by.golik.jwdcourse.task06.query.BookQuery;
+import by.golik.jwdcourse.task06.query.BookSpecification;
 import by.golik.jwdcourse.task06.repository.BookRepositoryImpl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class SearchIdQuery implements BookQuery {
-    private int id;
+public class SearchIdSpecification implements BookSpecification {
 
-    public SearchIdQuery(int identify) {
+    @Override
+    public boolean specified(Book book) {
+        return false;
+    }
+
+    private final long id;
+
+    public SearchIdSpecification(final long identify) {
         this.id = identify;
     }
 

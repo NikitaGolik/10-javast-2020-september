@@ -11,8 +11,8 @@ public interface BookDao {
 
     void removeBook(Book book);
 
-    void findByTag();
+    void findByTag(Book book);
 
-    void sortByTag();
+    void sortByTag(Book book);
 
 }

@@ -1,7 +1,7 @@
 package by.golik.jwdcourse.task06.query.search_query;
 
 import by.golik.jwdcourse.task06.entity.Book;
-import by.golik.jwdcourse.task06.query.BookQuery;
+import by.golik.jwdcourse.task06.query.BookSpecification;
 import by.golik.jwdcourse.task06.repository.BookRepositoryImpl;
 
 import java.util.ArrayList;
@@ -9,11 +9,15 @@ import java.util.HashMap;
 
 /** Query for searching objets by name...*/
 
-public class SearchNameQuery implements BookQuery {
+public class SearchNameSpecification implements BookSpecification {
+    @Override
+    public boolean specified(Book book) {
+        return false;
+    }
 
-    private String name;
+    private final String name;
 
-    public SearchNameQuery(String nameToSearch) {
+    public SearchNameSpecification(String nameToSearch) {
         this.name = nameToSearch;
     }
     public ArrayList<Book> query(HashMap<Book, BookRepositoryImpl> storage) {

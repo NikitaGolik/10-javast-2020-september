@@ -1,16 +1,16 @@
 package by.golik.jwdcourse.task06.query.sort_query;
 
-import by.golik.jwdcourse.task06.query.BookQuery;
+import by.golik.jwdcourse.task06.query.BookSpecification;
 
-public abstract class AbstractSortQuery implements BookQuery {
+public abstract class AbstractSortSpecification implements BookSpecification {
 
     private final boolean isDescending;
 
-    public AbstractSortQuery() {
+    public AbstractSortSpecification() {
         this.isDescending = false;
     }
 
-    public AbstractSortQuery(boolean isDescending) {
+    public AbstractSortSpecification(boolean isDescending) {
         this.isDescending = isDescending;
     }
 

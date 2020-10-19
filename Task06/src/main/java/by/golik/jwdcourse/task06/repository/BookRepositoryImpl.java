@@ -9,12 +9,6 @@ public class BookRepositoryImpl implements BookRepository {
     private BookDaoImpl bookDaoImpl;
 
     @Override
-    public Book get(Long id) {
-        Book book = bookDaoImpl.(id);
-        return book;
-    }
-
-    @Override
     public void add(Book book) {
         bookDaoImpl.addBook(book);
 
@@ -25,4 +19,5 @@ public class BookRepositoryImpl implements BookRepository {
         bookDaoImpl.removeBook(book);
 
     }
+
 }

@@ -18,12 +18,12 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public void findByTag() {
+    public void findByTag(Book book) {
 
     }
 
     @Override
-    public void sortByTag() {
+    public void sortByTag(Book book) {
 
     }
 }

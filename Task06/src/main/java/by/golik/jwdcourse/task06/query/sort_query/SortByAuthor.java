@@ -7,9 +7,12 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 
-public class SortByAuthor extends AbstractSortQuery {
+public class SortByAuthor extends AbstractSortSpecification {
 
-
+    @Override
+    public boolean specified(Book book) {
+        return false;
+    }
 
     public ArrayList<Book> query(HashMap<Book, BookRepositoryImpl> storage) {
         ArrayList<Book> bookList = new ArrayList<>(storage.keySet());
@@ -20,4 +23,5 @@ public class SortByAuthor extends AbstractSortQuery {
         bookList.sort(comparator);
         return bookList;
     }
+
 }
