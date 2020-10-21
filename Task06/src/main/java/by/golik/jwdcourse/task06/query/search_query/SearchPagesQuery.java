@@ -1,26 +1,39 @@
 package by.golik.jwdcourse.task06.query.search_query;
 import by.golik.jwdcourse.task06.entity.Book;
 import by.golik.jwdcourse.task06.query.BookQuery;
-import by.golik.jwdcourse.task06.repository.BookRepositoryImpl;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Set;
 
+/**
+ * Class for search book by count of pages
+ */
 public class SearchPagesQuery implements BookQuery {
-
+    /**
+     * Specification
+     * @param book - book to search
+     * @return true if repository has book with entering count of pages
+     */
     @Override
     public boolean specified(Book book) {
-        return false;
+        return book.getPages() == pages;
     }
 
-    private Long pages;
+    private final Long pages;
 
+    /**
+     * Constructor
+     * @param identify - count of pages
+     */
     public SearchPagesQuery(final Long identify) {
         this.pages = identify;
     }
 
+    /**
+     * method for search book by count of pages
+     * @param pages - count of pages in book
+     * @param bookSet - set of books from repository
+     * @return all books with entering count of pages
+     */
     public ArrayList<Book> query(Long pages, Set<Book> bookSet) {
         ArrayList<Book> result = new ArrayList<>();
 
@@ -29,7 +42,6 @@ public class SearchPagesQuery implements BookQuery {
                 result.add(book);
             }
         }
-        System.out.println(result.toString());
         return result;
     }
 }

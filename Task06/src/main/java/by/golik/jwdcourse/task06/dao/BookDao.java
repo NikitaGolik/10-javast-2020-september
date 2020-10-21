@@ -5,9 +5,18 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * @author Nikita Golik
+ * Class for read List of Books from file
+ */
 
 public class BookDao implements Serializable {
 
+    /**
+     * Class for reading books from file
+     * @return Set of books from file
+     * @throws IOException
+     */
 
     public Set<Book> readBook() throws IOException {
         Set<Book> bookSet = new HashSet<>();
@@ -27,7 +36,11 @@ public class BookDao implements Serializable {
         return bookSet;
     }
 
-
+    /**
+     * Mthod to create books
+     * @param bookArrayList - list of books, that were added
+     * @throws IOException
+     */
     public void createBook(ArrayList<Book> bookArrayList) throws IOException {
 
         try(FileOutputStream fo = new FileOutputStream(".\\resources\\data\\Books.txt", true);

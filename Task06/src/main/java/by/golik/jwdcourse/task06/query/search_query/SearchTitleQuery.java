@@ -13,7 +13,7 @@ public class SearchTitleQuery implements BookQuery {
 
     @Override
     public boolean specified(Book book) {
-        return book.getTitle().equals(this.title);
+        return book.getTitle().equals(title);
     }
 
     private final String title;
@@ -30,7 +30,6 @@ public class SearchTitleQuery implements BookQuery {
                 result.add(book);
             }
         }
-        System.out.println(result.toString());
         return result;
     }
 }
