@@ -6,6 +6,7 @@ import by.golik.jwdcourse.task06.repository.BookRepositoryImpl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class SearchYearQuery implements BookQuery {
 
@@ -14,19 +15,21 @@ public class SearchYearQuery implements BookQuery {
         return false;
     }
 
-    private final int year;
+    private final Long year;
 
-    public SearchYearQuery(final int yearToSearch) {
+    public SearchYearQuery(Long yearToSearch) {
         this.year = yearToSearch;
     }
 
-    public ArrayList<Book> query(Long year, ArrayList<Book> books) {
+    public ArrayList<Book> query(Long year, Set<Book> bookSet) {
         ArrayList<Book> result = new ArrayList<>();
 
-        for(Book book : books) {
-            if(book.getYear() == this.year) {
+        for (Book book : bookSet) {
+            if (specified(book)) {
                 result.add(book);
             }
-        } return result;
+        }
+        System.out.println(result.toString());
+        return result;
     }
 }

@@ -1,5 +1,0 @@
-Book{name='sa', author='sfas', year=50, pages=15}
-Book{name='asdsa', author='sfsaa', year=50, pages=15}
-Book{name='dasdsaf', author='sgrfa', year=50, pages=15}
-Book{name='fsafas', author='shra', year=50, pages=15}
-Book{name='ffsfasa', author='shrta', year=50, pages=15}

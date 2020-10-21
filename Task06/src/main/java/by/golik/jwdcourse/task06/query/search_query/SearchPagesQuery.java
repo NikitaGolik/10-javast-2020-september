@@ -6,6 +6,7 @@ import by.golik.jwdcourse.task06.repository.BookRepositoryImpl;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public class SearchPagesQuery implements BookQuery {
 
@@ -20,16 +21,15 @@ public class SearchPagesQuery implements BookQuery {
         this.pages = identify;
     }
 
-
-    public ArrayList<Book> query(Long pages, ArrayList<Book> books) {
+    public ArrayList<Book> query(Long pages, Set<Book> bookSet) {
         ArrayList<Book> result = new ArrayList<>();
 
-        for (Book book : books) {
-            if (book.getPages() == this.pages) {
+        for (Book book : bookSet) {
+            if (specified(book)) {
                 result.add(book);
             }
         }
-
+        System.out.println(result.toString());
         return result;
     }
 }

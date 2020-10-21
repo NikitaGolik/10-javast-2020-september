@@ -1,11 +1,17 @@
 package by.golik.jwdcourse.task06;
-import by.golik.jwdcourse.task06.dao.BookDaoImpl;
+import by.golik.jwdcourse.task06.dao.BookDao;
+import by.golik.jwdcourse.task06.dao.Tag;
 import by.golik.jwdcourse.task06.entity.Book;
+import by.golik.jwdcourse.task06.entity.LibraryManager;
+import by.golik.jwdcourse.task06.exceptions.BookAlreadyHaveException;
+import by.golik.jwdcourse.task06.exceptions.BookNotExistException;
+import by.golik.jwdcourse.task06.query.search_query.SearchTitleQuery;
 import by.golik.jwdcourse.task06.repository.BookRepository;
 import by.golik.jwdcourse.task06.repository.BookRepositoryImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class Main {
@@ -13,23 +19,33 @@ public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
 
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Book book1 = new Book("book1", "author1", 15, 504);
-        Book book2 = new Book("book2", "author2", 125, 500);
-        Book book3 = new Book("book3", "author3", 145, 508);
-        Book book4 = new Book("book4", "author4", 1565, 540);
-        Book book5 = new Book("book5", "author5", 115, 510);
+    public static void main(String[] args) throws IOException, BookAlreadyHaveException, BookNotExistException {
 
-        BookDaoImpl bookDao = new BookDaoImpl();
-//        bookDao.createBook(book1);
-//        bookDao.createBook(book2);
-//        bookDao.createBook(book3);
-//        bookDao.createBook(book4);
-//        bookDao.createBook(book5);
-//        bookDao.readBook();
+        Book book1 = new Book("Java", "Nikolai", 150,1993);
+        Book book2 = new Book("Python", "Masha", 200,2000);
+        Book book3 = new Book("JavaScript", "Aleksandr", 130,2015);
+        Book book4 = new Book("HTML", "Petr", 230,2020);
+        Book book5 = new Book("CSS", "Vladimir", 350,1985);
+
+        BookDao bookDao = new BookDao();
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book1);
+        books.add(book2);
+        books.add(book3);
+        books.add(book4);
+        books.add(book5);
+        bookDao.createBook(books);
+
         BookRepositoryImpl bookRepository = new BookRepositoryImpl();
-        bookRepository.addBook(book1);
+        bookRepository.finByTag(Tag.TITLE);
+        bookRepository.finByTag(Tag.AUTHOR);
+        bookRepository.finByTag(Tag.PAGES);
+        bookRepository.finByTag(Tag.YEAR);
 
+
+
+        bookRepository.addBook(new Book("Factory", "Mike", 150,300));
+        bookRepository.removeBook(new Book("Python", "Masha", 200, 2000));
 
 
 

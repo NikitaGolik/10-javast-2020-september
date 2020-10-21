@@ -6,6 +6,7 @@ import by.golik.jwdcourse.task06.query.BookQuery;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class SearchAuthorQuery implements BookQuery {
 
@@ -19,15 +20,15 @@ public class SearchAuthorQuery implements BookQuery {
         this.author = author;
     }
 
-    public static List<Book> booksByPublisher(String author, ArrayList<Book> books) {
-        List<Book> result = new ArrayList<>();
+    public ArrayList<Book> query(String author, Set<Book> bookSet) {
+        ArrayList<Book> result = new ArrayList<>();
 
-        for (Book book : books) {
-            if (author.equals(book.getAuthor())) {
+        for (Book book : bookSet) {
+            if (specified(book)) {
                 result.add(book);
             }
         }
-
+        System.out.println(result.toString());
         return result;
     }
 }

@@ -5,13 +5,15 @@ import by.golik.jwdcourse.task06.query.BookQuery;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /** Query for searching objects by name...*/
 
 public class SearchTitleQuery implements BookQuery {
+
     @Override
     public boolean specified(Book book) {
-        return false;
+        return book.getTitle().equals(this.title);
     }
 
     private final String title;
@@ -20,11 +22,11 @@ public class SearchTitleQuery implements BookQuery {
         this.title = titleToSearch;
     }
 
-    public static List<Book> booksByTitle(String title, ArrayList<Book> books) {
-        List<Book> result = new ArrayList<>();
+    public ArrayList<Book> query(String title, Set<Book> bookSet) {
+        ArrayList<Book> result = new ArrayList<>();
 
-        for (Book book : books) {
-            if (title.equals(book.getTitle())) {
+        for (Book book : bookSet) {
+            if (specified(book)) {
                 result.add(book);
             }
         }

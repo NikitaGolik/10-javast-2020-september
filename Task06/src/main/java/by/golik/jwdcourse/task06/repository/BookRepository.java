@@ -1,25 +1,25 @@
 package by.golik.jwdcourse.task06.repository;
 
+import by.golik.jwdcourse.task06.dao.Tag;
 import by.golik.jwdcourse.task06.entity.Book;
-import java.io.IOException;
+import by.golik.jwdcourse.task06.exceptions.BookAlreadyHaveException;
+import by.golik.jwdcourse.task06.exceptions.BookNotExistException;
 
+import java.io.IOException;
+import java.util.ArrayList;
 
 
 public interface BookRepository {
 
-    Book get(Long id);
 
-    void addBook(Book book) throws IOException;
+    void addBook(Book book) throws IOException, BookAlreadyHaveException;
 
-    void removeBook(Book book);
+    void removeBook(Book book) throws BookNotExistException;
 
-    Book searchByAuthor(String authorName);
+    ArrayList<Book> finByTag(Tag tag);
 
-    Book searchById(Long id);
 
-    Book searchByName(String name);
 
-    Book searchByYear(Long year);
 
 
 
