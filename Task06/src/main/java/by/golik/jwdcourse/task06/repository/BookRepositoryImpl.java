@@ -15,7 +15,6 @@ import by.golik.jwdcourse.task06.query.sort_query.SortByTitle;
 import by.golik.jwdcourse.task06.query.sort_query.SortByYear;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.IOException;
 import java.util.*;
 
@@ -84,8 +83,8 @@ public class BookRepositoryImpl implements BookRepository {
 
 
         logger.info("Log4j2 started.");
-        logger.warn("Something to warn with find");
-        logger.error("Error with findByTag.");
+        logger.warn("Ошибка при получении объектов из BookDao");
+        logger.error("Ошибка при получении объектов из BookDao");
         logger.fatal("Fatal with Find ByTag");
 
 
@@ -113,8 +112,8 @@ public class BookRepositoryImpl implements BookRepository {
     @Override
     public ArrayList<Book> sortByTag(Tag tag) {
         logger.info("Log4j2 started.");
-        logger.warn("Something to warn with sort");
-        logger.error("Error with sort.");
+        logger.warn("Ошибка при получении объектов из BookDao");
+        logger.error("Ошибка при получении объектов из BookDao");
         logger.fatal("Fatal with sort");
 
         switch (tag) {

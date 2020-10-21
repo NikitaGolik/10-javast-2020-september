@@ -1,7 +1,6 @@
 package by.golik.jwdcourse.task06.query.sort_query;
 import by.golik.jwdcourse.task06.entity.Book;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Set;
 

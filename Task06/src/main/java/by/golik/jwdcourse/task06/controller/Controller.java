@@ -5,7 +5,6 @@ import by.golik.jwdcourse.task06.entity.Book;
 import by.golik.jwdcourse.task06.exceptions.BookAlreadyHaveException;
 import by.golik.jwdcourse.task06.exceptions.BookNotExistException;
 import by.golik.jwdcourse.task06.repository.BookRepositoryImpl;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -53,5 +52,4 @@ public class Controller {
     public void remove() throws BookNotExistException {
         bookRepository.removeBook(new Book("Python", "Masha", 200, 2000));
     }
-
 }

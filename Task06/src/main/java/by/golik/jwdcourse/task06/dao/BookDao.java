@@ -1,14 +1,11 @@
 package by.golik.jwdcourse.task06.dao;
-import by.golik.jwdcourse.task06.controller.Main;
 import by.golik.jwdcourse.task06.entity.Book;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-
 
 /**
  * @author Nikita Golik
@@ -18,7 +15,6 @@ import java.util.Set;
 public class BookDao implements Serializable {
     private static final Logger logger = LogManager.getLogger(BookDao.class);
 
-    private transient Book readBook;
     /**
      * Class for reading books from file
      * @return Set of books from file
@@ -31,10 +27,11 @@ public class BookDao implements Serializable {
         try( FileInputStream fis = new FileInputStream(".\\resources\\data\\Books.txt");
              ObjectInputStream o = new ObjectInputStream(fis)) {
 
-            logger.info("Log4j2 started.");
+
             logger.warn("Something to warn");
             logger.error("Error with read object.");
-            logger.fatal("Fatal error with read object");
+            logger.fatal("Ошибка при сериализации нового списка объектов");
+
 
             while(fis.available() > 0) {
                 Book book = (Book) o.readObject();
@@ -54,11 +51,10 @@ public class BookDao implements Serializable {
      */
     public void createBook(ArrayList<Book> bookArrayList) {
 
-        try(FileOutputStream fo = new FileOutputStream(".\\resources\\data\\Books.txt", true);
-            ObjectOutputStream serial = new ObjectOutputStream(fo)) {
+        try(FileOutputStream fos = new FileOutputStream(".\\resources\\data\\Books.txt", true);
+            ObjectOutputStream serial = new ObjectOutputStream(fos)) {
 
 
-            logger.info("Log4j2 started.");
             logger.warn("Something to warn");
             logger.error("failed with write object.");
             logger.fatal("Fatal with write object");
@@ -72,7 +68,5 @@ public class BookDao implements Serializable {
             System.out.println("Ошибка при сериализации объекта");
             ex.printStackTrace();
         }
-
     }
-
 }
