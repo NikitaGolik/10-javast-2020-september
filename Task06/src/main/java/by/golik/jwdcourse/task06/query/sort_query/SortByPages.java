@@ -7,16 +7,16 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 
-public class SortById extends AbstractSortSpecification {
+public class SortByPages extends AbstractSortQuery {
 
     @Override
     public boolean specified(Book book) {
         return false;
     }
 
-    public ArrayList<Book> query(HashMap<Book, BookRepositoryImpl> storage) {
-        ArrayList<Book> bookList = new ArrayList<>(storage.keySet());
-        Comparator<Book> comparator = Comparator.comparing(Book::getId);
+    public ArrayList<Book> query(Long pages, ArrayList<Book> books) {
+        ArrayList<Book> bookList = new ArrayList<>();
+        Comparator<Book> comparator = Comparator.comparing(Book::getPages);
         if(isDescending()) {
             comparator = comparator.reversed();
         }

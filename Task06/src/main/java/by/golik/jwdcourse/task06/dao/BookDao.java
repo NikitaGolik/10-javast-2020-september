@@ -1,18 +1,19 @@
 package by.golik.jwdcourse.task06.dao;
-
 import by.golik.jwdcourse.task06.entity.Book;
 
-import java.util.List;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Set;
+
 
 public interface BookDao {
 
+    HashMap<String, String> map = new HashMap<>();
 
-    void addBook (Book book);
+    Set<Book> readBook() throws IOException, ClassNotFoundException;
 
-    void removeBook(Book book);
+    void createBook (Book book) throws IOException;
 
-    void findByTag(Book book);
 
-    void sortByTag(Book book);
 
 }

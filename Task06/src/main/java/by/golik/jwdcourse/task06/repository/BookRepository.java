@@ -1,16 +1,31 @@
 package by.golik.jwdcourse.task06.repository;
 
 import by.golik.jwdcourse.task06.entity.Book;
+import java.io.IOException;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public interface BookRepository<Entity, Registrator> {
 
-    void add(Book book);
+public interface BookRepository {
 
-    void remove(Book book);
+    Book get(Long id);
 
-    ArrayList<Book> specification = null;
+    void addBook(Book book) throws IOException;
+
+    void removeBook(Book book);
+
+    Book searchByAuthor(String authorName);
+
+    Book searchById(Long id);
+
+    Book searchByName(String name);
+
+    Book searchByYear(Long year);
+
+
+
+
+
+
+
 
 }

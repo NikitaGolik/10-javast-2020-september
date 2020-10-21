@@ -1,18 +1,19 @@
 package by.golik.jwdcourse.task06.entity;
 
-public class Book {
-    private String name;
-    private String author;
-    private int pages;
-    private int year;
-    private int id;
+import java.io.Serializable;
 
-    public String getName() {
-        return name;
+public class Book implements Serializable {
+    private String title;
+    private String author;
+    private int year;
+    private int pages;
+
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getAuthor() {
@@ -23,14 +24,6 @@ public class Book {
         this.author = author;
     }
 
-    public int getPages() {
-        return pages;
-    }
-
-    public void setPages(int pages) {
-        this.pages = pages;
-    }
-
     public int getYear() {
         return year;
     }
@@ -39,30 +32,28 @@ public class Book {
         this.year = year;
     }
 
-    public int getId() {
-        return id;
+    public int getPages() {
+        return pages;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Book(String name, String author, int pages, int year, int id) {
-        this.name = name;
-        this.author = author;
+    public void setPages(int pages) {
         this.pages = pages;
+    }
+
+    public Book(String title, String author, int pages, int year) {
+        this.title = title;
+        this.author = author;
         this.year = year;
-        setId(id);
+        this.pages = pages;
     }
 
     @Override
     public String toString() {
         return "Book{" +
-                "name='" + name + '\'' +
+                "name='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", pages=" + pages +
                 ", year=" + year +
-                ", id=" + id +
+                ", pages=" + pages +
                 '}';
     }
 }

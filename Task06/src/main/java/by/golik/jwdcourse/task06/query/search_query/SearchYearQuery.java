@@ -1,32 +1,32 @@
 package by.golik.jwdcourse.task06.query.search_query;
 
 import by.golik.jwdcourse.task06.entity.Book;
-import by.golik.jwdcourse.task06.query.BookSpecification;
+import by.golik.jwdcourse.task06.query.BookQuery;
 import by.golik.jwdcourse.task06.repository.BookRepositoryImpl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class SearchAuthorSpecification implements BookSpecification {
+public class SearchYearQuery implements BookQuery {
 
     @Override
     public boolean specified(Book book) {
         return false;
     }
 
-    private final String author;
+    private final int year;
 
-    public SearchAuthorSpecification(String authorToSearch)  {
-        this.author = authorToSearch;
+    public SearchYearQuery(final int yearToSearch) {
+        this.year = yearToSearch;
     }
 
-    public ArrayList<Book> query(HashMap<Book, BookRepositoryImpl> storage) {
+    public ArrayList<Book> query(Long year, ArrayList<Book> books) {
         ArrayList<Book> result = new ArrayList<>();
-        for(Book book : storage.keySet()) {
-            if (book.getAuthor().equals(this.author)) {
+
+        for(Book book : books) {
+            if(book.getYear() == this.year) {
                 result.add(book);
             }
         } return result;
     }
-
 }

@@ -1,31 +1,35 @@
 package by.golik.jwdcourse.task06.query.search_query;
 import by.golik.jwdcourse.task06.entity.Book;
-import by.golik.jwdcourse.task06.query.BookSpecification;
+import by.golik.jwdcourse.task06.query.BookQuery;
 import by.golik.jwdcourse.task06.repository.BookRepositoryImpl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
-public class SearchIdSpecification implements BookSpecification {
+public class SearchPagesQuery implements BookQuery {
 
     @Override
     public boolean specified(Book book) {
         return false;
     }
 
-    private final long id;
+    private Long pages;
 
-    public SearchIdSpecification(final long identify) {
-        this.id = identify;
+    public SearchPagesQuery(final Long identify) {
+        this.pages = identify;
     }
 
 
-    public ArrayList query(HashMap<Book, BookRepositoryImpl> storage) {
+    public ArrayList<Book> query(Long pages, ArrayList<Book> books) {
         ArrayList<Book> result = new ArrayList<>();
-        for(Book book : storage.keySet()) {
-            if (book.getId() == this.id) {
+
+        for (Book book : books) {
+            if (book.getPages() == this.pages) {
                 result.add(book);
             }
-        } return result;
+        }
+
+        return result;
     }
 }
