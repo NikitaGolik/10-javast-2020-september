@@ -2,11 +2,8 @@ package by.golik.jwdcourse.task06;
 import by.golik.jwdcourse.task06.dao.BookDao;
 import by.golik.jwdcourse.task06.dao.Tag;
 import by.golik.jwdcourse.task06.entity.Book;
-import by.golik.jwdcourse.task06.entity.LibraryManager;
 import by.golik.jwdcourse.task06.exceptions.BookAlreadyHaveException;
 import by.golik.jwdcourse.task06.exceptions.BookNotExistException;
-import by.golik.jwdcourse.task06.query.search_query.SearchTitleQuery;
-import by.golik.jwdcourse.task06.repository.BookRepository;
 import by.golik.jwdcourse.task06.repository.BookRepositoryImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,6 +17,12 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException, BookAlreadyHaveException, BookNotExistException {
+        logger.trace("Trace");
+        logger.info("Log4j2 started.");
+        logger.warn("Something to warn");
+        logger.error("Something failed.");
+        logger.fatal("Fatal");
+        logger.debug("Debug");
 
         Book book1 = new Book("Java", "Nikolai", 150,1993);
         Book book2 = new Book("Python", "Masha", 200,2000);
@@ -35,13 +38,14 @@ public class Main {
         books.add(book4);
         books.add(book5);
         bookDao.createBook(books);
+        bookDao.readBook();
+
 
         BookRepositoryImpl bookRepository = new BookRepositoryImpl();
         bookRepository.finByTag(Tag.TITLE);
         bookRepository.finByTag(Tag.AUTHOR);
         bookRepository.finByTag(Tag.PAGES);
         bookRepository.finByTag(Tag.YEAR);
-
 
 
         bookRepository.addBook(new Book("Factory", "Mike", 150,300));
