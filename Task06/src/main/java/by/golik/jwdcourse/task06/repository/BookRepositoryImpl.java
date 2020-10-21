@@ -1,4 +1,5 @@
 package by.golik.jwdcourse.task06.repository;
+import by.golik.jwdcourse.task06.controller.Main;
 import by.golik.jwdcourse.task06.dao.BookDao;
 import by.golik.jwdcourse.task06.dao.Tag;
 import by.golik.jwdcourse.task06.entity.Book;
@@ -8,6 +9,13 @@ import by.golik.jwdcourse.task06.query.search_query.SearchAuthorQuery;
 import by.golik.jwdcourse.task06.query.search_query.SearchPagesQuery;
 import by.golik.jwdcourse.task06.query.search_query.SearchTitleQuery;
 import by.golik.jwdcourse.task06.query.search_query.SearchYearQuery;
+import by.golik.jwdcourse.task06.query.sort_query.SortByAuthor;
+import by.golik.jwdcourse.task06.query.sort_query.SortByPages;
+import by.golik.jwdcourse.task06.query.sort_query.SortByTitle;
+import by.golik.jwdcourse.task06.query.sort_query.SortByYear;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.util.*;
 
@@ -16,8 +24,20 @@ import java.util.*;
  */
 public class BookRepositoryImpl implements BookRepository {
 
+    private static final Logger logger = LogManager.getLogger(Main.class);
 
     private static Set<Book> repository;
+
+    /**
+     * fill set of book from file
+     * @return set of books
+     * @throws IOException
+     */
+    public Set<Book> fill() throws IOException {
+        BookDao bookDao = new BookDao();
+        return bookDao.readBook();
+    }
+
 
     /**
      * Fill repository with books from file
@@ -61,6 +81,14 @@ public class BookRepositoryImpl implements BookRepository {
      */
     @Override
     public ArrayList<Book> finByTag(Tag tag) {
+
+
+        logger.info("Log4j2 started.");
+        logger.warn("Something to warn with find");
+        logger.error("Error with findByTag.");
+        logger.fatal("Fatal with Find ByTag");
+
+
         switch (tag) {
             case TITLE:
             SearchTitleQuery searchTitleQuery = new SearchTitleQuery("Sas");
@@ -82,14 +110,31 @@ public class BookRepositoryImpl implements BookRepository {
         return null;
     }
 
-    /**
-     * fill set of book from file
-     * @return set of books
-     * @throws IOException
-     */
-    public Set<Book> fill() throws IOException {
-        BookDao bookDao = new BookDao();
-        return bookDao.readBook();
-    }
+    @Override
+    public ArrayList<Book> sortByTag(Tag tag) {
+        logger.info("Log4j2 started.");
+        logger.warn("Something to warn with sort");
+        logger.error("Error with sort.");
+        logger.fatal("Fatal with sort");
 
+        switch (tag) {
+            case TITLE:
+                SortByTitle sortByTitle = new SortByTitle();
+                return sortByTitle.query("sas", repository);
+
+            case AUTHOR:
+                SortByAuthor sortByAuthor = new SortByAuthor();
+                return sortByAuthor.query("sas", repository);
+
+            case YEAR:
+                SortByYear sortByYear = new SortByYear();
+                return sortByYear.query((long) 15, repository);
+
+            case PAGES:
+                SortByPages sortByPages = new SortByPages();
+                return sortByPages.query((long) 1900, repository);
+
+        }
+        return null;
+    }
 }

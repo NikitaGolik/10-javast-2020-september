@@ -6,6 +6,7 @@ import by.golik.jwdcourse.task06.repository.BookRepositoryImpl;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Set;
 
 public class SortByPages extends AbstractSortQuery {
 
@@ -14,13 +15,14 @@ public class SortByPages extends AbstractSortQuery {
         return false;
     }
 
-    public ArrayList<Book> query(Long pages, ArrayList<Book> books) {
-        ArrayList<Book> bookList = new ArrayList<>();
-        Comparator<Book> comparator = Comparator.comparing(Book::getPages);
-        if(isDescending()) {
-            comparator = comparator.reversed();
+    public ArrayList<Book> query(Long pages, Set<Book> bookSet) {
+        ArrayList<Book> bookList = new ArrayList<>(bookSet);
+
+        Comparator<Book> bookComparator = Comparator.comparingDouble(Book::getPages);
+        if (isDescending()) {
+            bookComparator = bookComparator.reversed();
         }
-        bookList.sort(comparator);
+        bookList.sort(bookComparator);
         return bookList;
     }
 }

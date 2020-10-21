@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * interface for actions with bookrepository
+ * interface for actions with bookRepository
  */
 
 public interface BookRepository {
@@ -32,6 +32,8 @@ public interface BookRepository {
      * @return list of books, that were found
      */
     ArrayList<Book> finByTag(Tag tag);
+
+    ArrayList<Book> sortByTag(Tag tag);
 
 
 

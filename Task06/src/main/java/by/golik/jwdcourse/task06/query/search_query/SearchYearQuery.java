@@ -8,6 +8,9 @@ import java.util.Set;
  * Class for search a book by tear of publishing
  */
 public class SearchYearQuery implements BookQuery {
+
+    private final Long year;
+
     /**
      * Specification
      * @param book - book for search
@@ -17,8 +20,6 @@ public class SearchYearQuery implements BookQuery {
     public boolean specified(Book book) {
         return book.getYear() == year;
     }
-
-    private final Long year;
 
     /**
      * Constructor

@@ -1,11 +1,10 @@
 package by.golik.jwdcourse.task06.query.sort_query;
-
 import by.golik.jwdcourse.task06.entity.Book;
-import by.golik.jwdcourse.task06.repository.BookRepositoryImpl;
-
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
+import java.util.Set;
+
 
 public class SortByYear extends AbstractSortQuery {
 
@@ -14,13 +13,14 @@ public class SortByYear extends AbstractSortQuery {
         return false;
     }
 
-    public ArrayList<Book> query(Long year, ArrayList<Book> books) {
-        ArrayList<Book> bookList = new ArrayList<>();
-        Comparator<Book> comparator = Comparator.comparing(Book::getYear);
-        if(isDescending()) {
-            comparator = comparator.reversed();
+    public ArrayList<Book> query(Long year, Set<Book> bookSet) {
+        ArrayList<Book> bookList = new ArrayList<>(bookSet);
+
+        Comparator<Book> bookComparator = Comparator.comparingDouble(Book::getYear);
+            if (isDescending()) {
+                bookComparator = bookComparator.reversed();
         }
-        bookList.sort(comparator);
+        bookList.sort(bookComparator);
         return bookList;
     }
 }

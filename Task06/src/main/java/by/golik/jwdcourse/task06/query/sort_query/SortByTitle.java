@@ -5,6 +5,7 @@ import by.golik.jwdcourse.task06.entity.Book;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Set;
 
 public class SortByTitle extends AbstractSortQuery {
 
@@ -13,13 +14,14 @@ public class SortByTitle extends AbstractSortQuery {
         return false;
     }
 
-    public ArrayList<Book> query(HashMap<Book, ArrayList<Book>> list) {
-        ArrayList<Book> bookList = new ArrayList<>(list.keySet());
-        Comparator<Book> comparator = Comparator.comparing(Book::getTitle);
-        if(isDescending()) {
-            comparator = comparator.reversed();
+    public ArrayList<Book> query(String title, Set<Book> bookSet) {
+        ArrayList<Book> bookList = new ArrayList<>(bookSet);
+
+        Comparator<Book> bookComparator = Comparator.comparing((Book::getTitle));
+        if (isDescending()) {
+            bookComparator = bookComparator.reversed();
         }
-        bookList.sort(comparator);
+        bookList.sort(bookComparator);
         return bookList;
     }
 }
