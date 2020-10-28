@@ -1,7 +1,10 @@
 package by.golik.task07.controller;
 import by.golik.task07.dao.BookDao;
+import by.golik.task07.entity.Book;
 import by.golik.task07.exceptions.BookAlreadyHaveException;
 import by.golik.task07.exceptions.BookNotExistException;
+import by.golik.task07.query.search_query.SearchAuthorQuery;
+import by.golik.task07.repository.BookRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.IOException;
@@ -19,14 +22,10 @@ public class Main {
         logger.fatal("Fatal");
         logger.debug("Debug");
         BookDao bookDao = new BookDao();
-        bookDao.read();
+        BookRepository bookRepository = new BookRepository();
 
-//        Controller controller = new Controller();
-//        controller.create();
-//        controller.find();
-//        controller.sort();
-//        controller.remove();
-//        controller.add();
+        SearchAuthorQuery searchAuthorQuery = new SearchAuthorQuery("Голик");
+        searchAuthorQuery.query(bookRepository.getRepository());
 
     }
 }

@@ -13,7 +13,7 @@ import java.util.*;
 public class BookDao implements Serializable {
     private static final Logger logger = LogManager.getLogger(BookDao.class);
 
-    public Map<String, Book> read() throws IOException {
+    public Set<Book> read() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(".\\resources\\data\\Books.txt"));
 
         ArrayList<String> values = new ArrayList<>();
@@ -25,17 +25,13 @@ public class BookDao implements Serializable {
         }
         System.out.println(values);
 
-
         for(int i = 0; i < values.size(); i+=4) {
             Book book = new Book(values.get(i),values.get(i+1),Integer.parseInt(values.get(i+2)),
                     Integer.parseInt(values.get(i+3)));
             listBooks.add(book);
         }
-//        System.out.println(listBooks);
-        Map<String, Book> map = new HashMap<>();
-        for(Book book : listBooks) {
-            map.put(book.getTitle(), book);
-        }
+
+        Set<Book> map = new HashSet<>(listBooks);
 
         System.out.println(map);
         return  map;
@@ -77,7 +73,7 @@ public class BookDao implements Serializable {
      */
     public void createBook(ArrayList<Book> bookArrayList) {
 
-        try(FileOutputStream fos = new FileOutputStream(".\\resources\\data\\Books.txt", true);
+        try(FileOutputStream fos = new FileOutputStream(".\\resources\\data\\NewBooks.txt", true);
             ObjectOutputStream serial = new ObjectOutputStream(fos)) {
 
 
@@ -94,5 +90,6 @@ public class BookDao implements Serializable {
             System.out.println("Ошибка при сериализации объекта");
             ex.printStackTrace();
         }
+
     }
 }
