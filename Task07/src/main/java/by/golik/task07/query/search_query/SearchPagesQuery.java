@@ -1,0 +1,47 @@
+package by.golik.task07.query.search_query;
+import by.golik.task07.entity.Book;
+import by.golik.task07.query.BookQuery;
+import java.util.ArrayList;
+import java.util.Set;
+
+/**
+ * Class for search book by count of pages
+ */
+public class SearchPagesQuery implements BookQuery {
+    /**
+     * Specification
+     * @param book - book to search
+     * @return true if repository has book with entering count of pages
+     */
+    @Override
+    public boolean specified(Book book) {
+        return book.getPages() == pages;
+    }
+
+    private final Long pages;
+
+    /**
+     * Constructor
+     * @param identify - count of pages
+     */
+    public SearchPagesQuery(final Long identify) {
+        this.pages = identify;
+    }
+
+    /**
+     * method for search book by count of pages
+     * @param pages - count of pages in book
+     * @param bookSet - set of books from repository
+     * @return all books with entering count of pages
+     */
+    public ArrayList<Book> query(Long pages, Set<Book> bookSet) {
+        ArrayList<Book> result = new ArrayList<>();
+
+        for (Book book : bookSet) {
+            if (specified(book)) {
+                result.add(book);
+            }
+        }
+        return result;
+    }
+}
