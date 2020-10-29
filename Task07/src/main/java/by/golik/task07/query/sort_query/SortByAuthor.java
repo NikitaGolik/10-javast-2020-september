@@ -19,6 +19,9 @@ public class SortByAuthor extends AbstractSortQuery {
             bookComparator = bookComparator.reversed();
         }
         bookList.sort(bookComparator);
+
+        System.out.println(bookList);
+
         return bookList;
     }
 

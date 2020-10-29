@@ -33,6 +33,8 @@ public class Main {
         bookRepository.addBook(new Book("Маленький принц", "Экзюпери", 20, 20));
 
         System.out.println(bookRepository.getRepository());
-        bookDao.createBook(bookRepository.getRepository());
+        bookDao.write(bookRepository.getRepository());
+        bookRepository.sortByTag(Tag.AUTHOR);
+
     }
 }

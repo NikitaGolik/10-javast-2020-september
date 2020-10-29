@@ -10,10 +10,6 @@ public abstract class AbstractSortQuery implements BookQuery {
         this.isDescending = false;
     }
 
-    public AbstractSortQuery(boolean isDescending) {
-        this.isDescending = isDescending;
-    }
-
     public boolean isDescending() {
         return isDescending;
     }

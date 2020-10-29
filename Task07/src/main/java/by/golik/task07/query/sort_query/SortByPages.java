@@ -21,6 +21,7 @@ public class SortByPages extends AbstractSortQuery {
             bookComparator = bookComparator.reversed();
         }
         bookList.sort(bookComparator);
+        System.out.println(bookList);
         return bookList;
     }
 }

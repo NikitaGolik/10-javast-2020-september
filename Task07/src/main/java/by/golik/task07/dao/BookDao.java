@@ -1,8 +1,13 @@
 package by.golik.task07.dao;
 import by.golik.task07.entity.Book;
+import by.golik.task07.repository.BookRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 /**
@@ -17,7 +22,7 @@ public class BookDao implements Serializable {
         BufferedReader reader = new BufferedReader(new FileReader(".\\resources\\data\\Books.txt"));
 
         ArrayList<String> values = new ArrayList<>();
-        ArrayList<Book> listBooks = new ArrayList<>();
+        Set<Book> bookSet = new HashSet<>();
 
         String line = null;
         while((line = reader.readLine()) != null) {
@@ -28,13 +33,21 @@ public class BookDao implements Serializable {
         for(int i = 0; i < values.size(); i+=4) {
             Book book = new Book(values.get(i),values.get(i+1),Integer.parseInt(values.get(i+2)),
                     Integer.parseInt(values.get(i+3)));
-            listBooks.add(book);
+            bookSet.add(book);
         }
 
-        Set<Book> map = new HashSet<>(listBooks);
+        System.out.println(bookSet);
+        return  bookSet;
+    }
 
-        System.out.println(map);
-        return  map;
+
+
+    public void write(Set<Book> books) throws FileNotFoundException {
+      FileOutputStream fos = new FileOutputStream(".\\resources\\data\\NewBooks.txt", true);
+      PrintWriter writer = new PrintWriter(fos);
+      writer.write(String.valueOf(books));
+      writer.close();
+
     }
 
     /**

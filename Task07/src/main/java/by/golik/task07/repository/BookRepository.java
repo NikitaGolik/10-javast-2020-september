@@ -27,23 +27,14 @@ public class BookRepository implements Repository {
 
     private static Set<Book> repository;
 
-    /**
-     * fill set of book from file
-     * @return set of books
-     * @throws IOException
-     */
-    public Set<Book> fill() throws IOException {
-        BookDao bookDao = new BookDao();
-        return bookDao.read();
-    }
-
 
     /**
      * Fill repository with books from file
      * @throws IOException
      */
     public BookRepository() throws IOException {
-        repository = fill();
+        BookDao bookDao = new BookDao();
+        repository = bookDao.read();
     }
 
     public Set<Book> getRepository() {
@@ -51,7 +42,7 @@ public class BookRepository implements Repository {
     }
 
     public static void setRepository(Set<Book> repository) {
-        BookRepository.repository = repository;
+       BookRepository.repository = repository;
     }
 
     /**
