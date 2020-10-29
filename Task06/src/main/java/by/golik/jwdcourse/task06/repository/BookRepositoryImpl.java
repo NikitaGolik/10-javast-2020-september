@@ -34,7 +34,7 @@ public class BookRepositoryImpl implements BookRepository {
      */
     public Set<Book> fill() throws IOException {
         BookDao bookDao = new BookDao();
-        return bookDao.readBook();
+        return bookDao.read();
     }
 
 
@@ -91,19 +91,19 @@ public class BookRepositoryImpl implements BookRepository {
         switch (tag) {
             case TITLE:
             SearchTitleQuery searchTitleQuery = new SearchTitleQuery("Sas");
-            return searchTitleQuery.query("sas", repository);
+            return searchTitleQuery.query(repository);
 
             case AUTHOR:
             SearchAuthorQuery searchAuthorQuery = new SearchAuthorQuery("ss");
-            return searchAuthorQuery.query("sas", repository);
+            return searchAuthorQuery.query(repository);
 
             case YEAR:
             SearchYearQuery searchYearQuery = new SearchYearQuery((long) 15);
-            return searchYearQuery.query((long) 15, repository);
+            return searchYearQuery.query(repository);
 
             case PAGES:
             SearchPagesQuery searchPagesQuery = new SearchPagesQuery((long) 1900);
-            return searchPagesQuery.query((long) 1900, repository);
+            return searchPagesQuery.query(repository);
 
         }
         return null;
@@ -119,19 +119,19 @@ public class BookRepositoryImpl implements BookRepository {
         switch (tag) {
             case TITLE:
                 SortByTitle sortByTitle = new SortByTitle();
-                return sortByTitle.query("sas", repository);
+                return sortByTitle.query(repository);
 
             case AUTHOR:
                 SortByAuthor sortByAuthor = new SortByAuthor();
-                return sortByAuthor.query("sas", repository);
+                return sortByAuthor.query(repository);
 
             case YEAR:
                 SortByYear sortByYear = new SortByYear();
-                return sortByYear.query((long) 15, repository);
+                return sortByYear.query(repository);
 
             case PAGES:
                 SortByPages sortByPages = new SortByPages();
-                return sortByPages.query((long) 1900, repository);
+                return sortByPages.query(repository);
 
         }
         return null;

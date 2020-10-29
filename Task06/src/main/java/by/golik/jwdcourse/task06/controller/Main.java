@@ -1,6 +1,9 @@
 package by.golik.jwdcourse.task06.controller;
+import by.golik.jwdcourse.task06.dao.Tag;
+import by.golik.jwdcourse.task06.entity.Book;
 import by.golik.jwdcourse.task06.exceptions.BookAlreadyHaveException;
 import by.golik.jwdcourse.task06.exceptions.BookNotExistException;
+import by.golik.jwdcourse.task06.repository.BookRepositoryImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.IOException;
@@ -18,12 +21,15 @@ public class Main {
         logger.fatal("Fatal");
         logger.debug("Debug");
 
-        Controller controller = new Controller();
-        controller.create();
-        controller.find();
-        controller.sort();
-        controller.remove();
-        controller.add();
+        BookRepositoryImpl bookRepository = new BookRepositoryImpl();
+        bookRepository.finByTag(Tag.TITLE);
+        bookRepository.finByTag(Tag.AUTHOR);
+        bookRepository.finByTag(Tag.YEAR);
+        bookRepository.finByTag(Tag.PAGES);
+
+        bookRepository.addBook(new Book("Маленький принц", "Экзюпери", 20, 20));
+        bookRepository.addBook(new Book("Маленький принц", "Экзюпери", 20, 20));
+        System.out.println(bookRepository);
 
     }
 }

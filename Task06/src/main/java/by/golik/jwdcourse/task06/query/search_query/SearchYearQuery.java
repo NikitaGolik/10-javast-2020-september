@@ -31,11 +31,11 @@ public class SearchYearQuery implements BookQuery {
 
     /**
      * Method for search a book in file
-     * @param year - entering year of publishing book
+
      * @param bookSet - set of books in file
      * @return list of books by this year publishing
      */
-    public ArrayList<Book> query(Long year, Set<Book> bookSet) {
+    public ArrayList<Book> query(Set<Book> bookSet) {
         ArrayList<Book> result = new ArrayList<>();
 
         for (Book book : bookSet) {

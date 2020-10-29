@@ -31,11 +31,11 @@ public class SearchAuthorQuery implements BookQuery {
 
     /**
      * method for working with specification
-     * @param author - author name
+
      * @param bookSet - set of book from file
      * @return list of books that belong to author
      */
-    public ArrayList<Book> query(String author, Set<Book> bookSet) {
+    public ArrayList<Book> query(Set<Book> bookSet) {
         ArrayList<Book> result = new ArrayList<>();
 
         for (Book book : bookSet) {

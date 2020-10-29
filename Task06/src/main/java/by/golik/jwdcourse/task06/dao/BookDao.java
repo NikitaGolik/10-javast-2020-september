@@ -15,6 +15,31 @@ import java.util.Set;
 public class BookDao implements Serializable {
     private static final Logger logger = LogManager.getLogger(BookDao.class);
 
+
+    public Set<Book> read() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(".\\resources\\data\\Books.txt"));
+
+        ArrayList<String> values = new ArrayList<>();
+        ArrayList<Book> listBooks = new ArrayList<>();
+
+        String line = null;
+        while((line = reader.readLine()) != null) {
+            values.add(line);
+        }
+        System.out.println(values);
+
+        for(int i = 0; i < values.size(); i+=4) {
+            Book book = new Book(values.get(i),values.get(i+1),Integer.parseInt(values.get(i+2)),
+                    Integer.parseInt(values.get(i+3)));
+            listBooks.add(book);
+        }
+
+        Set<Book> map = new HashSet<>(listBooks);
+
+        System.out.println(map);
+        return  map;
+    }
+
     /**
      * Class for reading books from file
      * @return Set of books from file

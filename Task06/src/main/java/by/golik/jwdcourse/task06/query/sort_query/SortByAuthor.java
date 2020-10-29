@@ -11,7 +11,7 @@ public class SortByAuthor extends AbstractSortQuery {
         return false;
     }
 
-    public ArrayList<Book> query(String author, Set<Book> bookSet) {
+    public ArrayList<Book> query(Set<Book> bookSet) {
         ArrayList<Book> bookList = new ArrayList<>(bookSet);
 
         Comparator<Book> bookComparator = Comparator.comparing(Book::getAuthor);
