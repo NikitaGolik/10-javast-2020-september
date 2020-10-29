@@ -4,10 +4,7 @@ import by.golik.jwdcourse.task06.entity.Book;
 import by.golik.jwdcourse.task06.exceptions.BookAlreadyHaveException;
 import by.golik.jwdcourse.task06.repository.BookRepositoryImpl;
 import by.golik.jwdcourse.task06.view.Menu;
-
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Controller {
@@ -57,7 +54,7 @@ public class Controller {
                             bookRepository.addBook(new Book("Маленький принц", "Экзюпери", 20, 20));
                             break;
                         case "10" :
-                            
+
                             break;
                         case "11" :
                             System.out.println("Завершение программы");

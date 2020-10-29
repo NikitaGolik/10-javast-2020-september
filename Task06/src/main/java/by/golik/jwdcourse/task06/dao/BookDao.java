@@ -74,7 +74,7 @@ public class BookDao implements Serializable {
      * Method to create books
      * @param bookArrayList - list of books, that were added
      */
-    public void createBook(ArrayList<Book> bookArrayList) {
+    public void writeBook(ArrayList<Book> bookArrayList) {
 
         try(FileOutputStream fos = new FileOutputStream(".\\resources\\data\\Books.txt", true);
             ObjectOutputStream serial = new ObjectOutputStream(fos)) {
