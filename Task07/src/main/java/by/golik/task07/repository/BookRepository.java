@@ -98,19 +98,19 @@ public class BookRepository implements Repository {
 
         switch (tag) {
             case TITLE:
-            SearchTitleQuery searchTitleQuery = new SearchTitleQuery("Sas");
+            SearchTitleQuery searchTitleQuery = new SearchTitleQuery("Солнце");
             return searchTitleQuery.query(repository);
 
             case AUTHOR:
-            SearchAuthorQuery searchAuthorQuery = new SearchAuthorQuery("ss");
+            SearchAuthorQuery searchAuthorQuery = new SearchAuthorQuery("Голик");
             return searchAuthorQuery.query(repository);
 
             case YEAR:
-            SearchYearQuery searchYearQuery = new SearchYearQuery((long) 15);
+            SearchYearQuery searchYearQuery = new SearchYearQuery( 15);
             return searchYearQuery.query(repository);
 
             case PAGES:
-            SearchPagesQuery searchPagesQuery = new SearchPagesQuery((long) 1900);
+            SearchPagesQuery searchPagesQuery = new SearchPagesQuery( 1900);
             return searchPagesQuery.query(repository);
 
         }
@@ -127,20 +127,19 @@ public class BookRepository implements Repository {
         switch (tag) {
             case TITLE:
                 SortByTitle sortByTitle = new SortByTitle();
-                return sortByTitle.query("sas", repository);
+                return sortByTitle.query(repository);
 
             case AUTHOR:
                 SortByAuthor sortByAuthor = new SortByAuthor();
-                return sortByAuthor.query("sas", repository);
+                return sortByAuthor.query(repository);
 
             case YEAR:
                 SortByYear sortByYear = new SortByYear();
-                return sortByYear.query((long) 15, repository);
+                return sortByYear.query(repository);
 
             case PAGES:
                 SortByPages sortByPages = new SortByPages();
-                return sortByPages.query((long) 1900, repository);
-
+                return sortByPages.query(repository);
         }
         return null;
     }

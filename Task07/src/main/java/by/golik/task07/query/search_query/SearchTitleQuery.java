@@ -22,6 +22,7 @@ public class SearchTitleQuery implements BookQuery {
     }
 
     public ArrayList<Book> query(Set<Book> bookSet) {
+
         ArrayList<Book> result = new ArrayList<>();
 
         for (Book book : bookSet) {
@@ -29,6 +30,7 @@ public class SearchTitleQuery implements BookQuery {
                 result.add(book);
             }
         }
+        System.out.println(result);
         return result;
     }
 }

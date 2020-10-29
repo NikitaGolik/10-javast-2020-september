@@ -1,4 +1,4 @@
-package by.golik.jwdcourse.task06.view;
+package by.golik.task07.view;
 
 public class Menu {
 

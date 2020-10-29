@@ -18,13 +18,13 @@ public class SearchPagesQuery implements BookQuery {
         return book.getPages() == pages;
     }
 
-    private final Long pages;
+    private final int pages;
 
     /**
      * Constructor
      * @param identify - count of pages
      */
-    public SearchPagesQuery(final Long identify) {
+    public SearchPagesQuery(final int identify) {
         this.pages = identify;
     }
 
@@ -42,6 +42,7 @@ public class SearchPagesQuery implements BookQuery {
                 result.add(book);
             }
         }
+        System.out.println(result);
         return result;
     }
 }

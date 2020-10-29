@@ -1,5 +1,6 @@
 package by.golik.task07.controller;
 import by.golik.task07.dao.BookDao;
+import by.golik.task07.dao.Tag;
 import by.golik.task07.entity.Book;
 import by.golik.task07.exceptions.BookAlreadyHaveException;
 import by.golik.task07.exceptions.BookNotExistException;
@@ -21,11 +22,17 @@ public class Main {
         logger.error("Something failed.");
         logger.fatal("Fatal");
         logger.debug("Debug");
-        BookDao bookDao = new BookDao();
+
         BookRepository bookRepository = new BookRepository();
+        BookDao bookDao = new BookDao();
+        bookRepository.finByTag(Tag.TITLE);
+        bookRepository.finByTag(Tag.AUTHOR);
+        bookRepository.finByTag(Tag.PAGES);
+        bookRepository.finByTag(Tag.YEAR);
+        bookRepository.addBook(new Book("Маленький принц", "Экзюпери", 20, 20));
+        bookRepository.addBook(new Book("Маленький принц", "Экзюпери", 20, 20));
 
-        SearchAuthorQuery searchAuthorQuery = new SearchAuthorQuery("Голик");
-        searchAuthorQuery.query(bookRepository.getRepository());
-
+        System.out.println(bookRepository.getRepository());
+        bookDao.createBook(bookRepository.getRepository());
     }
 }

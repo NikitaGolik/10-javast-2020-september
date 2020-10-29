@@ -69,9 +69,9 @@ public class BookDao implements Serializable {
 
     /**
      * Method to create books
-     * @param bookArrayList - list of books, that were added
+     * @param - list of books, that were added
      */
-    public void createBook(ArrayList<Book> bookArrayList) {
+    public void createBook(Set<Book> repository) {
 
         try(FileOutputStream fos = new FileOutputStream(".\\resources\\data\\NewBooks.txt", true);
             ObjectOutputStream serial = new ObjectOutputStream(fos)) {
@@ -82,14 +82,13 @@ public class BookDao implements Serializable {
             logger.fatal("Fatal with write object");
 
 
-            for(Book book : bookArrayList) {
+            for(Book book : repository) {
                 serial.writeObject(book);
             }
-            serial.reset();
+
         } catch (Exception ex) {
             System.out.println("Ошибка при сериализации объекта");
             ex.printStackTrace();
         }
-
     }
 }
