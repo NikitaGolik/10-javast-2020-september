@@ -1,4 +1,4 @@
-package by.golik.task07.query;
+package by.golik.task07.service.query;
 import by.golik.task07.entity.Book;
 
 /**

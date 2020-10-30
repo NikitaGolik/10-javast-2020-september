@@ -1,4 +1,4 @@
-package by.golik.task07.repository;
+package by.golik.task07.service.repository;
 import by.golik.task07.dao.Tag;
 import by.golik.task07.entity.Book;
 import by.golik.task07.exceptions.BookAlreadyHaveException;

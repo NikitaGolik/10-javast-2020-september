@@ -3,10 +3,8 @@ package by.golik.task07.entity;
 /**
  * @author Nikita Golik
  */
-public class Album extends Edition {
-    public Album() {
-        super();
-    }
+public class Album extends Book {
+
 
     @Override
     public String getTitle() {

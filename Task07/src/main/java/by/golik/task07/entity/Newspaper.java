@@ -3,10 +3,9 @@ package by.golik.task07.entity;
 /**
  * @author Nikita Golik
  */
-public class Newspaper extends Edition {
-    public Newspaper() {
+public class Newspaper extends Book {
 
-    }
+
 
     @Override
     public String getTitle() {

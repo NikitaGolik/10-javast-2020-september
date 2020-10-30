@@ -1,4 +1,4 @@
-package by.golik.task07.repository;
+package by.golik.task07.service.repository;
 
 /**
  * @author Nikita Golik

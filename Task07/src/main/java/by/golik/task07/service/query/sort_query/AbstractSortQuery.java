@@ -1,6 +1,6 @@
-package by.golik.task07.query.sort_query;
+package by.golik.task07.service.query.sort_query;
 
-import by.golik.task07.query.BookQuery;
+import by.golik.task07.service.query.BookQuery;
 
 public abstract class AbstractSortQuery implements BookQuery {
 
