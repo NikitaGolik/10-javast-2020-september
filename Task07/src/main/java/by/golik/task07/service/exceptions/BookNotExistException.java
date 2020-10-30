@@ -1,4 +1,4 @@
-package by.golik.task07.exceptions;
+package by.golik.task07.service.exceptions;
 
 public class BookNotExistException extends Exception {
 

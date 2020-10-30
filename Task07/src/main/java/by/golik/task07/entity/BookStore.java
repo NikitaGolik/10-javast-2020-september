@@ -34,38 +34,44 @@ public class BookStore implements Observable {
     @Override
     public void notifyObservers() {
         for(Observer observer : observers) {
-            observer.update(countOfBooks);
+            observer.update(countOfAlbums());
+            observer.update(countOfMagazines());
+            observer.update(countOfNewspapers());
         }
     }
-    public void countOfAlbums(ArrayList<Book>bookList) {
+    public int countOfAlbums() {
         int countOfAlbums = 0;
         for (int i = 0; i < bookList.size(); i++) {
             if(bookList.get(i) instanceof Album) {
                 countOfAlbums++;
             }
         }
+        notifyObservers();
         System.out.println("Count of albums " + countOfAlbums);
+        return countOfAlbums;
     }
 
-    public void countOfNewspapers(ArrayList<Book>bookList) {
+    public int countOfNewspapers() {
         int countOfNewspapers = 0;
         for(int i = 0; i < bookList.size(); i++) {
             if(bookList.get(i) instanceof Newspaper) {
                 countOfNewspapers++;
             }
         }
-
+        notifyObservers();
         System.out.println("Count of newspapers " + countOfNewspapers);
+        return countOfNewspapers;
     }
 
-    public void countOfMagazines() {
+    public int countOfMagazines() {
         int countOfMagazines = 0;
         for(int i = 0; i < bookList.size(); i++) {
             if (bookList.get(i) instanceof Magazine) {
                 countOfMagazines++;
             }
         }
-
+        notifyObservers();
         System.out.println("Count of magazines " + countOfMagazines);
+        return countOfMagazines;
     }
 }

@@ -1,8 +1,8 @@
 package by.golik.task07.service.repository;
 import by.golik.task07.dao.Tag;
 import by.golik.task07.entity.Book;
-import by.golik.task07.exceptions.BookAlreadyHaveException;
-import by.golik.task07.exceptions.BookNotExistException;
+import by.golik.task07.service.exceptions.BookAlreadyHaveException;
+import by.golik.task07.service.exceptions.BookNotExistException;
 import java.io.IOException;
 import java.util.ArrayList;
 

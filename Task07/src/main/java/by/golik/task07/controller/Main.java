@@ -2,8 +2,8 @@ package by.golik.task07.controller;
 import by.golik.task07.dao.BookDao;
 import by.golik.task07.dao.Tag;
 import by.golik.task07.entity.*;
-import by.golik.task07.exceptions.BookAlreadyHaveException;
-import by.golik.task07.exceptions.BookNotExistException;
+import by.golik.task07.service.exceptions.BookAlreadyHaveException;
+import by.golik.task07.service.exceptions.BookNotExistException;
 import by.golik.task07.service.observers.AlbumObserver;
 import by.golik.task07.service.observers.NewspaperObserver;
 import by.golik.task07.service.observers.MagazineObserver;
@@ -47,7 +47,7 @@ public class Main {
         observable.addObserver(newspaperObserver);
         observable.addObserver(magazineObserver);
 
-        observable.setCountOfBooks(200);
+        observable.notifyObservers();
 
 
         System.out.println(bookRepository.getRepository());
