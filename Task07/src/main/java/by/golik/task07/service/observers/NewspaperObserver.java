@@ -3,7 +3,7 @@ package by.golik.task07.service.observers;
 /**
  * @author Nikita Golik
  */
-public class BookObserver implements Observer {
+public class NewspaperObserver implements Observer {
 
     private int countBooks;
 

@@ -5,7 +5,7 @@ import by.golik.task07.entity.*;
 import by.golik.task07.exceptions.BookAlreadyHaveException;
 import by.golik.task07.exceptions.BookNotExistException;
 import by.golik.task07.service.observers.AlbumObserver;
-import by.golik.task07.service.observers.BookObserver;
+import by.golik.task07.service.observers.NewspaperObserver;
 import by.golik.task07.service.observers.MagazineObserver;
 import by.golik.task07.service.repository.BookRepository;
 import org.apache.logging.log4j.LogManager;
@@ -40,11 +40,11 @@ public class Main {
 
         BookStore observable = new BookStore();
         AlbumObserver albumObserver = new AlbumObserver();
-        BookObserver bookObserver = new BookObserver();
+        NewspaperObserver newspaperObserver = new NewspaperObserver();
         MagazineObserver magazineObserver = new MagazineObserver();
 
         observable.addObserver(albumObserver);
-        observable.addObserver(bookObserver);
+        observable.addObserver(newspaperObserver);
         observable.addObserver(magazineObserver);
 
         observable.setCountOfBooks(200);
