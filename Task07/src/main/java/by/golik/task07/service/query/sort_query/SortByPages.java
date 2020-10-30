@@ -16,7 +16,7 @@ public class SortByPages extends AbstractSortQuery {
     public ArrayList<Book> query(Set<Book> bookSet) {
         ArrayList<Book> bookList = new ArrayList<>(bookSet);
 
-        Comparator<Book> bookComparator = Comparator.comparingDouble(Book::getPages).thenComparing(Book::getYear);
+        Comparator<Book> bookComparator = Comparator.comparingDouble(Book::getPages);
         if (isDescending()) {
             bookComparator = bookComparator.reversed();
         }

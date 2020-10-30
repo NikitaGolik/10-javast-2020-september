@@ -16,7 +16,7 @@ public class SortByTitle extends AbstractSortQuery {
     public ArrayList<Book> query(Set<Book> bookSet) {
         ArrayList<Book> bookList = new ArrayList<>(bookSet);
 
-        Comparator<Book> bookComparator = Comparator.comparing((Book::getTitle)).thenComparing(Book::getAuthor);
+        Comparator<Book> bookComparator = Comparator.comparing((Book::getTitle));
         if (isDescending()) {
             bookComparator = bookComparator.reversed();
         }

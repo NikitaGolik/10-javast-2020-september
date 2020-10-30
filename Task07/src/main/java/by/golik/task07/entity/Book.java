@@ -11,6 +11,8 @@ public class Book implements Serializable {
     private int year;
     private int pages;
     static  int counter = 0;
+    private int countOfBooks;
+
 
 
 
