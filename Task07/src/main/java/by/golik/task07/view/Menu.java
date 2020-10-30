@@ -13,7 +13,7 @@ public class Menu {
         System.out.println("8 -сортировать по году издания");
         System.out.println("9 - добавить книгу");
         System.out.println("10 - добавить журнал");
-        System.out.println("11 - добавить газету");
+        System.out.println("11 - добавить газету ");
         System.out.println("12 - добавить альбом");
         System.out.println("13 - удалить книгу");
     }

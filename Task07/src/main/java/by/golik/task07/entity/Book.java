@@ -5,15 +5,12 @@ import java.io.Serializable;
  * Class for creating entity of Book
  */
 public class Book implements Serializable {
-    private int id;
+    private final int id;
     private String title;
     private String author;
     private int year;
     private int pages;
     static  int counter = 0;
-    private int countOfBooks;
-
-
 
 
     /**

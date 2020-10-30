@@ -16,6 +16,10 @@ public class BookStore implements Observable {
 
     private List<Book> bookList;
 
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
     public BookStore() throws IOException {
         BookDao bookDao = new BookDao();
         this.bookList = new ArrayList<>(bookDao.read());
@@ -33,11 +37,11 @@ public class BookStore implements Observable {
 
     @Override
     public void notifyObservers() {
-        for(Observer observer : observers) {
-            observer.update(countOfAlbums());
-            observer.update(countOfMagazines());
-            observer.update(countOfNewspapers());
-        }
+//        for(Observer observer : observers) {
+//            observer.update(countOfAlbums());
+//            observer.update(countOfMagazines());
+//            observer.update(countOfNewspapers());
+//        }
     }
     public int countOfAlbums() {
         int countOfAlbums = 0;

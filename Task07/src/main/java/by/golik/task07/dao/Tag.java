@@ -7,5 +7,9 @@ public enum Tag {
     TITLE,
     AUTHOR,
     PAGES,
-    YEAR
+    YEAR,
+    TITLEAUTHOR,
+    AUTHORTITLE,
+    PAGESYEAR,
+    YEARPAGES
 }

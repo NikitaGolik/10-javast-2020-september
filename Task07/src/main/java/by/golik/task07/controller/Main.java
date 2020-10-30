@@ -11,12 +11,14 @@ import by.golik.task07.service.repository.BookRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
 
     private static final Logger logger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) throws IOException, BookAlreadyHaveException, BookNotExistException {
+        Controller controller = new Controller(new Scanner(System.in));
 
         logger.trace("Trace");
         logger.info("Log4j2 started.");
@@ -33,7 +35,7 @@ public class Main {
         bookRepository.finByTag(Tag.YEAR);
 
         bookRepository.addBook(new Book("Маленький принц", "Экзюпери", 20, 2003));
-        bookRepository.addBook(new Book("Маленький принц", "Экзюпери", 20, 2002));
+        bookRepository.addBook(new Book("Гаррт Поттер", "Роулинг", 20, 2002));
         bookRepository.addBook(new Album("Первый альбом", "Сидоров", 40, 1995));
         bookRepository.addBook(new Magazine("Первый журнал", "Григорьев", 404, 2005));
         bookRepository.addBook(new Newspaper("Первая газета", "Солодаев", 25, 2010));
@@ -49,6 +51,7 @@ public class Main {
 
         observable.notifyObservers();
 
+        System.out.println(observable.getBookList());
 
         System.out.println(bookRepository.getRepository());
         bookDao.write(bookRepository.getRepository());

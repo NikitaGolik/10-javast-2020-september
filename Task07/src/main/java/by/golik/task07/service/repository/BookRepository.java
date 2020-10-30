@@ -9,10 +9,7 @@ import by.golik.task07.service.query.search_query.SearchAuthorQuery;
 import by.golik.task07.service.query.search_query.SearchPagesQuery;
 import by.golik.task07.service.query.search_query.SearchTitleQuery;
 import by.golik.task07.service.query.search_query.SearchYearQuery;
-import by.golik.task07.service.query.sort_query.SortByAuthor;
-import by.golik.task07.service.query.sort_query.SortByPages;
-import by.golik.task07.service.query.sort_query.SortByTitle;
-import by.golik.task07.service.query.sort_query.SortByYear;
+import by.golik.task07.service.query.sort_query.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.IOException;
@@ -131,6 +128,18 @@ public class BookRepository implements Repository {
             case PAGES:
                 SortByPages sortByPages = new SortByPages();
                 return sortByPages.query(repository);
+            case TITLEAUTHOR:
+                SortByTitleThenAuthor sortByTitleThenAuthor = new SortByTitleThenAuthor();
+                return sortByTitleThenAuthor.query(repository);
+            case AUTHORTITLE:
+                SortByAuthorThenTitle sortByAuthorThenTitle = new SortByAuthorThenTitle();
+                return sortByAuthorThenTitle.query(repository);
+            case PAGESYEAR:
+                SortByPagesThenYear sortByPagesThenYear = new SortByPagesThenYear();
+                return sortByPagesThenYear.query(repository);
+            case YEARPAGES:
+                SortByYearThenPages sortByYearThenPages = new SortByYearThenPages();
+                return sortByYearThenPages.query(repository);
         }
         return null;
     }
