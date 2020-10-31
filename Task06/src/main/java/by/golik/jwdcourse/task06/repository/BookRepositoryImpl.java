@@ -15,7 +15,11 @@ import by.golik.jwdcourse.task06.query.sort_query.SortByTitle;
 import by.golik.jwdcourse.task06.query.sort_query.SortByYear;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 /**
@@ -71,30 +75,33 @@ public class BookRepositoryImpl implements BookRepository {
      * @return list of book that are found by tag
      */
     @Override
-    public ArrayList<Book> finByTag(Tag tag) {
+    public ArrayList<Book> finByTag(Tag tag) throws IOException {
 
 
         logger.info("Log4j2 started.");
         logger.warn("Ошибка при получении объектов из BookDao");
         logger.error("Ошибка при получении объектов из BookDao");
         logger.fatal("Fatal with Find ByTag");
+        System.out.println("Введите ключ для поиска");
 
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String key = reader.readLine();
 
         switch (tag) {
             case TITLE:
-            SearchTitleQuery searchTitleQuery = new SearchTitleQuery("Sas");
+            SearchTitleQuery searchTitleQuery = new SearchTitleQuery(key);
             return searchTitleQuery.query(repository);
 
             case AUTHOR:
-            SearchAuthorQuery searchAuthorQuery = new SearchAuthorQuery("ss");
+            SearchAuthorQuery searchAuthorQuery = new SearchAuthorQuery(key);
             return searchAuthorQuery.query(repository);
 
             case YEAR:
-            SearchYearQuery searchYearQuery = new SearchYearQuery((long) 15);
+            SearchYearQuery searchYearQuery = new SearchYearQuery(Integer.parseInt(key));
             return searchYearQuery.query(repository);
 
             case PAGES:
-            SearchPagesQuery searchPagesQuery = new SearchPagesQuery((long) 1900);
+            SearchPagesQuery searchPagesQuery = new SearchPagesQuery(Integer.parseInt(key));
             return searchPagesQuery.query(repository);
 
         }

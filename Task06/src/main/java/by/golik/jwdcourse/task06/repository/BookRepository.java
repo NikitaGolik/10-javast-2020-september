@@ -31,7 +31,7 @@ public interface BookRepository {
      * @param tag - enum tag
      * @return list of books, that were found
      */
-    ArrayList<Book> finByTag(Tag tag);
+    ArrayList<Book> finByTag(Tag tag) throws IOException;
 
     ArrayList<Book> sortByTag(Tag tag);
 

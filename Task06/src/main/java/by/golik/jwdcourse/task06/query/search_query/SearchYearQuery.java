@@ -9,7 +9,7 @@ import java.util.Set;
  */
 public class SearchYearQuery implements BookQuery {
 
-    private final Long year;
+    private final int year;
 
     /**
      * Specification
@@ -25,7 +25,7 @@ public class SearchYearQuery implements BookQuery {
      * Constructor
      * @param yearToSearch - entering year for search
      */
-    public SearchYearQuery(Long yearToSearch) {
+    public SearchYearQuery(int yearToSearch) {
         this.year = yearToSearch;
     }
 
