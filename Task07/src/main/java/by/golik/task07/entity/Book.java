@@ -120,7 +120,7 @@ public class Book implements Serializable {
                 "id =" + id +'\'' +
                 "name='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", year=" + year +
+                ", year=" + year + '\'' +
                 ", pages=" + pages +
                 '}';
     }

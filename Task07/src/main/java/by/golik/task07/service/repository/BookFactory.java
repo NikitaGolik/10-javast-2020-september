@@ -16,7 +16,7 @@ public class BookFactory {
     public BookFactory() throws IOException {
     }
 
-    public void getBook(BookType type) throws IOException, BookAlreadyHaveException {
+    public Book getBook(BookType type) throws IOException, BookAlreadyHaveException {
         Book toReturn = null;
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -29,6 +29,10 @@ public class BookFactory {
         System.out.println("Введите год издания");
         int years = Integer.parseInt(reader.readLine());
         switch (type) {
+            case BOOK:
+                toReturn = new Book(title, author, pages, years);
+                bookRepository.addBook(toReturn);
+                break;
             case ALBUM:
                 toReturn = new Album(title, author, pages, years);
                 bookRepository.addBook(toReturn);
@@ -44,5 +48,6 @@ public class BookFactory {
             default:
                 throw new IllegalArgumentException("Wrong edition type" + type);
         }
+        return toReturn;
     }
 }

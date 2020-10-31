@@ -20,6 +20,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, BookAlreadyHaveException, BookNotExistException {
         Controller controller = new Controller(new Scanner(System.in));
+        controller.start();
 
 //        logger.trace("Trace");
 //        logger.info("Log4j2 started.");
@@ -29,16 +30,16 @@ public class Main {
 //        logger.debug("Debug");
 //
 //        BookRepository bookRepository = new BookRepository();
-        BookDao bookDao = new BookDao();
-        BookRepository bookRepository = new BookRepository();
-        BookFactory bookFactory = new BookFactory();
-
-        bookRepository.addBook(new Book("sa", "sa", 20, 50));
-        bookRepository.removeBook(new Book("sa", "sa", 20, 50));
-        System.out.println(bookRepository.getRepository());
-        bookFactory.getBook(BookType.ALBUM);
-        bookDao.write(bookRepository.getRepository());
-        System.out.println(bookRepository.getRepository());
+//        BookDao bookDao = new BookDao();
+//        BookRepository bookRepository = new BookRepository();
+//        BookFactory bookFactory = new BookFactory();
+//
+//        bookRepository.addBook(new Book("sa", "sa", 20, 50));
+//        bookRepository.removeBook(new Book("sa", "sa", 20, 50));
+//        System.out.println(bookRepository.getRepository());
+//        bookFactory.getBook(BookType.ALBUM);
+//        bookDao.write(bookRepository.getRepository());
+//        System.out.println(bookRepository.getRepository());
 
 
 
