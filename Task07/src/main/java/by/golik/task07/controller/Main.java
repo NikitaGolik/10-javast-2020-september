@@ -7,6 +7,7 @@ import by.golik.task07.service.exceptions.BookNotExistException;
 import by.golik.task07.service.observers.AlbumObserver;
 import by.golik.task07.service.observers.NewspaperObserver;
 import by.golik.task07.service.observers.MagazineObserver;
+import by.golik.task07.service.repository.BookFactory;
 import by.golik.task07.service.repository.BookRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,9 +31,12 @@ public class Main {
 //        BookRepository bookRepository = new BookRepository();
         BookDao bookDao = new BookDao();
         BookRepository bookRepository = new BookRepository();
+        BookFactory bookFactory = new BookFactory();
 
         bookRepository.addBook(new Book("sa", "sa", 20, 50));
-        bookRepository.addBook(new Book("sa", "sa", 20, 50));
+        bookRepository.removeBook(new Book("sa", "sa", 20, 50));
+        System.out.println(bookRepository.getRepository());
+        bookFactory.getBook(BookType.ALBUM);
         bookDao.write(bookRepository.getRepository());
         System.out.println(bookRepository.getRepository());
 

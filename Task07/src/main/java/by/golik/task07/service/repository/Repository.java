@@ -1,5 +1,6 @@
 package by.golik.task07.service.repository;
 import by.golik.task07.dao.Tag;
+import by.golik.task07.entity.Album;
 import by.golik.task07.entity.Book;
 import by.golik.task07.service.exceptions.BookAlreadyHaveException;
 import by.golik.task07.service.exceptions.BookNotExistException;
@@ -18,6 +19,7 @@ public interface Repository {
      * @throws BookAlreadyHaveException - if this book repository already has
      */
     void addBook(Book book) throws IOException, BookAlreadyHaveException;
+
 
     /**
      * Remove book from repository

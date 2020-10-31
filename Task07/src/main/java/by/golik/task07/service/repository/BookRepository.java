@@ -64,9 +64,10 @@ public class BookRepository implements Repository {
     @Override
     public void removeBook(Book book) throws BookNotExistException {
         if(repository.contains(book)) {
+            repository.remove(book);
+        } else {
             throw new BookNotExistException("Repository doesn't have this book" + book.getTitle());
         }
-        repository.remove(book);
     }
 
     /**

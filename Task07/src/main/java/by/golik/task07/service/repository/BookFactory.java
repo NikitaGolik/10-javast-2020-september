@@ -1,6 +1,8 @@
 package by.golik.task07.service.repository;
 import by.golik.task07.entity.*;
 import by.golik.task07.entity.BookType;
+import by.golik.task07.service.exceptions.BookAlreadyHaveException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +11,12 @@ import java.io.InputStreamReader;
  * @author Nikita Golik
  */
 public class BookFactory {
-    public Book getBook(BookType type) throws IOException {
+    BookRepository bookRepository = new BookRepository();
+
+    public BookFactory() throws IOException {
+    }
+
+    public void getBook(BookType type) throws IOException, BookAlreadyHaveException {
         Book toReturn = null;
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -24,16 +31,18 @@ public class BookFactory {
         switch (type) {
             case ALBUM:
                 toReturn = new Album(title, author, pages, years);
+                bookRepository.addBook(toReturn);
                 break;
             case MAGAZINE:
                 toReturn = new Magazine(title, author, pages, years);
+                bookRepository.addBook(toReturn);
                 break;
             case NEWSPAPER:
                 toReturn = new Newspaper(title, author, pages, years);
+                bookRepository.addBook(toReturn);
                 break;
             default:
                 throw new IllegalArgumentException("Wrong edition type" + type);
         }
-        return toReturn;
     }
 }
