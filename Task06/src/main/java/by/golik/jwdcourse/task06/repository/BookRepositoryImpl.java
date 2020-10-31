@@ -124,7 +124,6 @@ public class BookRepositoryImpl implements BookRepository {
             case PAGES:
                 SortByPages sortByPages = new SortByPages();
                 return sortByPages.query(repository);
-
         }
         return null;
     }
