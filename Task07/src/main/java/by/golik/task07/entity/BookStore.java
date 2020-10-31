@@ -10,9 +10,8 @@ import java.util.List;
 /**
  * @author Nikita Golik
  */
-public class BookStore implements Observable {
+public class BookStore  {
 
-    private final List<Observer> observers = new ArrayList<>();
 
     private List<Book> bookList;
 
@@ -25,55 +24,6 @@ public class BookStore implements Observable {
         this.bookList = new ArrayList<>(bookDao.createBook(bookDao.read()));
     }
 
-    @Override
-    public void addObserver(Observer observer) {
-        this.observers.add(observer);
-    }
 
-    @Override
-    public void removeObserver(Observer observer) {
-        this.observers.remove(observer);
-    }
 
-    @Override
-    public void notifyObservers() {
-        for(Observer observer : observers) {
-
-        }
-    }
-    public int countOfAlbums() {
-        int countOfAlbums = 0;
-        for (int i = 0; i < bookList.size(); i++) {
-            if(bookList.get(i) instanceof Album) {
-                countOfAlbums++;
-            }
-        }
-        notifyObservers();
-        System.out.println("Count of albums " + countOfAlbums);
-        return countOfAlbums;
-    }
-
-    public int countOfNewspapers() {
-        int countOfNewspapers = 0;
-        for(int i = 0; i < bookList.size(); i++) {
-            if(bookList.get(i) instanceof Newspaper) {
-                countOfNewspapers++;
-            }
-        }
-        notifyObservers();
-        System.out.println("Count of newspapers " + countOfNewspapers);
-        return countOfNewspapers;
-    }
-
-    public int countOfMagazines() {
-        int countOfMagazines = 0;
-        for(int i = 0; i < bookList.size(); i++) {
-            if (bookList.get(i) instanceof Magazine) {
-                countOfMagazines++;
-            }
-        }
-        notifyObservers();
-        System.out.println("Count of magazines " + countOfMagazines);
-        return countOfMagazines;
-    }
 }

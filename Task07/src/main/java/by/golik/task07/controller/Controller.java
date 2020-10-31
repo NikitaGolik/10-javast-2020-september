@@ -1,22 +1,37 @@
 package by.golik.task07.controller;
+import by.golik.task07.dao.BookDao;
 import by.golik.task07.dao.Tag;
-import by.golik.task07.entity.Book;
 import by.golik.task07.entity.BookType;
 import by.golik.task07.service.exceptions.BookAlreadyHaveException;
 import by.golik.task07.service.exceptions.BookNotExistException;
+import by.golik.task07.service.observers.AlbumObserver;
+import by.golik.task07.service.observers.MagazineObserver;
+import by.golik.task07.service.observers.NewspaperObserver;
 import by.golik.task07.service.repository.BookFactory;
 import by.golik.task07.service.repository.BookRepository;
 import by.golik.task07.view.Menu;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class Controller {
     Scanner scanner;
+    BookDao bookDao;
     BookRepository bookRepository = new BookRepository();
     BookFactory bookFactory = new BookFactory();
+
+
+    public void observe() {
+
+        AlbumObserver albumObserver = new AlbumObserver();
+        NewspaperObserver newspaperObserver = new NewspaperObserver();
+        MagazineObserver magazineObserver = new MagazineObserver();
+
+        bookRepository.addObserver(albumObserver);
+        bookRepository.addObserver(newspaperObserver);
+        bookRepository.addObserver(magazineObserver);
+    }
+
+
 
     public Controller(Scanner scanner) throws IOException {
         this.scanner = scanner;
@@ -72,27 +87,35 @@ public class Controller {
                         break;
                     case "13" :
                         bookFactory.getBook(BookType.BOOK);
+                        bookDao.write(bookRepository.getRepository());
                         break;
                     case "14" :
                         bookFactory.getBook(BookType.ALBUM);
+                        bookDao.write(bookRepository.getRepository());
                         break;
                     case "15" :
                         bookFactory.getBook(BookType.MAGAZINE);
+                        bookDao.write(bookRepository.getRepository());
                         break;
                     case "16" :
                         bookFactory.getBook(BookType.NEWSPAPER);
+                        bookDao.write(bookRepository.getRepository());
                         break;
                     case "17" :
                         bookRepository.removeBook(bookFactory.getBook(BookType.BOOK));
+                        bookDao.write(bookRepository.getRepository());
                         break;
                     case "18" :
                         bookRepository.removeBook(bookFactory.getBook(BookType.ALBUM));
+                        bookDao.write(bookRepository.getRepository());
                         break;
                     case "19" :
                         bookRepository.removeBook(bookFactory.getBook(BookType.NEWSPAPER));
+                        bookDao.write(bookRepository.getRepository());
                         break;
                     case "20" :
                         bookRepository.removeBook(bookFactory.getBook(BookType.MAGAZINE));
+                        bookDao.write(bookRepository.getRepository());
                         break;
                     case "21" :
                         break;

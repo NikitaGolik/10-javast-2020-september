@@ -1,18 +1,17 @@
 package by.golik.task07.service.observers;
 
+import by.golik.task07.entity.Book;
+
+import java.util.List;
+
 /**
  * @author Nikita Golik
  */
 public class AlbumObserver implements Observer {
 
-    private int countAlbums;
-
-    public int getCountAlbums() {
-        return countAlbums;
-    }
 
     @Override
-    public void update(int countOfAlbums) {
-        countAlbums = countOfAlbums;
+    public void update(List<Book> list) {
+        System.out.println("count of albums " + list);
     }
 }

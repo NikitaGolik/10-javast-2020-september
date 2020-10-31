@@ -5,6 +5,8 @@ import by.golik.task07.dao.Tag;
 import by.golik.task07.entity.Book;
 import by.golik.task07.service.exceptions.BookAlreadyHaveException;
 import by.golik.task07.service.exceptions.BookNotExistException;
+import by.golik.task07.service.observers.Observable;
+import by.golik.task07.service.observers.Observer;
 import by.golik.task07.service.query.search_query.SearchAuthorQuery;
 import by.golik.task07.service.query.search_query.SearchPagesQuery;
 import by.golik.task07.service.query.search_query.SearchTitleQuery;
@@ -12,17 +14,37 @@ import by.golik.task07.service.query.search_query.SearchYearQuery;
 import by.golik.task07.service.query.sort_query.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 /**
  * Class for actions with repository
  */
-public class BookRepository implements Repository {
+public class BookRepository implements Repository, Observable {
 
     private static final Logger logger = LogManager.getLogger(Main.class);
 
+    private List<Observer> observers = new ArrayList<>();
     private static List<Book> repository;
+
+    @Override
+    public void addObserver(Observer observer) {
+        this.observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        this.observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for(Observer observer : observers) {
+            observer.update(repository);
+        }
+    }
 
 
     /**
@@ -53,7 +75,13 @@ public class BookRepository implements Repository {
             throw new BookAlreadyHaveException("Repository already had this book " + book.getTitle());
         } else {
             repository.add(book);
+            notifyObservers();
         }
+    }
+
+    @Override
+    public void update(Book book) {
+
     }
 
     /**
@@ -65,6 +93,7 @@ public class BookRepository implements Repository {
     public void removeBook(Book book) throws BookNotExistException {
         if(repository.contains(book)) {
             repository.remove(book);
+            notifyObservers();
         } else {
             throw new BookNotExistException("Repository doesn't have this book" + book.getTitle());
         }
@@ -83,21 +112,25 @@ public class BookRepository implements Repository {
         logger.error("Ошибка при получении объектов из BookDao");
         logger.fatal("Fatal with Find ByTag");
 
+        System.out.println("Введите ключ для поиска");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String keyToSearch = reader.readLine();
+
         switch (tag) {
             case TITLE:
-            SearchTitleQuery searchTitleQuery = new SearchTitleQuery("Солнце");
+            SearchTitleQuery searchTitleQuery = new SearchTitleQuery(keyToSearch);
             return searchTitleQuery.query(repository);
 
             case AUTHOR:
-            SearchAuthorQuery searchAuthorQuery = new SearchAuthorQuery("Голик");
+            SearchAuthorQuery searchAuthorQuery = new SearchAuthorQuery(keyToSearch);
             return searchAuthorQuery.query(repository);
 
             case YEAR:
-            SearchYearQuery searchYearQuery = new SearchYearQuery( 15);
+            SearchYearQuery searchYearQuery = new SearchYearQuery( Integer.parseInt(keyToSearch));
             return searchYearQuery.query(repository);
 
             case PAGES:
-            SearchPagesQuery searchPagesQuery = new SearchPagesQuery( 1900);
+            SearchPagesQuery searchPagesQuery = new SearchPagesQuery( Integer.parseInt(keyToSearch));
             return searchPagesQuery.query(repository);
 
         }

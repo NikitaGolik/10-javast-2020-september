@@ -82,7 +82,7 @@ public class BookDao implements Serializable {
           bookList.add(sb.substring(0,sb.length()-2).toString());
       }
 
-        Files.write(Paths.get(".\\resources\\data\\NewBooks.txt"), bookList, StandardOpenOption.CREATE);
+        Files.write(Paths.get(".\\resources\\data\\Books.txt"), bookList, StandardOpenOption.CREATE);
 
       }
 }

@@ -28,6 +28,8 @@ public interface Repository {
      */
     void removeBook(Book book) throws BookNotExistException;
 
+    void update(Book book);
+
     /**
      * find book by entering tag
      * @param tag - enum tag
