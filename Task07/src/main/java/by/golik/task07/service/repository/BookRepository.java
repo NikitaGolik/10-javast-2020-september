@@ -50,7 +50,7 @@ public class BookRepository implements Repository {
     @Override
     public void addBook(Book book) throws BookAlreadyHaveException {
         if(repository.contains(book)) {
-            throw new BookAlreadyHaveException("Repository already had this book" + book.getTitle());
+            throw new BookAlreadyHaveException("Repository already had this book " + book.getTitle());
         } else {
             repository.add(book);
         }

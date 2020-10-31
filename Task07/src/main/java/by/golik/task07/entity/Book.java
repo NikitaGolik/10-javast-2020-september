@@ -1,5 +1,6 @@
 package by.golik.task07.entity;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Class for creating entity of Book
@@ -90,6 +91,23 @@ public class Book implements Serializable {
         this.author = author;
         this.year = year;
         this.pages = pages;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return
+                year == book.year &&
+                pages == book.pages &&
+                title.equals(book.title) &&
+                author.equals(book.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, author, year, pages);
     }
 
     /**

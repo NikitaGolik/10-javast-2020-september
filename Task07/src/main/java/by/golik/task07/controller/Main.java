@@ -32,8 +32,10 @@ public class Main {
         BookRepository bookRepository = new BookRepository();
 
         bookRepository.addBook(new Book("sa", "sa", 20, 50));
+        bookRepository.addBook(new Book("sa", "sa", 20, 50));
         bookDao.write(bookRepository.getRepository());
         System.out.println(bookRepository.getRepository());
+
 
 
 //        bookRepository.finByTag(Tag.TITLE);
