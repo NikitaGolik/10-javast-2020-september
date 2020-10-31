@@ -34,7 +34,7 @@ public class SearchPagesQuery implements BookQuery {
      * @param bookSet - set of books from repository
      * @return all books with entering count of pages
      */
-    public ArrayList<Book> query(Set<Book> bookSet) {
+    public ArrayList<Book> query(ArrayList<Book> bookSet) {
         ArrayList<Book> result = new ArrayList<>();
 
         for (Book book : bookSet) {

@@ -25,17 +25,8 @@ public class BookRepositoryImpl implements BookRepository {
 
     private static final Logger logger = LogManager.getLogger(Main.class);
 
-    private static Set<Book> repository;
+    private static ArrayList<Book> repository;
 
-    /**
-     * fill set of book from file
-     * @return set of books
-     * @throws IOException
-     */
-    public Set<Book> fill() throws IOException {
-        BookDao bookDao = new BookDao();
-        return bookDao.read();
-    }
 
 
     /**
@@ -43,7 +34,8 @@ public class BookRepositoryImpl implements BookRepository {
      * @throws IOException
      */
     public BookRepositoryImpl() throws IOException {
-        repository = fill();
+        BookDao bookDao = new BookDao();
+        repository = bookDao.createBook(bookDao.read());
     }
 
     /**

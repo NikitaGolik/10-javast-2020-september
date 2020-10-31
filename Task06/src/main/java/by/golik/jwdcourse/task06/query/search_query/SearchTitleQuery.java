@@ -22,7 +22,7 @@ public class SearchTitleQuery implements BookQuery {
         this.title = titleToSearch;
     }
 
-    public ArrayList<Book> query(Set<Book> bookSet) {
+    public ArrayList<Book> query(ArrayList<Book> bookSet) {
         ArrayList<Book> result = new ArrayList<>();
 
         for (Book book : bookSet) {

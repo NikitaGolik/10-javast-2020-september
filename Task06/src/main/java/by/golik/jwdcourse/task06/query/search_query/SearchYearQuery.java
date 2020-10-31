@@ -35,7 +35,7 @@ public class SearchYearQuery implements BookQuery {
      * @param bookSet - set of books in file
      * @return list of books by this year publishing
      */
-    public ArrayList<Book> query(Set<Book> bookSet) {
+    public ArrayList<Book> query(ArrayList<Book> bookSet) {
         ArrayList<Book> result = new ArrayList<>();
 
         for (Book book : bookSet) {

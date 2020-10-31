@@ -35,7 +35,7 @@ public class SearchAuthorQuery implements BookQuery {
      * @param bookSet - set of book from file
      * @return list of books that belong to author
      */
-    public ArrayList<Book> query(Set<Book> bookSet) {
+    public ArrayList<Book> query(ArrayList<Book> bookSet) {
         ArrayList<Book> result = new ArrayList<>();
 
         for (Book book : bookSet) {
