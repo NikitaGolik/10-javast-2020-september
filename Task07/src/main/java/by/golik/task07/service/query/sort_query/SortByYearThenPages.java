@@ -4,6 +4,7 @@ import by.golik.task07.entity.Book;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -16,7 +17,7 @@ public class SortByYearThenPages extends AbstractSortQuery {
         return false;
     }
 
-    public ArrayList<Book> query(Set<Book> bookSet) {
+    public ArrayList<Book> query(List<Book> bookSet) {
 
         ArrayList<Book> bookList = new ArrayList<>(bookSet);
 

@@ -20,42 +20,49 @@ public class Main {
     public static void main(String[] args) throws IOException, BookAlreadyHaveException, BookNotExistException {
         Controller controller = new Controller(new Scanner(System.in));
 
-        logger.trace("Trace");
-        logger.info("Log4j2 started.");
-        logger.warn("Something to warn");
-        logger.error("Something failed.");
-        logger.fatal("Fatal");
-        logger.debug("Debug");
-
-        BookRepository bookRepository = new BookRepository();
+//        logger.trace("Trace");
+//        logger.info("Log4j2 started.");
+//        logger.warn("Something to warn");
+//        logger.error("Something failed.");
+//        logger.fatal("Fatal");
+//        logger.debug("Debug");
+//
+//        BookRepository bookRepository = new BookRepository();
         BookDao bookDao = new BookDao();
-        bookRepository.finByTag(Tag.TITLE);
-        bookRepository.finByTag(Tag.AUTHOR);
-        bookRepository.finByTag(Tag.PAGES);
-        bookRepository.finByTag(Tag.YEAR);
+        BookRepository bookRepository = new BookRepository();
 
-        bookRepository.addBook(new Book("Маленький принц", "Экзюпери", 20, 2003));
-        bookRepository.addBook(new Book("Гаррт Поттер", "Роулинг", 20, 2002));
-        bookRepository.addBook(new Album("Первый альбом", "Сидоров", 40, 1995));
-        bookRepository.addBook(new Magazine("Первый журнал", "Григорьев", 404, 2005));
-        bookRepository.addBook(new Newspaper("Первая газета", "Солодаев", 25, 2010));
-
-        BookStore observable = new BookStore();
-        AlbumObserver albumObserver = new AlbumObserver();
-        NewspaperObserver newspaperObserver = new NewspaperObserver();
-        MagazineObserver magazineObserver = new MagazineObserver();
-
-        observable.addObserver(albumObserver);
-        observable.addObserver(newspaperObserver);
-        observable.addObserver(magazineObserver);
-
-        observable.notifyObservers();
-
-        System.out.println(observable.getBookList());
-
-        System.out.println(bookRepository.getRepository());
+        bookRepository.addBook(new Book("sa", "sa", 20, 50));
         bookDao.write(bookRepository.getRepository());
-        bookRepository.sortByTag(Tag.AUTHOR);
+        System.out.println(bookRepository.getRepository());
+
+
+//        bookRepository.finByTag(Tag.TITLE);
+//        bookRepository.finByTag(Tag.AUTHOR);
+//        bookRepository.finByTag(Tag.PAGES);
+//        bookRepository.finByTag(Tag.YEAR);
+//
+//        bookRepository.addBook(new Book("Маленький принц", "Экзюпери", 20, 2003));
+//        bookRepository.addBook(new Book("Гаррт Поттер", "Роулинг", 20, 2002));
+//        bookRepository.addBook(new Album("Первый альбом", "Сидоров", 40, 1995));
+//        bookRepository.addBook(new Magazine("Первый журнал", "Григорьев", 404, 2005));
+//        bookRepository.addBook(new Newspaper("Первая газета", "Солодаев", 25, 2010));
+//
+//        BookStore observable = new BookStore();
+//        AlbumObserver albumObserver = new AlbumObserver();
+//        NewspaperObserver newspaperObserver = new NewspaperObserver();
+//        MagazineObserver magazineObserver = new MagazineObserver();
+//
+//        observable.addObserver(albumObserver);
+//        observable.addObserver(newspaperObserver);
+//        observable.addObserver(magazineObserver);
+//
+//        observable.notifyObservers();
+//
+//        System.out.println(observable.getBookList());
+//
+//        System.out.println(bookRepository.getRepository());
+//        bookDao.write(bookRepository.getRepository());
+//        bookRepository.sortByTag(Tag.AUTHOR);
 
     }
 }

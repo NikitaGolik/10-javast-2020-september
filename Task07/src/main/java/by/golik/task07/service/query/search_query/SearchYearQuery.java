@@ -2,6 +2,7 @@ package by.golik.task07.service.query.search_query;
 import by.golik.task07.entity.Book;
 import by.golik.task07.service.query.BookQuery;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -34,7 +35,7 @@ public class SearchYearQuery implements BookQuery {
      * @param bookSet - set of books in file
      * @return list of books by this year publishing
      */
-    public ArrayList<Book> query(Set<Book> bookSet) {
+    public ArrayList<Book> query(List<Book> bookSet) {
         ArrayList<Book> result = new ArrayList<>();
 
         for (Book book : bookSet) {

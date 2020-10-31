@@ -22,7 +22,7 @@ public class BookStore implements Observable {
 
     public BookStore() throws IOException {
         BookDao bookDao = new BookDao();
-        this.bookList = new ArrayList<>(bookDao.read());
+        this.bookList = new ArrayList<>(bookDao.createBook(bookDao.read()));
     }
 
     @Override
@@ -37,11 +37,9 @@ public class BookStore implements Observable {
 
     @Override
     public void notifyObservers() {
-//        for(Observer observer : observers) {
-//            observer.update(countOfAlbums());
-//            observer.update(countOfMagazines());
-//            observer.update(countOfNewspapers());
-//        }
+        for(Observer observer : observers) {
+
+        }
     }
     public int countOfAlbums() {
         int countOfAlbums = 0;

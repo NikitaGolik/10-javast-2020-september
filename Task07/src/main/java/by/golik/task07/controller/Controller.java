@@ -6,7 +6,6 @@ import by.golik.task07.service.exceptions.BookAlreadyHaveException;
 import by.golik.task07.service.repository.BookFactory;
 import by.golik.task07.service.repository.BookRepository;
 import by.golik.task07.view.Menu;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -70,9 +69,9 @@ public class Controller {
                         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
                         String title = reader.readLine();
                         String author = reader.readLine();
-                        int pages = Integer.parseInt(reader.readLine());
                         int year = Integer.parseInt(reader.readLine());
-                        bookRepository.addBook(new Book(title, author, pages, year));
+                        int pages = Integer.parseInt(reader.readLine());
+                        bookRepository.addBook(new Book(title, author, year, pages));
                         break;
                     case "14" :
                         bookFactory.getBook(BookType.ALBUM);

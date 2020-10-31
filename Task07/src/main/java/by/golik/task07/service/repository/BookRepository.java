@@ -22,7 +22,7 @@ public class BookRepository implements Repository {
 
     private static final Logger logger = LogManager.getLogger(Main.class);
 
-    private static Set<Book> repository;
+    private static List<Book> repository;
 
 
     /**
@@ -31,14 +31,14 @@ public class BookRepository implements Repository {
      */
     public BookRepository() throws IOException {
         BookDao bookDao = new BookDao();
-        repository = bookDao.read();
+        repository = bookDao.createBook(bookDao.read());
     }
 
-    public Set<Book> getRepository() {
+    public List<Book> getRepository() {
         return repository;
     }
 
-    public static void setRepository(Set<Book> repository) {
+    public static void setRepository(List<Book> repository) {
        BookRepository.repository = repository;
     }
 
@@ -77,12 +77,10 @@ public class BookRepository implements Repository {
     @Override
     public ArrayList<Book> finByTag(Tag tag) throws IOException {
 
-
         logger.info("Log4j2 started.");
         logger.warn("Ошибка при получении объектов из BookDao");
         logger.error("Ошибка при получении объектов из BookDao");
         logger.fatal("Fatal with Find ByTag");
-
 
         switch (tag) {
             case TITLE:

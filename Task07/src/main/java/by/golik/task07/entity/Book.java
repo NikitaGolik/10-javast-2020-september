@@ -84,7 +84,7 @@ public class Book implements Serializable {
      * @param pages - count of pages in book
      * @param year - year of publishing book
      */
-    public Book(String title, String author, int pages, int year) {
+    public Book(String title, String author,int year, int pages) {
         this.id = counter++;
         this.title = title;
         this.author = author;

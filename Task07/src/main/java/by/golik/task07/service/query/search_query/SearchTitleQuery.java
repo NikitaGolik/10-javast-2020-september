@@ -4,6 +4,7 @@ import by.golik.task07.entity.Book;
 import by.golik.task07.service.query.BookQuery;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /** Query for searching objects by name...*/
@@ -21,7 +22,7 @@ public class SearchTitleQuery implements BookQuery {
         this.title = titleToSearch;
     }
 
-    public ArrayList<Book> query(Set<Book> bookSet) {
+    public ArrayList<Book> query(List<Book> bookSet) {
 
         ArrayList<Book> result = new ArrayList<>();
 

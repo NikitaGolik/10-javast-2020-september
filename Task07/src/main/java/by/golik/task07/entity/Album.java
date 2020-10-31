@@ -5,6 +5,16 @@ package by.golik.task07.entity;
  */
 public class Album extends Book {
 
+    private int countOfAlbums;
+
+    public int getCountOfAlbums() {
+        return countOfAlbums;
+    }
+
+    public void setCountOfAlbums(int countOfAlbums) {
+        this.countOfAlbums = countOfAlbums;
+
+    }
 
     @Override
     public String getTitle() {
