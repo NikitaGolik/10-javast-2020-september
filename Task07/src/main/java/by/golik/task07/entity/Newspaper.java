@@ -47,7 +47,7 @@ public class Newspaper extends Book {
         super.setPages(pages);
     }
 
-    public Newspaper(String title, String author, int pages, int year) {
+    public Newspaper(String title, String author,int year, int pages) {
         super(title, author, pages, year);
     }
 

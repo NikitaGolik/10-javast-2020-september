@@ -45,7 +45,7 @@ public class Magazine extends Book {
         super.setPages(pages);
     }
 
-    public Magazine(String title, String author, int pages, int year) {
+    public Magazine(String title, String author, int year, int pages) {
         super(title, author, pages, year);
     }
 
