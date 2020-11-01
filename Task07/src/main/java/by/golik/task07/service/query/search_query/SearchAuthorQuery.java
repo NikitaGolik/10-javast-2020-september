@@ -3,6 +3,7 @@ import by.golik.task07.entity.Book;
 import by.golik.task07.service.query.BookQuery;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Class for search a book by author name
