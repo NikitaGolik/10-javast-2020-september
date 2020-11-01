@@ -14,7 +14,7 @@ public class BookFactory {
 
     BookRepository bookRepository = new BookRepository();
 
-    public BookFactory() throws IOException {
+    public BookFactory() {
     }
 
     /**

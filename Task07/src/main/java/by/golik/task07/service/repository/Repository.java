@@ -18,7 +18,7 @@ public interface Repository {
      * @param book to add
      * @throws BookAlreadyHaveException - if this book repository already has
      */
-    void addBook(Book book) throws IOException, BookAlreadyHaveException;
+    void addBook(Book book) throws BookAlreadyHaveException;
 
 
     /**

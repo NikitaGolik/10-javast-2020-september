@@ -14,7 +14,7 @@ import java.util.*;
  * Class for read and write List of Books from file
  */
 
-public class BookDao implements Serializable {
+public class BookDao {
 
     /**
      * Read books from txt file to list of <String> Books
@@ -71,7 +71,7 @@ public class BookDao implements Serializable {
      * @return list of created books
      * @throws IOException
      */
-    public ArrayList<Book> createBook(ArrayList<String> arrayList) throws IOException {
+    public ArrayList<Book> createBook(ArrayList<String> arrayList) {
         ArrayList<Book> books = new ArrayList<>();
         for(String line : arrayList) {
             String[] params = line.split(", ");

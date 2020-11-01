@@ -15,6 +15,5 @@ public class Main {
         Controller controller = new Controller(new Scanner(System.in));
         controller.observe();
         controller.start();
-
     }
 }

@@ -48,9 +48,8 @@ public class BookRepository implements Repository, Observable {
 
     /**
      * Fill repository with books from file
-     * @throws IOException
      */
-    public BookRepository() throws IOException {
+    public BookRepository() {
         BookDao bookDao = new BookDao();
         repository = bookDao.createBook(bookDao.read());
     }
