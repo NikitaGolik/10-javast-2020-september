@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class Controller {
     Scanner scanner;
-    BookDao bookDao;
+    BookDao bookDao = new BookDao();
     BookRepository bookRepository = new BookRepository();
     BookFactory bookFactory = new BookFactory();
 
@@ -124,7 +124,7 @@ public class Controller {
                     }
                 } while (!key.equals("21"));
 
-        } catch (BookNotExistException | IOException e) {
+        } catch (BookNotExistException | IOException | BookAlreadyHaveException e) {
                 e.printStackTrace();
             }
         }

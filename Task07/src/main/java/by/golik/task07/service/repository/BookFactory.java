@@ -23,14 +23,13 @@ public class BookFactory {
      * @throws IOException
      * @throws BookAlreadyHaveException - if book already exists
      */
-    public Book getBook(BookType type) {
+    public Book getBook(BookType type) throws IOException, BookAlreadyHaveException {
         Book toReturn = null;
         String title = null;
         String author = null;
         int pages;
         int years;
 
-        try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Введите название книги");
             title = reader.readLine();
@@ -61,9 +60,6 @@ public class BookFactory {
                     System.out.println("Wrong edition type" + type);
             }
 
-        } catch (IOException | BookAlreadyHaveException | IllegalArgumentException e) {
-            e.printStackTrace();
-        }
         return toReturn;
     }
 }

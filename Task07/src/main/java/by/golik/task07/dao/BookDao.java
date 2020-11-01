@@ -73,11 +73,17 @@ public class BookDao {
      */
     public ArrayList<Book> createBook(ArrayList<String> arrayList) {
 
+        Optional.ofNullable(arrayList)
+                .filter(arrayList1 -> arrayList.size() > 0)
+                .map(a -> arrayList)
+                .ifPresent(System.out::println);
 
         ArrayList<Book> books = new ArrayList<>();
-        for(String line : arrayList) {
-            String[] params = line.split(", ");
-            books.add(getFieldsForBook(params));
+        if (arrayList != null) {
+            for(String line : arrayList) {
+                String[] params = line.split(", ");
+                books.add(getFieldsForBook(params));
+            }
         }
         return books;
     }
