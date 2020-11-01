@@ -14,22 +14,21 @@ public class BookFactory {
 
     BookRepository bookRepository = new BookRepository();
 
-    public BookFactory() {
+    public BookFactory() throws IOException {
     }
 
     /**
-     *
      * @param type - book type, that will be create
      * @return new Book Type
      * @throws IOException
      * @throws BookAlreadyHaveException - if book already exists
      */
-    public Book getBook(BookType type) throws BookAlreadyHaveException {
+    public Book getBook(BookType type) {
         Book toReturn = null;
         String title = null;
         String author = null;
-        int pages = 0;
-        int years = 0;
+        int pages;
+        int years;
 
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -41,29 +40,29 @@ public class BookFactory {
             pages = Integer.parseInt(reader.readLine());
             System.out.println("Введите год издания");
             years = Integer.parseInt(reader.readLine());
-        } catch (IOException e) {
-            System.out.println("Error with InputStream");
+            switch (type) {
+                case BOOK:
+                    toReturn = new Book(title, author, pages, years);
+                    bookRepository.addBook(toReturn);
+                    break;
+                case ALBUM:
+                    toReturn = new Album(title, author, pages, years);
+                    bookRepository.addBook(toReturn);
+                    break;
+                case MAGAZINE:
+                    toReturn = new Magazine(title, author, pages, years);
+                    bookRepository.addBook(toReturn);
+                    break;
+                case NEWSPAPER:
+                    toReturn = new Newspaper(title, author, pages, years);
+                    bookRepository.addBook(toReturn);
+                    break;
+                default:
+                    System.out.println("Wrong edition type" + type);
+            }
+
+        } catch (IOException | BookAlreadyHaveException | IllegalArgumentException e) {
             e.printStackTrace();
-        }
-        switch (type) {
-            case BOOK:
-                toReturn = new Book(title, author, pages, years);
-                bookRepository.addBook(toReturn);
-                break;
-            case ALBUM:
-                toReturn = new Album(title, author, pages, years);
-                bookRepository.addBook(toReturn);
-                break;
-            case MAGAZINE:
-                toReturn = new Magazine(title, author, pages, years);
-                bookRepository.addBook(toReturn);
-                break;
-            case NEWSPAPER:
-                toReturn = new Newspaper(title, author, pages, years);
-                bookRepository.addBook(toReturn);
-                break;
-            default:
-                throw new IllegalArgumentException("Wrong edition type" + type);
         }
         return toReturn;
     }

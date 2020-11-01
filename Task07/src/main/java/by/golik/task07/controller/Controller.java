@@ -36,7 +36,7 @@ public class Controller {
         this.scanner = scanner;
     }
 
-    public void start() throws BookAlreadyHaveException, BookNotExistException {
+    public void start() {
         if (scanner != null) {
             String key;
             try {
@@ -124,10 +124,9 @@ public class Controller {
                     }
                 } while (!key.equals("21"));
 
-            } catch (IOException e) {
-                System.out.println("Wrong inputStream");
+        } catch (BookNotExistException | IOException e) {
                 e.printStackTrace();
             }
         }
-    }
+}
 }

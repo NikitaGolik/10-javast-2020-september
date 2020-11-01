@@ -41,7 +41,7 @@ public class BookRepository implements Repository, Observable {
 
     @Override
     public void notifyObservers() {
-        for(Observer observer : observers) {
+        for (Observer observer : observers) {
             observer.update(repository);
         }
     }
@@ -59,17 +59,18 @@ public class BookRepository implements Repository, Observable {
     }
 
     public static void setRepository(List<Book> repository) {
-       BookRepository.repository = repository;
+        BookRepository.repository = repository;
     }
 
     /**
      * add books to repository from file
+     *
      * @param book to add
      * @throws BookAlreadyHaveException - if this book repository already has
      */
     @Override
     public void addBook(Book book) throws BookAlreadyHaveException {
-        if(repository.contains(book)) {
+        if (repository.contains(book)) {
             throw new BookAlreadyHaveException("Repository already had this book " + book.getTitle());
         } else {
             repository.add(book);
@@ -84,12 +85,13 @@ public class BookRepository implements Repository, Observable {
 
     /**
      * remove books from repository
+     *
      * @param book to remove
      * @throws BookNotExistException - if this book doesn't exist in repository
      */
     @Override
     public void removeBook(Book book) throws BookNotExistException {
-        if(repository.contains(book)) {
+        if (repository.contains(book)) {
             repository.remove(book);
             notifyObservers();
         } else {
@@ -99,11 +101,12 @@ public class BookRepository implements Repository, Observable {
 
     /**
      * find book by entering tag
+     *
      * @param tag - enum tag
      * @return list of book that are found by tag
      */
     @Override
-    public ArrayList<Book> finByTag(Tag tag) throws IOException {
+    public ArrayList<Book> finByTag(Tag tag) {
 
         logger.info("Log4j2 started.");
         logger.warn("Ошибка при поиске объектов из BookDao");
@@ -111,29 +114,34 @@ public class BookRepository implements Repository, Observable {
         logger.fatal("Fatal with Find ByTag");
 
         System.out.println("Введите ключ для поиска");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String keyToSearch = reader.readLine();
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String keyToSearch = reader.readLine();
 
-        switch (tag) {
-            case TITLE:
-            SearchTitleQuery searchTitleQuery = new SearchTitleQuery(keyToSearch);
-            return searchTitleQuery.query(repository);
+            switch (tag) {
+                case TITLE:
+                    SearchTitleQuery searchTitleQuery = new SearchTitleQuery(keyToSearch);
+                    return searchTitleQuery.query(repository);
 
-            case AUTHOR:
-            SearchAuthorQuery searchAuthorQuery = new SearchAuthorQuery(keyToSearch);
-            return searchAuthorQuery.query(repository);
+                case AUTHOR:
+                    SearchAuthorQuery searchAuthorQuery = new SearchAuthorQuery(keyToSearch);
+                    return searchAuthorQuery.query(repository);
 
-            case YEAR:
-            SearchYearQuery searchYearQuery = new SearchYearQuery( Integer.parseInt(keyToSearch));
-            return searchYearQuery.query(repository);
+                case YEAR:
+                    SearchYearQuery searchYearQuery = new SearchYearQuery(Integer.parseInt(keyToSearch));
+                    return searchYearQuery.query(repository);
 
-            case PAGES:
-            SearchPagesQuery searchPagesQuery = new SearchPagesQuery( Integer.parseInt(keyToSearch));
-            return searchPagesQuery.query(repository);
-
-        }
-        return null;
+                case PAGES:
+                    SearchPagesQuery searchPagesQuery = new SearchPagesQuery(Integer.parseInt(keyToSearch));
+                    return searchPagesQuery.query(repository);
+            }
+        } catch (IOException e) {
+            System.out.println("Error with inpuststream");
+            e.printStackTrace();
+        } return null;
     }
+
+
 
     @Override
     public ArrayList<Book> sortByTag(Tag tag) {
