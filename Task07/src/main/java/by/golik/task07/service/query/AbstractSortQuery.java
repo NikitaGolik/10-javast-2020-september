@@ -1,7 +1,8 @@
-package by.golik.task07.service.query.sort_query;
+package by.golik.task07.service.query;
 
-import by.golik.task07.service.query.BookQuery;
-
+/**
+ * Specification with boolean result. To sort list of books Ascending
+ */
 public abstract class AbstractSortQuery implements BookQuery {
 
     private final boolean isDescending;

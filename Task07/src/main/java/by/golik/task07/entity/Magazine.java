@@ -2,6 +2,7 @@ package by.golik.task07.entity;
 
 /**
  * @author Nikita Golik
+ * Class for creating magazines
  */
 public class Magazine extends Book {
 

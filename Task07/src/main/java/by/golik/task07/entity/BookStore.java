@@ -1,7 +1,5 @@
 package by.golik.task07.entity;
 import by.golik.task07.dao.BookDao;
-import by.golik.task07.service.observers.Observable;
-import by.golik.task07.service.observers.Observer;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

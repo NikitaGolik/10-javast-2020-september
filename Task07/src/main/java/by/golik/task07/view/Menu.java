@@ -1,6 +1,8 @@
 package by.golik.task07.view;
 
-
+/**
+ * Console menu for User
+ */
 public class Menu {
 
     public void printMenu() {

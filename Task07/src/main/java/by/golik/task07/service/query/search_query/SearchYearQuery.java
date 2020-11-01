@@ -3,7 +3,6 @@ import by.golik.task07.entity.Book;
 import by.golik.task07.service.query.BookQuery;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Class for search a book by tear of publishing
@@ -32,7 +31,7 @@ public class SearchYearQuery implements BookQuery {
 
     /**
      * Method for search a book in file
-     * @param bookSet - set of books in file
+     * @param bookSet - list of books in file
      * @return list of books by this year publishing
      */
     public ArrayList<Book> query(List<Book> bookSet) {

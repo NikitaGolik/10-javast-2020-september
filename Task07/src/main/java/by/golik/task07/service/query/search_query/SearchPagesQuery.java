@@ -3,7 +3,6 @@ import by.golik.task07.entity.Book;
 import by.golik.task07.service.query.BookQuery;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Class for search book by count of pages
@@ -32,7 +31,7 @@ public class SearchPagesQuery implements BookQuery {
     /**
      * method for search book by count of pages
 
-     * @param bookSet - set of books from repository
+     * @param bookSet - list of books from repository
      * @return all books with entering count of pages
      */
     public ArrayList<Book> query(List<Book> bookSet) {

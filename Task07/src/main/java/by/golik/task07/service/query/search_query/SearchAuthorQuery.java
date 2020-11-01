@@ -3,7 +3,6 @@ import by.golik.task07.entity.Book;
 import by.golik.task07.service.query.BookQuery;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Class for search a book by author name
@@ -32,8 +31,8 @@ public class SearchAuthorQuery implements BookQuery {
 
     /**
      * method for working with specification
-     * @param bookSet - set of book from file
-     * @return list of books that belong to author
+     * @param bookSet - list of books from file
+     * @return list of books that belongs to author
      */
     public ArrayList<Book> query(List<Book> bookSet) {
         ArrayList<Book> result = new ArrayList<>();

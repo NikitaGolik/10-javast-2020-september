@@ -46,7 +46,6 @@ public class BookRepository implements Repository, Observable {
         }
     }
 
-
     /**
      * Fill repository with books from file
      * @throws IOException
@@ -108,8 +107,8 @@ public class BookRepository implements Repository, Observable {
     public ArrayList<Book> finByTag(Tag tag) throws IOException {
 
         logger.info("Log4j2 started.");
-        logger.warn("Ошибка при получении объектов из BookDao");
-        logger.error("Ошибка при получении объектов из BookDao");
+        logger.warn("Ошибка при поиске объектов из BookDao");
+        logger.error("Ошибка при поиске объектов из BookDao");
         logger.fatal("Fatal with Find ByTag");
 
         System.out.println("Введите ключ для поиска");
@@ -140,8 +139,8 @@ public class BookRepository implements Repository, Observable {
     @Override
     public ArrayList<Book> sortByTag(Tag tag) {
         logger.info("Log4j2 started.");
-        logger.warn("Ошибка при получении объектов из BookDao");
-        logger.error("Ошибка при получении объектов из BookDao");
+        logger.warn("Ошибка при сортировке объектов из BookDao");
+        logger.error("Ошибка при сортировке объектов из BookDao");
         logger.fatal("Fatal with sort");
 
         switch (tag) {

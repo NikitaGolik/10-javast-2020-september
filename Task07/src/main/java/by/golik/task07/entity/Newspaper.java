@@ -2,10 +2,9 @@ package by.golik.task07.entity;
 
 /**
  * @author Nikita Golik
+ * Class for creating newspapers
  */
 public class Newspaper extends Book {
-
-
 
     @Override
     public String getTitle() {
