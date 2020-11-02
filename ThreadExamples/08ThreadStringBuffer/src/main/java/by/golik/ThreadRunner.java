@@ -6,34 +6,34 @@ import java.util.concurrent.TimeUnit;
  * @author Nikita Golik
  */
 public class ThreadRunner {
-    public static int counter = 0;
-    public static void main(String[] args) {
 
-        final StringBuilder s = new StringBuilder();
+    public static int counter = 0;
+    static StringBuffer s = new StringBuffer();
+
+    public static void main(String[] args) throws InterruptedException {
+
         new Thread() {
             public void run() {
                 synchronized (s) {
-                    do {
+                    while (ThreadRunner.counter++ < 3) {
                         s.append("A");
+                        System.out.print("> " + counter + " ");
                         System.out.println(s);
                         try {
-                           TimeUnit.MILLISECONDS.sleep(100);
+                            TimeUnit.MILLISECONDS.sleep(500);
                         } catch (InterruptedException e) {
-                            System.err.print(e);
+                            e.printStackTrace();
                         }
-                    } while (ThreadRunner.counter++ < 2);
-                }
-            }
-        }.start();
-        new Thread() {
-            public void run() {
-                synchronized (s) {
-                    while (ThreadRunner.counter++ < 6) {
-                        s.append("B");
-                        System.out.println(s);
                     }
                 }
             }
-            }.start();
+        }.start();
+        TimeUnit.MILLISECONDS.sleep(100);
+        while (ThreadRunner.counter++ < 6) {
+            System.out.print("< " + counter + " ");
+        // в этом месте поток main будет ждать освобождения блокировки объекта s
+            s.append("B");
+            System.out.println(s);
         }
+    }
 }
