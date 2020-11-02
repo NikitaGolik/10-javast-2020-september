@@ -1,4 +1,4 @@
-package by.golik;
+package by.golik.disable;
 
 /**
  * @author Nikita Golik
