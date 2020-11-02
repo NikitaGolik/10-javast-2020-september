@@ -9,6 +9,7 @@ public class ThreadRunner {
 
     public static int counter = 0;
     static StringBuffer s = new StringBuffer();
+    //можно заменить на стрингбилдер, тогда вывод будет другим
 
     public static void main(String[] args) throws InterruptedException {
 
