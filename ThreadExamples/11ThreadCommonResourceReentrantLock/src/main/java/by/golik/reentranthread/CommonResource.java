@@ -1,4 +1,4 @@
-package by.golik;
+package by.golik.reentranthread;
 
 /**
  * @author Nikita Golik

@@ -1,4 +1,4 @@
-package by.golik;
+package by.golik.reentranthread;
 
 import java.util.concurrent.locks.ReentrantLock;
 

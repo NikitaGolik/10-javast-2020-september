@@ -1,12 +1,9 @@
-package by.golik.reentrantreadwritelock;
+package by.golik.stampedlock;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.concurrent.locks.StampedLock;
 
 import static java.lang.Thread.sleep;
 
@@ -17,39 +14,43 @@ public class ThreadRunner {
     public static void main(String[] args) {
 
         ExecutorService executor = Executors.newFixedThreadPool(2);
-        Map<String, String> map = new HashMap<>();
-        ReadWriteLock lock = new ReentrantReadWriteLock();
+        StampedLock lock = new StampedLock();
 
         executor.submit(() -> {
-            lock.writeLock().lock();
+            long stamp = lock.tryOptimisticRead();
             try {
+                System.out.println("Optimistic Lock Valid: " + lock.validate(stamp));
                 try {
                     TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                map.put("foo", "bar");
+                System.out.println("Optimistic Lock Valid: " + lock.validate(stamp));
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Optimistic Lock Valid: " + lock.validate(stamp));
             } finally {
-                lock.writeLock().unlock();
+                lock.unlock(stamp);
             }
         });
-        Runnable readTask = () -> {
-            lock.readLock().lock();
+
+        executor.submit(() -> {
+            long stamp = lock.writeLock();
             try {
-                System.out.println(map.get("foo"));
+                System.out.println("Write Lock acquired");
                 try {
                     TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             } finally {
-                lock.readLock().unlock();
+                lock.unlock(stamp);
+                System.out.println("Write done");
             }
-        };
-
-        executor.submit(readTask);
-        executor.submit(readTask);
+        });
         executor.shutdown();
-
     }
 }
