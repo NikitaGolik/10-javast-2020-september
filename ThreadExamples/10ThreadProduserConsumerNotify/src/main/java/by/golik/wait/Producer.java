@@ -1,3 +1,5 @@
+package by.golik.wait;
+
 /**
  * @author Nikita Golik
  */
