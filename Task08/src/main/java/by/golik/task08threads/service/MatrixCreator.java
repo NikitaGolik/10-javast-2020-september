@@ -23,7 +23,9 @@ public class MatrixCreator {
                 }
             }
         }
-        System.out.println(matrix);
         return matrix;
+    }
+    public void showMatrix() throws Exception {
+        System.out.println(fillFromFile());
     }
 }

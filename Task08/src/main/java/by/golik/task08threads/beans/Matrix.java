@@ -28,6 +28,10 @@ public class Matrix {
         this.matrix = new int[raw][col];
     }
 
+    public Matrix() {
+
+    }
+
     /**
      * getter for vertical size(raws)
      * @return length of array
