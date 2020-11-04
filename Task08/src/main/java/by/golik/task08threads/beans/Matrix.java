@@ -1,4 +1,4 @@
-package by.golik.task08threads.bean;
+package by.golik.task08threads.beans;
 import java.util.Arrays;
 
 /**
@@ -91,7 +91,7 @@ public class Matrix {
      */
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("\nJaggedArray : " + matrix.length + "x" + matrix[0].length + "\n");
+        StringBuilder sb = new StringBuilder("\nmatrix : " + matrix.length + "x" + matrix[0].length + "\n");
         for (int[] row : matrix) {
             for(int value : row) {
                 sb.append(value + " ");

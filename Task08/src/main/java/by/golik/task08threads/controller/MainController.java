@@ -1,6 +1,5 @@
 package by.golik.task08threads.controller;
 
-import by.golik.task08threads.bean.Matrix;
 import by.golik.task08threads.service.MatrixCreator;
 
 /**
