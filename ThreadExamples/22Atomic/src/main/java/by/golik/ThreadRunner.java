@@ -1,12 +1,5 @@
 package by.golik;
-
-import java.math.BigInteger;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.stream.IntStream;
 
 /**
  * @author Nikita Golik
@@ -37,12 +30,12 @@ public class ThreadRunner {
 
             public void run() {
                 System.out.println(Thread.currentThread().getName() +
-                        ", Atomic Variable: " +atomicBoolean.get());
+                        ", Atomic Variable: " + atomicBoolean.get());
                 System.out.println(Thread.currentThread().getName() +
                         " is setting the variable to true ");
                 atomicBoolean.set(true);
                 System.out.println(Thread.currentThread().getName() +
-                        ", Atomic Variable: " +atomicBoolean.get());
+                        ", Atomic Variable: " + atomicBoolean.get());
             };
         }.start();
     }
