@@ -66,9 +66,9 @@ public class Matrix {
      * @throws Exception
      */
     public void setElement(int i, int j, int value) throws Exception {
-        if (checkRange(i, j)) {
+
             matrix[i][j] = value;
-        } throw new Exception();
+
     }
 
     /**

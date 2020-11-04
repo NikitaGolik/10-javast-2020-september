@@ -19,7 +19,7 @@ public class MatrixCreator {
                     int value = scanner.nextInt();
                     matrix.setElement(i, j, value);
                 } catch (Exception e) {
-
+                    e.printStackTrace();
                 }
             }
         }
