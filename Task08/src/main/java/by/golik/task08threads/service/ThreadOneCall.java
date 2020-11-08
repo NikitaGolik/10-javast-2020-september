@@ -2,37 +2,40 @@ package by.golik.task08threads.service;
 
 import by.golik.task08threads.beans.Matrix;
 import by.golik.task08threads.service.MatrixCreator;
+import com.sun.tools.javac.Main;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Semaphore;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Nikita Golik
  */
-public class ThreadOne implements Callable<Matrix> {
+public class ThreadOneCall implements Callable<Matrix> {
     public static final int NUMBER_ONE = 111;
 
-    MatrixCreator matrixCreator;
+    MatrixCreator matrixCreator = new MatrixCreator();
     Semaphore sem;
     String name;
     Matrix matrix = new Matrix();
 
-    public ThreadOne(MatrixCreator matrixCreator, Semaphore sem, String name) {
+    public ThreadOneCall(MatrixCreator matrixCreator, Semaphore sem, String name) {
         this.matrixCreator = matrixCreator;
         this.sem = sem;
         this.name = name;
     }
 
-    public ThreadOne(Matrix matrix, String name) {
+    public ThreadOneCall(Matrix matrix, String name) {
         this.name = name;
         this.matrix = matrix;
     }
 
-    public Matrix call() {
+    public Matrix call() throws Exception {
 
         try {
             System.out.println(name + " ожидает разрешение");
-            sem.acquire();
+
             matrix = matrixCreator.fillFromFile();
 
             for(int i = 0; i < matrix.getDiagonalSize()/2; i++) {
@@ -51,12 +54,9 @@ public class ThreadOne implements Callable<Matrix> {
             }
                 Thread.sleep(100);
         } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, e);
         }
         System.out.println(name + " освобождает разрешение");
-        sem.release();
         System.out.println(matrix);
         return matrix;
     }

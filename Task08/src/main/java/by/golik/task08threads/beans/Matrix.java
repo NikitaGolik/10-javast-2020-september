@@ -1,11 +1,14 @@
 package by.golik.task08threads.beans;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author Nikita Golik
  */
 public class Matrix {
     private int[][] matrix;
+    List<Integer> list = new ArrayList();
 
     /**
      * Constructor that creates an object
@@ -80,6 +83,7 @@ public class Matrix {
             for (int j = 0; j < getHorizontalSize(); j++) {
                 if (i == j) {
                     matrix[i][j] = number;
+                    list.add(i);
                 }
             }
         }

@@ -6,11 +6,13 @@ import by.golik.task08threads.service.MatrixCreator;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Nikita Golik
  */
-public class ThreadThree extends  Thread {
+public class ThreadThreeReenTrantLock extends  Thread {
 
     private int number;
     private int threadCount;
@@ -19,7 +21,7 @@ public class ThreadThree extends  Thread {
 
 
 
-    public ThreadThree(int number, int threadCount, MatrixSingleton singleton) {
+    public ThreadThreeReenTrantLock(int number, int threadCount, MatrixSingleton singleton) {
         this.number = number;
         this.threadCount = threadCount;
         this.singleton = singleton;
@@ -33,7 +35,7 @@ public class ThreadThree extends  Thread {
         try {
             matrix = matrixCreator.fillFromFile();
         } catch (Exception e) {
-            e.printStackTrace();
+            Logger.getLogger(ThreadFourSemaphore.class.getName()).log(Level.SEVERE, null, e);
         }
 
         reentrantLock.lock();
@@ -44,7 +46,7 @@ public class ThreadThree extends  Thread {
                 try {
                     TimeUnit.MILLISECONDS.sleep(100);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    Logger.getLogger(ThreadFourSemaphore.class.getName()).log(Level.SEVERE, null, e);
                 }
             }
             reentrantLock.unlock();
