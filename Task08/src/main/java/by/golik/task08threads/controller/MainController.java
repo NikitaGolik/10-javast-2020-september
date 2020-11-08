@@ -1,17 +1,9 @@
 package by.golik.task08threads.controller;
 
-import by.golik.task08threads.beans.Matrix;
-import by.golik.task08threads.beans.MatrixSingleton;
-import by.golik.task08threads.beans.ThreadThree;
-import by.golik.task08threads.beans.ThreadTwo;
-import by.golik.task08threads.example.MyThread;
-import by.golik.task08threads.service.MatrixCreator;
-import by.golik.task08threads.example.Resource;
-
-import java.util.ArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import by.golik.task08threads.beans.*;
+import by.golik.task08threads.service.ThreadOne;
+import by.golik.task08threads.service.ThreadThree;
+import by.golik.task08threads.service.ThreadTwo;
 
 /**
  * @author Nikita Golik
@@ -39,8 +31,11 @@ public class MainController {
        /** (2) */
 
         ThreadThree myThread = new ThreadThree(ThreadTwo.NUMBER_TWO, 2, MatrixSingleton.getInstance());
+        ThreadThree myThread1 = new ThreadThree(ThreadOne.NUMBER_ONE, 2, MatrixSingleton.getInstance());
         myThread.start();
+        myThread1.start();
         myThread.join();
+        myThread1.join();
 
 
     }

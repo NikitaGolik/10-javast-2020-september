@@ -1,5 +1,7 @@
-package by.golik.task08threads.beans;
+package by.golik.task08threads.service;
 
+import by.golik.task08threads.beans.Matrix;
+import by.golik.task08threads.beans.MatrixSingleton;
 import by.golik.task08threads.service.MatrixCreator;
 
 import java.util.concurrent.TimeUnit;

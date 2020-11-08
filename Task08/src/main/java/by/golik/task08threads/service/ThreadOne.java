@@ -1,5 +1,6 @@
-package by.golik.task08threads.beans;
+package by.golik.task08threads.service;
 
+import by.golik.task08threads.beans.Matrix;
 import by.golik.task08threads.service.MatrixCreator;
 
 import java.util.concurrent.Callable;
@@ -34,10 +35,17 @@ public class ThreadOne implements Callable<Matrix> {
             sem.acquire();
             matrix = matrixCreator.fillFromFile();
 
-            for(int i = 0; i < matrix.getDiagonalSize(); i++) {
-                for(int j = 0; j < matrix.getHorizontalSize(); j++) {
+            for(int i = 0; i < matrix.getDiagonalSize()/2; i++) {
+                for(int j = 0; j < matrix.getHorizontalSize()/2; j++) {
                     if(i == j) {
                         matrix.setElement(i, j, NUMBER_ONE);
+                    }
+                }
+            }
+            for(int i = matrix.getDiagonalSize()/2; i < matrix.getDiagonalSize(); i++) {
+                for (int j = matrix.getHorizontalSize() / 2; j < matrix.getHorizontalSize(); j++) {
+                    if (i == j) {
+                        matrix.setElement(i, j, ThreadTwo.NUMBER_TWO);
                     }
                 }
             }
@@ -52,5 +60,4 @@ public class ThreadOne implements Callable<Matrix> {
         System.out.println(matrix);
         return matrix;
     }
-
 }

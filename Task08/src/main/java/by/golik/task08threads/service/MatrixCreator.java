@@ -25,11 +25,7 @@ public class MatrixCreator {
         }
         return matrix;
     }
-    public Matrix createMatrix() throws Exception {
-        Matrix matrix = new Matrix();
-        matrix = fillFromFile();
-        return matrix;
-    }
+
     public void showMatrix() throws Exception {
         System.out.println(fillFromFile());
     }
