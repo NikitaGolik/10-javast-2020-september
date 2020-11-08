@@ -21,6 +21,12 @@ public class ThreadOne implements Callable<Matrix> {
         this.sem = sem;
         this.name = name;
     }
+
+    public ThreadOne(Matrix matrix, String name) {
+        this.name = name;
+        this.matrix = matrix;
+    }
+
     public Matrix call() {
 
         try {
@@ -28,10 +34,10 @@ public class ThreadOne implements Callable<Matrix> {
             sem.acquire();
             matrix = matrixCreator.fillFromFile();
 
-            for(int i = 0; i < matrix.getVerticalSize()/2; i++) {
-                for( int j = 0; j < matrix.getHorizontalSize(); j++) {
+            for(int i = 0; i < matrix.getDiagonalSize(); i++) {
+                for(int j = 0; j < matrix.getHorizontalSize(); j++) {
                     if(i == j) {
-                        matrix.setElement(i, j, 5);
+                        matrix.setElement(i, j, NUMBER_ONE);
                     }
                 }
             }

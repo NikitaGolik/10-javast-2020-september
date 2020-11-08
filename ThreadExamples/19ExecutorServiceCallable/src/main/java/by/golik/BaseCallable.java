@@ -7,10 +7,13 @@ import java.util.concurrent.TimeUnit;
  * @author Nikita Golik
  */
 public class BaseCallable implements Callable<String> {
+
     @Override
     public String call() throws Exception {
+
         String product = ProductList.getProduct();
         String result = null;
+
         if (product != null) {
             result = product + " done";
         } else {

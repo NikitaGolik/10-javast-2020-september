@@ -11,7 +11,9 @@ import java.util.concurrent.Future;
 public class ThreadRunner {
     public static void main(String[] args) throws Exception {
         ArrayList<Future<String>> list = new ArrayList<Future<String>>();
+
         ExecutorService es = Executors.newFixedThreadPool(3);
+
         for (int i = 0; i < 7; i++) {
             list.add(es.submit(new BaseCallable()));
         }

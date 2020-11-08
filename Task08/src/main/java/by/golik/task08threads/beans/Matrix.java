@@ -31,6 +31,9 @@ public class Matrix {
     public Matrix() {
 
     }
+    public int getDiagonalSize() {
+        return matrix.length;
+    }
 
     /**
      * getter for vertical size(raws)
@@ -70,9 +73,16 @@ public class Matrix {
      * @throws Exception
      */
     public void setElement(int i, int j, int value) throws Exception {
-
             matrix[i][j] = value;
-
+    }
+    public void setDiagonalElement(int number) {
+        for (int i = 0; i < getVerticalSize(); i++) {
+            for (int j = 0; j < getHorizontalSize(); j++) {
+                if (i == j) {
+                    matrix[i][j] = number;
+                }
+            }
+        }
     }
 
     /**
