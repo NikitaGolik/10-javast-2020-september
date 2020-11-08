@@ -13,7 +13,7 @@ public class PlayingState extends State {
     @Override
     public String onLock() {
         element.changeState(new LockedState(element));
-        return "Stop playing";
+        return "Lock";
     }
 
     @Override

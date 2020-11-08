@@ -1,4 +1,4 @@
-package by.golik.task08threads.service;
+package by.golik.task08threads.service.threads;
 
 import by.golik.task08threads.beans.Matrix;
 import by.golik.task08threads.beans.MatrixSingleton;

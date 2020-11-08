@@ -1,9 +1,7 @@
-package by.golik.task08threads.service;
+package by.golik.task08threads.service.threads;
 import by.golik.task08threads.beans.Matrix;
-import by.golik.task08threads.service.MatrixCreator;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
+import by.golik.task08threads.service.MyThread;
+
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -13,11 +11,11 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ThreadTwo {
     public static final int NUMBER_TWO = 222;
 
-    Matrix matrix = new Matrix();
     Lock lock = new ReentrantLock();
 
 
     public Matrix modify(Matrix matrix) throws Exception {
+
         lock.lock();
 
         for(int i = 0; i < matrix.getVerticalSize()/2; i++) {

@@ -7,6 +7,11 @@ import by.golik.task08threads.beans.Matrix;
  */
 public class MatrixModificator {
 
+    /**
+     * Change diagonal elements
+     * @param matrix - matrix from file
+     * @throws Exception
+     */
     public void modify(Matrix matrix) throws Exception {
 
         for(int i = 0; i < matrix.getVerticalSize(); i++) {

@@ -7,6 +7,11 @@ import java.util.Scanner;
  * @author Nikita Golik
  */
 public class MatrixCreator {
+    /**
+     * Create matrix from file
+     * @return getting matrix
+     * @throws Exception
+     */
 
     public Matrix fillFromFile() throws Exception {
 

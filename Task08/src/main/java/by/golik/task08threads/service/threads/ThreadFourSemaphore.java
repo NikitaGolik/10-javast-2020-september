@@ -1,5 +1,7 @@
-package by.golik.task08threads.service;
+package by.golik.task08threads.service.threads;
 import by.golik.task08threads.beans.Matrix;
+import by.golik.task08threads.service.MatrixCreator;
+
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;

@@ -15,7 +15,7 @@ public class LockedState extends State {
     public String onLock() {
         if (element.isBusy()) {
             element.changeState(new ReadyState(element));
-            return "Stop playing";
+            return "Stop";
         } else {
             return "Locked...";
         }
