@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class MatrixAsList {
 
-    private List<Element> matrixTable = new ArrayList<>();
+    private List<Element> matrixTable;
 
     public MatrixAsList(List<Element> matrixTable) {
         this.matrixTable = matrixTable;

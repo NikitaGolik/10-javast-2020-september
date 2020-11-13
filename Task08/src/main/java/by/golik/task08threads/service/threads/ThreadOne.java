@@ -1,12 +1,10 @@
 package by.golik.task08threads.service.threads;
-import by.golik.task08threads.beans.MatrixAsList;
 import by.golik.task08threads.service.Changer;
 import by.golik.task08threads.beans.Element;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 
 /**
  * @author Nikita Golik
@@ -15,7 +13,8 @@ public  class ThreadOne extends Thread {
 
     public static final int NUMBER_TWO = 222;
 
-    private  Logger logger = Logger.getLogger(ThreadOne.class.getName());
+    private static final Logger logger = LogManager.getLogger(ThreadOne.class);
+
     Changer changer;
     Element element;
     private List<Element> elementList;
@@ -39,6 +38,11 @@ public  class ThreadOne extends Thread {
 
             logger.info(String.valueOf(element.getCol()) + " " + String.valueOf(element.getRaw()) +
                     " " + String.valueOf(element.getValue()));
+            logger.warn("sadasdas");
+            logger.error("sadsa");
+            logger.trace("sa");
+            logger.debug("sadsa");
+
         }
     }
 

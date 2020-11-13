@@ -21,7 +21,7 @@ public class Matrix {
 
     private void checkRange(int x, int y) {
         if (x >= this.matrix.length || y >= this.matrix[x].length) {
-            throw new IndexOutOfBoundsException("вы вывалились за пределы массива , думайте что пишите");
+            throw new IndexOutOfBoundsException("вы вывалились за пределы массива");
         }
     }
     // получить элемент матрицы в x- строке , в y-столбце

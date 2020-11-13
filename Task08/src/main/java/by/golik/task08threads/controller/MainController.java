@@ -6,6 +6,8 @@ import by.golik.task08threads.service.CollectionTransformer;
 import by.golik.task08threads.service.MatrixCreator;
 import by.golik.task08threads.service.threads.ThreadOne;
 import by.golik.task08threads.service.threads.ThreadTwo;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
@@ -13,6 +15,8 @@ import java.util.List;
  * @author Nikita Golik
  */
 public class MainController {
+    private static final Logger logger = LogManager.getLogger(MainController.class);
+
     public static void main(String[] args) throws Exception {
 
         /** create matrix */
@@ -36,8 +40,6 @@ public class MainController {
         }
         Changer changer = new Changer();
 
-
-
         ThreadOne threadOne = new ThreadOne(elements, changer);
         ThreadTwo threadTwo = new ThreadTwo(elements, changer);
 
@@ -47,6 +49,9 @@ public class MainController {
         threadOne.join();
         threadTwo.join();
 
+        for(Element element : elements) {
+            System.out.println(element.toString());
+        }
 
         /** (1) */
 
