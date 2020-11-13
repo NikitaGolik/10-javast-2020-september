@@ -1,7 +1,7 @@
-package by.golik.task08threads.service.state;
-import by.golik.task08threads.beans.Matrix;
-import java.util.ArrayList;
-import java.util.List;
+package by.golik.task08threads.beans;
+
+import by.golik.task08threads.service.state.FreeState;
+import by.golik.task08threads.service.state.State;
 
 /**
  * @author Nikita Golik
@@ -10,11 +10,20 @@ public class Element {
 
     private State state;
     private boolean busy = false;
-    private List<Integer> listElements = new ArrayList<>();
-    Matrix matrix;
     private int raw;
     private int col;
     int value;
+
+    public Element() {
+
+    }
+
+    public Element(int raw, int col, int value) {
+        this.raw = raw;
+        this.col = col;
+        this.value = value;
+        this.state = new FreeState(this);
+    }
 
     public int getValue() {
         return value;
@@ -32,18 +41,6 @@ public class Element {
         return col;
     }
 
-    public void action() {
-
-    }
-
-    public Element() {
-        this.state = new ReadyState(this);
-        setBusy(true);
-        for(int i = 0; i < matrix.getDiagonalSize(); i++) {
-            listElements.add(i);
-        }
-    }
-
     public boolean isBusy() {
         return busy;
     }
@@ -59,4 +56,12 @@ public class Element {
         return state;
     }
 
+    @Override
+    public String toString() {
+        return "Element{" +
+                ", raw=" + raw +
+                ", col=" + col +
+                ", value=" + value +
+                '}';
+    }
 }

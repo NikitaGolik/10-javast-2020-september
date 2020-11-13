@@ -1,6 +1,8 @@
 package by.golik.task08threads.service.state;
 
 
+import by.golik.task08threads.beans.Element;
+
 /**
  * @author Nikita Golik
  */
@@ -10,9 +12,9 @@ public abstract class State {
     State(Element element) {
         this.element = element;
     }
+
     public abstract String onLock();
-    public abstract String onPlay();
-    public abstract String onReady();
+
 
 
 }

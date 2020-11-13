@@ -1,12 +1,14 @@
 package by.golik.task08threads.service.state;
 
 
+import by.golik.task08threads.beans.Element;
+
 /**
  * @author Nikita Golik
  */
-public class ReadyState extends State {
+public class FreeState extends State {
 
-    public ReadyState(Element element) {
+    public FreeState(Element element) {
         super(element);
     }
 
@@ -14,15 +16,5 @@ public class ReadyState extends State {
     public String onLock() {
         element.changeState(new LockedState(element));
         return "Locked...";
-    }
-
-    @Override
-    public String onPlay() {
-        return null;
-    }
-
-    @Override
-    public String onReady() {
-        return null;
     }
 }

@@ -1,5 +1,5 @@
 package by.golik.task08threads.service;
-import by.golik.task08threads.service.state.Element;
+import by.golik.task08threads.beans.Element;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -15,8 +15,8 @@ public class Changer {
 
     public void changeElement (Element element, int valueToChange){
         lock.lock();
-        if (element.getState().getClass().getSimpleName().equalsIgnoreCase("readystate")){
-            element.action();
+        if (element.getState().getClass().getSimpleName().equalsIgnoreCase("lockedstate")){
+            element.setBusy(true);
             if (element.getRaw()==element.getCol()){
                 try {
                     System.out.printf("Элемент i: %d, j: %d - %d заменяем на %d", element.getRaw(), element.getCol(), element.getValue(), valueToChange);
@@ -29,5 +29,8 @@ public class Changer {
             }
         }
         lock.unlock();
+    }
+    public boolean isBusy (Element element){
+        return !element.getState().getClass().getSimpleName().equalsIgnoreCase("writtenstate");
     }
 }

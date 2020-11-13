@@ -1,29 +1,17 @@
 package by.golik.task08threads.beans;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 
 /**
  * @author Nikita Golik
  */
 public class Matrix {
     private int[][] matrix;
-    List<Integer> list = new ArrayList();
 
-    /**
-     * Constructor that creates an object
-     * @param array array of elements
-     */
-    public Matrix(int[][] array) {
-        this.matrix = array;
-    }
 
-    /**
-     * Constructor that creates an object with param
-     * @param raw - count of raws
-     * @param col - count of colouns
-     * @throws Exception
-     */
     public Matrix(int raw, int col) throws Exception {
         if((raw < 1) || (col < 1)) {
             throw new Exception();
@@ -31,28 +19,61 @@ public class Matrix {
         this.matrix = new int[raw][col];
     }
 
-    public Matrix() {
-
+    private void checkRange(int x, int y) {
+        if (x >= this.matrix.length || y >= this.matrix[x].length) {
+            throw new IndexOutOfBoundsException("вы вывалились за пределы массива , думайте что пишите");
+        }
     }
-    public int getDiagonalSize() {
+    // получить элемент матрицы в x- строке , в y-столбце
+    public int get(int x, int y) {
+        checkRange(x, y);
+        return this.matrix[x][y];
+    }
+
+
+    public void put(int x, int y, int value) {
+        checkRange(x, y);
+        this.matrix[x][y] = value;
+    }
+
+    public int getSize() {
         return matrix.length;
     }
+    public List<Integer> convert(Matrix matrix) {
+            List<Integer> integers = new ArrayList<>();
+            for (int i = 0; i < matrix.getSize(); i++) {
+                for(int j = 0; j < matrix.getSize(); j++) {
+                    integers.add(matrix.get(i,j));
+                }
+            }
+            return integers;
+    }
+
+    /**
+     * Constructor that creates an object
+     * @param array array of elements
+     */
+
+
+    /**
+     * Constructor that creates an object with param
+     * @param raw - count of raws
+     * @param col - count of colouns
+     * @throws Exception
+     */
+
 
     /**
      * getter for vertical size(raws)
      * @return length of array
      */
-    public int getVerticalSize() {
-        return matrix.length;
-    }
+
 
     /**
      * getter for horizontal size(col)
      * @return length of array
      */
-    public int getHorizontalSize() {
-        return matrix[0].length;
-    }
+
 
     /**
      * getter for element
@@ -61,12 +82,7 @@ public class Matrix {
      * @return value of element
      * @throws Exception
      */
-    public int getElement(int i, int j) throws Exception {
-        if (checkRange(i, j)) {
-            return matrix[i][j];
-        }
-        throw new Exception();
-    }
+
 
     /**
      * setter for element
@@ -75,19 +91,7 @@ public class Matrix {
      * @param value of element
      * @throws Exception
      */
-    public void setElement(int i, int j, int value) throws Exception {
-            matrix[i][j] = value;
-    }
-    public void setDiagonalElement(int number) {
-        for (int i = 0; i < getVerticalSize(); i++) {
-            for (int j = 0; j < getHorizontalSize(); j++) {
-                if (i == j) {
-                    matrix[i][j] = number;
-                    list.add(i);
-                }
-            }
-        }
-    }
+
 
     /**
      * checking valid array
@@ -95,13 +99,7 @@ public class Matrix {
      * @param j - index
      * @return true or false
      */
-    private boolean checkRange(int i, int j) {
-        if (i >= 0 && i < matrix.length && j >= 0 && j < matrix[0].length) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+
 
     /**
      * This method returns a string representation of the object
