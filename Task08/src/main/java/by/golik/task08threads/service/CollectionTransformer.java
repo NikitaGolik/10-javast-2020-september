@@ -3,7 +3,6 @@ import by.golik.task08threads.beans.Element;
 import by.golik.task08threads.beans.Matrix;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -11,7 +10,12 @@ import java.util.List;
  */
 public class CollectionTransformer {
 
-    public List<Element> transform(List<Integer> integers) throws Exception {
+    /**
+     * methods transforms list of Integer value to list of elements
+     * @param integers - list of int values of matrix elements
+     * @return new list of elements
+     */
+    public List<Element> transform(List<Integer> integers) {
         List<Element> elementsList = new ArrayList<>();
         Matrix matrix;
         MatrixCreator matrixCreator = new MatrixCreator();

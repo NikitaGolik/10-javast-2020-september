@@ -18,6 +18,12 @@ public class Element {
         this.value = value;
     }
 
+    /**
+     * Element of Matrix
+     * @param raw - number of raw in matrix
+     * @param col - number of coloumns in matrix
+     * @param value - value of element
+     */
     public Element(int raw, int col, int value) {
         this.raw = raw;
         this.col = col;
@@ -25,6 +31,10 @@ public class Element {
         this.state = new FreeState(this);
     }
 
+    /**
+     * getter for value
+     * @return int value
+     */
     public int getValue() {
         return value;
     }
@@ -33,6 +43,10 @@ public class Element {
         this.value = value;
     }
 
+    /**
+     * getter for raw
+     * @return int raw
+     */
     public int getRaw() {
         return raw;
     }
@@ -41,17 +55,34 @@ public class Element {
         return col;
     }
 
+    /**
+     * status of element
+     * @return boolean value
+     */
     public boolean isBusy() {
         return busy;
     }
 
+    /**
+     *  status of element
+     * @param busy - boolean value
+     */
     public void setBusy(boolean busy) {
         this.busy = busy;
     }
 
+    /**
+     * change status of element
+     * @param state - status of element
+     */
     public void changeState(State state) {
         this.state = state;
     }
+
+    /**
+     * get status of element
+     * @return status of element
+     */
     public State getState() {
         return state;
     }

@@ -17,7 +17,7 @@ public class LockedState extends State {
     @Override
     public String onLock() {
         if (element.isBusy()) {
-            element.changeState(new FreeState(element));
+            element.changeState(new WrittenState(element));
             return "Stop";
         } else {
             return "Locked...";

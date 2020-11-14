@@ -1,5 +1,5 @@
 package by.golik.task08threads.beans;
-import java.util.ArrayList;
+
 import java.util.List;
 
 /**
@@ -9,20 +9,30 @@ public class MatrixAsList {
 
     private List<Element> matrixTable;
 
+    /**
+     * list that has all elements of matrix
+     * @param matrixTable - table of elements
+     */
     public MatrixAsList(List<Element> matrixTable) {
         this.matrixTable = matrixTable;
+    }
+
+    public List<Element> getMatrixTable() {
+        return matrixTable;
     }
 
     public void setMatrixTable(List<Element> matrixTable) {
         this.matrixTable = matrixTable;
     }
-    public int getMatrixCapacity (){
-        return matrixTable.size();
-    }
 
     public Element getElement(int i) {
         return matrixTable.get(i);
     }
+
+    /**
+     * add element to list
+     * @param element - element of matrix
+     */
     public void addElement(Element element) {
         matrixTable.add(element);
     }

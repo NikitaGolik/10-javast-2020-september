@@ -14,7 +14,7 @@ public class WrittenState extends State {
 
     @Override
     public String onLock() {
-        element.changeState(new LockedState(element));
+        element.changeState(new FreeState(element));
         return "Lock";
     }
 }

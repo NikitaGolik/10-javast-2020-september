@@ -1,12 +1,9 @@
 package by.golik.task08threads.service.threads;
 
-import by.golik.task08threads.beans.Matrix;
-import by.golik.task08threads.beans.MatrixAsList;
 import by.golik.task08threads.service.Changer;
 import by.golik.task08threads.beans.Element;
 
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**

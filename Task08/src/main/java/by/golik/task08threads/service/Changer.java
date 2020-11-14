@@ -13,13 +13,20 @@ public class Changer {
 
     Lock lock = new ReentrantLock();
 
+    /**
+     * method, that changes element of matrix diagonal to static value of thread
+     * @param element - element of matrix
+     * @param valueToChange - static int value from thread
+     */
     public void changeElement (Element element, int valueToChange){
-        lock.lock();
-        if (element.getState().getClass().getSimpleName().equals("Freestate")){
+
+        if (element.getState().getClass().getSimpleName().equalsIgnoreCase("Freestate")){
+            lock.lock();
             element.setBusy(true);
             if (element.getRaw()==element.getCol()){
                 try {
-                    System.out.printf("Элемент строка: %d, столбец: %d - %d заменяем на %d", element.getRaw(), element.getCol(), element.getValue(), valueToChange);
+                    System.out.printf("Элемент строка: %d, столбец: %d - %d заменяем на %d", element.getRaw(),
+                            element.getCol(), element.getValue(), valueToChange);
                     System.out.println();
                     element.setValue(valueToChange);
                     TimeUnit.MILLISECONDS.sleep(1000);
@@ -31,6 +38,6 @@ public class Changer {
         lock.unlock();
     }
     public boolean isBusy (Element element){
-        return !element.getState().getClass().getSimpleName().equalsIgnoreCase("writtenstate");
+        return !element.getState().getClass().getSimpleName().equalsIgnoreCase("LockedState");
     }
 }

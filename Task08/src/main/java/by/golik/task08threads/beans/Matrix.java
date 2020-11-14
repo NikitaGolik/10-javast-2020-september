@@ -11,7 +11,11 @@ import java.util.List;
 public class Matrix {
     private int[][] matrix;
 
-
+    /**
+     * Constructor that creates an object with param
+     * @param raw - count of raws
+     * @param col - count of colouns
+     */
     public Matrix(int raw, int col) throws Exception {
         if((raw < 1) || (col < 1)) {
             throw new Exception();
@@ -19,22 +23,37 @@ public class Matrix {
         this.matrix = new int[raw][col];
     }
 
-    private void checkRange(int x, int y) {
-        if (x >= this.matrix.length || y >= this.matrix[x].length) {
+    private void checkRange(int i, int j) {
+        if (i >= this.matrix.length || j >= this.matrix[i].length) {
             throw new IndexOutOfBoundsException("вы вывалились за пределы массива");
         }
     }
-    // получить элемент матрицы в x- строке , в y-столбце
-    public int get(int x, int y) {
-        checkRange(x, y);
-        return this.matrix[x][y];
+    /**
+     * getter for element
+     * @param i - index of element in 1st array
+     * @param j - index of element in 2nd array
+     * @return value of element
+     */
+    public int get(int i, int j) {
+        checkRange(i, j);
+        return this.matrix[i][j];
     }
 
-
-    public void put(int x, int y, int value) {
-        checkRange(x, y);
-        this.matrix[x][y] = value;
+    /**
+     * setter for element
+     * @param i - index of element in 1st array
+     * @param j - index of element in 2nd array
+     * @param value of element
+     */
+    public void put(int i, int j, int value) {
+        checkRange(i, j);
+        this.matrix[i][j] = value;
     }
+
+    /**
+     * getter for vertical size(raws)
+     * @return length of array
+     */
     public int getVerticalSize() {
         return matrix.length;
     }
@@ -57,57 +76,6 @@ public class Matrix {
             }
             return integers;
     }
-
-    /**
-     * Constructor that creates an object
-     * @param array array of elements
-     */
-
-
-    /**
-     * Constructor that creates an object with param
-     * @param raw - count of raws
-     * @param col - count of colouns
-     * @throws Exception
-     */
-
-
-    /**
-     * getter for vertical size(raws)
-     * @return length of array
-     */
-
-
-    /**
-     * getter for horizontal size(col)
-     * @return length of array
-     */
-
-
-    /**
-     * getter for element
-     * @param i - index of element in 1st array
-     * @param j - index of element in 2nd array
-     * @return value of element
-     * @throws Exception
-     */
-
-
-    /**
-     * setter for element
-     * @param i - index of element in 1st array
-     * @param j - index of element in 2nd array
-     * @param value of element
-     * @throws Exception
-     */
-
-
-    /**
-     * checking valid array
-     * @param i - index
-     * @param j - index
-     * @return true or false
-     */
 
 
     /**
