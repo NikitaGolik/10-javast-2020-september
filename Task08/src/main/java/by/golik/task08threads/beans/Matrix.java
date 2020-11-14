@@ -9,13 +9,7 @@ import java.util.List;
  * @author Nikita Golik
  */
 public class Matrix {
-    private int[][] matrix;
-    private int[] data;
-
-    public Matrix(int[] data) {
-        this.data = data;
-    }
-
+    private final int[][] matrix;
 
     /**
      * Constructor that creates an object with param
@@ -31,7 +25,7 @@ public class Matrix {
 
     private void checkRange(int i, int j) {
         if (i >= this.matrix.length || j >= this.matrix[i].length) {
-            throw new IndexOutOfBoundsException("вы вывалились за пределы массива");
+            throw new IndexOutOfBoundsException("вы вышли за пределы массива");
         }
     }
     /**

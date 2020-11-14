@@ -17,7 +17,7 @@ public  class ThreadOne extends Thread {
 
     Changer changer;
     Element element;
-    private List<Element> elementList;
+    private final List<Element> elementList;
 
     public ThreadOne(List<Element> elementList, Changer changer) {
         this.elementList = elementList;
@@ -29,11 +29,13 @@ public  class ThreadOne extends Thread {
 
         for (int i = 0; i < elementList.size(); i++) {
             element = elementList.get(i);
+
             logger.info(currentThread().getName() + " Элемент " + String.valueOf(element.getCol()) + " столбец " + "  " +
                     String.valueOf(element.getRaw()) + " строка" +
                     " имеет значение " + String.valueOf(element.getValue()));
 
         if (changer.isBusy(element)) {
+
             changer.changeElement(element, NUMBER_TWO);
 
             logger.info(String.valueOf(element.getCol()) + " " + String.valueOf(element.getRaw()) +

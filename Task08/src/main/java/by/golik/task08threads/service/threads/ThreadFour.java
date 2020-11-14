@@ -40,6 +40,7 @@ public class ThreadFour extends Thread {
         logger.info(name + " выполняет фазу " + phaser.getPhase());
 
         phaser.arriveAndAwaitAdvance(); // сообщаем, что первая фаза достигнута
+
         try{
             Thread.sleep(200);
         }
@@ -57,8 +58,10 @@ public class ThreadFour extends Thread {
 
                 changer.changeElement(element, NUMBER_Four);
                 element.changeState(new WrittenState(element));
+
                 System.out.println(name + " выполняет фазу " + phaser.getPhase());
                 logger.info(name + " выполняет фазу " + phaser.getPhase());
+
                 phaser.arriveAndAwaitAdvance(); // сообщаем, что вторая фаза достигнута
                 try{
                     Thread.sleep(200);
@@ -70,6 +73,7 @@ public class ThreadFour extends Thread {
                 logger.info(String.valueOf(element.getCol()) + " " + String.valueOf(element.getRaw()) +
                         " " + String.valueOf(element.getValue()));
                 System.out.println(name + " выполняет фазу " + phaser.getPhase());
+
                 phaser.arriveAndDeregister(); // сообщаем о завершении фаз и удаляем с регистрации объекты
             }
         }

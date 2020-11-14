@@ -3,6 +3,7 @@ import by.golik.task08threads.beans.Element;
 import by.golik.task08threads.beans.Matrix;
 import by.golik.task08threads.beans.MatrixAsList;
 import by.golik.task08threads.service.MatrixCreator;
+import by.golik.task08threads.service.state.WrittenState;
 import com.sun.tools.javac.Main;
 import org.apache.logging.log4j.LogManager;
 
@@ -21,7 +22,7 @@ public class ThreadThree implements Runnable {
 
     public static final int NUMBER_FOUR = 444;
 
-    private int value;
+    private final int value;
     MatrixAsList matrixAsList;
     Semaphore matrixSemaphore;
     String name;
@@ -43,6 +44,7 @@ public class ThreadThree implements Runnable {
                     element.setBusy(true);
                     if (element.getRaw() == element.getCol()) {
                         element.setValue(value);
+                        element.changeState(new WrittenState(element));
 
                         TimeUnit.MILLISECONDS.sleep(100);
                        logger.info("Меняем " + element.getRaw() + " " + element.getCol() + " на " + element.getValue());

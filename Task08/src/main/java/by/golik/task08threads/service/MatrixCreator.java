@@ -1,6 +1,8 @@
 package by.golik.task08threads.service;
+import by.golik.task08threads.beans.Element;
 import by.golik.task08threads.beans.Matrix;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -45,6 +47,14 @@ public class MatrixCreator {
         }
         return matrix;
     }
+
+    public List<Integer> createListIntegerFromElements(List<Element> elements) {
+        List<Integer> integers = new ArrayList<>();
+
+        for(int i = 0; i < elements.size(); i++) {
+                integers.add(elements.get(i).getValue());
+            } return integers;
+        }
 
     public int[] createFromListToArray(List<Integer> integerList) throws Exception {
         int[] word = new int[integerList.size()];

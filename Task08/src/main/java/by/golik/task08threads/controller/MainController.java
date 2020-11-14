@@ -12,6 +12,7 @@ import by.golik.task08threads.service.threads.ThreadTwo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.*;
@@ -49,34 +50,41 @@ public class MainController {
 
         /** (1) */
 
-        ThreadOne threadOne = new ThreadOne(elements, changer);
-        ThreadTwo threadTwo = new ThreadTwo(elements, changer);
+//        ThreadOne threadOne = new ThreadOne(elements, changer);
+//        ThreadTwo threadTwo = new ThreadTwo(elements, changer);
+//
+//        threadOne.start();
+//        threadTwo.start();
+//
+//        threadOne.join();
+//        threadTwo.join();
+//
+//        for(Element element : elements) {
+//            System.out.println(element.toString());
+//        }
+//
+//        List<Integer> integers2;
+//        integers2 = matrixCreator.createListIntegerFromElements(elements);
+//
+//        int[] array = matrixCreator.createFromListToArray(integers2);
+//
+//        matrixCreator.createFromArrayToMatrix(array);
 
-        threadOne.start();
-        threadTwo.start();
 
-        threadOne.join();
-        threadTwo.join();
+        /** (2) */
 
-        for(Element element : elements) {
-            System.out.println(element.toString());
-        }
+        ExecutorService es = Executors.newFixedThreadPool(2);
+        es.execute(new ThreadOne(elements,changer));
+        es.execute(new ThreadTwo(elements,changer));
 
-        int[] array = matrixCreator.createFromListToArray(integers);
+        es.shutdown();
+
+        List<Integer> integers2;
+        integers2 = matrixCreator.createListIntegerFromElements(elements);
+
+        int[] array = matrixCreator.createFromListToArray(integers2);
 
         matrixCreator.createFromArrayToMatrix(array);
-
-
-//        /** (2) */
-//
-//        ExecutorService es = Executors.newFixedThreadPool(2);
-//        es.execute(new ThreadOne(elements,changer));
-//        es.execute(new ThreadTwo(elements,changer));
-//
-//        es.shutdown();
-//
-//        int[] array = matrixCreator.createFromListToArray(integers);
-//        matrixCreator.createFromArrayToMatrix(array);
 
 
         /** (3) */
@@ -87,9 +95,12 @@ public class MainController {
 //        new Thread(new ThreadThree(matrixSemaphore, "thread1",matrixAsList, ThreadThree.NUMBER_FOUR)).start();
 //        new Thread(new ThreadThree(matrixSemaphore, "thread2", matrixAsList, ThreadOne.NUMBER_TWO)).start();
 //
-//        int[] array = matrixCreator.createFromListToArray(integers);
+//        List<Integer> integers2;
+//        integers2 = matrixCreator.createListIntegerFromElements(elements);
 //
-//        matrixCreator.createFromArrayToMatrix(array);
+//        int[] array = matrixCreator.createFromListToArray(integers2);
+//
+//        matrixCreator.createFromArrayToMatrix(array);;
 
 //        /** (4) */
 //
@@ -114,7 +125,10 @@ public class MainController {
 //        /** complete all phases and delete objects */
 //        phaser.arriveAndDeregister();
 //
-//        int[] array = matrixCreator.createFromListToArray(integers);
+//        List<Integer> integers2;
+//        integers2 = matrixCreator.createListIntegerFromElements(elements);
+//
+//        int[] array = matrixCreator.createFromListToArray(integers2);
 //
 //        matrixCreator.createFromArrayToMatrix(array);
 
