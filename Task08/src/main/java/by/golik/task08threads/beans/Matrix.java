@@ -10,6 +10,12 @@ import java.util.List;
  */
 public class Matrix {
     private int[][] matrix;
+    private int[] data;
+
+    public Matrix(int[] data) {
+        this.data = data;
+    }
+
 
     /**
      * Constructor that creates an object with param
@@ -68,7 +74,6 @@ public class Matrix {
 
     public List<Integer> convert(Matrix matrix) {
             List<Integer> integers = new ArrayList<>();
-            int adress = 0;
             for (int i = 0; i < matrix.getVerticalSize(); i++) {
                 for(int j = 0; j < matrix.getHorizontalSize(); j++) {
                     integers.add(matrix.get(i,j));

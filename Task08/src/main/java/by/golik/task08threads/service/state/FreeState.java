@@ -13,8 +13,9 @@ public class FreeState extends State {
     }
 
     @Override
-    public String onLock() {
+    public void onLock(Element element) {
         element.changeState(new LockedState(element));
-        return "Locked...";
     }
+
+
 }

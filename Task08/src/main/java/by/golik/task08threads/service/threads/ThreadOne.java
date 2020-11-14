@@ -40,7 +40,5 @@ public  class ThreadOne extends Thread {
                     " " + String.valueOf(element.getValue()));
             }
         }
-
     }
-
 }

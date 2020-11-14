@@ -8,13 +8,12 @@ import by.golik.task08threads.beans.Element;
  */
 public class WrittenState extends State {
 
-    WrittenState(Element element) {
+    public WrittenState(Element element) {
         super(element);
     }
 
     @Override
-    public String onLock() {
-        element.changeState(new FreeState(element));
-        return "Lock";
+    public void onLock(Element element) {
+
     }
 }

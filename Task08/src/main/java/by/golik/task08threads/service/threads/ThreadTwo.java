@@ -36,8 +36,10 @@ public class ThreadTwo extends  Thread {
 
         if (changer.isBusy(element)) {
             changer.changeElement(element, NUMBER_THREE);
+
             logger.info(String.valueOf(element.getCol()) + " " + String.valueOf(element.getRaw()) +
                     " " + String.valueOf(element.getValue()));
+
             }
         }
     }

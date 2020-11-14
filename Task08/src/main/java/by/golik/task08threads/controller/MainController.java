@@ -5,19 +5,16 @@ import by.golik.task08threads.beans.MatrixAsList;
 import by.golik.task08threads.service.Changer;
 import by.golik.task08threads.service.CollectionTransformer;
 import by.golik.task08threads.service.MatrixCreator;
+import by.golik.task08threads.service.threads.ThreadFour;
 import by.golik.task08threads.service.threads.ThreadOne;
-import by.golik.task08threads.service.threads.ThreadOneCall;
 import by.golik.task08threads.service.threads.ThreadThree;
 import by.golik.task08threads.service.threads.ThreadTwo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.Semaphore;
+import java.util.concurrent.*;
 
 /**
  * @author Nikita Golik
@@ -48,37 +45,78 @@ public class MainController {
         System.out.println(elements);
         Changer changer = new Changer();
 
+
+
         /** (1) */
 
-//        ThreadOne threadOne = new ThreadOne(elements, changer);
-//        ThreadTwo threadTwo = new ThreadTwo(elements, changer);
-//
-//        threadOne.start();
-//        threadTwo.start();
-//
-//        threadOne.join();
-//        threadTwo.join();
-//
-//        for(Element element : elements) {
-//            System.out.println(element.toString());
-//        }
+        ThreadOne threadOne = new ThreadOne(elements, changer);
+        ThreadTwo threadTwo = new ThreadTwo(elements, changer);
+
+        threadOne.start();
+        threadTwo.start();
+
+        threadOne.join();
+        threadTwo.join();
+
+        for(Element element : elements) {
+            System.out.println(element.toString());
+        }
+
+        int[] array = matrixCreator.createFromListToArray(integers);
+
+        matrixCreator.createFromArrayToMatrix(array);
+
 
 //        /** (2) */
 //
-//        ExecutorService es = Executors.newFixedThreadPool(3);
+//        ExecutorService es = Executors.newFixedThreadPool(2);
 //        es.execute(new ThreadOne(elements,changer));
 //        es.execute(new ThreadTwo(elements,changer));
 //
 //        es.shutdown();
+//
+//        int[] array = matrixCreator.createFromListToArray(integers);
+//        matrixCreator.createFromArrayToMatrix(array);
 
 
         /** (3) */
-        MatrixAsList matrixAsList = new MatrixAsList(elements);
+//        MatrixAsList matrixAsList = new MatrixAsList(elements);
+//
+//        Semaphore matrixSemaphore = new Semaphore(2);
+//
+//        new Thread(new ThreadThree(matrixSemaphore, "thread1",matrixAsList, ThreadThree.NUMBER_FOUR)).start();
+//        new Thread(new ThreadThree(matrixSemaphore, "thread2", matrixAsList, ThreadOne.NUMBER_TWO)).start();
+//
+//        int[] array = matrixCreator.createFromListToArray(integers);
+//
+//        matrixCreator.createFromArrayToMatrix(array);
 
-        Semaphore matrixSemaphore = new Semaphore(2);
-
-        new Thread(new ThreadThree(matrixSemaphore, "thread1",matrixAsList, ThreadThree.NUMBER_FOUR)).start();
-        new Thread(new ThreadThree(matrixSemaphore, "thread2", matrixAsList, ThreadOne.NUMBER_TWO)).start();
+//        /** (4) */
+//
+//        Phaser phaser = new Phaser();
+//        phaser.register();
+//
+//        new Thread(new ThreadFour(phaser, "phaser 1", elements, changer)).start();
+//        new Thread(new ThreadFour(phaser, "phaser 2", elements, changer)).start();
+//
+//        /** wait for complete phase  0 */
+//        int phase = phaser.getPhase();
+//        phaser.arriveAndAwaitAdvance();
+//        System.out.println("Фаза " + phase + " завершена");
+//
+//        /** wait for complete phase 1 */
+//        phase = phaser.getPhase();
+//        phaser.arriveAndAwaitAdvance();
+//        System.out.println("Фаза " + phase + " завершена");
+//
+//
+//
+//        /** complete all phases and delete objects */
+//        phaser.arriveAndDeregister();
+//
+//        int[] array = matrixCreator.createFromListToArray(integers);
+//
+//        matrixCreator.createFromArrayToMatrix(array);
 
     }
 

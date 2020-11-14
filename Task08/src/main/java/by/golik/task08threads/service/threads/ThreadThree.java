@@ -38,6 +38,7 @@ public class ThreadThree implements Runnable {
         for (Element element : matrixAsList.getMatrixTable())
             try {
                 System.out.println(name + " ожидает разрешение");
+                logger.info(name + " ожидает разрешение");
                 matrixSemaphore.acquire();
                     element.setBusy(true);
                     if (element.getRaw() == element.getCol()) {
@@ -51,6 +52,7 @@ public class ThreadThree implements Runnable {
             } catch (InterruptedException e) {
                 Logger.getLogger(ThreadThree.class.getName()).log(Level.SEVERE, null, e);
                 System.out.println(name + " освобождает разрешение");
+                logger.info(name + " освобождает разрешение");
             }
     }
 }

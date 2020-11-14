@@ -13,7 +13,7 @@ public abstract class State {
         this.element = element;
     }
 
-    public abstract String onLock();
+    public abstract void onLock(Element element);
 
 
 

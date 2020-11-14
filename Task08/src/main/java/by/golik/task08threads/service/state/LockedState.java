@@ -13,14 +13,14 @@ public class LockedState extends State {
         element.setBusy(false);
     }
 
-
     @Override
-    public String onLock() {
+    public void onLock(Element element) {
         if (element.isBusy()) {
             element.changeState(new WrittenState(element));
-            return "Stop";
+
         } else {
-            return "Locked...";
+            element.setBusy(true);
         }
     }
+
 }
