@@ -15,11 +15,11 @@ public class Changer {
 
     public void changeElement (Element element, int valueToChange){
         lock.lock();
-        if (element.getState().getClass().getSimpleName().equalsIgnoreCase("lockedstate")){
+        if (element.getState().getClass().getSimpleName().equals("Freestate")){
             element.setBusy(true);
             if (element.getRaw()==element.getCol()){
                 try {
-                    System.out.printf("Элемент i: %d, j: %d - %d заменяем на %d", element.getRaw(), element.getCol(), element.getValue(), valueToChange);
+                    System.out.printf("Элемент строка: %d, столбец: %d - %d заменяем на %d", element.getRaw(), element.getCol(), element.getValue(), valueToChange);
                     System.out.println();
                     element.setValue(valueToChange);
                     TimeUnit.MILLISECONDS.sleep(1000);

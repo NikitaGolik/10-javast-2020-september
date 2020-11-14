@@ -14,8 +14,8 @@ public class Element {
     private int col;
     int value;
 
-    public Element() {
-
+    public Element(int value) {
+        this.value = value;
     }
 
     public Element(int raw, int col, int value) {

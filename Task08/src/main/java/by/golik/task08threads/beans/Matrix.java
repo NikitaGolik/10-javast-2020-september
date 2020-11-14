@@ -35,14 +35,23 @@ public class Matrix {
         checkRange(x, y);
         this.matrix[x][y] = value;
     }
-
-    public int getSize() {
+    public int getVerticalSize() {
         return matrix.length;
     }
+
+    /**
+     * getter for horizontal size(col)
+     * @return length of array
+     */
+    public int getHorizontalSize() {
+        return matrix[0].length;
+    }
+
     public List<Integer> convert(Matrix matrix) {
             List<Integer> integers = new ArrayList<>();
-            for (int i = 0; i < matrix.getSize(); i++) {
-                for(int j = 0; j < matrix.getSize(); j++) {
+            int adress = 0;
+            for (int i = 0; i < matrix.getVerticalSize(); i++) {
+                for(int j = 0; j < matrix.getHorizontalSize(); j++) {
                     integers.add(matrix.get(i,j));
                 }
             }

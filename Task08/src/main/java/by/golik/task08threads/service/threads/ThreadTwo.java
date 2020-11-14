@@ -33,14 +33,15 @@ public class ThreadTwo extends  Thread {
 
         for (int i = 0; i < elementList.size(); i++) {
             element = elementList.get(i);
-            logger.info(String.valueOf(element.getCol()) + " " + String.valueOf(element.getRaw()) +
-                    " " + String.valueOf(element.getValue()));
-        }
-        if (!changer.isBusy(element)) {
+            logger.info(currentThread().getName() + "  Элемент " + String.valueOf(element.getCol()) + " столбец " + "  " +
+                    String.valueOf(element.getRaw()) + " строка" +
+                    " имеет значение " + String.valueOf(element.getValue()));
+
+        if (changer.isBusy(element)) {
             changer.changeElement(element, NUMBER_THREE);
             logger.info(String.valueOf(element.getCol()) + " " + String.valueOf(element.getRaw()) +
                     " " + String.valueOf(element.getValue()));
-
+            }
         }
     }
 }

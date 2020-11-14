@@ -5,11 +5,16 @@ import by.golik.task08threads.service.Changer;
 import by.golik.task08threads.service.CollectionTransformer;
 import by.golik.task08threads.service.MatrixCreator;
 import by.golik.task08threads.service.threads.ThreadOne;
+import by.golik.task08threads.service.threads.ThreadOneCall;
 import by.golik.task08threads.service.threads.ThreadTwo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * @author Nikita Golik
@@ -19,6 +24,7 @@ public class MainController {
 
     public static void main(String[] args) throws Exception {
 
+        logger.info("sas");
         /** create matrix */
         MatrixCreator matrixCreator = new MatrixCreator();
         Matrix matrix;
@@ -26,6 +32,7 @@ public class MainController {
         /** integer list */
         List<Integer> integers;
         integers = matrix.convert(matrix);
+        System.out.println(integers);
 
         CollectionTransformer collectionTransformer = new CollectionTransformer();
 
@@ -33,12 +40,10 @@ public class MainController {
         List<Element> elements;
         elements = collectionTransformer.transform(matrix.convert(matrix));
 
-
-        System.out.println(integers);
-        for(Element element : elements) {
-            System.out.println(element.toString());
-        }
+        System.out.println(elements);
         Changer changer = new Changer();
+
+        /** (1) */
 
         ThreadOne threadOne = new ThreadOne(elements, changer);
         ThreadTwo threadTwo = new ThreadTwo(elements, changer);
@@ -53,35 +58,24 @@ public class MainController {
             System.out.println(element.toString());
         }
 
-        /** (1) */
+        /** (2) */
 
-//        MatrixCreator matrixCreator = new MatrixCreator();
-//
-//        ArrayList<Future<Matrix>> list = new ArrayList<Future<Matrix>>();
-//
-//        ExecutorService es = Executors.newFixedThreadPool(3);
-//
-//        for (int i = 1; i < 5; i++) {
-//            list.add(es.submit(new ThreadOneCall(matrixCreator.fillFromFile(), "thread1")));
-//            list.add(es.submit(new ThreadOneCall(matrixCreator.fillFromFile(), "thread2")));
-//        }
-//        es.shutdown();
-//        for (Future<Matrix> future : list) {
-//            System.out.println(future.get() + " result fixed");
-//        }
-//
-//        es.shutdown();
 
-       /** (2) */
+        ArrayList<Future<Matrix>> list = new ArrayList<Future<Matrix>>();
 
-//        ThreeThread myThread1 = new ThreeThread(MatrixSingleton.getInstance());
-//        ThreeThread myThread2 = new ThreeThread(MatrixSingleton.getInstance());
-//        myThread1.start();
-//        myThread2.start();
-//        myThread1.join();
-//        myThread2.join();
+        ExecutorService es = Executors.newFixedThreadPool(3);
 
-        /** (4) */
+        for (int i = 1; i < 5; i++) {
+
+        }
+        es.shutdown();
+        for (Future<Matrix> future : list) {
+            System.out.println(future.get() + " result fixed");
+        }
+
+        es.shutdown();
+
+        /** (3) */
 //        Semaphore matrixSemaphore = new Semaphore(2);
 //
 //        new Thread(new ThreadFourSemaphore(matrixSemaphore, "thread1"));
