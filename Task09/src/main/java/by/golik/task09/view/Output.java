@@ -8,13 +8,5 @@ import java.util.HashMap;
  * @author Nikita Golik
  */
 public class Output {
-    public void printString(String str){
-        System.out.println(str);
-    }
 
-    public void printWords(HashMap<Character, Sentence> container){
-        for (Sentence sentence : container.values()) {
-            System.out.println(sentence);
-        }
-    }
 }

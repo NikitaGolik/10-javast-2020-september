@@ -1,9 +1,6 @@
 package by.golik.task09.service;
 
-import by.golik.task09.entity.Sentence;
-import by.golik.task09.entity.Symbol;
-import by.golik.task09.entity.TextElement;
-import by.golik.task09.entity.WordOrPunctuation;
+import by.golik.task09.entity.*;
 import java.io.IOException;
 import java.io.Writer;
 import java.nio.charset.Charset;
@@ -13,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static by.golik.task09.entity.TextParserRegular.*;
 
 /**
  * @author Nikita Golik
@@ -44,6 +43,7 @@ public class TextParser {
     // текст из файла
     private String fileContent;
 
+    private List<Paragraph> paragraphList = new ArrayList<Paragraph>();
     // список предложений
     private List<Sentence> sentencesList = new ArrayList<Sentence>();
     // список слов
@@ -92,25 +92,42 @@ public class TextParser {
             trimFileContent();
 
             // парсим текст на элементы
-            parseToSentences();
+            parseToParagraph();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    private void parseToParagraph() {
+        // parse to paragraph
+        Pattern patternWord = Pattern.compile(REGEX_PARAGRAPH_WITH_LISTING);
+        Matcher matcher = patternWord.matcher(fileContent);
+
+        while (matcher.find()) {
+            String paragraphString = matcher.group();
+
+            Paragraph paragraph = parseToSentences(paragraphString);
+
+            paragraphList.add(paragraph);
+        }
+    }
 
     // Метод разбирает текст на массив предложений
-    private void parseToSentences() {
+    private Paragraph parseToSentences(String paragraphString) {
         Pattern patternSentence = Pattern.compile(REGEX_SENTENCE);
-        Matcher matcher = patternSentence.matcher(fileContent);
+        Matcher matcher = patternSentence.matcher(paragraphString);
+
+        ArrayList<Sentence> sentenceArrayList = new ArrayList<Sentence>();
 
         while (matcher.find()) {
             String sentenceString = matcher.group();
 
             Sentence sentence = parseToWords(sentenceString);
 
+            sentenceArrayList.add(sentence);
             sentencesList.add(sentence);
         }
+        return new Paragraph(sentenceArrayList);
     }
 
     // метод разбирает предложения на массив слов и прочих символов
