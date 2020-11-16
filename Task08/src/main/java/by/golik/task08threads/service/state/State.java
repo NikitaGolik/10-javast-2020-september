@@ -6,15 +6,8 @@ import by.golik.task08threads.beans.Element;
 /**
  * @author Nikita Golik
  */
-public abstract class State {
-    Element element;
+public interface State {
 
-    State(Element element) {
-        this.element = element;
-    }
-
-    public abstract void onLock(Element element);
-
-
+    public void onLock(Element element);
 
 }

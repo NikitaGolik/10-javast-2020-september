@@ -27,6 +27,7 @@ public class ThreadThree implements Runnable {
     Semaphore matrixSemaphore;
     String name;
 
+
     public ThreadThree(Semaphore matrixSemaphore, String name, MatrixAsList matrixAsList, int value) {
         this.matrixSemaphore = matrixSemaphore;
         this.name = name;
@@ -44,7 +45,7 @@ public class ThreadThree implements Runnable {
                     element.setBusy(true);
                     if (element.getRaw() == element.getCol()) {
                         element.setValue(value);
-                        element.changeState(new WrittenState(element));
+                        element.changeState(new WrittenState());
 
                         TimeUnit.MILLISECONDS.sleep(100);
                        logger.info("Меняем " + element.getRaw() + " " + element.getCol() + " на " + element.getValue());

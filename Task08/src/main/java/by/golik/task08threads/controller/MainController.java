@@ -50,34 +50,24 @@ public class MainController {
 
         /** (1) */
 
-//        ThreadOne threadOne = new ThreadOne(elements, changer);
-//        ThreadTwo threadTwo = new ThreadTwo(elements, changer);
-//
-//        threadOne.start();
-//        threadTwo.start();
-//
-//        threadOne.join();
-//        threadTwo.join();
-//
-//        for(Element element : elements) {
-//            System.out.println(element.toString());
-//        }
-//
-//        List<Integer> integers2;
-//        integers2 = matrixCreator.createListIntegerFromElements(elements);
-//
-//        int[] array = matrixCreator.createFromListToArray(integers2);
-//
-//        matrixCreator.createFromArrayToMatrix(array);
+        ThreadOne threadOne = new ThreadOne(elements, changer);
+        ThreadTwo threadTwo = new ThreadTwo(elements, changer);
 
+        //todo try/catch
 
-        /** (2) */
+        threadOne.start();
+        threadTwo.start();
 
-        ExecutorService es = Executors.newFixedThreadPool(2);
-        es.execute(new ThreadOne(elements,changer));
-        es.execute(new ThreadTwo(elements,changer));
+        try {
+            threadOne.join();
+            threadTwo.join();
+        } catch (InterruptedException e) {
+            logger.error("Interrupted Error");
+        }
 
-        es.shutdown();
+        for(Element element : elements) {
+            System.out.println(element.toString());
+        }
 
         List<Integer> integers2;
         integers2 = matrixCreator.createListIntegerFromElements(elements);
@@ -87,10 +77,27 @@ public class MainController {
         matrixCreator.createFromArrayToMatrix(array);
 
 
+        /** (2) */
+
+//        ExecutorService es = Executors.newFixedThreadPool(2);
+//        es.execute(new ThreadOne(elements,changer));
+//        es.execute(new ThreadTwo(elements,changer));
+//
+//        es.shutdown();
+//
+//        List<Integer> integers2;
+//        integers2 = matrixCreator.createListIntegerFromElements(elements);
+//
+//        int[] array = matrixCreator.createFromListToArray(integers2);
+//
+//        matrixCreator.createFromArrayToMatrix(array);
+
+
         /** (3) */
+
 //        MatrixAsList matrixAsList = new MatrixAsList(elements);
 //
-//        Semaphore matrixSemaphore = new Semaphore(2);
+//        Semaphore matrixSemaphore = new Semaphore(1);
 //
 //        new Thread(new ThreadThree(matrixSemaphore, "thread1",matrixAsList, ThreadThree.NUMBER_FOUR)).start();
 //        new Thread(new ThreadThree(matrixSemaphore, "thread2", matrixAsList, ThreadOne.NUMBER_TWO)).start();
@@ -100,9 +107,9 @@ public class MainController {
 //
 //        int[] array = matrixCreator.createFromListToArray(integers2);
 //
-//        matrixCreator.createFromArrayToMatrix(array);;
+//        matrixCreator.createFromArrayToMatrix(array);
 
-//        /** (4) */
+        /** (4) */
 //
 //        Phaser phaser = new Phaser();
 //        phaser.register();

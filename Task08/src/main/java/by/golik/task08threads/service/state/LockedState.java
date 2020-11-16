@@ -6,21 +6,11 @@ import by.golik.task08threads.beans.Element;
 /**
  * @author Nikita Golik
  */
-public class LockedState extends State {
-
-    LockedState(Element element) {
-        super(element);
-        element.setBusy(false);
-    }
+public class LockedState implements State {
 
     @Override
     public void onLock(Element element) {
-        if (element.isBusy()) {
-            element.changeState(new WrittenState(element));
-
-        } else {
-            element.setBusy(true);
-        }
+        element.changeState(new WrittenState());
     }
 
 }

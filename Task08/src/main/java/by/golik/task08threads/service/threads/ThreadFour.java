@@ -24,6 +24,7 @@ public class ThreadFour extends Thread {
     Phaser phaser;
     private String name;
 
+
     public ThreadFour(Phaser phaser, String name, List<Element> elementList, Changer changer) {
         this.phaser = phaser;
         this.name = name;
@@ -57,26 +58,23 @@ public class ThreadFour extends Thread {
             if (changer.isBusy(element)) {
 
                 changer.changeElement(element, NUMBER_Four);
-                element.changeState(new WrittenState(element));
+                element.changeState(new WrittenState());
 
                 System.out.println(name + " выполняет фазу " + phaser.getPhase());
                 logger.info(name + " выполняет фазу " + phaser.getPhase());
 
                 phaser.arriveAndAwaitAdvance(); // сообщаем, что вторая фаза достигнута
-                try{
+                try {
                     Thread.sleep(200);
-                }
-                catch(InterruptedException ex){
+                } catch (InterruptedException ex) {
                     System.out.println(ex.getMessage());
                 }
-
+            }
+        }
                 logger.info(String.valueOf(element.getCol()) + " " + String.valueOf(element.getRaw()) +
                         " " + String.valueOf(element.getValue()));
                 System.out.println(name + " выполняет фазу " + phaser.getPhase());
 
                 phaser.arriveAndDeregister(); // сообщаем о завершении фаз и удаляем с регистрации объекты
-            }
-        }
     }
-
 }

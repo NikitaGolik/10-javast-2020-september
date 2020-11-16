@@ -28,7 +28,7 @@ public class Element {
         this.raw = raw;
         this.col = col;
         this.value = value;
-        this.state = new FreeState(this);
+        this.state = new FreeState();
     }
 
     /**

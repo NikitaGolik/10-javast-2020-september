@@ -6,11 +6,7 @@ import by.golik.task08threads.beans.Element;
 /**
  * @author Nikita Golik
  */
-public class WrittenState extends State {
-
-    public WrittenState(Element element) {
-        super(element);
-    }
+public class WrittenState implements State {
 
     @Override
     public void onLock(Element element) {
