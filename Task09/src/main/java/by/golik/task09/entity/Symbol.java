@@ -1,47 +1,38 @@
 package by.golik.task09.entity;
 
-import java.util.Objects;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.ArrayList;
 
 /**
  * @author Nikita Golik
  */
-public class Symbol {
-    private char data;
+public class Symbol implements TextElement{
+    // сам символ текста
+    private char symbol;
 
-    /**
-     * constructor
-     * @param data - data by symbol
-     */
-    public Symbol(char data) {
-        this.data = data;
+    // конструктор
+    public Symbol(char symbol) {
+        this.symbol = symbol;
     }
 
-    public char getData() {
-        return data;
-    }
-
-    public void setData(char data) {
-        this.data = data;
+    // реализация методов интерфейса
+    @Override
+    public Iterable<? extends TextElement> getElement() {
+        return new ArrayList<>();
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Symbol symbol = (Symbol) o;
-        return data == symbol.data;
+    public void printToWriter(Writer writer) throws IOException {
+        writer.append(symbol);
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = result * prime + data;
-        return result;
+    // сеттеры и геттеры
+    public Character getSymbol() {
+        return symbol;
     }
 
-    @Override
-    public String toString() {
-        return "" + data;
+    public void setSymbol(Character symbol) {
+        this.symbol = symbol;
     }
 }

@@ -1,14 +1,11 @@
 package by.golik.task09.controller;
 
 import by.golik.task09.entity.Sentence;
-import by.golik.task09.entity.Text;
-import by.golik.task09.entity.TextElement;
-import by.golik.task09.entity.Word;
 import by.golik.task09.service.TextParser;
-import by.golik.task09.service.put.FileController;
-import by.golik.task09.service.put.InputController;
-import by.golik.task09.view.*;
-import java.util.HashMap;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+
 
 
 /**
@@ -16,35 +13,63 @@ import java.util.HashMap;
  */
 public class MainController {
 
+    public static void main(String[] args) {
+        // файлы для вывода информации
+        String fromFileName = ".\\resources\\data\\text.txt";
+        String toFileName1 = "..\\TextFileParser\\test_out1.txt";
+        String toFileName2 = "..\\TextFileParser\\test_out2.txt";
+        String toFileName3 = "..\\TextFileParser\\test_out3.txt";
 
+        // создаем парсер и делаем разбор текста
+        TextParser textParser = new TextParser(fromFileName, Charset.forName("utf-8"));
+        textParser.doParse();
 
-    private static InputController input = new InputController();
-    private static Output output = new Output();
+        // возьмем массив предложений из текста
+        ArrayList<Sentence> sl = (ArrayList<Sentence>) textParser.getSentencesList();
 
-    public void startMainMenu() {
-        output.printString("Please, input the text file path: ");
-        String path = input.getFilePath();
+        // это вывод в консоль (раскоментировать или закомментировать текст ниже)
+        try (Writer writer = new BufferedWriter(new OutputStreamWriter(System.out))) {
+            // изначальный текст, который прочитали из файла
+            textParser.printFileContent(writer);
+            writer.write(10);
 
-        Text text = TextParser.parseText(FileController.getData(path).toLowerCase());
-        output.printWords(sortWords(text));
-    }
+            // текст, который получается из массива с предложениями
+            textParser.printListTextElements(writer, sl);
+            writer.write(10);
 
-    private HashMap<Character, Sentence> sortWords(Text text){
-        HashMap<Character, Sentence> result = new HashMap<Character, Sentence>();
-        for (Sentence sentence : text.getData()) {
-            for (TextElement textElement : sentence.getData()) {
-                if(textElement instanceof Word){
-                    Word word = (Word) textElement;
-                    if(!result.containsKey(word.getFirstLetter())){
-                        Sentence wordsContainer = new Sentence();
-                        wordsContainer.add(word);
-                        result.put(word.getFirstLetter(), wordsContainer);
-                    } else {
-                        result.get(word.getFirstLetter()).add(word);
-                    }
-                }
-            }
+            // переставим местами первое и последнее слово во всех предложениях текста и выведем информацию снова
+            textParser.swapFirstToLastWords();
+            textParser.printListTextElements(writer, sl);
+            writer.write(10);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return result;
+        // конец блока вывода в консоль
+
+//        // это вывод в файлы (раскоментировать или закомментировать текст ниже)
+//        try (Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(toFileName1)))) {
+//            // изначальный текст, который прочитали из файла
+//            textParser.printFileContent(writer);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try (Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(toFileName2)))) {
+//            // текст, который получается из массива с предложениями
+//            textParser.printListTextElements(writer, sl);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try (Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(toFileName3)))) {
+//            // переставим местами первое и последнее слово во всех предложениях текста и выведем информацию снова
+//            textParser.swapFirstToLastWords();
+//            textParser.printListTextElements(writer, sl);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        // конец блока вывода в файлы
+//    }
     }
 }

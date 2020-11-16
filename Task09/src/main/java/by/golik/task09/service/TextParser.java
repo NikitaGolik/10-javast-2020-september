@@ -1,9 +1,16 @@
 package by.golik.task09.service;
 
-import by.golik.task09.entity.Punctuation;
 import by.golik.task09.entity.Sentence;
-import by.golik.task09.entity.Text;
-import by.golik.task09.entity.Word;
+import by.golik.task09.entity.Symbol;
+import by.golik.task09.entity.TextElement;
+import by.golik.task09.entity.WordOrPunctuation;
+import java.io.IOException;
+import java.io.Writer;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,47 +19,179 @@ import java.util.regex.Pattern;
  */
 public class TextParser {
 
-    public static Text parseText(String text){
+    // выражение для получения предложений
+    public static final String REGEX_SENTENCE = "(?sx-m)[^\\r\\n].*?(?:(?:\\.|\\?|!))";
 
-        Text result = new Text();
-        Pattern endOfSentence = Pattern.compile("[.!?]{1,3}");
-        String trimmedText = trim(text);
-        Matcher matcher = endOfSentence.matcher(trimmedText);
-        int prewSent = 0;
-        while (matcher.find()) {
-            result.add(parseSentence(trimmedText.substring(prewSent, matcher.end())));
-            prewSent = matcher.end();
+    // выражение для получения слов и любых знаков включая знаки пунктуации
+    //public static final String REGEX_WORD_OR_PUNCTUATION = "([A-Za-zА-Яа-я]+)|(.)";
+    public static final String REGEX_WORD_OR_PUNCTUATION = "([A-я]+)|(.)";
+
+    // выражение для получения слова(буквы латинские или русские)
+    public static final String REGEX_WORD = "([A-я]+)";
+
+    // выражение для получения символов
+    public static final String REGEX_SYMBOL = ".{1}";
+
+    // выражение для получения последовательности пробелов ( > 1 ) в тексте
+    public static final String REGEX_SPACES = "(\\s+)";
+
+    // полный путь к файлу
+    private String fileName;
+
+    // кодировка файла
+    private Charset fileEncoding;
+
+    // текст из файла
+    private String fileContent;
+
+    // список предложений
+    private List<Sentence> sentencesList = new ArrayList<Sentence>();
+    // список слов
+    private List<WordOrPunctuation> wordsList = new ArrayList<WordOrPunctuation>();
+    // список символов
+    private List<Symbol> symbolsList = new ArrayList<Symbol>();
+
+    // конструктор
+    public TextParser(String fileName, Charset fileEncoding) {
+        this.fileName = fileName;
+        this.fileEncoding = fileEncoding;
+    }
+
+    // геттеры
+    public List<Sentence> getSentencesList() {
+        return sentencesList;
+    }
+
+    public List<WordOrPunctuation> getWordsList() {
+        return wordsList;
+    }
+
+    public List<Symbol> getSymbolsList() {
+        return symbolsList;
+    }
+
+    // читает текст из файла
+    private void readFromFile() throws IOException
+    {
+        byte[] textEncoded = Files.readAllBytes(Paths.get(fileName));
+
+        fileContent = new String(textEncoded, fileEncoding);
+    }
+
+    // убирает из текста лишние пробелы
+    private void trimFileContent() {
+        fileContent = fileContent.replaceAll(REGEX_SPACES, " ");
+    }
+
+    // метод разбора текста на элементы
+    public void doParse() {
+        try {
+            // читаем текст из файла
+            readFromFile();
+            // убираем из текста лишние пробелы
+            trimFileContent();
+
+            // парсим текст на элементы
+            parseToSentences();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return result;
     }
 
-    private static String trim(String text){
-        return text.replaceAll("[\\s]", " ");
+    // Метод разбирает текст на массив предложений
+    private void parseToSentences() {
+        Pattern patternSentence = Pattern.compile(REGEX_SENTENCE);
+        Matcher matcher = patternSentence.matcher(fileContent);
+
+        while (matcher.find()) {
+            String sentenceString = matcher.group();
+
+            Sentence sentence = parseToWords(sentenceString);
+
+            sentencesList.add(sentence);
+        }
     }
 
-    public static Sentence parseSentence(String sentence) {
-        Sentence result = new Sentence();
-        String[] splited = sentence.trim().split(" ");
+    // метод разбирает предложения на массив слов и прочих символов
+    private Sentence parseToWords(String sentenceString) {
+        Pattern patternWord = Pattern.compile(REGEX_WORD_OR_PUNCTUATION);
+        Matcher matcher = patternWord.matcher(sentenceString);
 
-        //Pattern punct = Pattern.compile("[\\,\\:\\;\\-\\!\\?\\.\\']{1,3}$");
+        ArrayList<WordOrPunctuation> arrWords = new ArrayList<WordOrPunctuation>();
 
-        Pattern punct = Pattern.compile("[\\W]{1,3}");
-        for (String string : splited) {
-            Matcher matcher = punct.matcher(string);
-            if (matcher.find()) {
-                if (matcher.start() == 0) {
-                    result.add(new Punctuation(matcher.group()));
-                    result.add(new Word(string.substring(matcher.end(), string.length())));
-                } else if (matcher.end() == string.length()) {
-                    result.add(new Word(string.substring(0, matcher.start())));
-                    result.add(new Punctuation(matcher.group()));
-                } else {
-                    result.add(new Word(string));
+        while (matcher.find()) {
+            String wordString = matcher.group();
+
+            WordOrPunctuation word = parseToSymbols(wordString);
+
+            // установим признак слово или нет
+            word.setIsWord(wordString.matches(REGEX_WORD));
+
+            arrWords.add(word);
+            wordsList.add(word);
+        }
+
+        return new Sentence(arrWords);
+    }
+
+    // метод разбирает слова и прочие символы на массив конечных символов
+    private WordOrPunctuation parseToSymbols(String wordString) {
+        Pattern patternSymbol = Pattern.compile(REGEX_SYMBOL);
+        Matcher matcher = patternSymbol.matcher(wordString);
+
+        ArrayList<Symbol> arrWordSymbols = new ArrayList<Symbol>();
+
+        while (matcher.find()) {
+            String stringSymbol = matcher.group();
+
+            Symbol symbol = new Symbol(stringSymbol.charAt(0));
+
+            arrWordSymbols.add(symbol);
+            symbolsList.add(symbol);
+        }
+
+        return new WordOrPunctuation(arrWordSymbols);
+    }
+
+    // метод вывода текста из начального файла (в консоль, файл и т.п.)
+    public void printFileContent(Writer writer) throws IOException{
+        writer.append(fileContent);
+    }
+
+    // метод вывода элементов текста (в консоль, файл и т.п.)
+    public void printListTextElements(Writer writer, List<? extends TextElement> listElements) throws IOException{
+        for (TextElement element : listElements) {
+            element.printToWriter(writer);
+        }
+    }
+
+    // основной методя для реализации лабораторной работы
+    // метод меняет местами первое и последнее слово во всех предложениях текста
+    public void swapFirstToLastWords() {
+        for (Sentence sentence : sentencesList) {
+            List<WordOrPunctuation> lst = (List<WordOrPunctuation>) sentence.getElementList();
+
+            if (lst.size() > 1) {
+                int firstIndex = -1;
+                int lastIndex = -1;
+
+                // поиск первого и последнего слова
+                for (int i = 0; i < lst.size(); i++) {
+                    // первое слово в предложении
+                    if (lst.get(i).isWord() && firstIndex < 0) {
+                        firstIndex = i;
+                    }
+
+                    // последнее слово в предложении
+                    if (lst.get(i).isWord() && lastIndex < i) {
+                        lastIndex = i;
+                    }
                 }
-            } else {
-                result.add(new Word(string));
+
+                // переставим слова
+                sentence.swapSentenceTextElementByIndex(firstIndex, lastIndex);
             }
         }
-        return result;
     }
 }
