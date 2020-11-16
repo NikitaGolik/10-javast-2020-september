@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  */
 public class ReaderFromFile {
 
-    private static Logger logger = LogManager.getLogger(ReaderFromFile.class);
+    private static final Logger logger = LogManager.getLogger(ReaderFromFile.class);
 
     public static String getData(String filePath) {
         File file = new File(filePath);
