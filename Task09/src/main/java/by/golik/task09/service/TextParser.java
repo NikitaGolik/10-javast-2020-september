@@ -4,7 +4,6 @@ import by.golik.task09.entity.Punctuation;
 import by.golik.task09.entity.Sentence;
 import by.golik.task09.entity.Text;
 import by.golik.task09.entity.Word;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

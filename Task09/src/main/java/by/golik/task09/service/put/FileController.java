@@ -1,18 +1,19 @@
-package by.golik.task09.service;
+package by.golik.task09.service.put;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
+
 
 /**
  * @author Nikita Golik
  */
-public class ReaderFromFile {
+public class FileController {
 
-    private static final Logger logger = LogManager.getLogger(ReaderFromFile.class);
+    static Logger logger = LogManager.getLogger(FileController.class);
 
     public static String getData(String filePath) {
         File file = new File(filePath);

@@ -4,6 +4,7 @@ package by.golik.task09.entity;
  * @author Nikita Golik
  */
 public class Word extends TextElement {
+
     public Word() {
     }
 

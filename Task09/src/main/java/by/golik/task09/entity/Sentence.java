@@ -7,6 +7,7 @@ import java.util.List;
  * @author Nikita Golik
  */
 public class Sentence {
+
     private List<TextElement> data;
 
     /**
@@ -17,7 +18,7 @@ public class Sentence {
     }
 
     /**
-     * method to add textelemnt to create a sentence
+     * method to add textElement to create a sentence
      * @param textElement - element of text
      */
     public void add(TextElement textElement) {
