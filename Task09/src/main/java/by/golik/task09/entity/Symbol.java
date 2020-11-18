@@ -8,15 +8,15 @@ import java.util.ArrayList;
  * @author Nikita Golik
  */
 public class Symbol implements TextElement{
-    // сам символ текста
+
     private char symbol;
 
-    // конструктор
+
     public Symbol(char symbol) {
         this.symbol = symbol;
     }
 
-    // реализация методов интерфейса
+
     @Override
     public Iterable<? extends TextElement> getElement() {
         return new ArrayList<>();
@@ -27,7 +27,7 @@ public class Symbol implements TextElement{
         writer.append(symbol);
     }
 
-    // сеттеры и геттеры
+
     public Character getSymbol() {
         return symbol;
     }

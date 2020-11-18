@@ -1,4 +1,4 @@
-package by.golik.task09.service;
+package by.golik.task09.service.handler;
 
 import by.golik.task09.entity.*;
 import java.io.IOException;
@@ -94,6 +94,10 @@ public class TextParser {
             // парсим текст на элементы
             parseToParagraph();
 
+            parseToSentences();
+            parseToWords();
+            parseToSymbols();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -176,39 +180,10 @@ public class TextParser {
         writer.append(fileContent);
     }
 
-    // метод вывода элементов текста (в консоль, файл и т.п.)
+    // метод вывода элементов текста (в консоль, файл)
     public void printListTextElements(Writer writer, List<? extends TextElement> listElements) throws IOException{
         for (TextElement element : listElements) {
             element.printToWriter(writer);
-        }
-    }
-
-    // основной методя для реализации лабораторной работы
-    // метод меняет местами первое и последнее слово во всех предложениях текста
-    public void swapFirstToLastWords() {
-        for (Sentence sentence : sentencesList) {
-            List<WordOrPunctuation> lst = (List<WordOrPunctuation>) sentence.getElementList();
-
-            if (lst.size() > 1) {
-                int firstIndex = -1;
-                int lastIndex = -1;
-
-                // поиск первого и последнего слова
-                for (int i = 0; i < lst.size(); i++) {
-                    // первое слово в предложении
-                    if (lst.get(i).isWord() && firstIndex < 0) {
-                        firstIndex = i;
-                    }
-
-                    // последнее слово в предложении
-                    if (lst.get(i).isWord() && lastIndex < i) {
-                        lastIndex = i;
-                    }
-                }
-
-                // переставим слова
-                sentence.swapSentenceTextElementByIndex(firstIndex, lastIndex);
-            }
         }
     }
 }

@@ -22,8 +22,8 @@ public class CompositeTextElement implements TextElement {
         return elementList;
     }
 
-    // вывод куда угодно, в зависимости от того, что передали (консоль, файл, строка и т.п.),
-    // все что можно наследовать от абстрактного класса "Writer")
+    // вывод куда угодно, в зависимости от того, что передали консоль, файл,
+
     @Override
     public void printToWriter(Writer writer) throws IOException {
         for (TextElement element : elementList) {

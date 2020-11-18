@@ -11,7 +11,7 @@ public interface TextElement {
     // метод должен возвращать список элементов текста (предложения, слова, абзацы и прочее)
     Iterable<? extends TextElement> getElement();
 
-    // вывод текста куда угодно(консоль, файл, строка и т.п.),
-    // все что можно наследовать от абстрактного класса "Writer")
+    // вывод текста консоль, файл
+
     void printToWriter(Writer writer) throws IOException;
 }

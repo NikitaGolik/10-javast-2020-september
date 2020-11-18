@@ -6,10 +6,10 @@ import java.util.List;
  * @author Nikita Golik
  */
 public class WordOrPunctuation extends CompositeTextElement {
-    // признак того является ли элемент текста словом (=true-слово или =false-символ(не буковка))
+
     private boolean isWord = false;
 
-    // конструкторы
+
     public WordOrPunctuation(List<Symbol> elementList) {
         super(elementList);
     }
@@ -19,7 +19,6 @@ public class WordOrPunctuation extends CompositeTextElement {
         this.isWord = isWord;
     }
 
-    // сеттеры и геттеры
     public boolean isWord() {
         return isWord;
     }
