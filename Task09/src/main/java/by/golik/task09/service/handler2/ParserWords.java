@@ -11,12 +11,11 @@ import org.apache.logging.log4j.Logger;
 public class ParserWords extends AbstractParser {
 
     private static final Logger logger = LogManager.getLogger(ParserWords.class);
-    public static final String REGEX_WORD = "([A-я]+)";
-    public static final String REGEX_WORD_OR_PUNCTUATION = "([A-я]+)|(.)";
+    public static final String REGEX_WORD = "([A-я][A-z]+)";
 
     public ParserWords(AbstractParser nextParser) {
         this.nextParser = nextParser;
-        this.componentType = ComponentType.WORDORPUNCTUATION;
-        super.regEx = REGEX_WORD_OR_PUNCTUATION;
+        this.componentType = ComponentType.WORD;
+        super.regEx = REGEX_WORD;
     }
 }

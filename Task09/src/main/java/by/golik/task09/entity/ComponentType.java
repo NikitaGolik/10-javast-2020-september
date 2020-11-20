@@ -6,7 +6,8 @@ package by.golik.task09.entity;
 public enum ComponentType {
     PARAGRAPH,
     SENTENCE,
+    LEXEMA,
     SYMBOL,
-    WORDORPUNCTUATION,
+    WORD,
     TEXT
 }

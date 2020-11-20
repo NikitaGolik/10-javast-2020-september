@@ -12,7 +12,7 @@ public interface TextElement {
     void add (TextElement component);
     void remove (TextElement component);
     TextElement get (int i);
-    String compile ();
+    String create();
 
     // вывод текста консоль, файл
 

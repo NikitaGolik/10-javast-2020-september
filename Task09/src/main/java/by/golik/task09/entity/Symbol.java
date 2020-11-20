@@ -31,7 +31,7 @@ public class Symbol implements TextElement {
     }
 
     @Override
-    public String compile() {
+    public String create() {
         return String.valueOf(symbol);
     }
 

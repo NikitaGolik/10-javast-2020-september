@@ -23,7 +23,7 @@ public class AbstractParser {
     ComponentType componentType;
     String regEx;
 
-    public List<String> regexParse (String text, String regEx){
+    public List<String> findElementsByRegex (String text, String regEx){
 
         List<String> elementList = new ArrayList<>();
 
@@ -33,21 +33,20 @@ public class AbstractParser {
         while (matcher.find()){
             elementList.add(matcher.group());
         }
-        logger.info("text has been splitted to parser" + Arrays.asList(elementList) + "in class: " +
+        logger.info("text has been added to parser " + Arrays.asList(elementList) + " in class: " +
                 getClass().getSimpleName());
         return elementList;
     }
 
     public TextElement parse(String text)  {
 
-        List<String> symbolList = this.regexParse(text,regEx);
+        List<String> symbolList = this.findElementsByRegex(text,regEx);
         compositeTextElement = new CompositeTextElement(componentType);
 
         if (nextParser!=null){
             for (String s : symbolList){
                 compositeTextElement.add(nextParser.parse(s));
-                logger.info("component {} has been added to {} elementList", s,
-                        this.getClass().getSimpleName());
+                logger.info("component " + s + " has been added to " + this.getClass().getSimpleName());
             }
         }
 

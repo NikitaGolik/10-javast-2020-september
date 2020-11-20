@@ -43,26 +43,21 @@ public class CompositeTextElement implements TextElement {
     }
 
     @Override
-    public String compile() {
+    public String create() {
         String delimeter;
 
         StringBuilder sb = new StringBuilder();
 
-        /**
-         * with regards to componentType we add delimeter between
-         * composite elements when compile it to String line
-         */
-
         switch (componentType){
             case PARAGRAPH: delimeter ="\n    "; break; // divisions for paragraphs
-            case WORDORPUNCTUATION: delimeter =" "; break; //devision for lexemas
+            case WORD: delimeter =" "; break; //devision for lexemas
             default: delimeter = ""; break;
         }
 
         for (int i =0; i< elementList.size(); i++){
             logger.info("in type {}, componentSize = {}, current element = {} current SB = {}",
                     this.componentType.name(), elementList.size(), i, sb.toString());
-            sb.append(elementList.get(i).compile());
+            sb.append(elementList.get(i).create());
         }
 
         if (this.componentType==ComponentType.TEXT){
