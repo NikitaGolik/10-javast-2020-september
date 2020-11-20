@@ -38,10 +38,6 @@ public class CompositeTextElement implements TextElement {
         return elementList.get(i);
     }
 
-    @Override
-    public int getSize() {
-        return elementList.size();
-    }
     public ComponentType getComponentType () {
         return componentType;
     }
@@ -64,7 +60,7 @@ public class CompositeTextElement implements TextElement {
         }
 
         for (int i =0; i< elementList.size(); i++){
-            logger.info("in type {}, componentSize = {}, current elemtne = {} current SB = {}",
+            logger.info("in type {}, componentSize = {}, current element = {} current SB = {}",
                     this.componentType.name(), elementList.size(), i, sb.toString());
             sb.append(elementList.get(i).compile());
         }

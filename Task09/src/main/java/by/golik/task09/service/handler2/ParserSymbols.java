@@ -1,19 +1,17 @@
 package by.golik.task09.service.handler2;
 
-import by.golik.task09.entity.CompositeTextElement;
 import by.golik.task09.entity.Symbol;
 import by.golik.task09.entity.TextElement;
-import by.golik.task09.entity.WordOrPunctuation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * @author Nikita Golik
  */
 public class ParserSymbols extends AbstractParser {
+
+    private static final Logger logger = LogManager.getLogger(ParserSymbols.class);
 
     @Override
     public TextElement parse(String text) {

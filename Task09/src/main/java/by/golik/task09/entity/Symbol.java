@@ -31,11 +31,6 @@ public class Symbol implements TextElement {
     }
 
     @Override
-    public int getSize() {
-        return 0;
-    }
-
-    @Override
     public String compile() {
         return String.valueOf(symbol);
     }

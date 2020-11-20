@@ -9,13 +9,8 @@ public class WordOrPunctuation extends CompositeTextElement {
 
     private boolean isWord = false;
 
-
-    public WordOrPunctuation(List<Symbol> elementList) {
-        super(elementList);
-    }
-
-    public WordOrPunctuation(List<Symbol> elementList, boolean isWord) {
-        super(elementList);
+    public WordOrPunctuation(ComponentType componentType, boolean isWord) {
+        super(componentType);
         this.isWord = isWord;
     }
 

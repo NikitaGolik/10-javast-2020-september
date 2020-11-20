@@ -1,18 +1,15 @@
 package by.golik.task09.service.handler2;
 
 import by.golik.task09.entity.ComponentType;
-import by.golik.task09.entity.Paragraph;
-import by.golik.task09.entity.Sentence;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * @author Nikita Golik
  */
 public class ParserSentence extends AbstractParser {
+    private static final Logger logger = LogManager.getLogger(ParserSentence.class);
 
     public static final String REGEX_SENTENCE = "(?sx-m)[^\\r\\n].*?(?:(?:\\.|\\?|!))";
 

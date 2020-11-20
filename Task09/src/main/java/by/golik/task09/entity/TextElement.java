@@ -12,7 +12,6 @@ public interface TextElement {
     void add (TextElement component);
     void remove (TextElement component);
     TextElement get (int i);
-    int getSize();
     String compile ();
 
     // вывод текста консоль, файл

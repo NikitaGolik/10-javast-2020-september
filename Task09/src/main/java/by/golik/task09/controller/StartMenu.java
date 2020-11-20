@@ -6,7 +6,7 @@ package by.golik.task09.controller;
 public class StartMenu {
 
     public static void main( String[] args ) {
-
+        new MainController().startMainMenu();
     }
 
 }
