@@ -23,6 +23,10 @@ public class CompositeTextElement implements TextElement {
         this.componentType = componentType;
     }
 
+    public List<TextElement> getElementList() {
+        return elementList;
+    }
+
     @Override
     public void add(TextElement component) {
         elementList.add(component);
@@ -38,33 +42,36 @@ public class CompositeTextElement implements TextElement {
         return elementList.get(i);
     }
 
+    @Override
     public ComponentType getComponentType () {
         return componentType;
     }
 
     @Override
-    public String create() {
-        String delimeter;
+    public String toString() {
+        StringBuilder resultString = new StringBuilder();
 
-        StringBuilder sb = new StringBuilder();
+        for (TextElement textElement : elementList) {
+            if (textElement.getComponentType() == ComponentType.SENTENCE) {
+                resultString.append("\t");
+            }
+            if (textElement.getComponentType() == ComponentType.LEXEMA) {
+                resultString.append(" ");
+            }
+            if (textElement.getComponentType() != ComponentType.WORD) {
+                resultString.append(textElement.toString());
+            }
+            if (textElement.getComponentType() == ComponentType.PARAGRAPH) {
+                resultString.append("\n");
+            }
+            if (textElement.getComponentType() == ComponentType.TEXT) {
+                resultString.insert(0, "    ");
 
-        switch (componentType){
-            case PARAGRAPH: delimeter ="\n    "; break; // divisions for paragraphs
-            case WORD: delimeter =" "; break; //devision for lexemas
-            default: delimeter = ""; break;
-        }
+            }
+            logger.info("in type {}, componentSize = {},  current SB = {}",
+                    this.componentType.name(), elementList.size(), resultString.toString());
 
-        for (int i =0; i< elementList.size(); i++){
-            logger.info("in type {}, componentSize = {}, current element = {} current SB = {}",
-                    this.componentType.name(), elementList.size(), i, sb.toString());
-            sb.append(elementList.get(i).create());
-        }
-
-        if (this.componentType==ComponentType.TEXT){
-            sb.insert(0,"    ");
-        }
-
-        return sb.append(delimeter).toString();
+        } return resultString.toString();
     }
 
     @Override

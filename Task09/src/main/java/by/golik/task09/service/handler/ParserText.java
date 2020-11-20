@@ -1,4 +1,4 @@
-package by.golik.task09.service.handler2;
+package by.golik.task09.service.handler;
 
 import by.golik.task09.entity.ComponentType;
 import org.apache.logging.log4j.LogManager;
@@ -17,6 +17,7 @@ public class ParserText extends AbstractParser {
         this.nextParser=nextParser;
         this.componentType = ComponentType.TEXT;
         super.regEx =REGEX;
+        logger.info("- Text is successfully taken apart.");
     }
 
 

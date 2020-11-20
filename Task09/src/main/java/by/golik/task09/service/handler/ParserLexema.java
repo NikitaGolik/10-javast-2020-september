@@ -1,7 +1,6 @@
-package by.golik.task09.service.handler2;
+package by.golik.task09.service.handler;
 
 import by.golik.task09.entity.ComponentType;
-import by.golik.task09.entity.TextElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,11 +11,11 @@ public class ParserLexema extends AbstractParser {
 
     private static final Logger logger = LogManager.getLogger(ParserParagraph.class);
 
-    private static final String REGEX_LEXEMA = "(\\W+)?(\\w+)?(\\W+)?";
+    private static final String REGEX_LEXEMA_WITH_EXPRESSION = "([^\\s]*\\d+[+\\-*\\/]+[^\\s]*)";
 
     public ParserLexema(AbstractParser nextParser) {
         this.nextParser = nextParser;
         this.componentType = ComponentType.LEXEMA;
-        super.regEx = REGEX_LEXEMA;
+        super.regEx = REGEX_LEXEMA_WITH_EXPRESSION;
     }
 }

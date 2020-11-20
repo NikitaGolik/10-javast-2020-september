@@ -1,4 +1,4 @@
-package by.golik.task09.service.handler2;
+package by.golik.task09.service.handler;
 
 import by.golik.task09.entity.ComponentType;
 import org.apache.logging.log4j.LogManager;
@@ -11,11 +11,11 @@ public class ParserParagraph extends AbstractParser {
 
     private static final Logger logger = LogManager.getLogger(ParserParagraph.class);
 
-    public static final String REGEX_PARAGRAPH_WITH_LISTING = "(\\s*(.+))([^(\\s*(Start listing)([^\\t]+)(End listing)\\s)])|\\s*(Start listing)([^\\t]+)(End listing)";
+    private static final String REGEX_PARAGRAPH = "\\t.+\\n*[^\\t]+";
 
     public ParserParagraph(AbstractParser nextParser) {
         this.nextParser = nextParser;
         this.componentType = ComponentType.PARAGRAPH;
-        super.regEx = REGEX_PARAGRAPH_WITH_LISTING;
+        super.regEx = REGEX_PARAGRAPH;
     }
 }

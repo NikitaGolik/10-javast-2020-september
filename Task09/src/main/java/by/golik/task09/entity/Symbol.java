@@ -9,7 +9,13 @@ import java.util.ArrayList;
  */
 public class Symbol implements TextElement {
 
+    private ComponentType componentType;
     private char symbol;
+
+    @Override
+    public ComponentType getComponentType() {
+        return componentType;
+    }
 
     public Symbol(char symbol) {
         this.symbol = symbol;
@@ -31,7 +37,7 @@ public class Symbol implements TextElement {
     }
 
     @Override
-    public String create() {
+    public String toString() {
         return String.valueOf(symbol);
     }
 

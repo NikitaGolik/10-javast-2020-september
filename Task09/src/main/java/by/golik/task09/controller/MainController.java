@@ -1,8 +1,7 @@
 package by.golik.task09.controller;
 
-import by.golik.task09.entity.Lexema;
 import by.golik.task09.entity.TextElement;
-import by.golik.task09.service.handler2.*;
+import by.golik.task09.service.handler.*;
 
 import by.golik.task09.service.put.InputController;
 import by.golik.task09.service.put.ReaderFile;
@@ -27,8 +26,6 @@ public class MainController {
         ParserWords parserWords = new ParserWords(symbolParser);
         ParserLexema parserLexema = new ParserLexema(parserWords);
         TextElement text1 = parserWords.parse(readerFile.readFromFile(input.getFilePath()));
-
-
 
 
     }
