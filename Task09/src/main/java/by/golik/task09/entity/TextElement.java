@@ -9,7 +9,11 @@ import java.io.Writer;
 public interface TextElement {
 
     // метод должен возвращать список элементов текста (предложения, слова, абзацы и прочее)
-    Iterable<? extends TextElement> getElement();
+    void add (TextElement component);
+    void remove (TextElement component);
+    TextElement get (int i);
+    int getSize();
+    String compile ();
 
     // вывод текста консоль, файл
 

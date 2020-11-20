@@ -7,32 +7,41 @@ import java.util.ArrayList;
 /**
  * @author Nikita Golik
  */
-public class Symbol implements TextElement{
+public class Symbol implements TextElement {
 
     private char symbol;
-
 
     public Symbol(char symbol) {
         this.symbol = symbol;
     }
 
-
     @Override
-    public Iterable<? extends TextElement> getElement() {
-        return new ArrayList<>();
+    public void add(TextElement component) {
+
     }
 
     @Override
+    public void remove(TextElement component) {
+
+    }
+
+    @Override
+    public TextElement get(int i) {
+        return null;
+    }
+
+    @Override
+    public int getSize() {
+        return 0;
+    }
+
+    @Override
+    public String compile() {
+        return String.valueOf(symbol);
+    }
+
     public void printToWriter(Writer writer) throws IOException {
         writer.append(symbol);
     }
 
-
-    public Character getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(Character symbol) {
-        this.symbol = symbol;
-    }
 }

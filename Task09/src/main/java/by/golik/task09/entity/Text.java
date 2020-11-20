@@ -5,9 +5,9 @@ import java.util.List;
 /**
  * @author Nikita Golik
  */
-public class Paragraph extends CompositeTextElement {
+public class Text extends CompositeTextElement {
 
-    public Paragraph(ComponentType componentType) {
+    public Text(ComponentType componentType) {
         super(componentType);
     }
 }

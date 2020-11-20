@@ -7,8 +7,8 @@ import java.util.List;
  */
 public class Sentence extends CompositeTextElement {
     // конструктор
-    public Sentence(List<WordOrPunctuation> elementList) {
-        super(elementList);
-    }
 
+    public Sentence(ComponentType componentType) {
+        super(componentType);
+    }
 }
