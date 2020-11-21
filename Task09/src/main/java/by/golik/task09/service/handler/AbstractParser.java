@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 /**
  * @author Nikita Golik
  */
-public class AbstractParser {
+public abstract class AbstractParser {
 
     private static final Logger logger = LogManager.getLogger(AbstractParser.class);
 
@@ -22,6 +22,7 @@ public class AbstractParser {
     CompositeTextElement compositeTextElement;
     ComponentType componentType;
     String regEx;
+
 
     public List<String> findElementsByRegex (String text, String regEx){
 

@@ -12,6 +12,7 @@ public class Symbol implements TextElement {
     private ComponentType componentType;
     private char symbol;
 
+
     @Override
     public ComponentType getComponentType() {
         return componentType;

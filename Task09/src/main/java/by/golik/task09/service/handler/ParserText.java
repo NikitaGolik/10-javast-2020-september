@@ -11,9 +11,10 @@ import org.apache.logging.log4j.Logger;
 public class ParserText extends AbstractParser {
 
     private static final Logger logger = LogManager.getLogger(ParserText.class);
-    private static final String REGEX = ".+"; // split to paragraphs \\s{4}.+
+    private static final String REGEX = ".+";
 
     public ParserText (AbstractParser nextParser){
+
         this.nextParser=nextParser;
         this.componentType = ComponentType.TEXT;
         super.regEx =REGEX;

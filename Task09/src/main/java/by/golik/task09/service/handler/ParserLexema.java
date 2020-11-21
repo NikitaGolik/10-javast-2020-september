@@ -11,6 +11,10 @@ public class ParserLexema extends AbstractParser {
 
     private static final Logger logger = LogManager.getLogger(ParserParagraph.class);
 
+    private static final String REGEX_LEXEMA = "([^\\s]+)";
+    private static final String REGEX_WORD = "([a-zA-Z]+-[a-zA-Z]+-[a-zA-Z]+)|([a-zA-Z]+-[a-zA-Z]+)|([^(),:'\\.!?*\\/\\-\\d\\s]+)|(([^\\s]*\\d+[+\\-*\\/]+[^\\s]*))";
+
+
     private static final String REGEX_LEXEMA_WITH_EXPRESSION = "([^\\s]*\\d+[+\\-*\\/]+[^\\s]*)";
 
     public ParserLexema(AbstractParser nextParser) {

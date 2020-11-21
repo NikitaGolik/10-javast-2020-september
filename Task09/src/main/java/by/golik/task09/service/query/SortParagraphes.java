@@ -13,6 +13,16 @@ import java.util.List;
  */
 public class SortParagraphes {
 
+    private int findNumberOfSentences(CompositeTextElement paragraph) {
+        int count = 0;
+        for(TextElement sentence: paragraph.getElementList()) {
+            if(sentence.getComponentType() == ComponentType.SENTENCE) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     public List<TextElement> sort(CompositeTextElement text) {
 
         List<TextElement> paragraphList = new ArrayList<>();
@@ -25,15 +35,5 @@ public class SortParagraphes {
         result.sort(Comparator.comparingInt(paragraph -> findNumberOfSentences((CompositeTextElement) paragraph)));
 
         return result;
-    }
-
-    private int findNumberOfSentences(CompositeTextElement paragraph) {
-        int count = 0;
-        for(TextElement sentence: paragraph.getElementList()) {
-            if(sentence.getComponentType() == ComponentType.SENTENCE) {
-                count++;
-            }
-        }
-        return count;
     }
 }

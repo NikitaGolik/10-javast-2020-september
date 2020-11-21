@@ -13,6 +13,7 @@ public class ParserParagraph extends AbstractParser {
 
     private static final String REGEX_PARAGRAPH = "\\t.+\\n*[^\\t]+";
 
+
     public ParserParagraph(AbstractParser nextParser) {
         this.nextParser = nextParser;
         this.componentType = ComponentType.PARAGRAPH;
