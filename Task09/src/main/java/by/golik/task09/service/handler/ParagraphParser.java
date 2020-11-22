@@ -41,7 +41,7 @@ public class ParagraphParser implements TextParser {
             sentenceParser.parse(paragraph, paragraphString);
             wholeText.add(paragraph);
 
-            logger.info(paragraph + "has been added to parser" + getClass().getSimpleName());
+            logger.info(paragraph + " has been added to parser " + getClass().getSimpleName());
         }
     }
 }

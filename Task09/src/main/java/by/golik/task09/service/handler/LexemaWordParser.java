@@ -69,7 +69,7 @@ public class LexemaWordParser implements TextParser {
                     symbolParser.parse(word, wordString);
                     sentence.add(word);
 
-                    logger.info(word + "has been added to parser" + getClass().getSimpleName());
+                    logger.info(word + " has been added to parser " + getClass().getSimpleName());
                 }
             }
 
@@ -83,7 +83,7 @@ public class LexemaWordParser implements TextParser {
             }
             sentence.add(lexema);
 
-            logger.info(lexema + "has been added to parser" + getClass().getSimpleName());
+            logger.info(lexema + " has been added to parser " + getClass().getSimpleName());
         }
     }
 }

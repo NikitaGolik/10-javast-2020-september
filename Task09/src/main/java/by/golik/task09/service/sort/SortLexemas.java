@@ -25,8 +25,8 @@ public class SortLexemas {
 
         for(TextElement paragraph: text.getTextComponentList()) {
             if(paragraph.getElementType() == TextElementType.PARAGRAPH) {
-                TextElement paragraphComposite = (TextComposite) paragraph;
-                for(TextElement sentence: paragraphComposite.getTextComponentList()) {
+                TextComposite paragraphComposite = (TextComposite) paragraph;
+                for(TextElement sentence: ((TextComposite) paragraphComposite).getTextComponentList()) {
                     if(sentence.getElementType() == TextElementType.SENTENCE) {
                         TextComposite sentenceComposite = (TextComposite) sentence;
                         for(TextElement lexema: sentenceComposite.getTextComponentList()) {

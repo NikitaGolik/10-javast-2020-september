@@ -25,7 +25,7 @@ public class Symbol implements TextElement {
             this.textElementType = textElementType;
         }
         else {
-            throw new IncorrectInputParametersException("A symbol can not contain more than one character");
+            throw new IncorrectInputParametersException("This is not a symbol");
         }
     }
 

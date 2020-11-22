@@ -41,7 +41,7 @@ public class SymbolParser implements TextParser {
                 symbol = new Symbol(partString, TextElementType.SYMBOL);
                 lexemeOrWord.add(symbol);
 
-                logger.info(symbol + "has been added to parser" + getClass().getSimpleName());
+                logger.info(symbol + " has been added to parser " + getClass().getSimpleName());
             }
         }
     }

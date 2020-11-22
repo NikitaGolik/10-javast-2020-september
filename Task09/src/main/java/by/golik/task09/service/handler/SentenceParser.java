@@ -41,7 +41,7 @@ public class SentenceParser implements TextParser {
             lexemaWordParser.parse(sentence, sentenceString);
             paragraph.add(sentence);
 
-            logger.info(sentence + "has been added to parser" + getClass().getSimpleName());
+            logger.info(sentence + " has been added to parser " + getClass().getSimpleName());
         }
     }
 }
