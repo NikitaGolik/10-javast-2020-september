@@ -1,7 +1,7 @@
-package by.golik.task.bean;
+package by.golik.task09.bean;
 
 
-import by.golik.task.exception.IncorrectInputParametersException;
+import by.golik.task09.service.exception.*;
 
 public class Symbol implements TextElement {
 

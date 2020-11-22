@@ -1,4 +1,4 @@
-package by.golik.task.bean;
+package by.golik.task09.bean;
 
 /**
  * @author Nikita Golik

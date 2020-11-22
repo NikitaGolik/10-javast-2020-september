@@ -1,9 +1,9 @@
-package by.golik.task.service;
+package by.golik.task09.service;
 
-import by.golik.task.bean.TextComposite;
-import by.golik.task.bean.TextElementType;
-import by.golik.task.exception.IncorrectInputParametersException;
-import by.golik.task.bean.Symbol;
+import by.golik.task09.bean.TextComposite;
+import by.golik.task09.bean.TextElementType;
+import by.golik.task09.service.exception.*;
+import by.golik.task09.bean.Symbol;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

@@ -1,15 +1,12 @@
 package by.golik.task09.composite;
 
-import by.golik.task.bean.TextComposite;
-import by.golik.task.bean.TextElementType;
-import by.golik.task.exception.IncorrectInputFileException;
-import by.golik.task.exception.IncorrectInputParametersException;
-import by.golik.task.reader.TextReader;
-import by.golik.task.service.WholeTextParser;
+import by.golik.task09.bean.TextComposite;
+import by.golik.task09.bean.TextElementType;
+import by.golik.task09.reader.TextReader;
+import by.golik.task09.service.WholeTextParser;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import by.golik.task09.service.exception.*;
 
 import java.io.File;
 
@@ -37,7 +34,7 @@ public class CompositeTest {
             new WholeTextParser().parse(textComposite, wholeText);
             String newText = textComposite.toString();
             Assert.assertEquals(newText, expectedText);
-        } catch (IncorrectInputParametersException | IncorrectInputFileException e) {
+        } catch (IncorrectInputFileException | IncorrectInputParametersException e) {
             Assert.fail("Unexpected fail!");
         }
     }

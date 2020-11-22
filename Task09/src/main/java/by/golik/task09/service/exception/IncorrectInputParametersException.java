@@ -1,8 +1,5 @@
-package by.golik.task09.service.exceptions;
+package by.golik.task09.service.exception;
 
-/**
- * @author Nikita Golik
- */
 public class IncorrectInputParametersException extends Exception {
 
     public IncorrectInputParametersException(String message) {
