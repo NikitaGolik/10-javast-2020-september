@@ -3,17 +3,17 @@ package by.golik.task.bean;
 
 import by.golik.task.exception.IncorrectInputParametersException;
 
-public class Symbol implements TextComponent {
+public class Symbol implements TextElement {
 
     private static final int ONE_SYMBOL = 1;
 
     private String symbol;
-    private CompositeLevel level;
+    private TextElementType textElementType;
 
-    public Symbol(String symbol, CompositeLevel level) throws IncorrectInputParametersException {
+    public Symbol(String symbol, TextElementType textElementType) throws IncorrectInputParametersException {
         if(symbol.length() == ONE_SYMBOL) {
             this.symbol = symbol;
-            this.level = level;
+            this.textElementType = textElementType;
         }
         else {
             throw new IncorrectInputParametersException("A symbol can not contain more than one character");
@@ -21,8 +21,8 @@ public class Symbol implements TextComponent {
     }
 
     @Override
-    public CompositeLevel getLevel() {
-        return level;
+    public TextElementType getElementType() {
+        return textElementType;
     }
 
     @Override
