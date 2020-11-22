@@ -3,8 +3,6 @@ package by.golik.task09.sort;
 import by.golik.task09.entity.ComponentType;
 import by.golik.task09.entity.CompositeTextElement;
 import by.golik.task09.entity.TextElement;
-import by.golik.task09.service.exceptions.IncorrectInputParametersException;
-import by.golik.task09.service.put.ReaderFile;
 import by.golik.task09.service.query.SortParagraphes;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -23,8 +21,6 @@ public class SortParagraphesTest {
         List<String> expectedResult = Arrays.asList(" Привет.", " Привет. Привет", " Привет. Привет. Привет.");
 
         String fromFileName = ".\\resources\\data\\paragraph.txt";
-
-
 
             CompositeTextElement textComposite = new CompositeTextElement(ComponentType.TEXT);
 

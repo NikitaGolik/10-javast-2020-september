@@ -1,13 +1,10 @@
 package by.golik.task09.controller;
 
-import by.golik.task09.bean.CompositeLevel;
-import by.golik.task09.bean.TextComposite;
 import by.golik.task09.entity.CompositeTextElement;
 import by.golik.task09.entity.TextElement;
 import by.golik.task09.service.Action;
 import by.golik.task09.service.exceptions.IncorrectInputParametersException;
 import by.golik.task09.service.handler.*;
-import by.golik.task09.service.handler2.WholeTextParser;
 import by.golik.task09.service.put.InputController;
 import by.golik.task09.service.put.ReaderFile;
 import by.golik.task09.service.query.SortParagraphes;
@@ -44,12 +41,6 @@ public class StartMenu {
 
         SortParagraphes sortParagraphes = new SortParagraphes();
         sortParagraphes.sort((CompositeTextElement) textElement2);
-
-        /** (2) */
-
-        TextComposite textComposite = new TextComposite(CompositeLevel.TEXT);
-        new WholeTextParser().parse(textComposite, text1);
-        String newText = textComposite.toString();
 
     }
 

@@ -12,6 +12,11 @@ public class Symbol implements TextElement {
     private ComponentType componentType;
     private char symbol;
 
+    public Symbol(String leafString, ComponentType componentType) {
+        this.symbol = symbol;
+        this.componentType = componentType;
+    }
+
 
     @Override
     public ComponentType getComponentType() {
