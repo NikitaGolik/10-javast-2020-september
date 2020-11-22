@@ -3,7 +3,7 @@ package by.golik.task09.composite;
 import by.golik.task09.bean.TextComposite;
 import by.golik.task09.bean.TextElementType;
 import by.golik.task09.reader.TextReader;
-import by.golik.task09.service.WholeTextParser;
+import by.golik.task09.service.handler.WholeTextParser;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import by.golik.task09.service.exception.*;

@@ -9,11 +9,17 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
+ * Class for reading text from file with indication to file path
  * @author Nikita Golik
  */
 public class TextReader {
     private static final Logger LOGGER = LogManager.getLogger();
 
+    /**
+     * @param file - file witch contains a text
+     * @return String value of getting text
+     * @throws IncorrectInputFileException appears when impossible to read file
+     */
     public String read(File file) throws IncorrectInputFileException {
 
         if(file == null || !file.exists() || file.length()==0) {

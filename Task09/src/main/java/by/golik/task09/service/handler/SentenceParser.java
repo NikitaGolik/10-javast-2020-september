@@ -1,4 +1,4 @@
-package by.golik.task09.service;
+package by.golik.task09.service.handler;
 
 import by.golik.task09.bean.TextComposite;
 import by.golik.task09.bean.TextElementType;
@@ -6,6 +6,9 @@ import by.golik.task09.service.exception.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author Nikita Golik
+ */
 public class SentenceParser implements TextParser {
 
     private static final String REGEX_SENTENCE = "([A-Z\\d]{1}[^.!?]*\\.{3})|([A-Z\\d]{1}[^.!?]*[.!?.]{1})";
