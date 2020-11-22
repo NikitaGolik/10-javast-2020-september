@@ -1,11 +1,13 @@
 package by.golik.task09.composite;
 
-import by.golik.task09.entity.ComponentType;
-import by.golik.task09.entity.CompositeTextElement;
+import by.golik.task09.entity.*;
 import by.golik.task09.service.exceptions.IncorrectInputParametersException;
-import by.golik.task09.service.put.ReaderFile;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+
+import static org.testng.AssertJUnit.assertEquals;
 
 
 /**
@@ -14,20 +16,75 @@ import org.testng.annotations.Test;
 public class CompositeTest {
 
     @Test
-    public void textCompositeToStringTest() throws IncorrectInputParametersException {
+    public void textCompositeToStringTest2() {
 
-        String expectedText = "It has survived - not only (five) centuries, but also the leap into 13<<2 electronic typesetting, remaining 30>>>3 essentially ~6&9|(3&4) unchanged. It was popularised in the 5|(1&2&(3|(4&(25^5|6&47)|3)|2)|1) with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\t\n" +
-                "\tIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using (~71&(2&3|(3|(2&1>>2|2)&2)|10&2))|78 Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using (Content here), content here', making it look like readable English.\n" +
-                "\tIt is a (8^5|1&2<<(2|5>>2&71))|1200 established fact that a reader will be of a page when looking at its layout.\n" +
-                "\tBye.\n";
+        String expectedText = "Привет. Привет.\n" +
+                "Привет. Привет. Привет.\n" +
+                "Привет.";
 
-        String fromFileName = ".\\resources\\data\\text.txt";
+        String fileName = ".\\resources\\data\\paragraph.txt";
 
-        String wholeText = new ReaderFile().readFromFile(fromFileName);
-        CompositeTextElement textComposite = new CompositeTextElement(ComponentType.TEXT);
-
-        String newText = textComposite.toString();
-        Assert.assertEquals(newText, expectedText);
-        Assert.assertEquals(newText, expectedText);
     }
+
+    @DataProvider(name = "compositeObjects")
+    public Object[][] textCompositeToStringTest() throws IncorrectInputParametersException {
+        Symbol s1 = new Symbol('q');
+        Symbol s2 = new Symbol('a');
+
+        Symbol s3 = new Symbol('b');
+        Symbol s4 = new Symbol('d');
+
+        Symbol s5 = new Symbol('g');
+        Symbol s6 = new Symbol('d');
+
+        TextElement word1 = new Word(ComponentType.WORD);
+        word1.add(s1);
+        word1.add(s2);
+
+
+        TextElement word2 = new Word(ComponentType.WORD);
+        word2.add(s3);
+        word2.add(s4);
+
+
+        TextElement word3 = new Word(ComponentType.WORD);
+        word3.add(s5);
+        word3.add(s6);
+
+
+        TextElement lexema1 = new Lexema(ComponentType.LEXEMA);
+        lexema1.add(word1);
+        TextElement lexema2 = new Lexema(ComponentType.LEXEMA);
+        lexema2.add(word2);
+        TextElement lexema3 = new Lexema(ComponentType.LEXEMA);
+        lexema3.add(word3);
+
+        TextElement sentence1 = new Sentence(ComponentType.SENTENCE);
+        sentence1.add(lexema1);
+        sentence1.add(lexema2);
+        sentence1.add(lexema3);
+
+        TextElement abzats = new Paragraph(ComponentType.PARAGRAPH);
+        abzats.add(sentence1);
+
+        TextElement text1 = new Text(ComponentType.TEXT);
+        text1.add(abzats);
+
+        return new Object[][]{
+                {s1, "q"},
+                {word1, "qa"},
+                {lexema1, "qa"},
+                {sentence1, "qa bd gd "},
+                {abzats, "qa bd gd \n    "},
+                {text1, "    qa bd gd \n    "}
+
+        };
+        }
+
+    @Test(dataProvider = "compositeObjects")
+    public void testCompile(TextElement textElement, String result) {
+        String line = textElement.toString();
+        assertEquals(line,result);
+    }
+
 }

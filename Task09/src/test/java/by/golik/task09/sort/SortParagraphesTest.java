@@ -25,7 +25,7 @@ public class SortParagraphesTest {
         String fromFileName = ".\\resources\\data\\paragraph.txt";
 
 
-            String wholeText = new ReaderFile().readFromFile(fromFileName);
+
             CompositeTextElement textComposite = new CompositeTextElement(ComponentType.TEXT);
 
             List<TextElement> sortedParagraphList = new SortParagraphes().sort(textComposite);
