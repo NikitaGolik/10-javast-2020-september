@@ -1,12 +1,17 @@
 package by.golik.task09.composite;
 
-import by.golik.task09.entity.*;
-import by.golik.task09.service.exceptions.IncorrectInputParametersException;
-import by.golik.task09.service.handler2.WholeTextParser;
+import by.golik.task.bean.TextComposite;
+import by.golik.task.bean.TextElementType;
+import by.golik.task.exception.IncorrectInputFileException;
+import by.golik.task.exception.IncorrectInputParametersException;
+import by.golik.task.reader.TextReader;
+import by.golik.task.service.WholeTextParser;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+
+import java.io.File;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -17,42 +22,23 @@ import static org.testng.AssertJUnit.assertEquals;
 public class CompositeTest {
 
     @Test
-    public void testComp() {
-
-        String wholeText = "Hello hellow";
-        String expectedText = "Hello hellow";
-        CompositeTextElement textComposite = new CompositeTextElement(ComponentType.SENTENCE);
-        new WholeTextParser().parse(textComposite, wholeText);
-        String newText = textComposite.toString();
-        Assert.assertEquals(newText, expectedText);
-    }
-
-    @Test
     public void textCompositeToStringTest() {
-        Symbol s1 = new Symbol('a');
-        Symbol s2 = new Symbol('b');
 
-        TextElement word1 = new Word(ComponentType.WORD);
-        word1.add(s1);
-        word1.add(s2);
+        String expectedText = "\t It has survived - not only (five) centuries, but also the leap into 13+i-- electronic typesetting, remaining 3+5 essentially 6+9*(3-4) unchanged. It was popularised in the 5*(1*2*(3*(4*(5---j+4)-3)-2)-1) with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n" +
+                "\t It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using (71-(2*i--*(3*(2-1/2*2)-2)-10/2))*++i Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using (Content here), content here', making it look like readable English.\n" +
+                "\t It is a (-5+1/2*(2+5*2---j))*1200 established fact that a reader will be of a page when looking at its layout.\n" +
+                "\t Bye.\n";
 
-        String wordText = word1.toString();
-        String wordExpectedText = "ab";
-
-        Assert.assertEquals(wordText, wordExpectedText);
-    }
-    @Test
-    public void wordToStringTest() {
-        Symbol symbol = new Symbol('a');
-        TextElement word1 = new Word(ComponentType.WORD);
-        word1.add(symbol);
-        TextElement lexema = new Lexema(ComponentType.LEXEMA);
-        lexema.add(word1);
-
-        String wordText = lexema.toString();
-        String wordExpectedText = "a";
-
-        Assert.assertEquals(wordText, wordExpectedText);
-
+        String fileName = ".\\resources\\data\\text.txt";
+        File file = new File(fileName);
+        try {
+            String wholeText = new TextReader().read(file);
+            TextComposite textComposite = new TextComposite(TextElementType.TEXT);
+            new WholeTextParser().parse(textComposite, wholeText);
+            String newText = textComposite.toString();
+            Assert.assertEquals(newText, expectedText);
+        } catch (IncorrectInputParametersException | IncorrectInputFileException e) {
+            Assert.fail("Unexpected fail!");
+        }
     }
 }

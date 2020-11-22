@@ -1,4 +1,4 @@
-package by.golik.task.parser;
+package by.golik.task.service;
 
 import by.golik.task.bean.TextComposite;
 import by.golik.task.bean.TextElementType;
