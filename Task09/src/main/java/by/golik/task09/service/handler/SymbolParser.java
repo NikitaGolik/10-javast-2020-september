@@ -4,6 +4,10 @@ import by.golik.task09.bean.TextComposite;
 import by.golik.task09.bean.TextElementType;
 import by.golik.task09.service.exception.*;
 import by.golik.task09.bean.Symbol;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,6 +15,8 @@ import java.util.regex.Pattern;
  * @author Nikita Golik
  */
 public class SymbolParser implements TextParser {
+
+    private static final Logger logger = LogManager.getLogger();
 
     /** regex to find all symbols in text */
     private static final String REGEX_SYMBOL = "(\\w)|([^\\w\\s])";
@@ -34,6 +40,8 @@ public class SymbolParser implements TextParser {
                 partString = matcherSymbol.group();
                 symbol = new Symbol(partString, TextElementType.SYMBOL);
                 lexemeOrWord.add(symbol);
+
+                logger.info(symbol + "has been added to parser" + getClass().getSimpleName());
             }
         }
     }

@@ -3,6 +3,8 @@ package by.golik.task09.service.sort;
 import by.golik.task09.bean.TextComposite;
 import by.golik.task09.bean.TextElement;
 import by.golik.task09.bean.TextElementType;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -12,6 +14,9 @@ import java.util.List;
  * @author Nikita Golik
  */
 public class SortSentences {
+
+    private static final Logger logger = LogManager.getLogger();
+
     public List<TextElement> sort(TextComposite text) {
 
         List<TextElement> sentenceList = new ArrayList<>();

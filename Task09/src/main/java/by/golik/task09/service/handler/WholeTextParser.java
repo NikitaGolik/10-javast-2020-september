@@ -7,18 +7,25 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
+ * Class parser text
  * @author Nikita Golik
  */
 public class WholeTextParser implements TextParser {
 
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
 
     private ParagraphParser paragraphParser = new ParagraphParser();
 
+    /**
+     *
+     * @param wholeText - text
+     * @param text - String value of input text
+     * @throws IncorrectInputParametersException
+     */
     @Override
     public void parse(TextComposite wholeText, String text) throws IncorrectInputParametersException {
 
         paragraphParser.parse(wholeText, text);
-        LOGGER.log(Level.INFO, "- Text is successfully taken apart.");
+        logger.log(Level.INFO, "- Text is successfully taken apart.");
     }
 }
