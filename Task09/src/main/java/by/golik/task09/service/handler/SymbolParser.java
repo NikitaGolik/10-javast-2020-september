@@ -4,10 +4,8 @@ import by.golik.task09.bean.TextComposite;
 import by.golik.task09.bean.TextElementType;
 import by.golik.task09.service.exception.*;
 import by.golik.task09.bean.Symbol;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

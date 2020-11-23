@@ -5,12 +5,12 @@ import by.golik.task09.bean.TextElement;
 import by.golik.task09.bean.TextElementType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 /**
+ * Class that sorts sentences by length of words in sentences
  * @author Nikita Golik
  */
 public class SortSentences {
@@ -36,6 +36,11 @@ public class SortSentences {
         return result;
     }
 
+    /**
+     * method that find length
+     * @param sentence
+     * @return
+     */
     private int findLengthOfWords(TextComposite sentence) {
         int length = 0;
         for(TextElement word: sentence.getTextComponentList()) {

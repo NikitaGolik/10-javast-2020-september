@@ -30,6 +30,7 @@ public class SortSentencesTest {
             String wholeText = new TextReader().read(file);
             TextComposite textComposite = new TextComposite(TextElementType.TEXT);
             new WholeTextParser().parse(textComposite, wholeText);
+
             List<TextElement> sortedSentenceList = new SortSentences().sort(textComposite);
             List<String> result = new ArrayList<>();
             for (int i=0; i<sortedSentenceList.size(); i++) {

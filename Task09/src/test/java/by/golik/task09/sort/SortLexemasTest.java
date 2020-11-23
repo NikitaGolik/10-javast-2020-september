@@ -21,7 +21,7 @@ public class SortLexemasTest {
     @Test
     public void sortLexemesBySymbolTest() {
 
-        List<String> expectedResult = Arrays.asList("Aaaa.", "ddmkaaa", "faa.", "Aa.", "Bakd", "A", "B.", "C", "D.", "E");
+        List<String> expectedResult = Arrays.asList("Banksakk", "Kk", "K.", "Adssffas", "D", "door", "E.", "fas", "S.");
 
         String fileName = ".\\resources\\data\\formatted.txt";
         File file = new File(fileName);

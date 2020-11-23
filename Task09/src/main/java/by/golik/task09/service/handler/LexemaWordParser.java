@@ -5,7 +5,6 @@ import by.golik.task09.bean.TextElementType;
 import by.golik.task09.service.exception.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

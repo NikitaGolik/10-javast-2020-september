@@ -7,7 +7,6 @@ import by.golik.task09.reader.TextReader;
 import by.golik.task09.service.handler.WholeTextParser;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.io.File;
 
 /**
