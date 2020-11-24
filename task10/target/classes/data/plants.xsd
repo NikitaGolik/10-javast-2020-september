@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://golik.by/plants"
+        xmlns:tns="http://golik.by/plants">
+    <element name="plants">
+        <complexType>
+            <sequence>
+
+            </sequence>
+        </complexType>
+    </element>

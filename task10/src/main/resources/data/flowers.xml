@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Растения, содержащиеся в оранжерее:
+Name – название растения.
+Soil – почва для посадки, которая может быть следующих типов: подзолистая, грунтовая, дерново-подзолистая.
+Origin – место происхождения растения.
+Visual рarameters (должно быть несколько) – внешние параметры: цвет стебля, цвет листьев, средний размер растения.
+Growing tips (должно быть несколько) – предпочитаемые условия произрастания: температура (в градусах), освещение (светолюбиво либо нет), полив (мл в неделю).
+Multiplying – размножение: листьями, черенками либо семенами.
+Корневой элемент назвать Flowers.
+-->
+<flowers
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://golik.by/flowers"
+        xsi:schemaLocation="http://golik.by/flowers flowers.xsd">
+    <flower group="Acanthus">
+        <name>Acanthus_mollis</name>
+
+        <soil>ground</soil>
+
+        <origin>Brazil</origin>
+
+        <visual_parametres>
+            <stem_color>green</stem_color>
+            <leaf_color>red</leaf_color>
+            <average_plant_size>70</average_plant_size>
+        </visual_parametres>
+
+        <growing_tips>
+            <temperature>18</temperature>
+            <light_requiring>true</light_requiring>
+            <watering>500</watering>
+        </growing_tips>
+
+        <multiplying>seeds</multiplying>
+
+    </flower>
+
+    <flower group="Cactus">
+        <name>Carnegiea_gigantea</name>
+
+        <soil>podzolic</soil>
+
+        <origin>Mexico</origin>
+
+        <visual_parametres>
+            <stem_color>green</stem_color>
+            <leaf_color>green</leaf_color>
+            <average_plant_size>2000</average_plant_size>
+        </visual_parametres>
+
+        <growing_tips>
+            <temperature>35</temperature>
+            <light_requiring>true</light_requiring>
+            <watering>200</watering>
+        </growing_tips>
+
+        <multiplying>seeds</multiplying>
+
+    </flower>
+</flowers>

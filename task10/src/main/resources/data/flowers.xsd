@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http:/golik.by/flowers"
+        xmlns:tns="http://golik.by/flowers"
+        elementFormDefault="qualified">
+    
+    <element name="flowers">
+        <complexType>
+            <sequence>
+                <element ref="tns:flower"
+                         minOccurs="2"
+                         maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="flower" type="tns:Flower" abstract="true"/>
+    <element name="acanthus" type="tns:Acanthus" substitutionGroup="tns:flower"/>
+    <element name="cactus" type="tns:Cactus" substitutionGroup="tns:mineral"/>
+    
+    <complexType name="Flower">
+        <sequence>
+            <element name="name" type="string"/>
+
+        </sequence>
+    </complexType>
