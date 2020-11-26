@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!-- Растения, содержащиеся в оранжерее:
 Name – название растения.
 Soil – почва для посадки, которая может быть следующих типов: подзолистая, грунтовая, дерново-подзолистая.
@@ -8,11 +9,12 @@ Growing tips (должно быть несколько) – предпочита
 Multiplying – размножение: листьями, черенками либо семенами.
 Корневой элемент назвать Flowers.
 -->
+
 <flowers
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://golik.by/flowers"
         xsi:schemaLocation="http://golik.by/flowers flowers.xsd">
-    <flower group="Acanthus">
+    <flower id ="1" group="Acanthus">
         <name>Acanthus_mollis</name>
 
         <soil>ground</soil>
@@ -35,7 +37,7 @@ Multiplying – размножение: листьями, черенками л�
 
     </flower>
 
-    <flower group="Cactus">
+    <flower id="2" group="Cactus">
         <name>Carnegiea_gigantea</name>
 
         <soil>podzolic</soil>
