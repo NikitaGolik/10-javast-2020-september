@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           targetNamespace="http://golik.by/flowers"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="flowers"
+              type="flow:flowersType"
+              xmlns:flow="http://golik.by/flowers">
+
+    <xs:annotation>
+
+      <xs:documentation>Растения, содержащиеся в оранжерее:
+Name – название растения.
+Soil – почва для посадки, которая может быть следующих типов: подзолистая, грунтовая, дерново-подзолистая.
+Origin – место происхождения растения.
+Visual рarameters (должно быть несколько) – внешние параметры: цвет стебля, цвет листьев, средний размер растения.
+Growing tips (должно быть несколько) – предпочитаемые условия произрастания: температура (в градусах), освещение (светолюбиво либо нет), полив (мл в неделю).
+Multiplying – размножение: листьями, черенками либо семенами.
+Корневой элемент назвать Flowers.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="visual_parametresType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="stem_color"/>
+      <xs:element name="leaf_color">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="red"/>
+            <xs:enumeration value="green"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="average_plant_size">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="70"/>
+            <xs:enumeration value="2000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="growing_tipsType">
+    <xs:sequence>
+      <xs:element name="temperature">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="18"/>
+            <xs:enumeration value="35"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="light_requiring"/>
+      <xs:element name="watering">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="500"/>
+            <xs:enumeration value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="flowerType">
+    <xs:sequence>
+      <xs:element name="name">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Acanthus_mollis"/>
+            <xs:enumeration value="Carnegiea_gigantea"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="soil">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="ground"/>
+            <xs:enumeration value="podzolic"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="origin">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Brazil"/>
+            <xs:enumeration value="Mexico"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="flow:visual_parametresType" name="visual_parametres" xmlns:flow="http://golik.by/flowers"/>
+      <xs:element type="flow:growing_tipsType" name="growing_tips" xmlns:flow="http://golik.by/flowers"/>
+      <xs:element type="xs:string" name="multiplying"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="id" use="optional"/>
+    <xs:attribute type="xs:string" name="group" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="flowersType">
+    <xs:sequence>
+      <xs:element type="flow:flowerType" name="flower" maxOccurs="unbounded" minOccurs="0" xmlns:flow="http://golik.by/flowers"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
