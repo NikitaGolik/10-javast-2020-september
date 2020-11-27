@@ -26,7 +26,7 @@ import java.math.BigDecimal;
  *
  * @author Nikita Golik
  */
-public class Film {
+public abstract class Film {
     private String name;
     private String producer;
     private String country;

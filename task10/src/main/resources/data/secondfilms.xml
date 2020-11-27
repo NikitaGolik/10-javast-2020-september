@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Фильмы, содержащиеся на сайте:
+Name – название фильма.
+Жанры – которые может быть следующих типов: Боевик, комелия, драма, мелодрама.
+Origin – место производства фильма.
+Актерский состав – фамилия имя актера.
+Год производства.
+Премии заработанные фильмом.
+Бюджет фильма – сумма в долларах США.
+Рейтинг фильма - от 1 до 10 .
+Сборы в мире - сумма в долларах США.
+Корневой элемент назвать Films.
+-->
+
+<films  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://golik.by/secondfilms"
+        xsi:schemaLocation="http://golik.by/secondfilms secondfilms.xsd">
+
+
+    <one_part_film films_id="OnePartFilm1" title="The Shawshank Redemption" producer="Frank Darabont">
+        <country>USA</country>
+        <genre>drama</genre>
+        <film_characteristic>
+            <budget>25000000</budget>
+            <fees_in_the_world>28428000</fees_in_the_world>
+            <production_year>1994</production_year>
+        </film_characteristic>
+        <rating>9.1</rating>
+    </one_part_film>
+
+    <one_part_film films_id="OnePartFilm2" title="Green Mile" producer="Frank Darabont">
+        <country>USA</country>
+        <genre>drama</genre>
+        <film_characteristic>
+            <budget>60000000</budget>
+            <fees_in_the_world>286801374</fees_in_the_world>
+            <production_year>1999</production_year>
+        </film_characteristic>
+        <rating>9.1</rating>
+    </one_part_film>
+
+    <one_part_film films_id="OnePartFilm3" title="Interstellar" producer="Christopher Nolan">
+        <country>USA</country>
+        <genre>fantasy</genre>
+        <film_characteristic>
+            <budget>165000000</budget>
+            <fees_in_the_world>677463813</fees_in_the_world>
+            <production_year>1994</production_year>
+        </film_characteristic>
+        <rating>8.6</rating>
+    </one_part_film>
+
+    <one_part_film films_id="OnePartFilm4" title="Schindler's List" producer="Steven Spielberg">
+        <country>USA</country>
+        <genre>drama</genre>
+        <film_characteristic>
+            <budget>22000000</budget>
+            <fees_in_the_world>321306305</fees_in_the_world>
+            <production_year>1993</production_year>
+        </film_characteristic>
+        <rating>8.8</rating>
+    </one_part_film>
+
+    <one_part_film films_id="OnePartFilm5" title="Forrest Gump" producer="Robert Zemeckis">
+        <country>USA</country>
+        <genre>drama</genre>
+        <film_characteristic>
+            <budget>55000000</budget>
+            <fees_in_the_world>677387716</fees_in_the_world>
+            <production_year>1994</production_year>
+        </film_characteristic>
+        <rating>8.9</rating>
+    </one_part_film>
+
+    <one_part_film films_id="OnePartFilm6" title="Intouchables" producer="Olivier Nakash, Eric Toledano">
+        <country>USA</country>
+        <genre>comedy</genre>
+        <film_characteristic>
+            <budget>11500000</budget>
+            <fees_in_the_world>426588510</fees_in_the_world>
+            <production_year>2011</production_year>
+        </film_characteristic>
+        <rating>8.8</rating>
+    </one_part_film>
+
+    <serial_film films_id="SerialFIlm1" title="The Lord of the Rings: The Return of the King" producer="Peter Jackson">
+        <country>USA</country>
+        <genre>fantasy</genre>
+        <film_characteristic>
+            <budget>94000000</budget>
+            <fees_in_the_world>1118887224</fees_in_the_world>
+            <production_year>2003</production_year>
+        </film_characteristic>
+        <rating>8.6</rating>
+    </serial_film>
+
+    <serial_film films_id="SerialFIlm2" title="The Lord of the Rings: The Fellowship of the Ring" producer="Peter Jackson">
+        <country>USA</country>
+        <genre>fantasy</genre>
+        <film_characteristic>
+            <budget>93000000</budget>
+            <fees_in_the_world>868385360</fees_in_the_world>
+            <production_year>2001</production_year>
+        </film_characteristic>
+        <rating>8.6</rating>
+    </serial_film>
+
+    <serial_film films_id="SerialFIlm3" title="The Lord of the Rings: The Two Towers" producer="Peter Jackson">
+        <country>USA</country>
+        <genre>fantasy</genre>
+        <film_characteristic>
+            <budget>94000000</budget>
+            <fees_in_the_world>943282270</fees_in_the_world>
+            <production_year>2002</production_year>
+        </film_characteristic>
+        <rating>8.6</rating>
+    </serial_film>
+
+    <serial_film films_id="SerialFIlm4" title="Back to the Future" producer="Robert Zemeckis">
+        <country>USA</country>
+        <genre>fantasy</genre>
+        <film_characteristic>
+            <budget>19000000</budget>
+            <fees_in_the_world>381109762</fees_in_the_world>
+            <production_year>1985</production_year>
+        </film_characteristic>
+        <rating>8.6</rating>
+    </serial_film>
+</films>
+

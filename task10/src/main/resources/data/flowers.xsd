@@ -38,7 +38,7 @@
     <complexType name="GrowingTips">
         <sequence>
             <element name="temperature" type="integer"/>
-            <element name="light_requiring" type="string"/>
+            <element name="light_requiring" type="boolean"/>
             <element name="watering" type="integer"/>
         </sequence>
     </complexType>
