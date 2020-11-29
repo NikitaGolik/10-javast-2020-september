@@ -1,34 +1,29 @@
 package by.golik.builder;
 
-
 import by.golik.entity.Acanthus;
 import by.golik.entity.Cactus;
 import by.golik.entity.Flower;
 import by.golik.exception.ParserException;
-import org.w3c.dom.Document;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-
-import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Nikita Golik
  */
-public class SaxBuilder extends AbstractFlowerBuilder {
+public class FlowerSaxBuilder extends AbstractFlowerBuilder {
     private Handler handler = new Handler();
 
-    public SaxBuilder() {
+    public FlowerSaxBuilder() {
 
     }
 
     private class Handler extends DefaultHandler {
-        private final String ID = FLowerTag.ID.toString().toLowerCase();
+        private final String ID = FLowerTag.FLOWERS_ID.toString().toLowerCase();
         private final String NAME = FLowerTag.NAME.toString().toLowerCase();
         private final String ORIGIN = FLowerTag.ORIGIN.toString().toLowerCase();
         private final String CACTUS = FLowerTag.CACTUS.toString().toLowerCase();

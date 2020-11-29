@@ -13,9 +13,11 @@ public class FlowerBuilderFactory {
 
         switch (builderTypes) {
             case DOM:
-                return new FlowersDOMBuilder();
+                return new FlowerDOMBuilder();
             case SAX:
-                return new SaxBuilder();
+                return new FlowerSaxBuilder();
+            case STAX:
+                return new FlowerStAXBuilder();
             default:
                 throw new IncorrectInputException(type + "is incorrect");
         }

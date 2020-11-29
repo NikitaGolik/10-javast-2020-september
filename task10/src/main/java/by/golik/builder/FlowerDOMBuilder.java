@@ -14,9 +14,9 @@ import java.io.IOException;
 /**
  * @author Nikita Golik
  */
-public class FlowersDOMBuilder extends AbstractFlowerBuilder {
+public class FlowerDOMBuilder extends AbstractFlowerBuilder {
 
-    private final String ID = FLowerTag.ID.toString().toLowerCase();
+    private final String ID = FLowerTag.FLOWERS_ID.toString().toLowerCase();
     private final String NAME = FLowerTag.NAME.toString().toLowerCase();
     private final String ORIGIN = FLowerTag.ORIGIN.toString().toLowerCase();
     private final String CACTUS = FLowerTag.CACTUS.toString().toLowerCase();

@@ -1,6 +1,8 @@
 package by.golik.controller;
 
-import by.golik.builder.SaxBuilder;
+import by.golik.builder.FlowerDOMBuilder;
+import by.golik.builder.FlowerSaxBuilder;
+import by.golik.builder.FlowerStAXBuilder;
 import by.golik.exception.ParserException;
 
 
@@ -11,13 +13,17 @@ public class Main {
 
     public static void main(String[] args) throws ParserException {
 
-//        FlowersDOMBuilder flowersDOMBuilder = new FlowersDOMBuilder();
+//        FlowerDOMBuilder flowersDOMBuilder = new FlowerDOMBuilder();
 //        flowersDOMBuilder.buildFlowerList("src/main/resources/data/flowers.xml");
 //        System.out.println(flowersDOMBuilder.getFlowerList().toString());
 
-        SaxBuilder saxBuilder = new SaxBuilder();
-        saxBuilder.buildFlowerList("src/main/resources/data/flowers.xml");
-        System.out.println(saxBuilder.getFlowerList());
+//        FlowerSaxBuilder flowerSaxBuilder = new FlowerSaxBuilder();
+//        flowerSaxBuilder.buildFlowerList("src/main/resources/data/flowers.xml");
+//        System.out.println(flowerSaxBuilder.getFlowerList());
+
+//        FlowerStAXBuilder flowerStAXBuilder = new FlowerStAXBuilder();
+//        flowerStAXBuilder.buildFlowerList("src/main/resources/data/flowers.xml");
+//        System.out.println(flowerStAXBuilder.getFlowerList());
 
 
     }
