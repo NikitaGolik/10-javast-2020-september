@@ -10,7 +10,7 @@
         <complexType>
             <sequence>
                 <element ref="tns:flower"
-                         minOccurs="10"
+                         minOccurs="1"
                          maxOccurs="unbounded"/>
             </sequence>
         </complexType>

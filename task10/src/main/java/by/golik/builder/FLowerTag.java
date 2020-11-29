@@ -1,0 +1,9 @@
+package by.golik.builder;
+
+/**
+ * @author Nikita Golik
+ */
+public enum FLowerTag {
+    ID, NAME, ORIGIN, CACTUS, ACANTHUS, LEAF_COLOR, STEM_COLOR, TEMPERATURE,
+    SOIL, AVERAGE_PLANT_SIZE, WATERING, MULTIPLYING, LIGHT_REQUIRING;
+}

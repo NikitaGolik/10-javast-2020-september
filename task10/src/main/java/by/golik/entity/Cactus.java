@@ -1,11 +1,11 @@
-package by.golik;
+package by.golik.entity;
 
 import java.util.Objects;
 
 /**
  * @author Nikita Golik
  */
-public class Acanthus extends Flower {
+public class Cactus extends Flower {
     private static final String DEFAULT_ORIGIN = "Unknown";
 
     private String name;
@@ -38,19 +38,19 @@ public class Acanthus extends Flower {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Acanthus)) return false;
-        Acanthus acanthus = (Acanthus) o;
+        if (!(o instanceof Cactus)) return false;
+        Cactus cactus = (Cactus) o;
 
-        return Objects.equals(getName(), acanthus.getName()) &&
-                Objects.equals(getOrigin(), acanthus.getOrigin()) &&
-                Objects.equals(getId(), acanthus.getId()) &&
-                Objects.equals(getSoil(), acanthus.getSoil()) &&
-                Objects.equals(getStem_color(), acanthus.getStem_color()) &&
-                Objects.equals(getLeaf_color(), acanthus.getLeaf_color()) &&
-                Objects.equals(getAverage_plant_size(), acanthus.getAverage_plant_size()) &&
-                Objects.equals(getTemperature(), acanthus.getTemperature()) &&
-                Objects.equals(getWatering(), acanthus.getWatering()) &&
-                Objects.equals(getMultiplying(), acanthus.getMultiplying());
+        return Objects.equals(getName(), cactus.getName()) &&
+                Objects.equals(getOrigin(), cactus.getOrigin()) &&
+                Objects.equals(getId(), cactus.getId()) &&
+                Objects.equals(getSoil(), cactus.getSoil()) &&
+                Objects.equals(getStem_color(), cactus.getStem_color()) &&
+                Objects.equals(getLeaf_color(), cactus.getLeaf_color()) &&
+                Objects.equals(getAverage_plant_size(), cactus.getAverage_plant_size()) &&
+                Objects.equals(getTemperature(), cactus.getTemperature()) &&
+                Objects.equals(getWatering(), cactus.getWatering()) &&
+                Objects.equals(getMultiplying(), cactus.getMultiplying());
     }
 
     @Override

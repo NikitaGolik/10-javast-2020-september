@@ -16,6 +16,7 @@ Origin – место производства фильма.
 <films  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://golik.by/films"
         xsi:schemaLocation="http://golik.by/films films.xsd">
+
     <film id="1" group="one-part film">
         <title>The Shawshank Redemption</title>
         <producer>Frank Darabont</producer>

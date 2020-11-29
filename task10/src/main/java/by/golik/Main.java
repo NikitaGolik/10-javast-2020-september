@@ -1,6 +1,8 @@
 package by.golik;
 
-import java.net.URISyntaxException;
+import by.golik.builder.DomBuilder;
+import by.golik.builder.FlowersDOMBuilder;
+import by.golik.exception.ParserException;
 
 
 /**
@@ -8,10 +10,14 @@ import java.net.URISyntaxException;
  */
 public class Main {
 
-    public static void main(String[] args) throws URISyntaxException {
+    public static void main(String[] args) throws ParserException {
 
-        FilmsDOMBuilder domBuilder = new FilmsDOMBuilder();
-        domBuilder.buildSetFilms("src/main/resources/data/films.xml");
-        System.out.println(domBuilder.getFilms().toString());
+//        DomBuilder domBuilder = new DomBuilder();
+//        domBuilder.buildSetFlowers("src/main/resources/data/flowers.xml");
+//        System.out.println(domBuilder.getFlowers().toString());
+
+        FlowersDOMBuilder flowersDOMBuilder = new FlowersDOMBuilder();
+        flowersDOMBuilder.buildFlowerList("src/main/resources/data/flowers.xml");
+        System.out.println(flowersDOMBuilder.getFlowerList().toString());
     }
 }

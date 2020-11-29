@@ -10,9 +10,9 @@ Multiplying – размножение: листьями, черенками л�
 -->
 <flowers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://golik.by/flowers"
-        xsi:schemaLocation="http://golik.by/flowers flowers.xsd">
+        xsi:schemaLocation="http://golik.by/flowers Autoflowers.xsd">
 
-    <acanthus flowers_id="Acanthus1" name="Acanthus_mollis" origin="Brazil">
+    <acanthus flowers_id="Acanthus1" name="Acanthus_mollis">
         <soil>ground</soil>
 
         <visual_parametres>
@@ -30,7 +30,7 @@ Multiplying – размножение: листьями, черенками л�
         <multiplying>seeds</multiplying>
 
     </acanthus>
-
+<!--
     <acanthus flowers_id="Acanthus2" name="Aphelandra" origin="South America">
         <soil>ground</soil>
         <visual_parametres>
@@ -104,13 +104,10 @@ Multiplying – размножение: листьями, черенками л�
         <multiplying>seeds</multiplying>
 
     </acanthus>
-
-    <flower id="2" group="Cactus">
-        <name>Carnegiea_gigantea</name>
+    -->
+    <cactus flowers_id="Cactus1" name="Carnegiea_gigantea" origin="Mexico">
 
         <soil>podzolic</soil>
-
-        <origin>Mexico</origin>
 
         <visual_parametres>
             <stem_color>green</stem_color>
@@ -126,5 +123,6 @@ Multiplying – размножение: листьями, черенками л�
 
         <multiplying>seeds</multiplying>
 
-    </flower>
+    </cactus>
+
 </flowers>

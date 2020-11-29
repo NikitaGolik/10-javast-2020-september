@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!-- Растения, содержащиеся в оранжерее:
 Name – название растения.
 Soil – почва для посадки, которая может быть следующих типов: подзолистая, грунтовая, дерново-подзолистая.
@@ -9,17 +8,12 @@ Growing tips (должно быть несколько) – предпочита
 Multiplying – размножение: листьями, черенками либо семенами.
 Корневой элемент назвать Flowers.
 -->
-
-<flowers
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<flowers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://golik.by/flowers"
-        xsi:schemaLocation="http://golik.by/flowers flowers.xsd">
-    <flower id ="1" group="Acanthus">
-        <name>Acanthus_mollis</name>
+        xsi:schemaLocation="http://golik.by/flowers Autoflowers.xsd">
 
+    <acanthus flowers_id="Acanthus1" name="Acanthus_mollis">
         <soil>ground</soil>
-
-        <origin>Brazil</origin>
 
         <visual_parametres>
             <stem_color>green</stem_color>
@@ -35,14 +29,85 @@ Multiplying – размножение: листьями, черенками л�
 
         <multiplying>seeds</multiplying>
 
-    </flower>
+    </acanthus>
+<!--
+    <acanthus flowers_id="Acanthus2" name="Aphelandra" origin="South America">
+        <soil>ground</soil>
+        <visual_parametres>
+            <stem_color>green</stem_color>
+            <leaf_color>green</leaf_color>
+            <average_plant_size>200</average_plant_size>
+        </visual_parametres>
 
-    <flower id="2" group="Cactus">
-        <name>Carnegiea_gigantea</name>
+        <growing_tips>
+            <temperature>22</temperature>
+            <light_requiring>true</light_requiring>
+            <watering>400</watering>
+        </growing_tips>
+
+        <multiplying>seeds</multiplying>
+
+    </acanthus>
+
+    <acanthus flowers_id="Acanthus3" name="Asystasia" origin="Asia">
+        <soil>ground</soil>
+        <visual_parametres>
+            <stem_color>green</stem_color>
+            <leaf_color>pink</leaf_color>
+            <average_plant_size>100</average_plant_size>
+        </visual_parametres>
+
+        <growing_tips>
+            <temperature>18</temperature>
+            <light_requiring>true</light_requiring>
+            <watering>600</watering>
+        </growing_tips>
+
+        <multiplying>seeds</multiplying>
+
+    </acanthus>
+
+    <acanthus flowers_id="Acanthus4" name="Acanthus montanus" origin="South America">
+        <soil>ground</soil>
+
+        <visual_parametres>
+            <stem_color>green</stem_color>
+            <leaf_color>white</leaf_color>
+            <average_plant_size>200</average_plant_size>
+        </visual_parametres>
+
+        <growing_tips>
+            <temperature>20</temperature>
+            <light_requiring>true</light_requiring>
+            <watering>800</watering>
+        </growing_tips>
+
+        <multiplying>seeds</multiplying>
+
+    </acanthus>
+
+    <acanthus flowers_id="Acanthus5" name="Fittonia" origin="South America">
+        <soil>ground</soil>
+
+        <visual_parametres>
+            <stem_color>green</stem_color>
+            <leaf_color>red</leaf_color>
+            <average_plant_size>16</average_plant_size>
+        </visual_parametres>
+
+        <growing_tips>
+            <temperature>24</temperature>
+            <light_requiring>true</light_requiring>
+            <watering>700</watering>
+        </growing_tips>
+
+        <multiplying>seeds</multiplying>
+
+    </acanthus>
+    -->
+    <cactus flowers_id="Cactus1" name="Carnegiea_gigantea" origin="Mexico">
 
         <soil>podzolic</soil>
-
-        <origin>Mexico</origin>
 
         <visual_parametres>
             <stem_color>green</stem_color>
@@ -58,5 +123,6 @@ Multiplying – размножение: листьями, черенками л�
 
         <multiplying>seeds</multiplying>
 
-    </flower>
+    </cactus>
+
 </flowers>
