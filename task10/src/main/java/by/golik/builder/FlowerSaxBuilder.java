@@ -4,6 +4,8 @@ import by.golik.entity.Acanthus;
 import by.golik.entity.Cactus;
 import by.golik.entity.Flower;
 import by.golik.exception.ParserException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -16,6 +18,9 @@ import java.io.IOException;
  * @author Nikita Golik
  */
 public class FlowerSaxBuilder extends AbstractFlowerBuilder {
+
+    private Logger logger = LogManager.getLogger(FlowerSaxBuilder.class);
+
     private Handler handler = new Handler();
 
     public FlowerSaxBuilder() {
@@ -153,13 +158,16 @@ public class FlowerSaxBuilder extends AbstractFlowerBuilder {
         @Override
         public void endElement(String uri, String localName, String qName) throws SAXException {
             if (qName.equals(ACANTHUS) || (qName.equals(CACTUS))) {
-                firstFlowerList.add(flower);
+                flowerHashSet.add(flower);
+                logger.info(getFlowerSet().toString());
             }
         }
     }
 
+
     @Override
     public void buildFlowerList(String fileName) throws ParserException {
+        logger.info("Start SAX Parser");
         SAXParserFactory factory = SAXParserFactory.newInstance();
 
         try {
@@ -167,7 +175,7 @@ public class FlowerSaxBuilder extends AbstractFlowerBuilder {
             parser.parse(fileName, handler);
 
         } catch (ParserConfigurationException | SAXException | IOException e) {
-            throw new ParserException("fail in saxbuilder", e);
+            throw new ParserException("Fail in SAXBuilder", e);
         }
     }
 }

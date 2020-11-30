@@ -3,21 +3,33 @@ package by.golik.builder;
 import by.golik.entity.Flower;
 import by.golik.exception.ParserException;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 
 /**
  * @author Nikita Golik
  */
 public abstract class AbstractFlowerBuilder {
-    protected List<Flower> firstFlowerList;
+    protected HashSet<Flower> flowerHashSet;
 
+    /**
+     *
+     */
     public AbstractFlowerBuilder() {
-        firstFlowerList = new ArrayList<>();
+        flowerHashSet = new HashSet<>();
     }
 
-    public List<Flower> getFlowerList() {
-        return firstFlowerList;
+    /**
+     *
+     * @return
+     */
+    public HashSet<Flower> getFlowerSet() {
+        return flowerHashSet;
     }
+
+    /**
+     *
+     * @param fileName
+     * @throws ParserException
+     */
     public abstract void buildFlowerList(String fileName) throws ParserException;
 }

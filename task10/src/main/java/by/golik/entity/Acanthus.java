@@ -62,15 +62,15 @@ public class Acanthus extends Flower {
     @Override
     public String toString() {
         return "Acanthus{" +
-                "name='" + getName() + '\'' +
-                ", origin='" + getOrigin() + '\'' +
-                "id=" + getId() + '\'' +
-                "soil=" + getSoil() + '\'' +
-                "stem_color=" + getStem_color() + '\'' +
-                "leaf_color=" + getLeaf_color() + '\'' +
-                "average_size=" + getAverage_plant_size() + '\'' +
-                "temperature=" + getTemperature() + '\'' +
-                "watering=" + getWatering() + '\'' +
-                "multiplying=" + getMultiplying();
+                "'name=" + getName() + '\'' +
+                ", 'origin=" + getOrigin() + '\'' +
+                ", 'id=" + getId() + '\'' +
+                ", 'soil=" + getSoil() + '\'' +
+                ", 'stem_color=" + getStem_color() + '\'' +
+                ", 'leaf_color=" + getLeaf_color() + '\'' +
+                ", 'average_size=" + getAverage_plant_size() + '\'' +
+                ", 'temperature=" + getTemperature() + '\'' +
+                ", 'watering=" + getWatering() + '\'' +
+                ", 'multiplying=" + getMultiplying();
     }
 }

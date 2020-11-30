@@ -3,6 +3,7 @@ package by.golik.controller;
 import by.golik.builder.FlowerDOMBuilder;
 import by.golik.builder.FlowerSaxBuilder;
 import by.golik.builder.FlowerStAXBuilder;
+import by.golik.exception.IncorrectInputException;
 import by.golik.exception.ParserException;
 
 
@@ -11,19 +12,22 @@ import by.golik.exception.ParserException;
  */
 public class Main {
 
-    public static void main(String[] args) throws ParserException {
+    public static void main(String[] args) throws ParserException, IncorrectInputException {
 
-//        FlowerDOMBuilder flowersDOMBuilder = new FlowerDOMBuilder();
-//        flowersDOMBuilder.buildFlowerList("src/main/resources/data/flowers.xml");
-//        System.out.println(flowersDOMBuilder.getFlowerList().toString());
+//        FlowerBuilderFactory flowerBuilderFactory = new FlowerBuilderFactory();
+//        flowerBuilderFactory.createFlowerBuilder("DOM");
 
-//        FlowerSaxBuilder flowerSaxBuilder = new FlowerSaxBuilder();
-//        flowerSaxBuilder.buildFlowerList("src/main/resources/data/flowers.xml");
-//        System.out.println(flowerSaxBuilder.getFlowerList());
+        FlowerDOMBuilder flowersDOMBuilder = new FlowerDOMBuilder();
+        flowersDOMBuilder.buildFlowerList("src/main/resources/data/flowers.xml");
+        System.out.println(flowersDOMBuilder.getFlowerSet().toString());
 
-//        FlowerStAXBuilder flowerStAXBuilder = new FlowerStAXBuilder();
-//        flowerStAXBuilder.buildFlowerList("src/main/resources/data/flowers.xml");
-//        System.out.println(flowerStAXBuilder.getFlowerList());
+        FlowerSaxBuilder flowerSaxBuilder = new FlowerSaxBuilder();
+        flowerSaxBuilder.buildFlowerList("src/main/resources/data/flowers.xml");
+        System.out.println(flowerSaxBuilder.getFlowerSet());
+
+        FlowerStAXBuilder flowerStAXBuilder = new FlowerStAXBuilder();
+        flowerStAXBuilder.buildFlowerList("src/main/resources/data/flowers.xml");
+        System.out.println(flowerStAXBuilder.getFlowerSet());
 
 
     }

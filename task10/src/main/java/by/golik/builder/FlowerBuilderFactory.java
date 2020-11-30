@@ -7,6 +7,12 @@ import by.golik.exception.IncorrectInputException;
  */
 public class FlowerBuilderFactory {
 
+    /**
+     *
+     * @param type
+     * @return
+     * @throws IncorrectInputException
+     */
     public AbstractFlowerBuilder createFlowerBuilder(String type) throws IncorrectInputException {
 
         BuilderTypes builderTypes = BuilderTypes.valueOf(type);

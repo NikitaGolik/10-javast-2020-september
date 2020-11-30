@@ -4,10 +4,9 @@ import by.golik.entity.Acanthus;
 import by.golik.entity.Cactus;
 import by.golik.entity.Flower;
 import by.golik.exception.ParserException;
-
-import javax.swing.text.Element;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import javax.xml.namespace.QName;
-import javax.xml.stream.XMLEventFactory;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -22,6 +21,8 @@ import java.io.FileNotFoundException;
  * @author Nikita Golik
  */
 public class FlowerStAXBuilder extends AbstractFlowerBuilder {
+
+    private Logger logger = LogManager.getLogger(FlowerStAXBuilder.class);
 
     private final String ID = FLowerTag.FLOWERS_ID.toString().toLowerCase();
     private final String NAME = FLowerTag.NAME.toString().toLowerCase();
@@ -45,6 +46,7 @@ public class FlowerStAXBuilder extends AbstractFlowerBuilder {
         Flower flower = null;
         FileInputStream inputStream = null;
 
+        logger.info("Start StAX Parser");
         XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
 
         try {
@@ -112,7 +114,8 @@ public class FlowerStAXBuilder extends AbstractFlowerBuilder {
                     EndElement endElement = xmlEvent.asEndElement();
                     if(endElement.getName().getLocalPart().equals(ACANTHUS) ||
                     endElement.getName().getLocalPart().equals(CACTUS)) {
-                        firstFlowerList.add(flower);
+                        flowerHashSet.add(flower);
+                        logger.info(getFlowerSet().toString());
                     }
                 }
             }

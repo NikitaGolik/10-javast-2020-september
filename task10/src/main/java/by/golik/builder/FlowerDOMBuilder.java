@@ -4,17 +4,22 @@ import by.golik.entity.Acanthus;
 import by.golik.entity.Cactus;
 import by.golik.entity.Flower;
 import by.golik.exception.ParserException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.Iterator;
 
 /**
  * @author Nikita Golik
  */
 public class FlowerDOMBuilder extends AbstractFlowerBuilder {
+
+    private Logger logger = LogManager.getLogger(FlowerDOMBuilder.class);
 
     private final String ID = FLowerTag.FLOWERS_ID.toString().toLowerCase();
     private final String NAME = FLowerTag.NAME.toString().toLowerCase();
@@ -31,9 +36,15 @@ public class FlowerDOMBuilder extends AbstractFlowerBuilder {
     private final String LIGHT_REQUIRING = FLowerTag.LIGHT_REQUIRING.toString().toLowerCase();
 
 
+    /**
+     *
+     * @param fileName
+     * @throws ParserException
+     */
     @Override
     public void buildFlowerList(String fileName) throws ParserException {
 
+        logger.info("Start DOM Parser");
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder;
 
@@ -45,19 +56,25 @@ public class FlowerDOMBuilder extends AbstractFlowerBuilder {
             NodeList acanthusList = document.getElementsByTagName(ACANTHUS);
             for (int i = 0; i < acanthusList.getLength(); i++) {
                 Flower acanthus = new Acanthus();
-                visit(acanthusList, i, acanthus);
+                buildFlower(acanthusList, i, acanthus);
             }
             NodeList cactusList = document.getElementsByTagName(CACTUS);
             for (int i = 0; i < cactusList.getLength(); i++) {
                 Flower cactus = new Cactus();
-                visit(cactusList, i, cactus);
+                buildFlower(cactusList, i, cactus);
             }
         } catch (ParserConfigurationException | SAXException | IOException e) {
             throw new ParserException("fail in domBuilder", e);
         }
     }
 
-    public void visit(NodeList flowerList, int i, Flower flower) {
+    /**
+     *
+     * @param flowerList
+     * @param i
+     * @param flower
+     */
+    public void buildFlower(NodeList flowerList, int i, Flower flower) {
         Node node = flowerList.item(i);
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             Element flowerElement = (Element) node;
@@ -90,7 +107,8 @@ public class FlowerDOMBuilder extends AbstractFlowerBuilder {
                     }
                 }
             }
-        } firstFlowerList.add(flower);
+        } flowerHashSet.add(flower);
+        logger.info(getFlowerSet());
     }
 }
 
