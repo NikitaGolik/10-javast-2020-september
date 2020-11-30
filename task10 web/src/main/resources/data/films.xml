@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Фильмы, содержащиеся на сайте:
+Name – название фильма.
+Жанры – которые может быть следующих типов: Боевик, комелия, драма, мелодрама.
+Origin – место производства фильма.
+Актерский состав – фамилия имя актера.
+Год производства.
+Премии заработанные фильмом.
+Бюджет фильма – сумма в долларах США.
+Рейтинг фильма - от 1 до 10 .
+Сборы в мире - сумма в долларах США.
+Корневой элемент назвать Films.
+-->
+
+<films  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://golik.by/films"
+        xsi:schemaLocation="http://golik.by/films films.xsd">
+
+    <film id="1" group="one-part film">
+        <title>The Shawshank Redemption</title>
+        <producer>Frank Darabont</producer>
+        <country>USA</country>
+        <film_characteristic>
+            <genre>drama</genre>
+            <budget>25000000</budget>
+            <fees_in_the_world>28428000</fees_in_the_world>
+            <production_year>1994</production_year>
+        </film_characteristic>
+        <rating>9.1</rating>
+    </film>
+    <film id="2" group="one-part film">
+        <title>green Mile</title>
+        <producer>Frank Darabont</producer>
+        <country>USA</country>
+        <film_characteristic>
+            <genre>drama</genre>
+            <budget>60000000</budget>
+            <fees_in_the_world>286801374</fees_in_the_world>
+            <production_year>1999</production_year>
+        </film_characteristic>
+        <rating>9.1</rating>
+    </film>
+    <film id="3" group="serial film">
+        <title>The Lord of the Rings: The Return of the King</title>
+        <producer>Peter Jackson</producer>
+        <country>USA, New Zeland</country>
+        <film_characteristic>
+            <genre>fantasy</genre>
+            <budget>94000000</budget>
+            <fees_in_the_world>1118887224</fees_in_the_world>
+            <production_year>2003</production_year>
+        </film_characteristic>
+        <rating>8.6</rating>
+    </film>
+    <film id="4" group="one-part film">
+        <title>Interstellar</title>
+        <producer>Christopher Nolan</producer>
+        <country>USA</country>
+        <film_characteristic>
+            <genre>fantasy, drama</genre>
+            <budget>165000000</budget>
+            <fees_in_the_world>677463813</fees_in_the_world>
+            <production_year>1994</production_year>
+        </film_characteristic>
+        <rating>8.6</rating>
+    </film>
+    <film id="5" group="serial film">
+        <title>The Lord of the Rings: The Fellowship of the Ring</title>
+        <producer>Peter Jackson</producer>
+        <country>USA</country>
+        <film_characteristic>
+            <genre>fantasy</genre>
+            <budget>93000000</budget>
+            <fees_in_the_world>868385360</fees_in_the_world>
+            <production_year>2001</production_year>
+        </film_characteristic>
+        <rating>8.6</rating>
+    </film>
+    <film id="6" group="one-part film">
+        <title>Schindler's List</title>
+        <producer>Steven Spielberg</producer>
+        <country>USA</country>
+        <film_characteristic>
+            <genre>drama, history</genre>
+            <budget>22000000</budget>
+            <fees_in_the_world>321306305</fees_in_the_world>
+            <production_year>1993</production_year>
+        </film_characteristic>
+        <rating>8.8</rating>
+    </film>
+    <film id="7" group="one-part film">
+        <title>Forrest Gump</title>
+        <producer>Robert Zemeckis</producer>
+        <country>USA</country>
+        <film_characteristic>
+            <genre>drama, comedy</genre>
+            <budget>55000000</budget>
+            <fees_in_the_world>677387716</fees_in_the_world>
+            <production_year>1994</production_year>
+        </film_characteristic>
+        <rating>8.9</rating>
+    </film>
+    <film id="8" group="serial film">
+        <title>The Lord of the Rings: The Two Towers</title>
+        <producer>Peter Jackson</producer>
+        <country>USA</country>
+        <film_characteristic>
+            <genre>fantasy</genre>
+            <budget>94000000</budget>
+            <fees_in_the_world>943282270</fees_in_the_world>
+            <production_year>2002</production_year>
+        </film_characteristic>
+        <rating>8.6</rating>
+    </film>
+    <film id="9" group="one-part film">
+        <title>Intouchables</title>
+        <producer>Olivier Nakash, Eric Toledano</producer>
+        <country>USA</country>
+        <film_characteristic>
+            <genre>drama, comedy</genre>
+            <budget>11500000</budget>
+            <fees_in_the_world>426588510</fees_in_the_world>
+            <production_year>2011</production_year>
+        </film_characteristic>
+        <rating>8.8</rating>
+    </film>
+    <film id="10" group="serial film">
+        <title>Back to the Future</title>
+        <producer>Robert Zemeckis</producer>
+        <country>USA</country>
+        <film_characteristic>
+            <genre>fantasy, comedy, adventure</genre>
+            <budget>19000000</budget>
+            <fees_in_the_world>381109762</fees_in_the_world>
+            <production_year>1985</production_year>
+        </film_characteristic>
+        <rating>8.6</rating>
+    </film>
+</films>
+

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://golik.by/secondfilms"
+        xmlns:tns="http://golik.by/secondfilms"
+        attributeFormDefault="unqualified"
+        elementFormDefault="qualified">
+
+    <element name="films">
+        <complexType>
+            <sequence>
+                <element ref="tns:film"
+                         minOccurs="10"
+                         maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <element name="film" type="tns:Film" abstract="true"/>
+    <element name="one_part_film" type="tns:One_Part_Film" substitutionGroup="tns:film"/>
+    <element name="serial_film" type="tns:Serial_Film" substitutionGroup="tns:film"/>
+
+    <complexType name="Film">
+        <sequence>
+            <element name="country" type="tns:Country"/>
+            <element name="genre" type="tns:Genre"/>
+            <element name="film_characteristic" type="tns:FilmCharacteristic"/>
+            <element name="rating" type="float"/>
+        </sequence>
+
+        <attribute name="films_id" type="tns:Films_id" use="required"/>
+
+    </complexType>
+
+    <complexType name="One_Part_Film">
+        <complexContent>
+            <extension base="tns:Film">
+                <attribute name="title" type="tns:Title" use="required"/>
+                <attribute name="producer" type="tns:Producer" use="optional"/>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="Serial_Film">
+        <complexContent>
+            <extension base="tns:Film">
+                <attribute name="title" type="tns:Title" use="required"/>
+                <attribute name="producer" type="tns:Producer" use="optional"/>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <simpleType name="Films_id">
+        <restriction base="ID">
+            <pattern value="([a-zA-Z]+\d{1,8})"/>
+        </restriction>
+    </simpleType>
+    
+    <simpleType name="Title">
+        <restriction base="string">
+            <pattern value=".+"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="Country">
+        <restriction base="string">
+            <pattern value="([a-zA-Z]+(\s[a-zA-Z]+)*)"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="Producer">
+        <restriction base="string">
+            <pattern value=".+"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="Genre">
+        <restriction base="string">
+            <enumeration value="comedy"/>
+            <enumeration value="action"/>
+            <enumeration value="adventure"/>
+            <enumeration value="drama"/>
+            <enumeration value="crime"/>
+            <enumeration value="horror"/>
+            <enumeration value="fantasy"/>
+            <enumeration value="romance"/>
+            <enumeration value="thriller"/>
+            <enumeration value="family"/>
+        </restriction>
+    </simpleType>
+    
+    <complexType name="FilmCharacteristic">
+        <all>
+            <element name="budget" type="int"/>
+            <element name="fees_in_the_world" type="int"/>
+            <element name="production_year" type="int"/>
+        </all>
+
+    </complexType>
+
+</schema>

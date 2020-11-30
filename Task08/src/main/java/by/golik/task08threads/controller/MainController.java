@@ -53,7 +53,7 @@ public class MainController {
         ThreadOne threadOne = new ThreadOne(elements, changer);
         ThreadTwo threadTwo = new ThreadTwo(elements, changer);
 
-        //todo try/catch
+
 
         threadOne.start();
         threadTwo.start();

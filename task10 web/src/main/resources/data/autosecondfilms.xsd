@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://golik.by/autosecondfilms" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="films" type="sec:filmsType" xmlns:sec="http://golik.by/secondfilms">
+    <xs:annotation>
+      <xs:documentation>Фильмы, содержащиеся на сайте:
+Name – название фильма.
+Жанры – которые может быть следующих типов: Боевик, комелия, драма, мелодрама.
+Origin – место производства фильма.
+Актерский состав – фамилия имя актера.
+Год производства.
+Премии заработанные фильмом.
+Бюджет фильма – сумма в долларах США.
+Рейтинг фильма - от 1 до 10 .
+Сборы в мире - сумма в долларах США.
+Корневой элемент назвать Films.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="film_characteristicType">
+    <xs:sequence>
+      <xs:element name="budget">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="25000000"/>
+            <xs:enumeration value="60000000"/>
+            <xs:enumeration value="94000000"/>
+            <xs:enumeration value="165000000"/>
+            <xs:enumeration value="93000000"/>
+            <xs:enumeration value="22000000"/>
+            <xs:enumeration value="55000000"/>
+            <xs:enumeration value="11500000"/>
+            <xs:enumeration value="19000000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="fees_in_the_world">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="28428000"/>
+            <xs:enumeration value="286801374"/>
+            <xs:enumeration value="1118887224"/>
+            <xs:enumeration value="677463813"/>
+            <xs:enumeration value="868385360"/>
+            <xs:enumeration value="321306305"/>
+            <xs:enumeration value="677387716"/>
+            <xs:enumeration value="943282270"/>
+            <xs:enumeration value="426588510"/>
+            <xs:enumeration value="381109762"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="production_year">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1994"/>
+            <xs:enumeration value="1999"/>
+            <xs:enumeration value="2003"/>
+            <xs:enumeration value="2001"/>
+            <xs:enumeration value="1993"/>
+            <xs:enumeration value="2002"/>
+            <xs:enumeration value="2011"/>
+            <xs:enumeration value="1985"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="one_part_filmType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="country"/>
+      <xs:element name="genre">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="drama"/>
+            <xs:enumeration value="fantasy"/>
+            <xs:enumeration value="comedy"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="sec:film_characteristicType" name="film_characteristic" xmlns:sec="http://golik.by/secondfilms"/>
+      <xs:element name="rating">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="9.1"/>
+            <xs:enumeration value="8.6"/>
+            <xs:enumeration value="8.8"/>
+            <xs:enumeration value="8.9"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="films_id" use="optional"/>
+    <xs:attribute type="xs:string" name="title" use="optional"/>
+    <xs:attribute type="xs:string" name="producer" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="serial_filmType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="country"/>
+      <xs:element name="genre">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="fantasy"/>
+            <xs:enumeration value="drama"/>
+            <xs:enumeration value="comedy"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="sec:film_characteristicType" name="film_characteristic" xmlns:sec="http://golik.by/secondfilms"/>
+      <xs:element name="rating">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="8.6"/>
+            <xs:enumeration value="9.1"/>
+            <xs:enumeration value="8.8"/>
+            <xs:enumeration value="8.9"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="films_id" use="optional"/>
+    <xs:attribute type="xs:string" name="title" use="optional"/>
+    <xs:attribute type="xs:string" name="producer" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="filmsType">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element type="sec:one_part_filmType" name="one_part_film" maxOccurs="unbounded" minOccurs="0" xmlns:sec="http://golik.by/secondfilms"/>
+      <xs:element type="sec:serial_filmType" name="serial_film" xmlns:sec="http://golik.by/secondfilms"/>
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>

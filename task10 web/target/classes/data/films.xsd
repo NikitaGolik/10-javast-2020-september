@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://golik.by/films"
+        xmlns:tns="http://golik.by/films"
+        attributeFormDefault="unqualified"
+        elementFormDefault="qualified">
+    <element name="films">
+        <complexType>
+            <sequence>
+                <element name="film" type="tns:Film"
+                         minOccurs="1"
+                         maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Film">
+        <sequence>
+            <element name="title" type="string"/>
+            <element name="producer" type="string"/>
+            <element name="country" type="string"/>
+            <element name="film_characteristic" type="tns:FilmCharacteristic"/>
+            <element name="rating" type="float"/>
+        </sequence>
+
+        <attribute name="id" type="positiveInteger" use="optional"/>
+        <attribute name="group" type="string" use="optional"/>
+    </complexType>
+
+    <complexType name="FilmCharacteristic">
+        <all>
+            <element name="genre" type="string"/>
+            <element name="budget" type="decimal"/>
+            <element name="fees_in_the_world" type="decimal"/>
+            <element name="production_year" type="int"/>
+        </all>
+
+    </complexType>
+
+</schema>

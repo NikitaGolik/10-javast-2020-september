@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://golik.by/flowers"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="flowers" type="flow:flowersType" xmlns:flow="http://golik.by/flowers">
+    <xs:annotation>
+      <xs:documentation>Растения, содержащиеся в оранжерее:
+Name – название растения.
+Soil – почва для посадки, которая может быть следующих типов: подзолистая, грунтовая, дерново-подзолистая.
+Origin – место происхождения растения.
+Visual рarameters (должно быть несколько) – внешние параметры: цвет стебля, цвет листьев, средний размер растения.
+Growing tips (должно быть несколько) – предпочитаемые условия произрастания: температура (в градусах), освещение (светолюбиво либо нет), полив (мл в неделю).
+Multiplying – размножение: листьями, черенками либо семенами.
+Корневой элемент назвать Flowers.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="visual_parametresType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="stem_color"/>
+      <xs:element name="leaf_color">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="red"/>
+            <xs:enumeration value="green"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="average_plant_size">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="70"/>
+            <xs:enumeration value="2000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="growing_tipsType">
+    <xs:sequence>
+      <xs:element name="temperature">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="18"/>
+            <xs:enumeration value="35"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="light_requiring"/>
+      <xs:element name="watering">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="500"/>
+            <xs:enumeration value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="acanthusType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="soil"/>
+      <xs:element type="flow:visual_parametresType" name="visual_parametres" xmlns:flow="http://golik.by/flowers"/>
+      <xs:element type="flow:growing_tipsType" name="growing_tips" xmlns:flow="http://golik.by/flowers"/>
+      <xs:element type="xs:string" name="multiplying"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="flowers_id"/>
+    <xs:attribute type="xs:string" name="name"/>
+  </xs:complexType>
+  <xs:complexType name="cactusType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="soil"/>
+      <xs:element type="flow:visual_parametresType" name="visual_parametres" xmlns:flow="http://golik.by/flowers"/>
+      <xs:element type="flow:growing_tipsType" name="growing_tips" xmlns:flow="http://golik.by/flowers"/>
+      <xs:element type="xs:string" name="multiplying"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="flowers_id"/>
+    <xs:attribute type="xs:string" name="name"/>
+    <xs:attribute type="xs:string" name="origin"/>
+  </xs:complexType>
+  <xs:complexType name="flowersType">
+    <xs:sequence>
+      <xs:element type="flow:acanthusType" name="acanthus" xmlns:flow="http://golik.by/flowers"/>
+      <xs:element type="flow:cactusType" name="cactus" xmlns:flow="http://golik.by/flowers">
+        <xs:annotation>
+          <xs:documentation><![CDATA[<acanthus flowers_id="Acanthus2" name="Aphelandra" origin="South America">
+        <soil>ground</soil>
+        <visual_parametres>
+            <stem_color>green</stem_color>
+            <leaf_color>green</leaf_color>
+            <average_plant_size>200</average_plant_size>
+        </visual_parametres>
+
+        <growing_tips>
+            <temperature>22</temperature>
+            <light_requiring>true</light_requiring>
+            <watering>400</watering>
+        </growing_tips>
+
+        <multiplying>seeds</multiplying>
+
+    </acanthus>
+
+    <acanthus flowers_id="Acanthus3" name="Asystasia" origin="Asia">
+        <soil>ground</soil>
+        <visual_parametres>
+            <stem_color>green</stem_color>
+            <leaf_color>pink</leaf_color>
+            <average_plant_size>100</average_plant_size>
+        </visual_parametres>
+
+        <growing_tips>
+            <temperature>18</temperature>
+            <light_requiring>true</light_requiring>
+            <watering>600</watering>
+        </growing_tips>
+
+        <multiplying>seeds</multiplying>
+
+    </acanthus>
+
+    <acanthus flowers_id="Acanthus4" name="Acanthus montanus" origin="South America">
+        <soil>ground</soil>
+
+        <visual_parametres>
+            <stem_color>green</stem_color>
+            <leaf_color>white</leaf_color>
+            <average_plant_size>200</average_plant_size>
+        </visual_parametres>
+
+        <growing_tips>
+            <temperature>20</temperature>
+            <light_requiring>true</light_requiring>
+            <watering>800</watering>
+        </growing_tips>
+
+        <multiplying>seeds</multiplying>
+
+    </acanthus>
+
+    <acanthus flowers_id="Acanthus5" name="Fittonia" origin="South America">
+        <soil>ground</soil>
+
+        <visual_parametres>
+            <stem_color>green</stem_color>
+            <leaf_color>red</leaf_color>
+            <average_plant_size>16</average_plant_size>
+        </visual_parametres>
+
+        <growing_tips>
+            <temperature>24</temperature>
+            <light_requiring>true</light_requiring>
+            <watering>700</watering>
+        </growing_tips>
+
+        <multiplying>seeds</multiplying>
+
+    </acanthus>]]></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
