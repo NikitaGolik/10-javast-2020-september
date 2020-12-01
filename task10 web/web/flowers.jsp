@@ -14,12 +14,10 @@
 <body>
 <a href="/hello">home</a>
 <table>
-    <c:forEach var="flower" items="${listFlowers}" varStatus="status">
-    <tr>
-        <td><c:out value="${ flower.leaf_color }" /></td>
-        <td><c:out value="${ flower.name }" /></td>
-        <td><c:out value="${ flower.origin }" /></td>
-    </tr>
+    <c:forEach items="${flowerList}" var="item">
+        <tr>
+            <td><c:out value="${item}" /></td>
+        </tr>
     </c:forEach>
 </table>
 </body>

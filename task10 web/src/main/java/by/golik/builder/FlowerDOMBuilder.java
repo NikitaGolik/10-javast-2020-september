@@ -12,7 +12,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.util.Iterator;
 
 /**
  * @author Nikita Golik
@@ -66,6 +65,8 @@ public class FlowerDOMBuilder extends AbstractFlowerBuilder {
         } catch (ParserConfigurationException | SAXException | IOException e) {
             throw new ParserException("fail in domBuilder", e);
         }
+        logger.info(getFlowerSet());
+        logger.info("End of DOM Parser");
     }
 
     /**
@@ -109,6 +110,7 @@ public class FlowerDOMBuilder extends AbstractFlowerBuilder {
             }
         } flowerHashSet.add(flower);
         logger.info(getFlowerSet());
+        logger.info("End of DOM Parser");
     }
 }
 

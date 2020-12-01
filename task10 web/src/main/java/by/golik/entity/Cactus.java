@@ -61,7 +61,7 @@ public class Cactus extends Flower {
 
     @Override
     public String toString() {
-        return "Acanthus{" +
+        return "Cactus{" +
                 "'name=" + getName() + '\'' +
                 ", 'origin=" + getOrigin() + '\'' +
                 ", 'id=" + getId() + '\'' +
