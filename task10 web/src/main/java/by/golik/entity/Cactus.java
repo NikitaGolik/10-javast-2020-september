@@ -71,6 +71,6 @@ public class Cactus extends Flower {
                 ", 'average_size=" + getAverage_plant_size() + '\'' +
                 ", 'temperature=" + getTemperature() + '\'' +
                 ", 'watering=" + getWatering() + '\'' +
-                ", 'multiplying=" + getMultiplying();
+                ", 'multiplying=" + getMultiplying() + "}";
     }
 }

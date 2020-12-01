@@ -9,6 +9,7 @@ import java.util.HashSet;
  * @author Nikita Golik
  */
 public abstract class AbstractFlowerBuilder {
+
     protected HashSet<Flower> flowerHashSet;
 
     /**
