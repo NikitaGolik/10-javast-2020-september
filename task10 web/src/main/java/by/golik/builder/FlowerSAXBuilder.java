@@ -17,13 +17,13 @@ import java.io.IOException;
 /**
  * @author Nikita Golik
  */
-public class FlowerSaxBuilder extends AbstractFlowerBuilder {
+public class FlowerSAXBuilder extends AbstractFlowerBuilder {
 
-    private Logger logger = LogManager.getLogger(FlowerSaxBuilder.class);
+    private Logger logger = LogManager.getLogger(FlowerSAXBuilder.class);
 
     private Handler handler = new Handler();
 
-    public FlowerSaxBuilder() {
+    public FlowerSAXBuilder() {
 
     }
 

@@ -21,7 +21,7 @@ public class FlowerBuilderFactory {
             case DOM:
                 return new FlowerDOMBuilder();
             case SAX:
-                return new FlowerSaxBuilder();
+                return new FlowerSAXBuilder();
             case STAX:
                 return new FlowerStAXBuilder();
             default:

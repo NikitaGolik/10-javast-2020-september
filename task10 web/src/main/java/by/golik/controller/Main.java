@@ -18,7 +18,7 @@ public class Main {
         flowersDOMBuilder.buildFlowerList("src/main/resources/data/flowers.xml");
         System.out.println(flowersDOMBuilder.getFlowerSet());
 
-        FlowerSaxBuilder flowerSaxBuilder = new FlowerSaxBuilder();
+        FlowerSAXBuilder flowerSaxBuilder = new FlowerSAXBuilder();
         flowerSaxBuilder.buildFlowerList("src/main/resources/data/flowers.xml");
         System.out.println(flowerSaxBuilder.getFlowerSet());
 
