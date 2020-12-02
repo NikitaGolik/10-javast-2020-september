@@ -11,6 +11,7 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -49,7 +50,7 @@ public class FlowerDOMBuilder extends AbstractFlowerBuilder {
 
         try {
             documentBuilder = factory.newDocumentBuilder();
-            Document document = documentBuilder.parse(fileName);
+            Document document = documentBuilder.parse(new File(getClass().getClassLoader().getResource(fileName).getFile()));
             document.getDocumentElement().normalize();
 
             NodeList acanthusList = document.getElementsByTagName(ACANTHUS);
