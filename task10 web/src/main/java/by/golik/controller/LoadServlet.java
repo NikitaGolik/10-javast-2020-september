@@ -17,13 +17,12 @@ import java.io.*;
  * @author Nikita Golik
  */
 @WebServlet(name = "LoadServlet", urlPatterns = "/load")
-@MultipartConfig(fileSizeThreshold=1024*1024*2,
-        maxFileSize=1024*1024*10,
-        maxRequestSize=1024*1024*50)
+
 public class LoadServlet extends HttpServlet {
+
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private static final String PARAMETER_FOR_FILE_CHOOSING = "filecover";
+    private static final String PARAMETER_FOR_FILE_CHOOSING = "description";
     private static final String PATH_TO_DOWNLOAD = "download";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,16 +37,10 @@ public class LoadServlet extends HttpServlet {
 
         Part filePart = request.getPart(PARAMETER_FOR_FILE_CHOOSING);
 
-        String path = PATH_TO_DOWNLOAD;
-        File file = new File(path);
-        file.mkdir();
         String fileName = getFileName(filePart);
-
-        OutputStream out;
-        InputStream fileContent;
         try {
-            out = new FileOutputStream(new File(path + File.separator + fileName));
-            fileContent = filePart.getInputStream();
+            OutputStream out = new FileOutputStream(new File(PATH_TO_DOWNLOAD + File.separator + fileName));
+            InputStream fileContent = filePart.getInputStream();
 
             int read;
             final byte[] bytes = new byte[1024];
@@ -58,7 +51,7 @@ public class LoadServlet extends HttpServlet {
         } catch (FileNotFoundException e) {
             LOGGER.catching(e);
         }
-        request.getRequestDispatcher("/loadFile.jsp").forward(request, response);
+        request.getRequestDispatcher("loadFile.jsp").forward(request, response);
     }
 
     private String getFileName(final Part part) {

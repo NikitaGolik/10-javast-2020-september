@@ -11,12 +11,35 @@
 <head>
     <title>Flowers list</title>
 </head>
+
 <body>
 <a href="index.jsp">home</a>
-<table>
+<table class="center">
+    <th>FlowerName</th>
+    <th>Origin</th>
+    <th>ID</th>
+    <th>SOIL</th>
+    <th>StemColor</th>
+    <th>LeafColor</th>
+    <th>Average_size</th>
+    <th>Temperature</th>
+    <th>Light_requiring</th>
+    <th>Watering</th>
+    <th>Multiplying</th>
+
     <c:forEach items="${flowerList}" var="item">
         <tr>
-            <td><c:out value="${item}" /></td>
+            <td><c:out value="${item.name}" /></td>
+            <td><c:out value="${item.origin}" /></td>
+            <td><c:out value="${item.id}" /></td>
+            <td><c:out value="${item.soil}" /></td>
+            <td><c:out value="${item.stem_color}" /></td>
+            <td><c:out value="${item.leaf_color}" /></td>
+            <td><c:out value="${item.average_plant_size}" /></td>
+            <td><c:out value="${item.temperature}" /></td>
+            <td><c:out value="${item.light_requiring}" /></td>
+            <td><c:out value="${item.watering}" /></td>
+            <td><c:out value="${item.multiplying}" /></td>
         </tr>
     </c:forEach>
 </table>

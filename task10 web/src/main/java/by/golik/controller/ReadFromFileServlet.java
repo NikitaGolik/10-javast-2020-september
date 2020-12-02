@@ -20,6 +20,8 @@ import static org.apache.logging.log4j.LogManager.*;
  * @author Nikita Golik
  */
 @WebServlet(name = "ReadFromFileServlet", urlPatterns = "/read")
+
+
 public class ReadFromFileServlet extends HttpServlet {
 
     private static final Logger LOGGER = getLogger();
@@ -52,6 +54,6 @@ public class ReadFromFileServlet extends HttpServlet {
         String localValue = request.getParameter("local");
         request.setAttribute("localValue", localValue);
         request.setAttribute("res", var);
-        request.getRequestDispatcher("/resultOfReading.jsp").forward(request, response);
+        request.getRequestDispatcher("resultOfReading.jsp").forward(request, response);
     }
 }

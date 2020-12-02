@@ -13,21 +13,21 @@
 <body>
 
 Show localization and reading from file:
-<form action="/read" method="POST">
+<form action="/read" method="post">
   <input type="hidden" name="path" value="data/data.txt">
   <input type="hidden" name="local" value="en">
   <input type="submit" name="button" value="en"/>
 </form>
 
-<form action="/read" method="POST">
+<form action="/read" method="post">
   <input type="hidden" name="path" value="data/data.txt">
   <input type="hidden" name="local" value="ru">
   <input type="submit" name="button" value="ru"/>
 </form>
 
-Upload image to server:
-<form action="/load" method="POST" enctype="multipart/form-data">
-  <input type="file" name="filecover"/> <br>
+Upload File:
+<form action="/load" method="post" enctype="multipart/form-data">
+  <input type="file" name="description"/> <br>
   <button type="submit" name="upload">Upload</button>
 </form>
 
