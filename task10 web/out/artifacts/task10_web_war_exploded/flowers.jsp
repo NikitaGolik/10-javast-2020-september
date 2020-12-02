@@ -10,9 +10,19 @@
 <html>
 <head>
     <title>Flowers list</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 
 <body>
+<h1>FlowerList</h1>
 <a href="index.jsp">home</a>
 <table class="center">
     <th>FlowerName</th>

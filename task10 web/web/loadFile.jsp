@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Result of upload image</title>
+
 </head>
 <body>
 The image was successfully uploaded to the server=)<br><br>
