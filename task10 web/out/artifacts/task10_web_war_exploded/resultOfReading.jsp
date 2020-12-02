@@ -20,6 +20,6 @@ Local text: ${text}
 <br>
 Symbol from file: ${res}
 <br>
-<a href="../index.jsp">[Come back]</a>
+<a href="index.jsp">[Come back]</a>
 </body>
 </html>

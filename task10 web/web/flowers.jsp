@@ -12,7 +12,7 @@
     <title>Flowers list</title>
 </head>
 <body>
-<a href="/index.jsp">home</a>
+<a href="index.jsp">home</a>
 <table>
     <c:forEach items="${flowerList}" var="item">
         <tr>

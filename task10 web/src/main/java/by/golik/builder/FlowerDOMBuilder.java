@@ -50,7 +50,7 @@ public class FlowerDOMBuilder extends AbstractFlowerBuilder {
 
         try {
             documentBuilder = factory.newDocumentBuilder();
-            Document document = documentBuilder.parse(new File(getClass().getClassLoader().getResource(fileName).getFile()));
+            Document document = documentBuilder.parse("D:\\eclipse-workspace\\10-javast-2020-september\\task10 web\\src\\main\\resources\\data\\flowers.xml");
             document.getDocumentElement().normalize();
 
             NodeList acanthusList = document.getElementsByTagName(ACANTHUS);

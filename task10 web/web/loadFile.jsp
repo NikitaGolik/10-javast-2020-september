@@ -13,6 +13,6 @@
 <body>
 The image was successfully uploaded to the server=)<br><br>
 
-<a href="/index.jsp">home</a>
+<a href="index.jsp">home</a>
 </body>
 </html>
