@@ -1,4 +1,4 @@
-package by.golik.controller;
+package by.golik.task10web.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -1,7 +1,7 @@
-package by.golik.builder;
+package by.golik.task10web.builder;
 
-import by.golik.entity.Flower;
-import by.golik.exception.ParserException;
+import by.golik.task10web.entity.Flower;
+import by.golik.task10web.exception.ParserException;
 
 import java.util.HashSet;
 

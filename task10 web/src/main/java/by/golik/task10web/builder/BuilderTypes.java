@@ -1,4 +1,4 @@
-package by.golik.builder;
+package by.golik.task10web.builder;
 
 /**
  * @author Nikita Golik

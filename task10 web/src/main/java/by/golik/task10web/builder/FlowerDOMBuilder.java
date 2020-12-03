@@ -1,9 +1,9 @@
-package by.golik.builder;
+package by.golik.task10web.builder;
 
-import by.golik.entity.Acanthus;
-import by.golik.entity.Cactus;
-import by.golik.entity.Flower;
-import by.golik.exception.ParserException;
+import by.golik.task10web.entity.Acanthus;
+import by.golik.task10web.entity.Cactus;
+import by.golik.task10web.entity.Flower;
+import by.golik.task10web.exception.ParserException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.w3c.dom.*;

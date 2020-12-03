@@ -1,4 +1,4 @@
-package by.golik.entity;
+package by.golik.task10web.entity;
 
 import java.util.Objects;
 

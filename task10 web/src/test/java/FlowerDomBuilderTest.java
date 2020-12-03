@@ -1,7 +1,7 @@
-import by.golik.builder.AbstractFlowerBuilder;
-import by.golik.builder.FlowerBuilderFactory;
-import by.golik.exception.IncorrectInputException;
-import by.golik.exception.ParserException;
+import by.golik.task10web.builder.AbstractFlowerBuilder;
+import by.golik.task10web.builder.FlowerBuilderFactory;
+import by.golik.task10web.exception.IncorrectInputException;
+import by.golik.task10web.exception.ParserException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

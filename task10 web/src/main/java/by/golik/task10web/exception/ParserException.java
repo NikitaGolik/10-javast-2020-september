@@ -1,4 +1,4 @@
-package by.golik.exception;
+package by.golik.task10web.exception;
 
 /**
  * @author Nikita Golik
