@@ -11,7 +11,6 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -37,14 +36,18 @@ public class FlowerDOMBuilder extends AbstractFlowerBuilder {
 
 
     /**
-     *
-     * @param fileName
-     * @throws ParserException
+     * realization of builder abstract method, that creates list of flowers
+     * from xml file using DOM parser
+     * @param fileName - name of xml file
+     * @throws ParserException - error during parsing
      */
     @Override
     public void buildFlowerList(String fileName) throws ParserException {
 
         logger.info("Start DOM Parser");
+
+        /** create dom analizator */
+
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder;
 
@@ -52,6 +55,9 @@ public class FlowerDOMBuilder extends AbstractFlowerBuilder {
             documentBuilder = factory.newDocumentBuilder();
             Document document = documentBuilder.parse(fileName);
             document.getDocumentElement().normalize();
+
+            /**
+             getting a list of children  elements <flowers>*/
 
             NodeList acanthusList = document.getElementsByTagName(ACANTHUS);
             for (int i = 0; i < acanthusList.getLength(); i++) {
@@ -77,6 +83,8 @@ public class FlowerDOMBuilder extends AbstractFlowerBuilder {
      * @param flower
      */
     public void buildFlower(NodeList flowerList, int i, Flower flower) {
+
+        /**filling the object flower and getting text content */
         Node node = flowerList.item(i);
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             Element flowerElement = (Element) node;

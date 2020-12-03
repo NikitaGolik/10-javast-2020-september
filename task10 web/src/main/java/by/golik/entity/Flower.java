@@ -1,6 +1,5 @@
 package by.golik.entity;
 
-import java.math.BigDecimal;
 
 /**
  *

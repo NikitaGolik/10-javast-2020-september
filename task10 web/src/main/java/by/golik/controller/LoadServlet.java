@@ -2,9 +2,7 @@ package by.golik.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +14,7 @@ import java.io.*;
 /**
  * @author Nikita Golik
  */
+//todo incorrect, need to find error
 @WebServlet(name = "LoadServlet", urlPatterns = "/load")
 
 public class LoadServlet extends HttpServlet {
@@ -33,6 +32,13 @@ public class LoadServlet extends HttpServlet {
         processRequest(request, response);
     }
 
+    /**
+     * load file
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Part filePart = request.getPart(PARAMETER_FOR_FILE_CHOOSING);
@@ -51,7 +57,7 @@ public class LoadServlet extends HttpServlet {
         } catch (FileNotFoundException e) {
             LOGGER.catching(e);
         }
-        request.getRequestDispatcher("loadFile.jsp").forward(request, response);
+        request.getRequestDispatcher("/loadFile.jsp").forward(request, response);
     }
 
     private String getFileName(final Part part) {

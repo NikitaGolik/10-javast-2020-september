@@ -27,6 +27,10 @@ public class FlowerSAXBuilder extends AbstractFlowerBuilder {
 
     }
 
+    /**
+     * realization of ContentHandler
+     */
+
     private class Handler extends DefaultHandler {
         private final String ID = FLowerTag.FLOWERS_ID.toString().toLowerCase();
         private final String NAME = FLowerTag.NAME.toString().toLowerCase();
@@ -53,6 +57,15 @@ public class FlowerSAXBuilder extends AbstractFlowerBuilder {
 
         private Flower flower;
 
+        /**
+         * will be called when the analyzer has completely processed the content
+         * opening tag
+         * @param uri - unique name space
+         * @param localName - name of element without prefix
+         * @param qName - full name of element with prefix
+         * @param attributes - list of attributes
+         * @throws SAXException - exception during sax parser
+         */
         @Override
         public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
             if (qName.equals(ACANTHUS)) {
@@ -92,11 +105,17 @@ public class FlowerSAXBuilder extends AbstractFlowerBuilder {
                     }
                 }
             }
+            /** get and display information about element attributes */
             for (int i = 0; i < attributes.getLength(); i++) {
                 attributesCharacters(attributes.getLocalName(i), attributes.getValue(i));
             }
         }
 
+        /**
+         * method to fill attributes
+         * @param attribute - attribute of flower
+         * @param value value from xml file for concrete flower
+         */
         public void attributesCharacters(String attribute, String value) {
 
             if (attribute.equals(ID)) {
@@ -112,6 +131,15 @@ public class FlowerSAXBuilder extends AbstractFlowerBuilder {
             }
         }
 
+        /**
+         *
+         * is called in the event that
+         * if the parser encountered symbolic information inside an element (body tag)
+         * @param ch - definition of tag
+         * @param start start of tag element
+         * @param length - length content of tag
+         * @throws SAXException - exception during sax
+         */
         @Override
         public void characters(char[] ch, int start, int length) throws SAXException {
             if(flagLeafColor) {
@@ -155,19 +183,36 @@ public class FlowerSAXBuilder extends AbstractFlowerBuilder {
             }
         }
 
+
+        /**
+         *
+         * signals the end of an element
+         * @param uri - unique name space
+         * @param localName - name of element without prefix
+         * @param qName - full name of element with prefix
+         * @throws SAXException - exception during sax parsing
+         */
         @Override
         public void endElement(String uri, String localName, String qName) throws SAXException {
             if (qName.equals(ACANTHUS) || (qName.equals(CACTUS))) {
                 flowerHashSet.add(flower);
                 logger.info(getFlowerSet().toString());
+                logger.info("\nParsing ended");
             }
         }
     }
 
 
+    /**
+     * create list of flowers
+     * @param fileName - name of xml file
+     * @throws ParserException - exception during parser
+     */
     @Override
     public void buildFlowerList(String fileName) throws ParserException {
         logger.info("Start SAX Parser");
+
+        /** create SAX analizator */
         SAXParserFactory factory = SAXParserFactory.newInstance();
 
         try {

@@ -18,6 +18,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 /**
+ * Pull parser
  * @author Nikita Golik
  */
 public class FlowerStAXBuilder extends AbstractFlowerBuilder {
@@ -41,12 +42,17 @@ public class FlowerStAXBuilder extends AbstractFlowerBuilder {
     private static final String DEFAULT_ORIGIN = "Unknown";
 
 
+    /**
+     * method to create list of flowers
+     * @param fileName - name of xml file
+     * @throws ParserException - exception during parsing
+     */
     @Override
     public void buildFlowerList(String fileName) throws ParserException {
         Flower flower = null;
         FileInputStream inputStream = null;
-
         logger.info("Start StAX Parser");
+
         XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
 
         try {
@@ -54,9 +60,10 @@ public class FlowerStAXBuilder extends AbstractFlowerBuilder {
 
             XMLEventReader xmlEventReader = xmlInputFactory.createXMLEventReader(inputStream);
 
-
+            /** are there any more elements */
             while (xmlEventReader.hasNext()) {
                 XMLEvent xmlEvent = xmlEventReader.nextEvent();
+                /** reading content of tags*/
                 if (xmlEvent.isStartElement()) {
                     StartElement startElement = xmlEvent.asStartElement();
 
@@ -110,6 +117,7 @@ public class FlowerStAXBuilder extends AbstractFlowerBuilder {
                         }
                     }
                 }
+                /** create flower, when closing tag are met */
                 if(xmlEvent.isEndElement()) {
                     EndElement endElement = xmlEvent.asEndElement();
                     if(endElement.getName().getLocalPart().equals(ACANTHUS) ||
@@ -123,7 +131,14 @@ public class FlowerStAXBuilder extends AbstractFlowerBuilder {
             throw new ParserException("fail in staxbuilder", e);
         }
     }
+
+    /**
+     * parsing for attributes
+     * @param flower - parent object
+     * @param startElement - opening tag
+     */
     private void attributeParsing(Flower flower, StartElement startElement) {
+
         String flowerId = startElement.getAttributeByName(new QName(ID)).getValue();
         if(flowerId != null) {
             flower.setId(flowerId);

@@ -8,11 +8,11 @@
 --%>
 <html>
 <head>
-    <title>Result of upload image</title>
+    <title>Result of upload file</title>
 
 </head>
 <body>
-The image was successfully uploaded to the server=)<br><br>
+File was successfully uploaded to the server=)<br><br>
 
 <a href="index.jsp">home</a>
 </body>

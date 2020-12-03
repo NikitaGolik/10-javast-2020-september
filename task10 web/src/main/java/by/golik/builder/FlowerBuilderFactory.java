@@ -8,10 +8,10 @@ import by.golik.exception.IncorrectInputException;
 public class FlowerBuilderFactory {
 
     /**
-     *
-     * @param type
-     * @return
-     * @throws IncorrectInputException
+     * realization of bulider factory
+     * @param type - type of parser
+     * @return - chosen parser
+     * @throws IncorrectInputException - if input is incorrect
      */
     public AbstractFlowerBuilder createFlowerBuilder(String type) throws IncorrectInputException {
 
