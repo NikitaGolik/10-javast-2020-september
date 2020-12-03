@@ -13,7 +13,7 @@ public class FlowerStAXBuilderTest {
     public void parse() throws ParserException, IncorrectInputException {
         FlowerBuilderFactory flowerBuilderFactory = new FlowerBuilderFactory();
         AbstractFlowerBuilder abstractFlowerBuilder = flowerBuilderFactory.createFlowerBuilder("STAX");
-        abstractFlowerBuilder.buildFlowerList("data/flowers.xml");
+        abstractFlowerBuilder.buildFlowerList("D:\\eclipse-workspace\\10-javast-2020-september\\task10 web\\src\\main\\resources\\data\\flowers.xml");
 
         Assert.assertEquals(abstractFlowerBuilder.getFlowerSet().size(), 16);
 

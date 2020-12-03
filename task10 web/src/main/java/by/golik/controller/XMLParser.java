@@ -46,7 +46,7 @@ public class XMLParser extends HttpServlet {
             logger.catching(e);
         }
         request.setAttribute("flowerList", builder.getFlowerSet());
-        request.getRequestDispatcher("flowers.jsp").forward(request, response);
+        request.getRequestDispatcher("/flowers.jsp").forward(request, response);
     }
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
