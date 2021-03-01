@@ -119,7 +119,6 @@ public class FlowerDOMBuilder extends AbstractFlowerBuilder {
             }
         } flowerHashSet.add(flower);
         logger.info(getFlowerSet());
-        logger.info("End of DOM Parser");
     }
 }
 

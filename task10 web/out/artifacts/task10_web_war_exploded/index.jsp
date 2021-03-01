@@ -12,22 +12,9 @@
 </head>
 <body>
 
-Show localization and reading from file:
-<form action="/read" method="post">
-  <input type="hidden" name="path" value="data/data.txt">
-  <input type="hidden" name="local" value="en">
-  <input type="submit" name="button" value="en"/>
-</form>
-
-<form action="/read" method="post">
-  <input type="hidden" name="path" value="data/data.txt">
-  <input type="hidden" name="local" value="ru">
-  <input type="submit" name="button" value="ru"/>
-</form>
-
 Upload File:
-<form action="/load" method="post" enctype="multipart/form-data">
-  <input type="file" name="description"/> <br>
+<form action="${pageContext.request.contextPath}/load" method="post" enctype="multipart/form-data">
+  <input type="file" name="data"/> <br>
   <button type="submit" name="upload">Upload</button>
 </form>
 

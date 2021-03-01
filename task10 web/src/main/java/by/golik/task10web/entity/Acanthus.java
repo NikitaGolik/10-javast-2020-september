@@ -6,6 +6,7 @@ import java.util.Objects;
  * @author Nikita Golik
  */
 public class Acanthus extends Flower {
+
     private static final String DEFAULT_ORIGIN = "Unknown";
 
     private String name;

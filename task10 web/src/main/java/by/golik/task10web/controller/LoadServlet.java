@@ -3,12 +3,14 @@ package by.golik.task10web.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.*;
+import java.util.Collection;
 
 
 /**
@@ -16,56 +18,37 @@ import java.io.*;
  */
 //todo incorrect, need to find error
 @WebServlet(name = "LoadServlet", urlPatterns = "/load")
-
+@MultipartConfig
 public class LoadServlet extends HttpServlet {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private static final String PARAMETER_FOR_FILE_CHOOSING = "description";
-    private static final String PATH_TO_DOWNLOAD = "download";
+    private static final long serialVersionUID = -3971360594123612385L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response);
-    }
+    @Override
+    protected void doPost(HttpServletRequest request,
+                          HttpServletResponse response) throws ServletException, IOException {
+        Collection<Part> parts = request.getParts();
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response);
-    }
+        System.out.println("Request content type: " + request.getContentType());
+        System.out.println("Is multipart: "
+                + request.getContentType().startsWith("multipart/form-data"));
+        System.out.println("# of parts: " + parts.size());
 
-    /**
-     * load file
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        Part filePart = request.getPart(PARAMETER_FOR_FILE_CHOOSING);
-
-        String fileName = getFileName(filePart);
-        try {
-            OutputStream out = new FileOutputStream(new File(PATH_TO_DOWNLOAD + File.separator + fileName));
-            InputStream fileContent = filePart.getInputStream();
-
-            int read;
-            final byte[] bytes = new byte[1024];
-
-            while ((read = fileContent.read(bytes)) != -1) {
-                out.write(bytes, 0, read);
-            }
-        } catch (FileNotFoundException e) {
-            LOGGER.catching(e);
+        int i = 0;
+        for (Part part : parts) {
+            System.out.println("Part #" + ++i + ":");
+            System.out.println(part.getName());
+            System.out.println(part.getSize());
+            System.out.println(part.getContentType());
         }
-        request.getRequestDispatcher("/loadFile.jsp").forward(request, response);
-    }
 
-    private String getFileName(final Part part) {
-        for (String content : part.getHeader("content-disposition").split(";")) {
-            if (content.trim().startsWith("filename")) {
-                return content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
-            }
-        }
-        return null;
+        Part image = request.getPart("data");
+        System.out.println(image.getSize());
+        System.out.println(image.getContentType());
+        // image.getInputStream() // бинарные данные
+
+        // Все ок, файл загружен переходим на страницу результата
+        response.sendRedirect(request.getContextPath() + "/flowers.jsp");
     }
 }
